@@ -203,6 +203,7 @@ Total clústeres: **902** · preguntas: **1504** · repetidos: **526**
 
 | # | frec | años | score | enunciado | correcta |
 |---|------|------|-------|-----------|----------|
+| 56 | 2 | 2025 | 2.5 | ¿Cuál de las siguientes respuestas define mejor el principio bioético de justicia? | C |
 | 57 | 2 | 2025 | 2.5 | La definición, “Es el principio que examina las repercusiones sociales de las decisiones biomédicas, de modo q | D |
 | 134 | 2 | 2024 | 2.5 | Dentro de los "principios de la Bioética", el consentimiento informado estaría dentro del principio de: | C |
 | 135 | 2 | 2024 | 2.5 | ¿A quién se le atribuye el origen de la Bioética, siendo el autor que utilizó por primera vez dicho término? | A |
@@ -232,6 +233,7 @@ Total clústeres: **902** · preguntas: **1504** · repetidos: **526**
 | 441 | 2 | 2016 | 2.5 | Dentro de la fuente de infección, a que corresponde aquellas que ocurren por microorganismos que están de form | D |
 | 518 | 2 | 2016 | 2.5 | En la transmisión directa indique la respuesta INCORRECTA | B |
 | 525 | 2 | 2016 | 2.5 | Pascual, paciente en situación terminal, se muestra agresivo, exigente, intolerante y enfadado consigo mismo,  | D |
+| 564 | 1 | 2025 | 1.25 | En la cadena epidemiológica, ¿cuál de los siguientes términos se refiere al lugar donde el agente sobrevive? | B |
 | 711 | 1 | 2022 | 1.25 | Las precauciones de aislamiento en el hospital se llevan a cabo para: | D |
 | 713 | 1 | 2022 | 1.25 | Cuando la infección nosocomial es causada por microorganismos pertenecientes a la propia flora del paciente, s | B |
 | 714 | 1 | 2022 | 1.25 | De las siguientes medidas generales de protección y aislamiento, señale aquella que considere errónea: | C |
@@ -279,6 +281,7 @@ Total clústeres: **902** · preguntas: **1504** · repetidos: **526**
 
 | # | frec | años | score | enunciado | correcta |
 |---|------|------|-------|-----------|----------|
+| 85 | 2 | 2025 | 2.5 | ¿Qué elemento debe colocarse antes de entrar en la habitación? | A |
 | 86 | 2 | 2025 | 2.5 | ¿Qué técnica se utiliza para manejar las secreciones durante el aislamiento respiratorio? | A |
 | 87 | 2 | 2025 | 2.5 | ¿Qué tipo de residuos se generan a partir del aislamiento estricto? | C |
 | 562 | 1 | 2025 | 1.25 | ¿Cuál de las siguientes infecciones en un paciente ingresado requiere aislamiento estricto? | B |
@@ -343,10 +346,12 @@ Total clústeres: **902** · preguntas: **1504** · repetidos: **526**
 | 302 | 2 | 2021 | 2.5 | Al recoger una muestra de orina para su control de diuresis, se observa que tiene color rojo. A esta situación | B |
 | 303 | 2 | 2021 | 2.5 | Para un urocultivo, ¿en qué envase recogeríamos la muestra? | D |
 | 354 | 2 | 2019 | 2.5 | ¿Cuál de estas muestras no es una muestra biológica de orina? | B |
+| 399 | 2 | 2019 | 2.5 | Que precauciones debería tener para realizar la obtención de un urinocultivo | A |
 | 420 | 2 | 2019 | 2.5 | ¿Qué se debe indicar a la paciente?: | A |
 | 434 | 2 | 2016 | 2.5 | ¿Para qué se podrá solicitar la donación de muestras biológicas?; señala la respuesta incorrecta. | A |
 | 451 | 2 | 2016 | 2.5 | Para la extracción venosa, si el estudio a realizar es bioquímico el paciente debe de: | D |
 | 489 | 2 | 2016 | 2.5 | Como actuara la Aux. de Enfermería para la obtención de una muestra de orina de 24h en un paciente portador de | A |
+| 491 | 2 | 2016 | 2.5 | Que precauciones debemos de tener cuando realicemos la obtención de un urinocultivo | D |
 | 651 | 1 | 2024 | 1.25 | En una muestra biológica, la sangre arterial se utiliza básicamente para medir: | D |
 | 652 | 1 | 2024 | 1.25 | De las siguientes zonas, ¿cuál es la más común para obtener una muestra biológica por punción capilar? | B |
 | 695 | 1 | 2024 | 1.25 | Según la Ley 14/2007, de investigación biomédica, una «muestra biológica» es: | B |
@@ -391,6 +396,7 @@ Total clústeres: **902** · preguntas: **1504** · repetidos: **526**
 | 296 | 2 | 2021 | 2.5 | ¿Qué objetivo se persigue al administrar un enema carminativo a Antonio? | C |
 | 305 | 2 | 2021 | 2.5 | La enfermera solicita al TCAE una sonda de Foley. ¿A qué tipo de sonda se refiere? | C |
 | 306 | 2 | 2021 | 2.5 | ¿En cuál de estos casos NO se le aplicaría un enema de limpieza al paciente? | C |
+| 333 | 2 | 2019 | 2.5 | Tipo de sonda empleada para el cateterismo vesical a permanencia: | D |
 | 345 | 2 | 2019 | 2.5 | ¿Cuál es la posición correcta que se emplea para la aplicación de enemas? | A |
 | 360 | 2 | 2019 | 2.5 | La diuresis en un adulto y en condiciones normales oscila entre: | B |
 | 387 | 2 | 2019 | 2.5 | El medico nos indica que al paciente de la 304 cama B tenemos que ponerle un enema de limpieza ¿Cómo se realiz | D |
@@ -500,7 +506,9 @@ Total clústeres: **902** · preguntas: **1504** · repetidos: **526**
 | 23 | 4 | 2016,2019 | 6.0 | Ana colabora con la enfermera en la cura de un paciente por infección en herida quirúrgica, que material No es | B |
 | 44 | 3 | 2016,2019 | 4.5 | La definición de úlcera por presión (UPP) es: | B |
 | 45 | 3 | 2016,2019 | 4.5 | Señala la respuesta correcta en cuanto a los factores situacionales de las ulceras por presión: | B |
+| 81 | 2 | 2025 | 2.5 | Las úlceras iatrogénicas generalmente son resultado de una mala praxis. Señale cuál sería la localización más  | C |
 | 82 | 2 | 2025 | 2.5 | Las úlceras por presión (UPP) son lesiones de origen: | A |
+| 83 | 2 | 2025 | 2.5 | La percepción sensorial, humedad, actividad física, movilidad, nutrición y roce o peligro de lesiones, son 6 p | A |
 | 84 | 2 | 2025 | 2.5 | Al aplicar la Escala de Braden se obtienen puntuaciones para evaluar el riesgo de desarrollar úlceras por pres | A |
 | 151 | 2 | 2024 | 2.5 | ¿Cuál es el estadio en el que se realiza un desbridamiento en una úlcera por presión? | C |
 | 152 | 2 | 2024 | 2.5 | ¿En qué estadio se encuentra una úlcera por presión, cuando existe un eritema cutáneo en piel intacta que no c | A |
@@ -566,16 +574,13 @@ Total clústeres: **902** · preguntas: **1504** · repetidos: **526**
 | 325 | 2 | 2021 | 2.5 | Te avisan desde endoscopias porque pasado mañana Pedro tiene programada una colonoscopia. Lo comunicas a cocin | C |
 | 326 | 2 | 2021 | 2.5 | El día de la colonoscopia acudes a la habitación de Pedro para administrarle un enema. ¿En qué posición le ind | C |
 | 327 | 2 | 2021 | 2.5 | Pedro ha regresado de la unidad de endoscopia y está en su habitación. Suena el timbre y acudes a la llamada.  | B |
-| 333 | 2 | 2019 | 2.5 | Tipo de sonda empleada para el cateterismo vesical a permanencia: | D |
 | 373 | 2 | 2019 | 2.5 | Dentro de las posiciones anatómicas, la de SIMS se usa en: | D |
 | 374 | 2 | 2019 | 2.5 | Son pacientes susceptibles de visita pre-quirúrgica: | D |
 | 385 | 2 | 2019 | 2.5 | ía a los pacientes de forma directa o delegadas relacionadas con la higiene, la alimentación, la movilización, | A |
 | 392 | 2 | 2019 | 2.5 | El curso postoperatorio de Antonio , ha sido bueno y sin complicaciones , buena tolerancia oral y deposiciones | C |
 | 395 | 2 | 2019 | 2.5 | Tiene ingresado en la planta un paciente del servicio de cirugía torácica que está a cargo del servicio, por e | A |
 | 397 | 2 | 2019 | 2.5 | ¿Cuándo colaboramos en la realización de dicha técnica nos pondremos bata? | D |
-| 399 | 2 | 2019 | 2.5 | Que precauciones debería tener para realizar la obtención de un urinocultivo | A |
 | 485 | 2 | 2016 | 2.5 | El paciente Antonio José Álvarez, es un hombre de 69 años, se interviene el 19-04- 2015 . Practicando hemicole | D |
-| 491 | 2 | 2016 | 2.5 | Que precauciones debemos de tener cuando realicemos la obtención de un urinocultivo | D |
 | 506 | 2 | 2016 | 2.5 | Pablo, que ha llegado hace unas horas a la sala de reanimación tras una intervención quirúrgica, se muestra in | B |
 | 507 | 2 | 2016 | 2.5 | Aurelio ingresa en el hospital para ser intervenido de una cirugía de abdomen. Entre las pautas a seguir hay q | C |
 | 522 | 2 | 2019 | 2.5 | Julia, una paciente ingresada de 40 años ha ingresado ingresada para practicarle una mastectomía: A su llegada | D |
@@ -689,11 +694,14 @@ Total clústeres: **902** · preguntas: **1504** · repetidos: **526**
 | 33 | 3 | 2016,2019 | 4.5 | El masaje cardiaco externo en adultos, ¿con qué frecuencia debe de realizarse? | C |
 | 40 | 3 | 2016,2019 | 4.5 | ¿Cuáles son las maniobras de la Reanimación Cardiopulmonar Básica? | C |
 | 52 | 2 | 2025 | 2.5 | ¿Cuál es la función de un desfibrilador automático implantable? | B |
+| 53 | 2 | 2025 | 2.5 | ¿Qué pinzas utilizaremos para la retirada de un cuerpo extraño en la vía aérea? | C |
+| 54 | 2 | 2025 | 2.5 | ¿Cuándo se realizará la revisión del carro de parada en las Zonas de Cuidados Críticos? | A |
 | 55 | 2 | 2025 | 2.5 | La siguiente definición: "situación que altera notablemente el orden normal de las cosas y que provoca una trá | C |
 | 65 | 2 | 2025 | 2.5 | ¿Qué dieta es la recomendable en un paciente que ha sufrido grandes quemaduras? | D |
 | 76 | 2 | 2025 | 2.5 | En el contexto del control del dolor, ¿qué son los coadyuvantes? | A |
 | 175 | 2 | 2024 | 2.5 | Para mantener las vías aéreas abiertas en una reanimación cardiopulmonar básica (RCP), si el paciente está inc | C |
 | 177 | 2 | 2024 | 2.5 | ¿Cuáles son los procedimientos fundamentales, en los que se basa el soporte vital básico? | B |
+| 225 | 2 | 2021 | 2.5 | Respecto al carro de paradas: | B |
 | 226 | 2 | 2021 | 2.5 | La maniobra de Heimlich consiste en: | D |
 | 233 | 2 | 2021 | 2.5 | Una intervención destinada a reconstruir unas estructuras corporales dañadas por una quemadura, se dice que ti | C |
 | 270 | 2 | 2021 | 2.5 | ¿Dónde se deben colocar los electrodos adhesivos de un Desfibrilador Externo Automático? Indique la respuesta  | A |
@@ -710,6 +718,7 @@ Total clústeres: **902** · preguntas: **1504** · repetidos: **526**
 | 501 | 2 | 2016 | 2.5 | Elena está en un restaurante y sufre un atragantamiento. Parece una obstrucción parcial. Se lleva las manos a  | B |
 | 575 | 1 | 2025 | 1.25 | Entre los métodos subjetivos para medir la intensidad del dolor se encuentra: | C |
 | 596 | 1 | 2025 | 1.25 | ¿Cómo definimos el conjunto de actuaciones y técnicas que permiten la atención inmediata de una persona accide | C |
+| 666 | 1 | 2024 | 1.25 | De los siguientes fármacos, ¿cuál forma parte del carro de parada? | B |
 | 667 | 1 | 2024 | 1.25 | ¿Cuál debe ser la depresión de las compresiones torácicas en la aplicación de maniobras de RCP en adultos? | C |
 | 669 | 1 | 2024 | 1.25 | El protocolo de actuación en la obstrucción parcial o total de las vías aéreas en adultos y niños mayores de u | C |
 | 798 | 1 | 2022 | 1.25 | Tras varios días ingresado, usted observa que en la zona del talón derecho de Francisco aparece un eritema que | D |
@@ -735,9 +744,6 @@ Total clústeres: **902** · preguntas: **1504** · repetidos: **526**
 | 49 | 2 | Definimos "odinofagia" como: |
 | 50 | 2 | ¿Cuál es la hormona secretada por el riñón que participa en la regulación de la presión arterial? |
 | 51 | 2 | ¿Cuáles son los 3 segmentos en los que se divide la uretra del varón? |
-| 53 | 2 | ¿Qué pinzas utilizaremos para la retirada de un cuerpo extraño en la vía aérea? |
-| 54 | 2 | ¿Cuándo se realizará la revisión del carro de parada en las Zonas de Cuidados Críticos? |
-| 56 | 2 | ¿Cuál de las siguientes respuestas define mejor el principio bioético de justicia? |
 | 60 | 2 | La idea principal sobre el objetivo de la enfermería de colocar al paciente en las mejores condiciones posible |
 | 68 | 2 | El abdomen se divide en cuadrantes que nos ayudan a situar cada una de las estructuras del cuerpo. ¿Dónde loca |
 | 69 | 2 | La sínfisis del pubis, ¿qué tipo de articulación es, según su grado de movilidad? |
@@ -746,9 +752,6 @@ Total clústeres: **902** · preguntas: **1504** · repetidos: **526**
 | 72 | 2 | La eliminación de metabolitos se produce principalmente en: |
 | 74 | 2 | ¿Qué se entiende por "amniorrexis"? |
 | 80 | 2 | Dentro de la administración de fármacos por vía directa, se encuentra la vía intraneural. En esta vía, la admi |
-| 81 | 2 | Las úlceras iatrogénicas generalmente son resultado de una mala praxis. Señale cuál sería la localización más  |
-| 83 | 2 | La percepción sensorial, humedad, actividad física, movilidad, nutrición y roce o peligro de lesiones, son 6 p |
-| 85 | 2 | ¿Qué elemento debe colocarse antes de entrar en la habitación? |
 | 88 | 2 | ¿Cuál de las siguientes interacciones describe una relación en la que ambos, el agente y el huésped, se benefi |
 | 89 | 2 | Según la frecuencia respiratoria, ¿cuántas respiraciones por minuto debería tener un paciente para que se cons |
 | 90 | 2 | Según los tipos o patrones respiratorios, ¿cómo sería la respiración de Kussmaul? |
@@ -802,7 +805,6 @@ Total clústeres: **902** · preguntas: **1504** · repetidos: **526**
 | 209 | 2 | Señale la respuesta correcta en cuanto a la limpieza de la boca en un paciente inconsciente. |
 | 222 | 2 | Si desplazamos la cabeza hacia abajo para tocar el pecho con la barbilla, estamos realizando un movimiento de: |
 | 223 | 2 | La posición más favorecedora para un paciente con patología respiratoria es: |
-| 225 | 2 | Respecto al carro de paradas: |
 | 227 | 2 | Los cinco aspectos fundamentales a considerar en la administración de medicamentos, conocidas como las "reglas |
 | 229 | 2 | Señale la respuesta correcta sobre las condiciones de almacenamiento y conservación de los medicamentos: |
 | 235 | 2 | ¿Cuál, de los que se citan, NO es un factor de riesgo intrínseco para caerse? |
@@ -932,7 +934,6 @@ Total clústeres: **902** · preguntas: **1504** · repetidos: **526**
 | 557 | 1 | Las pautas para enfrentarse a situaciones estresantes se engloban en las terapias: |
 | 558 | 1 | Las enfermedades infecciosas, ¿en qué tipo de riegos laborales están incluidas? |
 | 563 | 1 | ¿A qué pacientes hospitalizados se aplica el aislamiento inverso? |
-| 564 | 1 | En la cadena epidemiológica, ¿cuál de los siguientes términos se refiere al lugar donde el agente sobrevive? |
 | 565 | 1 | Dentro de las técnicas de control de stocks de los almacenes, según la Ley de Pareto, ¿en qué categoría se enc |
 | 568 | 1 | ¿Cuál es el sistema de almacenamiento que se sigue en el almacén general de un hospital? |
 | 571 | 1 | Entendemos por profilaxis: |
@@ -978,7 +979,6 @@ Total clústeres: **902** · preguntas: **1504** · repetidos: **526**
 | 656 | 1 | Una sonda uretral permanente debe cambiarse cada 15/20 días, aunque las sondas de silicona pueden mantenerse s |
 | 657 | 1 | Cuando llevamos a cabo una dieta pobre en carnes, ¿de qué color son las heces? |
 | 661 | 1 | De las siguientes afirmaciones, indique cuál está relacionada con la sonda de Salem: |
-| 666 | 1 | De los siguientes fármacos, ¿cuál forma parte del carro de parada? |
 | 668 | 1 | En las situaciones en que haya varios accidentados o en el caso de un accidentado con lesiones múltiples, dond |
 | 670 | 1 | La vía tópica de administración de un fármaco es: |
 | 671 | 1 | ¿Qué son los linimentos? |

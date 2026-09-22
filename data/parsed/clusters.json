@@ -2688,8 +2688,8 @@
   },
   {
     "cluster_id": 53,
-    "tema": null,
-    "tema_nombre": null,
+    "tema": 29,
+    "tema_nombre": "RCP y primeros auxilios",
     "enunciado": "¿Qué pinzas utilizaremos para la retirada de un cuerpo extraño en la vía aérea?",
     "opciones": {
       "A": "Pinzas Kelly.",
@@ -2727,8 +2727,8 @@
   },
   {
     "cluster_id": 54,
-    "tema": null,
-    "tema_nombre": null,
+    "tema": 29,
+    "tema_nombre": "RCP y primeros auxilios",
     "enunciado": "¿Cuándo se realizará la revisión del carro de parada en las Zonas de Cuidados Críticos?",
     "opciones": {
       "A": "Diariamente y por tunos por los enfermeros y TCAEs de la unidad.",
@@ -2805,8 +2805,8 @@
   },
   {
     "cluster_id": 56,
-    "tema": null,
-    "tema_nombre": null,
+    "tema": 14,
+    "tema_nombre": "Principios fundamentales de la Bioética",
     "enunciado": "¿Cuál de las siguientes respuestas define mejor el principio bioético de justicia?",
     "opciones": {
       "A": "Equidad intergeneracional, no trasparencia, eficiencia.",
@@ -3780,8 +3780,8 @@
   },
   {
     "cluster_id": 81,
-    "tema": null,
-    "tema_nombre": null,
+    "tema": 24,
+    "tema_nombre": "Úlceras por presión",
     "enunciado": "Las úlceras iatrogénicas generalmente son resultado de una mala praxis. Señale cuál sería la localización más frecuente de este tipo de úlceras:",
     "opciones": {
       "A": "Sacro.",
@@ -3858,8 +3858,8 @@
   },
   {
     "cluster_id": 83,
-    "tema": null,
-    "tema_nombre": null,
+    "tema": 24,
+    "tema_nombre": "Úlceras por presión",
     "enunciado": "La percepción sensorial, humedad, actividad física, movilidad, nutrición y roce o peligro de lesiones, son 6 parámetros de la Escala de:",
     "opciones": {
       "A": "Braden.",
@@ -3936,8 +3936,8 @@
   },
   {
     "cluster_id": 85,
-    "tema": null,
-    "tema_nombre": null,
+    "tema": 17,
+    "tema_nombre": "El aislamiento hospitalario",
     "enunciado": "¿Qué elemento debe colocarse antes de entrar en la habitación?",
     "opciones": {
       "A": "La mascarilla.",
@@ -9398,8 +9398,8 @@
   },
   {
     "cluster_id": 225,
-    "tema": null,
-    "tema_nombre": null,
+    "tema": 29,
+    "tema_nombre": "RCP y primeros auxilios",
     "enunciado": "Respecto al carro de paradas:",
     "opciones": {
       "A": "Solo se repone y revisa los días que están habilitados para ello, aunque se haya hecho uso del mismo.",
@@ -13610,8 +13610,8 @@
   },
   {
     "cluster_id": 333,
-    "tema": 25,
-    "tema_nombre": "Exploración y quirófano",
+    "tema": 21,
+    "tema_nombre": "Necesidad de eliminación",
     "enunciado": "Tipo de sonda empleada para el cateterismo vesical a permanencia:",
     "opciones": {
       "A": "Sonda foley.",
@@ -16184,8 +16184,8 @@
   },
   {
     "cluster_id": 399,
-    "tema": 25,
-    "tema_nombre": "Exploración y quirófano",
+    "tema": 19,
+    "tema_nombre": "Muestras biológicas",
     "enunciado": "Que precauciones debería tener para realizar la obtención de un urinocultivo",
     "opciones": {
       "A": "No se debe tener ninguna precaución especial.",
@@ -19774,8 +19774,8 @@
   },
   {
     "cluster_id": 491,
-    "tema": 25,
-    "tema_nombre": "Exploración y quirófano",
+    "tema": 19,
+    "tema_nombre": "Muestras biológicas",
     "enunciado": "Que precauciones debemos de tener cuando realicemos la obtención de un urinocultivo",
     "opciones": {
       "A": "No se debe tener ninguna precaución especial",
@@ -22331,8 +22331,8 @@
   },
   {
     "cluster_id": 564,
-    "tema": null,
-    "tema_nombre": null,
+    "tema": 15,
+    "tema_nombre": "Higiene hospitalaria e IRA",
     "enunciado": "En la cadena epidemiológica, ¿cuál de los siguientes términos se refiere al lugar donde el agente sobrevive?",
     "opciones": {
       "A": "Huésped susceptible.",
@@ -25497,8 +25497,8 @@
   },
   {
     "cluster_id": 666,
-    "tema": null,
-    "tema_nombre": null,
+    "tema": 29,
+    "tema_nombre": "RCP y primeros auxilios",
     "enunciado": "De los siguientes fármacos, ¿cuál forma parte del carro de parada?",
     "opciones": {
       "A": "Cloruro de sodio.",

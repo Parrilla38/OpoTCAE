@@ -182,7 +182,7 @@ export default function Practicar({
                 >
                   <option value="">Todos los temas</option>
                   {meta.temas
-                    .filter((t) => t.tema !== null)
+                    .filter((t) => t.tema !== null && t.preguntas > 0)
                     .map((t) => (
                       <option key={String(t.tema)} value={String(t.tema)}>
                         {t.corto} ({t.preguntas})

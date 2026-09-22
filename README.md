@@ -94,15 +94,20 @@ python scripts/descargar.py        # 45 PDFs oficiales del SAS -> data/pdfs/
 python scripts/extraer_pdf.py      # PDF -> data/raw/*.json
 python scripts/parsear.py          # -> data/parsed/preguntas.json
 python scripts/limpia_parseo.py    # corrige portadas y enunciados sueltos
-python scripts/clasificar.py       # etiqueta Temas 1-10 vs específico
-python scripts/radar.py            # clústeres literales + RADAR + VALIDACION
+python scripts/clasificar.py       # 29 temas + clínica
+python scripts/radar.py            # clústeres literales + RADAR
 python scripts/semantico.py        # clústeres semánticos + SEMANTICO.md
 python scripts/exporta_web.py      # -> web/public/data/
+
+python -m pytest                   # tests del pipeline (52)
 ```
 
 `limpia_parseo.py` es idempotente sobre `parsear.py`, pero **no lo corras dos
 veces sobre el mismo JSON** (acumula recortes). Para regenerar desde cero,
 empieza siempre por `parsear.py`.
+
+Guía paso a paso para mantenerlo vivo cuando salga una convocatoria nueva:
+[`docs/RUNBOOK.md`](docs/RUNBOOK.md).
 
 ## Correr la web
 
@@ -135,6 +140,10 @@ estudio** y siempre enlaza y atribuye al original.
 
 El repositorio **no redistribuye los PDFs oficiales**: se re-descargan con
 `python scripts/descargar.py`. Consulte siempre el original en la web del SAS.
+
+El código y la documentación de este repositorio están bajo **licencia MIT**
+(ver [`LICENSE`](LICENSE)). La licencia no se extiende al contenido de los
+exámenes, que sigue atribuido al Servicio Andaluz de Salud.
 
 ### Convocatorias analizadas
 

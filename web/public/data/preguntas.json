@@ -293,10 +293,10 @@
     "correcta": "C",
     "es_reserva": false,
     "parte": "teorico_practico",
-    "tema": null,
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica",
-    "bloque": "clinica"
+    "tema": 29,
+    "tema_nombre": "Reanimación cardiopulmonar básica y primeros auxilios",
+    "tema_corto": "RCP y primeros auxilios",
+    "bloque": "especifico"
   },
   {
     "id": "2025-06-07_libre_014",
@@ -316,10 +316,10 @@
     "correcta": "A",
     "es_reserva": false,
     "parte": "teorico_practico",
-    "tema": null,
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica",
-    "bloque": "clinica"
+    "tema": 29,
+    "tema_nombre": "Reanimación cardiopulmonar básica y primeros auxilios",
+    "tema_corto": "RCP y primeros auxilios",
+    "bloque": "especifico"
   },
   {
     "id": "2025-06-07_libre_015",
@@ -362,10 +362,10 @@
     "correcta": "C",
     "es_reserva": false,
     "parte": "teorico_practico",
-    "tema": null,
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica",
-    "bloque": "clinica"
+    "tema": 14,
+    "tema_nombre": "Principios fundamentales de la Bioética",
+    "tema_corto": "Bioética",
+    "bloque": "especifico"
   },
   {
     "id": "2025-06-07_libre_017",
@@ -455,9 +455,9 @@
     "es_reserva": false,
     "parte": "teorico_practico",
     "tema": null,
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica",
-    "bloque": "clinica"
+    "tema_nombre": null,
+    "tema_corto": null,
+    "bloque": "sin_tema"
   },
   {
     "id": "2025-06-07_libre_021",
@@ -960,10 +960,10 @@
     "correcta": "C",
     "es_reserva": false,
     "parte": "teorico_practico",
-    "tema": null,
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica",
-    "bloque": "clinica"
+    "tema": 24,
+    "tema_nombre": "Atención y cuidados de las úlceras por presión",
+    "tema_corto": "Úlceras por presión",
+    "bloque": "especifico"
   },
   {
     "id": "2025-06-07_libre_043",
@@ -1006,10 +1006,10 @@
     "correcta": "A",
     "es_reserva": false,
     "parte": "teorico_practico",
-    "tema": null,
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica",
-    "bloque": "clinica"
+    "tema": 24,
+    "tema_nombre": "Atención y cuidados de las úlceras por presión",
+    "tema_corto": "Úlceras por presión",
+    "bloque": "especifico"
   },
   {
     "id": "2025-06-07_libre_045",
@@ -1052,10 +1052,10 @@
     "correcta": "A",
     "es_reserva": false,
     "parte": "teorico_practico",
-    "tema": null,
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica",
-    "bloque": "clinica"
+    "tema": 17,
+    "tema_nombre": "El aislamiento hospitalario",
+    "tema_corto": "Aislamiento hospitalario",
+    "bloque": "especifico"
   },
   {
     "id": "2025-06-07_libre_047",
@@ -2064,10 +2064,10 @@
     "correcta": "C",
     "es_reserva": false,
     "parte": "teorico_practico",
-    "tema": null,
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica",
-    "bloque": "clinica"
+    "tema": 29,
+    "tema_nombre": "Reanimación cardiopulmonar básica y primeros auxilios",
+    "tema_corto": "RCP y primeros auxilios",
+    "bloque": "especifico"
   },
   {
     "id": "2025-06-07_pi_014",
@@ -2087,10 +2087,10 @@
     "correcta": "A",
     "es_reserva": false,
     "parte": "teorico_practico",
-    "tema": null,
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica",
-    "bloque": "clinica"
+    "tema": 29,
+    "tema_nombre": "Reanimación cardiopulmonar básica y primeros auxilios",
+    "tema_corto": "RCP y primeros auxilios",
+    "bloque": "especifico"
   },
   {
     "id": "2025-06-07_pi_015",
@@ -2133,10 +2133,10 @@
     "correcta": "C",
     "es_reserva": false,
     "parte": "teorico_practico",
-    "tema": null,
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica",
-    "bloque": "clinica"
+    "tema": 14,
+    "tema_nombre": "Principios fundamentales de la Bioética",
+    "tema_corto": "Bioética",
+    "bloque": "especifico"
   },
   {
     "id": "2025-06-07_pi_017",
@@ -2226,9 +2226,9 @@
     "es_reserva": false,
     "parte": "teorico_practico",
     "tema": null,
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica",
-    "bloque": "clinica"
+    "tema_nombre": null,
+    "tema_corto": null,
+    "bloque": "sin_tema"
   },
   {
     "id": "2025-06-07_pi_021",
@@ -2731,10 +2731,10 @@
     "correcta": "C",
     "es_reserva": false,
     "parte": "teorico_practico",
-    "tema": null,
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica",
-    "bloque": "clinica"
+    "tema": 24,
+    "tema_nombre": "Atención y cuidados de las úlceras por presión",
+    "tema_corto": "Úlceras por presión",
+    "bloque": "especifico"
   },
   {
     "id": "2025-06-07_pi_043",
@@ -2777,10 +2777,10 @@
     "correcta": "A",
     "es_reserva": false,
     "parte": "teorico_practico",
-    "tema": null,
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica",
-    "bloque": "clinica"
+    "tema": 24,
+    "tema_nombre": "Atención y cuidados de las úlceras por presión",
+    "tema_corto": "Úlceras por presión",
+    "bloque": "especifico"
   },
   {
     "id": "2025-06-07_pi_045",
@@ -2823,10 +2823,10 @@
     "correcta": "A",
     "es_reserva": false,
     "parte": "teorico_practico",
-    "tema": null,
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica",
-    "bloque": "clinica"
+    "tema": 17,
+    "tema_nombre": "El aislamiento hospitalario",
+    "tema_corto": "Aislamiento hospitalario",
+    "bloque": "especifico"
   },
   {
     "id": "2025-06-07_pi_047",
@@ -4042,10 +4042,10 @@
     "correcta": "B",
     "es_reserva": false,
     "parte": "teorico_practico",
-    "tema": null,
-    "tema_nombre": null,
-    "tema_corto": null,
-    "bloque": "sin_tema"
+    "tema": 15,
+    "tema_nombre": "Higiene hospitalaria e infección relacionada con la asistencia",
+    "tema_corto": "Higiene hospitalaria / IRA",
+    "bloque": "especifico"
   },
   {
     "id": "2025-07-28_aplazada_023",
@@ -9838,10 +9838,10 @@
     "correcta": "B",
     "es_reserva": false,
     "parte": "teorico_practico",
-    "tema": null,
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica",
-    "bloque": "clinica"
+    "tema": 29,
+    "tema_nombre": "Reanimación cardiopulmonar básica y primeros auxilios",
+    "tema_corto": "RCP y primeros auxilios",
+    "bloque": "especifico"
   },
   {
     "id": "2024-04-29_aplazada_047",
@@ -15036,10 +15036,10 @@
     "correcta": "B",
     "es_reserva": false,
     "parte": "teorico",
-    "tema": null,
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica",
-    "bloque": "clinica"
+    "tema": 29,
+    "tema_nombre": "Reanimación cardiopulmonar básica y primeros auxilios",
+    "tema_corto": "RCP y primeros auxilios",
+    "bloque": "especifico"
   },
   {
     "id": "2021-12-19_libre_042",
@@ -18509,10 +18509,10 @@
     "correcta": "B",
     "es_reserva": false,
     "parte": "teorico",
-    "tema": null,
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica",
-    "bloque": "clinica"
+    "tema": 29,
+    "tema_nombre": "Reanimación cardiopulmonar básica y primeros auxilios",
+    "tema_corto": "RCP y primeros auxilios",
+    "bloque": "especifico"
   },
   {
     "id": "2021-12-19_pi_042",
@@ -21315,9 +21315,9 @@
     "correcta": "D",
     "es_reserva": false,
     "parte": "teorico",
-    "tema": 25,
-    "tema_nombre": "Preparación del paciente para exploración o intervención quirúrgica",
-    "tema_corto": "Exploración y quirófano",
+    "tema": 21,
+    "tema_nombre": "Atención y cuidados en las necesidades de eliminación",
+    "tema_corto": "Necesidad de eliminación",
     "bloque": "especifico"
   },
   {
@@ -23730,9 +23730,9 @@
     "correcta": "A",
     "es_reserva": false,
     "parte": "practico",
-    "tema": 25,
-    "tema_nombre": "Preparación del paciente para exploración o intervención quirúrgica",
-    "tema_corto": "Exploración y quirófano",
+    "tema": 19,
+    "tema_nombre": "Muestras biológicas: obtención, conservación y transporte",
+    "tema_corto": "Muestras biológicas",
     "bloque": "especifico"
   },
   {
@@ -24742,9 +24742,9 @@
     "correcta": "D",
     "es_reserva": false,
     "parte": "teorico",
-    "tema": 25,
-    "tema_nombre": "Preparación del paciente para exploración o intervención quirúrgica",
-    "tema_corto": "Exploración y quirófano",
+    "tema": 21,
+    "tema_nombre": "Atención y cuidados en las necesidades de eliminación",
+    "tema_corto": "Necesidad de eliminación",
     "bloque": "especifico"
   },
   {
@@ -27157,9 +27157,9 @@
     "correcta": "A",
     "es_reserva": false,
     "parte": "practico",
-    "tema": 25,
-    "tema_nombre": "Preparación del paciente para exploración o intervención quirúrgica",
-    "tema_corto": "Exploración y quirófano",
+    "tema": 19,
+    "tema_nombre": "Muestras biológicas: obtención, conservación y transporte",
+    "tema_corto": "Muestras biológicas",
     "bloque": "especifico"
   },
   {
@@ -30423,9 +30423,9 @@
     "correcta": "D",
     "es_reserva": false,
     "parte": "practico",
-    "tema": 25,
-    "tema_nombre": "Preparación del paciente para exploración o intervención quirúrgica",
-    "tema_corto": "Exploración y quirófano",
+    "tema": 19,
+    "tema_nombre": "Muestras biológicas: obtención, conservación y transporte",
+    "tema_corto": "Muestras biológicas",
     "bloque": "especifico"
   },
   {
@@ -33781,9 +33781,9 @@
     "correcta": "C",
     "es_reserva": false,
     "parte": "practico",
-    "tema": 25,
-    "tema_nombre": "Preparación del paciente para exploración o intervención quirúrgica",
-    "tema_corto": "Exploración y quirófano",
+    "tema": 19,
+    "tema_nombre": "Muestras biológicas: obtención, conservación y transporte",
+    "tema_corto": "Muestras biológicas",
     "bloque": "especifico"
   },
   {

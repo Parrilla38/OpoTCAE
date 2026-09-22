@@ -14,7 +14,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 1. Para la prevención de las úlceras por presión, ¿qué zonas corporales del paciente se han de proteger cuándo está en posición de de
 
-**14 formulaciones** · años **2016, 2019, 2021, 2024, 2025** · temas — · similitud media 0.762 · score **29.32**
+**14 formulaciones** · años **2016, 2019, 2021, 2024, 2025** · temas T24 · similitud media 0.762 · score **29.32**
 
 - `2016 · libre` — Señala la respuesta correcta en cuanto a los factores que influyen en las úlceras por presión:
 - `2019 · libre` — Señala la respuesta correcta en cuanto a los factores situacionales de las ulceras por presión:
@@ -33,7 +33,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 2. La estructura organizativa responsable de la atención especializada a la salud mental de la población, que incorpora los dispositi
 
-**11 formulaciones** · años **2016, 2019, 2022, 2024, 2025** · temas — · similitud media 0.784 · score **23.71**
+**11 formulaciones** · años **2016, 2019, 2022, 2024, 2025** · temas T26 · similitud media 0.784 · score **23.71**
 
 - `2016 · libre` — En el equipo de atención comunitaria, la atención de salud mental sigue un modelo integral de atención interdisciplinari
 - `2016 · pi` — En el equipo de atención comunitaria, la atención de salud mental sigue un modelo integral de atención interdisciplinari
@@ -49,7 +49,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 3. La ley 41/2002, básica reguladora de la autonomía del paciente y derechos y obligaciones en materia de información y documentación
 
-**10 formulaciones** · años **2016, 2019, 2021, 2022, 2024** · temas T09 · similitud media 0.819 · score **22.53**
+**10 formulaciones** · años **2016, 2019, 2021, 2022, 2024** · temas T09, T11 · similitud media 0.819 · score **22.53**
 
 - `2016 · libre` — Uno de estos derechos no se contempla en la Ley 41/2002 básica reguladora de la autonomía del paciente y de derechos y o
 - `2019 · libre` — La ley 41/2002, básica reguladora de la Autonomía de autonomía del paciente y derechos y obligaciones en materia de info
@@ -64,7 +64,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 4. La definición de úlcera por presión (UPP) es:
 
-**9 formulaciones** · años **2016, 2019, 2021, 2025** · temas — · similitud media 0.815 · score **17.61**
+**9 formulaciones** · años **2016, 2019, 2021, 2025** · temas T24 · similitud media 0.815 · score **17.61**
 
 - `2016 · pi` — La definición de ulcera por presión es:
 - `2019 · libre` — La definición de úlcera por presión (UPP) es:
@@ -78,7 +78,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 5. de enfermería, tiene que realizar el aseo de un paciente encamado. En relación con esta tarea indique la afirmación mas correcta:
 
-**10 formulaciones** · años **2016, 2019, 2021** · temas — · similitud media 0.814 · score **16.7**
+**10 formulaciones** · años **2016, 2019, 2021** · temas T20, T23 · similitud media 0.814 · score **16.7**
 
 - `2016 · libre` — Para movilizar a un paciente encamado, tendremos en cuenta:
 - `2016 · libre` — La Auxiliar de Enfermería tiene que realizar el aseo de un paciente encamado para ello debe de:
@@ -93,7 +93,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 6. Se define almacenamiento de residuos como:
 
-**8 formulaciones** · años **2016, 2021, 2025** · temas — · similitud media 0.809 · score **13.26**
+**8 formulaciones** · años **2016, 2021, 2025** · temas T18 · similitud media 0.809 · score **13.26**
 
 - `2016 · libre` — El almacenamiento temporal de residuos no debe superar nunca:
 - `2016 · libre` — Plan de Gestión de Residuos de la Dirección General de Asistencia Sanitaria y Resultados en Salud. Los recipientes o env
@@ -106,7 +106,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 7. Para realizar la higiene bucal en pacientes inconscientes debemos tener en cuenta cuál de estas acciones no es la correcta:
 
-**8 formulaciones** · años **2016, 2019, 2021** · temas — · similitud media 0.799 · score **13.1**
+**8 formulaciones** · años **2016, 2019, 2021** · temas T20 · similitud media 0.799 · score **13.1**
 
 - `2016 · libre` — Para realizar la higiene bucal en pacientes inconscientes debemos tener en cuenta cuál de estas acciones no es la correc
 - `2016 · pi` — Para realizar la higiene bucal en pacientes inconscientes debemos tener en cuenta cuál de estas acciones no es la correc
@@ -119,7 +119,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 8. ¿Cuál de las siguientes definiciones se corresponde con la de residuo sanitario del Grupo II?
 
-**6 formulaciones** · años **2021, 2022, 2024, 2025** · temas — · similitud media 0.765 · score **11.02**
+**6 formulaciones** · años **2021, 2022, 2024, 2025** · temas T18 · similitud media 0.765 · score **11.02**
 
 - `2021 · libre` — ¿Cuál de las siguientes definiciones se corresponde con la de residuo sanitario del Grupo II?
 - `2021 · pi` — Los restos de material de pequeñas curas, bolsas de orina vacías, filtros de diálisis, pañales y yesos, pertenecen al gr
@@ -152,7 +152,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 11. De los principales eslabones de la cadena epidemiológica, cual es la correcta:
 
-**5 formulaciones** · años **2016, 2019, 2021** · temas — · similitud media 0.952 · score **9.76**
+**5 formulaciones** · años **2016, 2019, 2021** · temas T15 · similitud media 0.952 · score **9.76**
 
 - `2016 · pi` — De los principales eslabones de la cadena epidemiológica, cual es la correcta:
 - `2019 · libre` — De los principales eslabones de la cadena epidemiológica, cual es la afirmación mas correcta:
@@ -162,7 +162,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 12. En los enfermos renales está indicada una dieta:
 
-**5 formulaciones** · años **2016, 2019, 2025** · temas — · similitud media 0.923 · score **9.46**
+**5 formulaciones** · años **2016, 2019, 2025** · temas T22 · similitud media 0.923 · score **9.46**
 
 - `2016 · libre` — En los enfermos renales está indicada una dieta:
 - `2016 · pi` — En los enfermos renales está indicada una dieta:
@@ -172,7 +172,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 13. Antes de proceder al baño de la paciente encamada deben tener en cuenta:
 
-**5 formulaciones** · años **2016, 2019, 2022, 2024** · temas — · similitud media 0.76 · score **9.12**
+**5 formulaciones** · años **2016, 2019, 2022, 2024** · temas T20, T23 · similitud media 0.76 · score **9.12**
 
 - `2016 · pi` — El cuidado del ombligo debe hacerse:
 - `2019 · libre` — Antes de proceder al baño de la paciente encamada deben tener en cuenta:
@@ -182,7 +182,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 14. En relación con la atención a los pacientes, cuyo objetivo es aumentar la calidad de vida cuando no responden a un tratamiento cur
 
-**5 formulaciones** · años **2021, 2022, 2024** · temas — · similitud media 0.883 · score **9.06**
+**5 formulaciones** · años **2021, 2022, 2024** · temas T28 · similitud media 0.883 · score **9.06**
 
 - `2021 · libre` — La atención a los pacientes cuya enfermedad no responde a tratamiento curativo, y cuyo fin es lograr la mayor calidad de
 - `2021 · pi` — La atención a los pacientes cuya enfermedad no responde a tratamiento curativo, y cuyo fin es lograr la mayor calidad de
@@ -192,7 +192,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 15. Con respecto a la Alimentación en la mujer gestante, cada sustancia nutritiva tiene, entre otras, una misión fundamental que desar
 
-**5 formulaciones** · años **2016, 2019, 2025** · temas — · similitud media 0.859 · score **8.8**
+**5 formulaciones** · años **2016, 2019, 2025** · temas T22 · similitud media 0.859 · score **8.8**
 
 - `2016 · pi` — Con respecto a la Alimentación en la mujer gestante, cada sustancia nutritiva tiene, entre otras, una misión fundamental
 - `2019 · libre` — Con respecto a la Alimentación en la mujer gestante, cada sustancia nutritiva tiene, entre otras, una misión fundamental
@@ -202,7 +202,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 16. Los colores de los contenedores que se utilizan en la gestión de residuos son:
 
-**5 formulaciones** · años **2016, 2019, 2021** · temas — · similitud media 0.846 · score **8.67**
+**5 formulaciones** · años **2016, 2019, 2021** · temas T18 · similitud media 0.846 · score **8.67**
 
 - `2016 · pi` — Los colores de los contenedores que se utilizan en la gestión de residuos son:
 - `2019 · libre` — Los colores de los contenedores que se utilizan en la gestión de residuos son:
@@ -212,7 +212,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 17. El paciente Antonio José Álvarez, es un hombre de 69 años, se interviene el 19-04- 2015 . Practicando hemicolectomía derecha por v
 
-**6 formulaciones** · años **2016, 2019** · temas — · similitud media 0.848 · score **8.65**
+**6 formulaciones** · años **2016, 2019** · temas T25 · similitud media 0.848 · score **8.65**
 
 - `2016 · libre` — El paciente Antonio José Álvarez, es un hombre de 69 años, se interviene el 19-04- 2015 . Practicando hemicolectomía der
 - `2016 · libre` — El paciente Antonio José Álvarez, es un hombre de 69 años, se interviene el 19-04- 2015 . Practicando hemicolectomía der
@@ -223,7 +223,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 18. Las vitaminas se clasifican en:
 
-**5 formulaciones** · años **2016, 2019, 2022** · temas — · similitud media 0.841 · score **8.62**
+**5 formulaciones** · años **2016, 2019, 2022** · temas T22 · similitud media 0.841 · score **8.62**
 
 - `2016 · libre` — Las vitaminas se clasifican en:
 - `2016 · pi` — Las vitaminas se clasifican en:
@@ -233,7 +233,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 19. Antes de ponerle el enema debemos de colocar al paciente en posición:
 
-**5 formulaciones** · años **2016, 2019, 2022** · temas — · similitud media 0.84 · score **8.61**
+**5 formulaciones** · años **2016, 2019, 2022** · temas T21 · similitud media 0.84 · score **8.61**
 
 - `2016 · libre` — Antes de ponerle un enema debemos de colocar al paciente en posición:
 - `2016 · pi` — Antes de ponerle un enema debemos de colocar al paciente en posición:
@@ -243,7 +243,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 20. Leonardo es paciente con hemiplejia ingresado en la habitación 501 A, está encamado por un cuadro febril, su familiar llama al tim
 
-**6 formulaciones** · años **2016, 2019** · temas — · similitud media 0.837 · score **8.54**
+**6 formulaciones** · años **2016, 2019** · temas T23 · similitud media 0.837 · score **8.54**
 
 - `2016 · libre` — Leonardo, paciente con hemiplejia, está encamado por un cuadro febril. Hay que movilizarlo. ¿Dónde nos colocaríamos?
 - `2016 · pi` — Leonardo, paciente con hemiplejia, está encamado por un cuadro febril. Hay que movilizarlo. ¿Dónde nos colocaríamos?
@@ -254,7 +254,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 21. ¿Cuál es la zona del cuerpo en las que aparece con mayor frecuencia las úlceras por presión?
 
-**6 formulaciones** · años **2022, 2024** · temas — · similitud media 0.833 · score **8.5**
+**6 formulaciones** · años **2022, 2024** · temas T24 · similitud media 0.833 · score **8.5**
 
 - `2022 · aplazada` — Según el sistema de clasificación/estadiaje de las úlceras por presión, ¿qué estadio corresponde una úlcera por presión 
 - `2024 · centros_sas` — ¿En qué estadio se encuentra una úlcera por presión, cuando existe un eritema cutáneo en piel intacta que no cede al des
@@ -265,7 +265,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 22. ¿En qué principios de la Bioética se encuadrarían los cuidados paliativos?
 
-**6 formulaciones** · años **2021, 2025** · temas — · similitud media 0.83 · score **8.47**
+**6 formulaciones** · años **2021, 2025** · temas T14, T28 · similitud media 0.83 · score **8.47**
 
 - `2021 · libre` — Los valores y principios de la Bioética son:
 - `2021 · pi` — Los valores y principios de la Bioética son:
@@ -276,7 +276,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 23. La infección nosocomial se define como:
 
-**5 formulaciones** · años **2019, 2022, 2024** · temas — · similitud media 0.822 · score **8.42**
+**5 formulaciones** · años **2019, 2022, 2024** · temas T15 · similitud media 0.822 · score **8.42**
 
 - `2019 · libre` — La infección nosocomial se define como:
 - `2019 · pi` — La infección nosocomial se define como:
@@ -286,7 +286,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 24. Los residuos procedentes de Hemodiálisis de pacientes no contaminados por virus VHC, VHB y VIH a que grupo corresponde:
 
-**5 formulaciones** · años **2016, 2019, 2024** · temas — · similitud media 0.818 · score **8.38**
+**5 formulaciones** · años **2016, 2019, 2024** · temas T18 · similitud media 0.818 · score **8.38**
 
 - `2016 · pi` — Los residuos procedentes de Hemodiálisis de pacientes no contaminados por virus VHC, VHB y VIH a que grupo corresponde:
 - `2019 · libre` — Los residuos procedentes de Hemodiálisis de pacientes no contaminados por virus VHC, VHB y VIH, ¿a que grupo de clasific
@@ -296,7 +296,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 25. Mateo, paciente en situación terminal y con una infección oral en la cavidad bucal, debido a las deficiencias nutricionales y al c
 
-**6 formulaciones** · años **2016, 2021** · temas — · similitud media 0.795 · score **8.11**
+**6 formulaciones** · años **2016, 2021** · temas T20, T21, T25 · similitud media 0.795 · score **8.11**
 
 - `2016 · libre` — Mateo, paciente en situación terminal y con una infección oral en la cavidad bucal, debido a las deficiencias nutriciona
 - `2016 · libre` — Antonio, paciente de 48 años ingresado en la planta de digestivo, ingresa en turno de tarde para cirugía al día siguient
@@ -317,7 +317,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 27. ¿A qué tipo de dispositivo pertenece la unidad cuya finalidad es el tratamiento intensivo de pacientes con Trastorno Mental Grave 
 
-**5 formulaciones** · años **2024, 2025** · temas — · similitud media 0.885 · score **7.52**
+**5 formulaciones** · años **2024, 2025** · temas T26 · similitud media 0.885 · score **7.52**
 
 - `2024 · centros_sas` — ¿Cuál es el dispositivo de atención ambulatoria con el que se coordinan el resto de dispositivos asistenciales de atenci
 - `2024 · apes` — ¿Cuál es el dispositivo de atención ambulatoria con el que se coordinan el resto de dispositivos asistenciales de atenci
@@ -327,7 +327,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 28. Pedro está ingresado, encamado y con sonda nasogástrica. A la hora de administrarle la alimentación necesitas:
 
-**5 formulaciones** · años **2016, 2019** · temas — · similitud media 0.883 · score **7.51**
+**5 formulaciones** · años **2016, 2019** · temas T22 · similitud media 0.883 · score **7.51**
 
 - `2016 · libre` — Pedro está ingresado, encamado y con sonda nasogástrica. A la hora de administrarle la alimentación necesitas:
 - `2016 · libre` — Pedro está ingresado, encamado y con sonda nasogástrica. A la hora de administrarle la alimentación necesitas:
@@ -337,7 +337,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 29. ¿Cuál es la medida individual que se considera más eficaz para reducir/eliminar la transmisión de gérmenes a nivel hospitalario?
 
-**5 formulaciones** · años **2021, 2022** · temas — · similitud media 0.837 · score **7.11**
+**5 formulaciones** · años **2021, 2022** · temas T15, T17 · similitud media 0.837 · score **7.11**
 
 - `2021 · libre` — ¿Cuál es la medida individual que se considera más eficaz para reducir/eliminar la transmisión de gérmenes a nivel hospi
 - `2021 · pi` — ¿Cuál es la medida individual que se considera más eficaz para reducir/eliminar la transmisión de gérmenes a nivel hospi
@@ -347,7 +347,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 30. El Biobanco del Sistema Sanitario Público de Andalucía (SSPA), en su área de tejidos, sustancias y muestras biológicas para invest
 
-**4 formulaciones** · años **2021, 2022, 2024** · temas T03 · similitud media 0.859 · score **7.05**
+**4 formulaciones** · años **2021, 2022, 2024** · temas T03, T19 · similitud media 0.859 · score **7.05**
 
 - `2021 · libre` — El Biobanco del Sistema Sanitario Público de Andalucía (SSPA), en su área de tejidos, sustancias y muestras biológicas p
 - `2021 · pi` — El Biobanco del Sistema Sanitario Público de Andalucía (SSPA), en su área de tejidos, sustancias y muestras biológicas p
@@ -356,7 +356,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 31. Debilidad muscular. Déficit de la marcha y equilibrio. Deterioro cognitivo. Polimedicación. Disminución de la visión. Patologías c
 
-**4 formulaciones** · años **2016, 2019** · temas — · similitud media 0.998 · score **6.79**
+**4 formulaciones** · años **2016, 2019** · temas T27 · similitud media 0.998 · score **6.79**
 
 - `2016 · libre` — Debilidad muscular. Déficit de la marcha y equilibrio. Deterioro cognitivo. Polimedicación. Disminución de la visión. Pa
 - `2016 · pi` — Debilidad muscular. Déficit de la marcha y equilibrio. Deterioro cognitivo. Polimedicación. Disminución de la visión. Pa
@@ -365,7 +365,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 32. Señale la respuesta correcta sobre las condiciones de almacenamiento y conservación de los medicamentos::
 
-**5 formulaciones** · años **2021, 2025** · temas T08 · similitud media 0.795 · score **6.76**
+**5 formulaciones** · años **2021, 2025** · temas — · similitud media 0.795 · score **6.76**
 
 - `2021 · libre` — Señale la respuesta correcta sobre las condiciones de almacenamiento y conservación de los medicamentos:
 - `2021 · libre` — La enfermera ha administrado a Pedro una medicación termolábil. ¿Cuál es la temperatura en la que deben conservarse los 
@@ -375,7 +375,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 33. Dolores es una paciente ingresada en la planta a la que le han insertado un tubo de gastrostomía. Te dispones a darle la alimentac
 
-**4 formulaciones** · años **2016, 2019** · temas — · similitud media 0.958 · score **6.52**
+**4 formulaciones** · años **2016, 2019** · temas T22 · similitud media 0.958 · score **6.52**
 
 - `2016 · libre` — Dolores es una paciente a la que le han insertado un tubo de gastrostomía. Te dispones a darle la alimentación, ¿qué no 
 - `2016 · pi` — Dolores es una paciente a la que le han insertado un tubo de gastrostomía. Te dispones a darle la alimentación, ¿qué no 
@@ -384,7 +384,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 34. La infección nosocomial se define como:
 
-**4 formulaciones** · años **2016, 2021** · temas — · similitud media 0.956 · score **6.5**
+**4 formulaciones** · años **2016, 2021** · temas T15 · similitud media 0.956 · score **6.5**
 
 - `2016 · libre` — La infección nosocomial se define como:
 - `2016 · pi` — La infección nosocomial se define como:
@@ -393,7 +393,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 35. Con las nuevas tendencias de atención a la salud, impulsadas por la Ley General de Sanidad de 1986 (LGS), los Servicios de Salud M
 
-**4 formulaciones** · años **2016, 2019** · temas T03 · similitud media 0.954 · score **6.49**
+**4 formulaciones** · años **2016, 2019** · temas T26 · similitud media 0.954 · score **6.49**
 
 - `2016 · libre` — Con las nuevas tendencias de atención a la salud, impulsadas por la Ley General de Sanidad de 1986 (LGS), los Servicios 
 - `2016 · pi` — Con las nuevas tendencias de atención a la salud, impulsadas por la Ley General de Sanidad de 1986 (LGS), los Servicios 
@@ -429,7 +429,7 @@ Ordenados por `score = nº preguntas × (1 + 0,35 × años) × similitud_media`.
 
 ### 39. De las siguientes posiciones, ¿cuál se utiliza para la higiene del cabello en un paciente encamado?
 
-**4 formulaciones** · años **2024, 2025** · temas — · similitud media 0.931 · score **6.33**
+**4 formulaciones** · años **2024, 2025** · temas T23 · similitud media 0.931 · score **6.33**
 
 - `2024 · centros_sas` — De las siguientes posiciones, ¿cuál se utiliza para la higiene del cabello en un paciente encamado?
 - `2024 · apes` — De las siguientes posiciones, ¿cuál se utiliza para la higiene del cabello en un paciente encamado?

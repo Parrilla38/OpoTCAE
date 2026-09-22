@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { cargaTodo } from "./data";
-import type { Cluster, ConceptosData, Examen, Meta, Pregunta } from "./types";
+import { cargaBase, cargaClusters, cargaPreguntas } from "./data";
 import Practicar from "./views/Practicar";
 import Aprender from "./views/Aprender";
 import Examenes from "./views/Examenes";
@@ -14,6 +13,20 @@ const NAV: { id: Vista; texto: string; icono: string }[] = [
   { id: "examenes", texto: "Exámenes", icono: "🗓" },
   { id: "progreso", texto: "Mi progreso", icono: "👤" },
 ];
+
+/** Hook: pide datos la primera vez que hacen falta y los mantiene. */
+function useDatos<T>(pedir: () => Promise<T>, activo: boolean) {
+  const [datos, setDatos] = useState<T | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  useEffect(() => {
+    if (!activo || datos) return;
+    pedir()
+      .then(setDatos)
+      .catch((e) => setError(String(e)));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activo]);
+  return { datos, error };
+}
 
 function BotonTema() {
   const [oscuro, setOscuro] = useState(() => document.documentElement.classList.contains("dark"));
@@ -33,22 +46,33 @@ function BotonTema() {
   );
 }
 
+function Cargando({ texto = "Cargando preguntas…" }: { texto?: string }) {
+  return (
+    <div className="rounded-2xl border border-stone-200 bg-white p-5 text-sm text-stone-500 dark:border-stone-800 dark:bg-stone-900">
+      {texto}
+    </div>
+  );
+}
+
+function Aviso({ error }: { error: string }) {
+  return (
+    <div className="rounded-2xl border border-rose-300 bg-rose-50 p-4 text-sm text-rose-800 dark:border-rose-900 dark:bg-rose-950/40 dark:text-rose-200">
+      <p className="font-semibold">No se han podido cargar las preguntas</p>
+      <p className="text-xs">{error}</p>
+    </div>
+  );
+}
+
 export default function App() {
   const [vista, setVista] = useState<Vista>("practicar");
-  const [datos, setDatos] = useState<{
-    clusters: Cluster[];
-    preguntas: Pregunta[];
-    examenes: Examen[];
-    meta: Meta;
-    conceptos: ConceptosData | null;
-  } | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const { datos: base, error: errorBase } = useDatos(cargaBase, true);
+  const { datos: clusters, error: errorClusters } = useDatos(
+    cargaClusters,
+    vista === "practicar" || vista === "aprender" || vista === "progreso"
+  );
+  const { datos: preguntas, error: errorPreguntas } = useDatos(cargaPreguntas, vista === "examenes");
 
-  useEffect(() => {
-    cargaTodo()
-      .then(setDatos)
-      .catch((e) => setError(String(e)));
-  }, []);
+  const error = errorBase ?? (vista === "examenes" ? errorPreguntas : errorClusters);
 
   return (
     <div className="mx-auto flex min-h-screen max-w-2xl flex-col px-4 pb-28 pt-5">
@@ -62,43 +86,58 @@ export default function App() {
         <BotonTema />
       </header>
 
-      {error && (
-        <div className="rounded-2xl border border-rose-300 bg-rose-50 p-4 text-sm text-rose-800 dark:border-rose-900 dark:bg-rose-950/40 dark:text-rose-200">
-          <p className="font-semibold">No se han podido cargar las preguntas</p>
-          <p className="text-xs">{error}</p>
-        </div>
-      )}
+      {error && <Aviso error={error} />}
 
-      {!datos && !error && (
-        <div className="rounded-2xl border border-stone-200 bg-white p-5 text-sm text-stone-500 dark:border-stone-800 dark:bg-stone-900">
-          Cargando preguntas…
-        </div>
-      )}
+      <main className="flex-1 space-y-3">
+        {!base && !errorBase && <Cargando texto="Cargando…" />}
 
-      {datos && (
-        <main className="flex-1">
-          {vista === "practicar" && (
-            <Practicar clusters={datos.clusters} meta={datos.meta} onIrAProgreso={() => setVista("progreso")} />
-          )}
-          {vista === "aprender" && (
-            <Aprender clusters={datos.clusters} meta={datos.meta} conceptos={datos.conceptos} />
-          )}
-          {vista === "examenes" && (
-            <Examenes preguntas={datos.preguntas} examenes={datos.examenes} clusters={datos.clusters} />
-          )}
-          {vista === "progreso" && <Progreso clusters={datos.clusters} meta={datos.meta} />}
-        </main>
-      )}
+        {base && vista === "practicar" && (
+          <>
+            {!clusters && !errorClusters && <Cargando />}
+            {clusters && (
+              <Practicar
+                clusters={clusters}
+                meta={base.meta}
+                onIrAProgreso={() => setVista("progreso")}
+              />
+            )}
+          </>
+        )}
 
-      {datos && (
+        {base && vista === "aprender" && (
+          <>
+            {!clusters && !errorClusters && <Cargando />}
+            {clusters && <Aprender clusters={clusters} meta={base.meta} />}
+          </>
+        )}
+
+        {base && vista === "examenes" && (
+          <>
+            {!preguntas && !errorPreguntas && <Cargando texto="Cargando exámenes…" />}
+            {preguntas && clusters && (
+              <Examenes preguntas={preguntas} examenes={base.examenes} clusters={clusters} />
+            )}
+            {!preguntas && !clusters && !errorClusters && <Cargando />}
+          </>
+        )}
+
+        {base && vista === "progreso" && (
+          <>
+            {!clusters && !errorClusters && <Cargando />}
+            {clusters && <Progreso clusters={clusters} meta={base.meta} />}
+          </>
+        )}
+      </main>
+
+      {base && (
         <>
           <footer className="mt-10 border-t border-stone-200 pt-4 text-[11px] leading-relaxed text-stone-500 dark:border-stone-800 dark:text-stone-400">
             <p>
-              <b>Fuente:</b> {datos.meta.fuente}. {datos.meta.aviso}
+              <b>Fuente:</b> {base.meta.fuente}. {base.meta.aviso}
             </p>
             <p className="mt-1">
-              {datos.meta.totales.preguntas} preguntas de exámenes oficiales ({datos.meta.anios.join(", ")}).
-              Gratuito y sin cuenta.
+              {base.meta.totales.preguntas} preguntas de exámenes oficiales (
+              {base.meta.anios.join(", ")}). Gratuito y sin cuenta.
             </p>
           </footer>
 

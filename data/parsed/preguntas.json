@@ -371,10 +371,10 @@
     "parte": "teorico_practico",
     "cuadernillo": "2025_librepi_cuadernillo",
     "id": "2025-06-07_libre_013",
-    "tema": null,
-    "bloque": "clinica",
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica"
+    "tema": 29,
+    "bloque": "especifico",
+    "tema_nombre": "Reanimación cardiopulmonar básica y primeros auxilios",
+    "tema_corto": "RCP y primeros auxilios"
   },
   {
     "pos": 13,
@@ -400,10 +400,10 @@
     "parte": "teorico_practico",
     "cuadernillo": "2025_librepi_cuadernillo",
     "id": "2025-06-07_libre_014",
-    "tema": null,
-    "bloque": "clinica",
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica"
+    "tema": 29,
+    "bloque": "especifico",
+    "tema_nombre": "Reanimación cardiopulmonar básica y primeros auxilios",
+    "tema_corto": "RCP y primeros auxilios"
   },
   {
     "pos": 14,
@@ -458,10 +458,10 @@
     "parte": "teorico_practico",
     "cuadernillo": "2025_librepi_cuadernillo",
     "id": "2025-06-07_libre_016",
-    "tema": null,
-    "bloque": "clinica",
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica"
+    "tema": 14,
+    "bloque": "especifico",
+    "tema_nombre": "Principios fundamentales de la Bioética",
+    "tema_corto": "Bioética"
   },
   {
     "pos": 16,
@@ -575,9 +575,9 @@
     "cuadernillo": "2025_librepi_cuadernillo",
     "id": "2025-06-07_libre_020",
     "tema": null,
-    "bloque": "clinica",
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica"
+    "bloque": "sin_tema",
+    "tema_nombre": null,
+    "tema_corto": null
   },
   {
     "pos": 20,
@@ -1212,10 +1212,10 @@
     "parte": "teorico_practico",
     "cuadernillo": "2025_librepi_cuadernillo",
     "id": "2025-06-07_libre_042",
-    "tema": null,
-    "bloque": "clinica",
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica"
+    "tema": 24,
+    "bloque": "especifico",
+    "tema_nombre": "Atención y cuidados de las úlceras por presión",
+    "tema_corto": "Úlceras por presión"
   },
   {
     "pos": 42,
@@ -1270,10 +1270,10 @@
     "parte": "teorico_practico",
     "cuadernillo": "2025_librepi_cuadernillo",
     "id": "2025-06-07_libre_044",
-    "tema": null,
-    "bloque": "clinica",
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica"
+    "tema": 24,
+    "bloque": "especifico",
+    "tema_nombre": "Atención y cuidados de las úlceras por presión",
+    "tema_corto": "Úlceras por presión"
   },
   {
     "pos": 44,
@@ -1328,10 +1328,10 @@
     "parte": "teorico_practico",
     "cuadernillo": "2025_librepi_cuadernillo",
     "id": "2025-06-07_libre_046",
-    "tema": null,
-    "bloque": "clinica",
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica"
+    "tema": 17,
+    "bloque": "especifico",
+    "tema_nombre": "El aislamiento hospitalario",
+    "tema_corto": "Aislamiento hospitalario"
   },
   {
     "pos": 46,
@@ -2633,10 +2633,10 @@
     "parte": "teorico_practico",
     "cuadernillo": "2025_librepi_cuadernillo",
     "id": "2025-06-07_pi_013",
-    "tema": null,
-    "bloque": "clinica",
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica"
+    "tema": 29,
+    "bloque": "especifico",
+    "tema_nombre": "Reanimación cardiopulmonar básica y primeros auxilios",
+    "tema_corto": "RCP y primeros auxilios"
   },
   {
     "pos": 13,
@@ -2662,10 +2662,10 @@
     "parte": "teorico_practico",
     "cuadernillo": "2025_librepi_cuadernillo",
     "id": "2025-06-07_pi_014",
-    "tema": null,
-    "bloque": "clinica",
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica"
+    "tema": 29,
+    "bloque": "especifico",
+    "tema_nombre": "Reanimación cardiopulmonar básica y primeros auxilios",
+    "tema_corto": "RCP y primeros auxilios"
   },
   {
     "pos": 14,
@@ -2720,10 +2720,10 @@
     "parte": "teorico_practico",
     "cuadernillo": "2025_librepi_cuadernillo",
     "id": "2025-06-07_pi_016",
-    "tema": null,
-    "bloque": "clinica",
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica"
+    "tema": 14,
+    "bloque": "especifico",
+    "tema_nombre": "Principios fundamentales de la Bioética",
+    "tema_corto": "Bioética"
   },
   {
     "pos": 16,
@@ -2837,9 +2837,9 @@
     "cuadernillo": "2025_librepi_cuadernillo",
     "id": "2025-06-07_pi_020",
     "tema": null,
-    "bloque": "clinica",
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica"
+    "bloque": "sin_tema",
+    "tema_nombre": null,
+    "tema_corto": null
   },
   {
     "pos": 20,
@@ -3474,10 +3474,10 @@
     "parte": "teorico_practico",
     "cuadernillo": "2025_librepi_cuadernillo",
     "id": "2025-06-07_pi_042",
-    "tema": null,
-    "bloque": "clinica",
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica"
+    "tema": 24,
+    "bloque": "especifico",
+    "tema_nombre": "Atención y cuidados de las úlceras por presión",
+    "tema_corto": "Úlceras por presión"
   },
   {
     "pos": 42,
@@ -3532,10 +3532,10 @@
     "parte": "teorico_practico",
     "cuadernillo": "2025_librepi_cuadernillo",
     "id": "2025-06-07_pi_044",
-    "tema": null,
-    "bloque": "clinica",
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica"
+    "tema": 24,
+    "bloque": "especifico",
+    "tema_nombre": "Atención y cuidados de las úlceras por presión",
+    "tema_corto": "Úlceras por presión"
   },
   {
     "pos": 44,
@@ -3590,10 +3590,10 @@
     "parte": "teorico_practico",
     "cuadernillo": "2025_librepi_cuadernillo",
     "id": "2025-06-07_pi_046",
-    "tema": null,
-    "bloque": "clinica",
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica"
+    "tema": 17,
+    "bloque": "especifico",
+    "tema_nombre": "El aislamiento hospitalario",
+    "tema_corto": "Aislamiento hospitalario"
   },
   {
     "pos": 46,
@@ -5156,10 +5156,10 @@
     "parte": "teorico_practico",
     "cuadernillo": "2025_aplazada_cuadernillo",
     "id": "2025-07-28_aplazada_022",
-    "tema": null,
-    "bloque": "sin_tema",
-    "tema_nombre": null,
-    "tema_corto": null
+    "tema": 15,
+    "bloque": "especifico",
+    "tema_nombre": "Higiene hospitalaria e infección relacionada con la asistencia",
+    "tema_corto": "Higiene hospitalaria / IRA"
   },
   {
     "pos": 22,
@@ -12638,10 +12638,10 @@
     "parte": "teorico_practico",
     "cuadernillo": "2024_aplazada_cuadernillo",
     "id": "2024-04-29_aplazada_046",
-    "tema": null,
-    "bloque": "clinica",
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica"
+    "tema": 29,
+    "bloque": "especifico",
+    "tema_nombre": "Reanimación cardiopulmonar básica y primeros auxilios",
+    "tema_corto": "RCP y primeros auxilios"
   },
   {
     "pos": 46,
@@ -19192,10 +19192,10 @@
     "parte": "teorico",
     "cuadernillo": "2021_libre_cuadernillo",
     "id": "2021-12-19_libre_041",
-    "tema": null,
-    "bloque": "clinica",
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica"
+    "tema": 29,
+    "bloque": "especifico",
+    "tema_nombre": "Reanimación cardiopulmonar básica y primeros auxilios",
+    "tema_corto": "RCP y primeros auxilios"
   },
   {
     "pos": 41,
@@ -23629,10 +23629,10 @@
     "parte": "teorico",
     "cuadernillo": "2021_pi_cuadernillo",
     "id": "2021-12-19_pi_041",
-    "tema": null,
-    "bloque": "clinica",
-    "tema_nombre": "Anatomía, fisiología y clínica",
-    "tema_corto": "Anatomía y clínica"
+    "tema": 29,
+    "bloque": "especifico",
+    "tema_nombre": "Reanimación cardiopulmonar básica y primeros auxilios",
+    "tema_corto": "RCP y primeros auxilios"
   },
   {
     "pos": 41,
@@ -27225,10 +27225,10 @@
     "parte": "teorico",
     "cuadernillo": "2019_libre_cuadernillo",
     "id": "2019-04-27_libre_013",
-    "tema": 25,
+    "tema": 21,
     "bloque": "especifico",
-    "tema_nombre": "Preparación del paciente para exploración o intervención quirúrgica",
-    "tema_corto": "Exploración y quirófano"
+    "tema_nombre": "Atención y cuidados en las necesidades de eliminación",
+    "tema_corto": "Necesidad de eliminación"
   },
   {
     "pos": 12,
@@ -30357,10 +30357,10 @@
     "parte": "practico",
     "cuadernillo": "2019_libre_cuadernillo",
     "id": "2019-04-27_libre_121",
-    "tema": 25,
+    "tema": 19,
     "bloque": "especifico",
-    "tema_nombre": "Preparación del paciente para exploración o intervención quirúrgica",
-    "tema_corto": "Exploración y quirófano"
+    "tema_nombre": "Muestras biológicas: obtención, conservación y transporte",
+    "tema_corto": "Muestras biológicas"
   },
   {
     "pos": 120,
@@ -31662,10 +31662,10 @@
     "parte": "teorico",
     "cuadernillo": "2019_pi_cuadernillo",
     "id": "2019-04-27_pi_013",
-    "tema": 25,
+    "tema": 21,
     "bloque": "especifico",
-    "tema_nombre": "Preparación del paciente para exploración o intervención quirúrgica",
-    "tema_corto": "Exploración y quirófano"
+    "tema_nombre": "Atención y cuidados en las necesidades de eliminación",
+    "tema_corto": "Necesidad de eliminación"
   },
   {
     "pos": 12,
@@ -34794,10 +34794,10 @@
     "parte": "practico",
     "cuadernillo": "2019_pi_cuadernillo",
     "id": "2019-04-27_pi_121",
-    "tema": 25,
+    "tema": 19,
     "bloque": "especifico",
-    "tema_nombre": "Preparación del paciente para exploración o intervención quirúrgica",
-    "tema_corto": "Exploración y quirófano"
+    "tema_nombre": "Muestras biológicas: obtención, conservación y transporte",
+    "tema_corto": "Muestras biológicas"
   },
   {
     "pos": 120,
@@ -39115,10 +39115,10 @@
     "parte": "practico",
     "cuadernillo": "2016_libre_cuadernillo",
     "id": "2016-01-30_libre_117",
-    "tema": 25,
+    "tema": 19,
     "bloque": "especifico",
-    "tema_nombre": "Preparación del paciente para exploración o intervención quirúrgica",
-    "tema_corto": "Exploración y quirófano"
+    "tema_nombre": "Muestras biológicas: obtención, conservación y transporte",
+    "tema_corto": "Muestras biológicas"
   },
   {
     "pos": 116,
@@ -43552,10 +43552,10 @@
     "parte": "practico",
     "cuadernillo": "2016_pi_cuadernillo",
     "id": "2016-01-30_pi_116",
-    "tema": 25,
+    "tema": 19,
     "bloque": "especifico",
-    "tema_nombre": "Preparación del paciente para exploración o intervención quirúrgica",
-    "tema_corto": "Exploración y quirófano"
+    "tema_nombre": "Muestras biológicas: obtención, conservación y transporte",
+    "tema_corto": "Muestras biológicas"
   },
   {
     "pos": 116,

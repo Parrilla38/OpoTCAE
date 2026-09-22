@@ -69,6 +69,8 @@ export interface TemaMeta {
   preguntas: number;
   score_total: number;
   es_clinica?: boolean;
+  /** Presente cuando el tema existe en el temario pero no ha caído nunca. */
+  nota?: string;
 }
 
 export interface Meta {

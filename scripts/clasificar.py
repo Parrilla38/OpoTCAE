@@ -76,6 +76,8 @@ REGLAS: list[tuple[int, re.Pattern]] = [
         r"quemadura|fractura|esguince|luxaci[óo]n|intoxicaci[óo]n|"
         r"hemorragia.*externa|torniquete|vendaje compresivo|"
         r"posici[óo]n lateral de seguridad|"
+        r"carro de parada|cuidados cr[íi]ticos|zona de cuidados|"
+        r"pinzas.*cuerpo extra[ñn]o|cuerpo extra[ñn]o.*v[íi]a a[ée]rea|"
         r"emergencia.*define|definici[óo]n.*emergencia|situaci[óo]n que altera.*orden normal|"
         r"dolor agudo|intensidad del dolor|escala.*dolor|m[ée]todos subjetivos.*dolor",
         re.I)),
@@ -86,7 +88,9 @@ REGLAS: list[tuple[int, re.Pattern]] = [
         r"lesiones por presi[óo]n|escala de norton|escala de braden|escala de waterlow|"
         r"prevenci[óo]n de [úu]lceras|tratamiento de [úu]lceras|"
         r"cura de [úu]lceras|ap[óo]sito|cambio postural.*[úu]lcera|"
-        r"estad[íi]o de la [úu]lcera|grado de la [úu]lcera",
+        r"estad[íi]o de la [úu]lcera|grado de la [úu]lcera|"
+        r"[úu]lceras? iatrog[ée]nicas|iatrog[ée]nica.*piel|"
+        r"escala de.*percepci[óo]n sensorial|humedad.*actividad f[íi]sica",
         re.I)),
 
     # ── T26 · Salud mental ──
@@ -134,7 +138,9 @@ REGLAS: list[tuple[int, re.Pattern]] = [
         r"exploraci[óo]n complementaria|exploraci[óo]n radiol[óo]gica|"
         r"endoscopia|colonoscopia|gastroscopia|broncoscopia|"
         r"radiograf[íi]a|tomograf[íi]a|\bTAC\b|resonancia magn[ée]tica|ecograf[íi]a|"
-        r"punci[óo]n lumbar|biopsia|cateterismo|"
+        r"punci[óo]n lumbar|biopsia|"
+        r"cateterismo (?:card[íi]aco|cardiaco|vascular|venoso|central|arterial)|"
+        r"hemodin[áa]mica|"
         r"rasurado prequir|ayunas prequir|consentimiento quir[úu]rgico|"
         r"bata quir[úu]rgica|gorro quir|campo quir[úu]rgico|"
         r"posici[óo]n quir[úu]rgica|anestesia general|anestesia local|sedaci[óo]n para exploraci",
@@ -150,6 +156,7 @@ REGLAS: list[tuple[int, re.Pattern]] = [
         r"hemograma|bioqu[íi]mica|anal[íi]tica de sangre|extracci[óo]n de sangre|"
         r"punci[óo]n venosa|venopunci[óo]n|extracci[óo]n venosa|"
         r"reacci[óo]n de mantoux|muestra de orina|recogida de orina|recogida de heces|"
+        r"urinocultivo|uocultivo|coprocultivo|"
         r"frasco de recogida|contenedor de muestras|"
         r"estudio.*bioqu[íi]mico|paciente debe.*extracci|ayunas.*extracci|"
         r"error en la identificaci[óo]n de la muestra",
@@ -196,7 +203,8 @@ REGLAS: list[tuple[int, re.Pattern]] = [
         r"equipo de protecci[óo]n individual|\bEPI\b|"
         r"bata de aislamiento|mascarilla.*aislamiento|guantes de aislamiento|"
         r"habitaci[óo]n de aislamiento|presi[óo]n negativa|"
-        r"precauciones de transmisión|precauciones de transmisi[óo]n",
+        r"precauciones de transmisión|precauciones de transmisi[óo]n|"
+        r"elemento.*entrar en la habitaci[óo]n|antes de entrar en la habitaci[óo]n",
         re.I)),
 
     # ── T20 · Necesidad de higiene ──
@@ -217,7 +225,7 @@ REGLAS: list[tuple[int, re.Pattern]] = [
         r"diuresis|medici[óo]n de la diuresis|balance h[íi]drico|"
         r"sonda urinaria|sondaje vesical|bolsa de orina|recogida de orina de 24 horas|"
         r"sonda de foley|sonda de doble v[íi]a|sonda de tres v[íi]a|tipo de sonda|"
-        r"calibre de la sonda|globo de la sonda|"
+        r"calibre de la sonda|globo de la sonda|cateterismo vesical|sonda.*permanencia|"
         r"incontinencia urinaria|incontinencia fecal|"
         r"estre[ñn]imiento|diarrea|catarsis|oclusi[óo]n intestinal|"
         r"cat[áa]rtico|enema|lavativa|"
@@ -273,17 +281,19 @@ REGLAS: list[tuple[int, re.Pattern]] = [
         r"gel hidroalcoh[óo]lico|\bGHA\b|"
         r"infecci[óo]n de v[íi]a urinaria.*sonda|infecci[óo]n de herida quir[úu]rgica|"
         r"neumon[íi]a asociada a ventilaci[óo]n|"
-        r"antibioticoterapia.*profilaxis|resistencia bacteriana",
+        r"antibioticoterapia.*profilaxis|resistencia bacteriana|"
+        r"interacciones.*agente y hu[ée]sped|triada epidemiol[óo]gica|cadena epidemiol[óo]gica",
         re.I)),
 
     # ── T14 · Bioética ──
     (14, re.compile(
-        r"bio[ée]tica|principios bio[ée]ticos|"
+        r"bio[ée]tica|principios? bio[ée]tic|principio bio[ée]tico|"
         r"beneficencia|no maleficencia|"
         r"dilema [ée]tico|conflicto [ée]tico|"
         r"comisi[óo]n de bio[ée]tica|comisi[óo]n deontol[óo]gica|"
         r"c[óo]digo deontol[óo]gico|[ée]tica profesional|"
         r"principio de justicia.*bio[ée]t|principio de autonom[íi]a.*bio[ée]t|"
+        r"justicia.*bio[ée]tic|bio[ée]tic.*justicia|"
         r"investigaci[óo]n biom[ée]dica.*[ée]tic|comit[ée] de [ée]tica",
         re.I)),
 
@@ -462,12 +472,16 @@ REGLAS: list[tuple[int, re.Pattern]] = [
     # anatomía, fisiología, patología, farmacología y obstetricia por ser
     # contenido implícito del título de TCAE (FP de Grado Medio). Se marca
     # como `bloque: "clinica"` para no confundirlo con el temario oficial.
+    #
+    # Esta regla va LA ÚLTIMA y solo debe contener material que no pertenece
+    # a ningún tema oficial. Si se cuela algo de un tema 1-29, el clasificador
+    # pierde esa pregunta: por eso no se mezclan palabras clave de otros temas.
     (30, re.compile(
         r"funciones? (?:del|de la|de los|de las)|[óo]rganos? (?:del|de la)|"
         r"gl[áa]ndula|hormona|hormonas|c[ée]lula[s]?|tejido[s]? |hueso|f[ée]mur|tibia|"
         r"articulaci[óo]n|sinartrosis|diartrosis|anfiartrosis|"
         r"anatom[íi]a|fisiolog[íi]a|patolog[íi]a|histolog[íi]a|"
-        r"metabolismo|metabolitos|[áa]cidos grasos|prote[íi]nas del plasma|"
+        r"metabolismo|metabolitos|"
         r"arteria|vena|nervio|capilar|sistema cardiovascular|sistema nervioso|"
         r"sistema digestivo|sistema respiratorio|sistema musculoesquel[ée]tico|"
         r"sistema endocrino|sistema inmunol[óo]gico|sistema inmunitario|"
@@ -488,15 +502,7 @@ REGLAS: list[tuple[int, re.Pattern]] = [
         r"odontofagia|odinofagia|disfon[íi]a|disnea|taquicardia|bradicardia|"
         r"hemograma|leucocito|hematies?|plaquetas?|hemoglobina|hematocrito|"
         r"c[ée]lulas destructoras del hueso|osteoclasto|osteoblasto|s[íi]nfisis|"
-        r"cuadrantes del abdomen|regi[óo]n.*anat[óo]mica|"
-        r"carro de parada|cuidados cr[íi]ticos|zona de cuidados|"
-        r"pinzas.*cuerpo extra[ñn]o|cuerpo extra[ñn]o.*v[íi]a a[ée]rea|"
-        r"[úu]lceras? iatrog[ée]nicas|iatrog[ée]nico|"
-        r"escala de.*percepci|humedad.*actividad f[íi]sica|"
-        r"principio bio[ée]tico de justicia|"
-        r"interacciones.*agente y hu[ée]sped|triada epidemiol[óo]gica|"
-        r"objetivo de la enfermer[íi]a|idea principal.*enfermer[íi]a|"
-        r"elemento.*entrar en la habitaci[óo]n",
+        r"cuadrantes del abdomen|regi[óo]n.*anat[óo]mica",
         re.I)),
 ]
 

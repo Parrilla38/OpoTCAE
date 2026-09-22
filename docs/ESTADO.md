@@ -132,3 +132,24 @@ cae» si se quiere.
 
 Lo único abierto es la **Fase 4** (multiusuario y estadísticas agregadas), y solo
 si el uso real lo justifica.
+
+## Limpieza de 2026-09-22 (post-Fase 5)
+
+Se cierra la cola de «qué queda por hacer»:
+
+| Qué | Estado |
+|---|---|
+| **Licencia** | ✅ `LICENSE` con MIT para código y documentación, y nota aparte sobre el contenido de examen atribuido al SAS |
+| **Peso al entrar** | ✅ carga diferida: `meta.json` + `examenes.json` (26 KB) al abrir, `clusters.json` al usar Practicar/Aprender/Progreso, `preguntas.json` solo en Exámenes, `conceptos.json` solo al abrir esa pestaña |
+| **SEO** | ✅ `index.html` con contenido estático real (H1/H2 con palabras clave, lista de los temas más pesados, el hallazgo de la repetición), JSON-LD `WebApplication`, Open Graph, `sitemap.xml`, `robots.txt`, canónica |
+| **Runbook** | ✅ `docs/RUNBOOK.md`: cómo añadir una convocatoria nueva, cómo rehacer el análisis, cómo arreglar clasificación y parseo |
+| **Tests del pipeline** | ✅ `tests/test_pipeline.py`, **52 tests**: regresión del clasificador (31 casos con tema esperado), parser de los 4 formatos, y contrato de los JSON exportados |
+| **Offline** | ✅ `public/sw.js` con cache-first para el shell y stale-while-revalidate para `/data/`. Se registra solo en producción |
+| **Iconos PWA** | ✅ `icono-192.png` y `icono-512.png` generados desde el SVG con `web/scripts/genera-iconos.mjs` |
+| **T13 marcado** | ✅ los 29 temas oficiales salen siempre en la lista; si no han caído se muestran atenuados con «Prácticamente no cae» |
+| **Precisión por tema** | ✅ revisada sobre muestra. T22 (89) y T24 (84) están limpios; T25 tenía fugas hacia T21/T19 por `cateterismo` a secas, ya acotado y con test |
+
+**Bug real encontrado por los tests**: el cajón de clínica (T30) se había puesto
+a robar de T14 («principio bioético de justicia») porque llevaba esa frase entre
+sus palabras clave. Los tests lo cazaron al primer `pytest`. T30 ahora solo
+contiene material que no pertenece a ningún tema oficial.

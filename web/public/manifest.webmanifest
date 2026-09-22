@@ -3,11 +3,24 @@
   "short_name": "OpoTCAE",
   "description": "Repasa lo que más se pregunta en los exámenes oficiales de TCAE del Servicio Andaluz de Salud.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#fafaf9",
   "theme_color": "#059669",
   "lang": "es",
   "icons": [
+    {
+      "src": "/icono-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icono-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
     {
       "src": "/favicon.svg",
       "sizes": "any",

@@ -55,22 +55,22 @@ Clústeres: **902** · preguntas: **1504** · repetidas: **526**
 | T10 | TIC en el SAS | 5 | 7 | 0.5% |
 | T11 | La documentación sanitaria | 8 | 10 | 0.7% |
 | T12 | El trabajo en equipo y la comunicación | 23 | 38 | 2.5% |
-| T14 | Principios fundamentales de la Bioética | 11 | 17 | 1.1% |
-| T15 | Higiene hospitalaria e IRA | 18 | 37 | 2.5% |
+| T14 | Principios fundamentales de la Bioética | 12 | 19 | 1.3% |
+| T15 | Higiene hospitalaria e IRA | 19 | 38 | 2.5% |
 | T16 | Limpieza, desinfección y esterilización | 32 | 54 | 3.6% |
-| T17 | El aislamiento hospitalario | 7 | 9 | 0.6% |
+| T17 | El aislamiento hospitalario | 8 | 11 | 0.7% |
 | T18 | Gestión de los residuos sanitarios | 32 | 52 | 3.5% |
-| T19 | Muestras biológicas | 31 | 53 | 3.5% |
+| T19 | Muestras biológicas | 33 | 57 | 3.8% |
 | T20 | Necesidad de higiene | 12 | 27 | 1.8% |
-| T21 | Necesidad de eliminación | 26 | 47 | 3.1% |
+| T21 | Necesidad de eliminación | 27 | 49 | 3.3% |
 | T22 | Necesidad de alimentación | 50 | 89 | 5.9% |
 | T23 | Necesidad de movilización | 25 | 47 | 3.1% |
-| T24 | Úlceras por presión | 49 | 80 | 5.3% |
-| T25 | Exploración y quirófano | 42 | 74 | 4.9% |
+| T24 | Úlceras por presión | 51 | 84 | 5.6% |
+| T25 | Exploración y quirófano | 39 | 68 | 4.5% |
 | T26 | Salud mental | 35 | 58 | 3.9% |
 | T27 | El anciano | 9 | 17 | 1.1% |
 | T28 | Terminal y paliativos | 27 | 39 | 2.6% |
-| T29 | RCP y primeros auxilios | 31 | 61 | 4.1% |
+| T29 | RCP y primeros auxilios | 35 | 68 | 4.5% |
 
 ## Artículos / apartados más preguntados
 
@@ -112,22 +112,22 @@ Conteo de clústeres que citan el artículo. Sirve para priorizar el repaso.
 | T10 | 2 | 2 | · | 1 | · | 2 | **7** |
 | T11 | 1 | 2 | 2 | 3 | 1 | 1 | **10** |
 | T12 | 11 | 9 | · | · | 10 | 8 | **38** |
-| T14 | 2 | · | 4 | · | 7 | 4 | **17** |
-| T15 | 9 | 6 | 16 | 6 | · | · | **37** |
+| T14 | 2 | · | 4 | · | 7 | 6 | **19** |
+| T15 | 9 | 6 | 16 | 6 | · | 1 | **38** |
 | T16 | 8 | 6 | 18 | 5 | 2 | 15 | **54** |
-| T17 | · | · | · | 4 | · | 5 | **9** |
+| T17 | · | · | · | 4 | · | 7 | **11** |
 | T18 | 8 | 10 | 9 | 6 | 14 | 5 | **52** |
-| T19 | 12 | 7 | 13 | 8 | 9 | 6 | **55** |
+| T19 | 14 | 9 | 13 | 8 | 9 | 6 | **59** |
 | T20 | 9 | 11 | 6 | 1 | · | · | **27** |
-| T21 | 11 | 12 | 16 | 4 | 3 | 1 | **47** |
+| T21 | 11 | 14 | 16 | 4 | 3 | 1 | **49** |
 | T22 | 17 | 17 | 20 | 14 | 8 | 13 | **89** |
 | T23 | 13 | 10 | 12 | 3 | 7 | 2 | **47** |
-| T24 | 5 | 17 | 26 | 10 | 13 | 9 | **80** |
-| T25 | 13 | 22 | 14 | 8 | 9 | 8 | **74** |
+| T24 | 5 | 17 | 26 | 10 | 13 | 13 | **84** |
+| T25 | 11 | 18 | 14 | 8 | 9 | 8 | **68** |
 | T26 | 19 | 12 | · | 6 | 12 | 9 | **58** |
 | T27 | 6 | 6 | 2 | 2 | 1 | · | **17** |
 | T28 | 4 | 8 | 6 | 10 | 4 | 7 | **39** |
-| T29 | 14 | 11 | 18 | 2 | 6 | 10 | **61** |
+| T29 | 14 | 11 | 20 | 2 | 7 | 14 | **68** |
 
 ## Repeticiones multi-año (las más persistentes)
 

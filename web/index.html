@@ -4,16 +4,162 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#059669" />
+    <title>OpoTCAE · Lo que más se pregunta en el TCAE de Andalucía</title>
     <meta
       name="description"
-      content="Repasa lo que más se pregunta en los exámenes oficiales de TCAE del Servicio Andaluz de Salud. Test, repaso por temas y exámenes anteriores. Gratis y sin cuenta."
+      content="Preguntas de los exámenes oficiales de TCAE del Servicio Andaluz de Salud. Análisis de 1.539 preguntas de 2016 a 2025 para saber qué temas y artículos se repiten. Test, repaso por temas y exámenes anteriores. Gratis y sin cuenta."
     />
+    <link rel="canonical" href="https://opotcae.vercel.app/" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OpoTCAE" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:url" content="https://opotcae.vercel.app/" />
+    <meta property="og:title" content="OpoTCAE · Lo que más se pregunta en el TCAE de Andalucía" />
+    <meta
+      property="og:description"
+      content="1.539 preguntas de los exámenes oficiales del SAS analizadas para saber qué temas y artículos se repiten. Test, repaso y exámenes anteriores. Gratis y sin cuenta."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="OpoTCAE · Lo que más se pregunta en el TCAE de Andalucía" />
+    <meta
+      name="twitter:description"
+      content="1.539 preguntas de los exámenes oficiales del SAS analizadas para saber qué se repite."
+    />
+
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <title>OpoTCAE · Lo que más se pregunta</title>
+    <link rel="apple-touch-icon" href="/icono-192.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "OpoTCAE",
+        "alternateName": "OpoTCAE · TCAE Andalucía",
+        "url": "https://opotcae.vercel.app/",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requiere un navegador con JavaScript",
+        "inLanguage": "es",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Repaso de las preguntas de los exámenes oficiales de TCAE del Servicio Andaluz de Salud, con el análisis de qué temas y artículos se repiten entre convocatorias.",
+        "about": {
+          "@type": "Thing",
+          "name": "Oposición a Técnico en Cuidados Auxiliares de Enfermería (TCAE) del Servicio Andaluz de Salud"
+        },
+        "audience": {
+          "@type": "EducationalAudience",
+          "educationalRole": "student"
+        }
+      }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <!--
+      Contenido estático que los buscadores leen antes de que arranque la app.
+      React lo sustituye al montar. La experiencia interactiva vive en la SPA.
+    -->
+    <div id="root">
+      <div
+        style="
+          max-width: 40rem;
+          margin: 0 auto;
+          padding: 1.5rem 1rem 3rem;
+          font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+          line-height: 1.55;
+          color: #1c1917;
+        "
+      >
+        <header style="margin-bottom: 1.5rem">
+          <h1 style="font-size: 1.25rem; margin: 0">OpoTCAE</h1>
+          <p style="margin: 0.25rem 0 0; font-size: 0.85rem; color: #57534e">
+            Lo que más se pregunta en el TCAE de Andalucía
+          </p>
+        </header>
+
+        <h2 style="font-size: 1.5rem; margin: 0 0 0.75rem">
+          Preguntas de TCAE Andalucía que más se repiten
+        </h2>
+        <p>
+          Plataforma gratuita para preparar la oposición a
+          <strong>Técnico en Cuidados Auxiliares de Enfermería (TCAE) del Servicio Andaluz de
+          Salud</strong>. Sin cuenta, sin muros de pago y sin publicidad.
+        </p>
+        <p>
+          El material procede de los <strong>exámenes oficiales</strong> publicados por el SAS:
+          hemos analizado <strong>1.539 preguntas</strong> de las convocatorias de
+          <strong>2016 a 2025</strong> para descubrir qué temas, artículos y conceptos se repiten
+          de verdad entre años.
+        </p>
+
+        <h3 style="font-size: 1.1rem; margin: 1.5rem 0 0.5rem">Qué puedes hacer</h3>
+        <ul>
+          <li>
+            <strong>Practicar</strong> con test de 5 a 50 preguntas, con lo que más cae primero, y
+            simulacros cronometrados con penalización como en el examen real.
+          </li>
+          <li>
+            <strong>Aprender</strong> por temas ordenados por peso real en el examen, con el
+            calendario de qué artículo cae en cada convocatoria.
+          </li>
+          <li>
+            <strong>Ver los exámenes anteriores</strong> año por año, con cada pregunta marcada
+            como «nueva este año» o «ya había caído».
+          </li>
+          <li>
+            <strong>Repasar tus fallos</strong> con repasos espaciados: las preguntas vuelven
+            cuando estás a punto de olvidarlas.
+          </li>
+        </ul>
+
+        <h3 style="font-size: 1.1rem; margin: 1.5rem 0 0.5rem">
+          Lo que más se pregunta: temas del TCAE del SAS
+        </h3>
+        <p>
+          Estos son los bloques con más peso según las convocatorias analizadas (temario oficial de
+          29 temas, Resolución de 31 de julio de 2024):
+        </p>
+        <ol>
+          <li>Atención y cuidados en las necesidades de alimentación</li>
+          <li>Atención y cuidados de las úlceras por presión</li>
+          <li>Preparación del paciente para exploración o intervención quirúrgica</li>
+          <li>Reanimación cardiopulmonar básica y primeros auxilios</li>
+          <li>Atención y cuidados al paciente de Salud Mental</li>
+          <li>Limpieza, desinfección y esterilización</li>
+          <li>Muestras biológicas: obtención, conservación y transporte</li>
+          <li>Gestión de los residuos sanitarios</li>
+        </ol>
+        <p>
+          El examen también incluye <strong>anatomía, fisiología, farmacología y clínica</strong>
+          del título de TCAE (FP de Grado Medio), que el temario oficial no enumera pero sí se
+          pregunta.
+        </p>
+
+        <h3 style="font-size: 1.1rem; margin: 1.5rem 0 0.5rem">
+          El hallazgo: casi nunca se repiten las preguntas tal cual
+        </h3>
+        <p>
+          De las 166 preguntas del bloque común, solo <strong>una</strong> vuelve a aparecer
+          idéntica en dos años distintos. Lo que se repite es <strong>el artículo y el concepto</strong>:
+          por ejemplo, el artículo 47 de la Ley de Salud de Andalucía se ha preguntado en 2019 y
+          en 2022 con dos redacciones distintas, y la Ley 41/2002 de autonomía del paciente
+          aparece en diez formulaciones a lo largo de cinco convocatorias.
+        </p>
+        <p>
+          Por eso esta herramienta se centra en <strong>qué artículos y qué conceptos caen</strong>,
+          no en memorizar preguntas sueltas.
+        </p>
+
+        <p style="margin-top: 2rem; font-size: 0.85rem; color: #57534e">
+          Fuente: cuadernillos y plantillas oficiales del Servicio Andaluz de Salud (Junta de
+          Andalucía). Transcripción con fines de estudio. Consulte siempre el original en la web
+          del SAS. Código abierto bajo licencia MIT.
+        </p>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

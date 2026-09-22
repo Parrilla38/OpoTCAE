@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://opotcae.vercel.app/sitemap.xml

@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react";
-import { agrupaPorArticulo, cohesion, porTema } from "../data";
+import { useEffect, useMemo, useState } from "react";
+import { agrupaPorArticulo, cargaConceptos, cohesion, porTema } from "../data";
 import type { Cluster, Concepto, ConceptosData, Letra, Meta } from "../types";
 import { AccionSecundaria, Boton, Etiqueta, Fila, NombreTema, Segmentado } from "../components/ui";
 
@@ -12,15 +12,20 @@ type Vista =
 export default function Aprender({
   clusters,
   meta,
-  conceptos,
 }: {
   clusters: Cluster[];
   meta: Meta;
-  conceptos: ConceptosData | null;
 }) {
   const [pestana, setPestana] = useState<Pestana>("temas");
   const [vista, setVista] = useState<Vista>({ tipo: "lista" });
   const [abierto, setAbierto] = useState<number | null>(null);
+
+  // los conceptos por embeddings (~250 KB) solo se piden al abrir esa pestaña
+  const [conceptos, setConceptos] = useState<ConceptosData | null>(null);
+  useEffect(() => {
+    if (pestana !== "conceptos" || conceptos) return;
+    cargaConceptos().then(setConceptos).catch(() => setConceptos(null));
+  }, [pestana, conceptos]);
 
   const temas = useMemo(() => [...meta.temas].sort((a, b) => b.preguntas - a.preguntas), [meta.temas]);
 
@@ -83,12 +88,18 @@ export default function Aprender({
         <ol className="space-y-2">
           {temas.map((t, i) => {
             const id = t.tema;
+            const sinPreguntas = t.preguntas === 0;
             return (
-              <li key={t.tema ?? t.corto}>
+              <li key={t.tema ?? t.corto} className={sinPreguntas ? "opacity-55" : undefined}>
                 <Fila
                   titulo={t.corto}
-                  detalle={`${t.preguntas} preguntas${id !== null && id <= 10 ? " · bloque común" : ""}`}
+                  detalle={
+                    sinPreguntas
+                      ? "Prácticamente no cae · apenas aparece en los exámenes"
+                      : `${t.preguntas} preguntas${id !== null && id <= 10 ? " · bloque común" : ""}`
+                  }
                   onClick={() => {
+                    if (sinPreguntas) return;
                     if (id === null) {
                       setVista({ tipo: "preguntas", tema: -1, apartado: 0 });
                     } else if (id <= 10) {

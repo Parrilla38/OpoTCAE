@@ -198,6 +198,25 @@ def main() -> int:
     if sin_tema["preguntas"]:
         temas_lista.append(sin_tema)
 
+    # Los 29 temas oficiales aparecen SIEMPRE, aunque no hayan caído: así quien
+    # oposita ve que el tema existe y que no le dedique tiempo de más. Hoy T13
+    # (Atención al usuario) tiene 0 preguntas en el corpus: es un hallazgo, no
+    # un hueco.
+    for t in range(1, 30):
+        if t in por_tema:
+            continue
+        temas_lista.append({
+            "tema": t,
+            "nombre": TEMAS.get(t, ""),
+            "corto": ABREVIATURAS.get(t, ""),
+            "clusters": 0,
+            "preguntas": 0,
+            "score_total": 0.0,
+            "es_clinica": False,
+            "nota": "prácticamente no cae",
+        })
+    temas_lista.sort(key=lambda d: (-d["preguntas"], d["tema"] if d["tema"] is not None else 99))
+
     meta = {
         "fuente": FUENTE,
         "aviso": (

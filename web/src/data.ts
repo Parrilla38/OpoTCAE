@@ -1,49 +1,44 @@
 import type { Cluster, ConceptosData, Examen, Meta, Pregunta } from "./types";
 
-let _clusters: Cluster[] | null = null;
-let _preguntas: Pregunta[] | null = null;
-let _examenes: Examen[] | null = null;
-let _meta: Meta | null = null;
-let _conceptos: ConceptosData | null = null;
+/** Caché en memoria de los JSON, para no repetir fetch. */
+const caché: Record<string, unknown> = {};
 
 async function carga<T>(ruta: string): Promise<T> {
+  if (ruta in caché) return caché[ruta] as T;
   const res = await fetch(ruta);
   if (!res.ok) throw new Error(`No se pudo cargar ${ruta} (${res.status})`);
-  return (await res.json()) as T;
+  const datos = (await res.json()) as T;
+  caché[ruta] = datos;
+  return datos;
 }
 
-export async function cargaTodo(): Promise<{
-  clusters: Cluster[];
-  preguntas: Pregunta[];
-  examenes: Examen[];
-  meta: Meta;
-  conceptos: ConceptosData | null;
-}> {
-  if (_clusters && _preguntas && _examenes && _meta) {
-    return {
-      clusters: _clusters,
-      preguntas: _preguntas,
-      examenes: _examenes,
-      meta: _meta,
-      conceptos: _conceptos,
-    };
-  }
-  const [clusters, preguntas, examenes, meta, conceptos] = await Promise.all([
-    carga<Cluster[]>("data/clusters.json"),
-    carga<Pregunta[]>("data/preguntas.json"),
-    carga<Examen[]>("data/examenes.json"),
+/**
+ * Ligero: solo lo imprescindible para pintar la interfaz.
+ * ~26 KB. Lo demás va bajo demanda para no atascar el móvil.
+ */
+export async function cargaBase(): Promise<{ meta: Meta; examenes: Examen[] }> {
+  const [meta, examenes] = await Promise.all([
     carga<Meta>("data/meta.json"),
-    carga<ConceptosData>("data/conceptos.json").catch(() => null),
+    carga<Examen[]>("data/examenes.json"),
   ]);
-  _clusters = clusters;
-  _preguntas = preguntas;
-  _examenes = examenes;
-  _meta = meta;
-  _conceptos = conceptos;
-  return { clusters, preguntas, examenes, meta, conceptos };
+  return { meta, examenes };
 }
 
-/** Alta/Media/Baja cohesión intra-grupo según la similitud de coseno. */
+/** Preguntas agrupadas (~955 KB). Para Practicar, Aprender y Mi progreso. */
+export function cargaClusters(): Promise<Cluster[]> {
+  return carga<Cluster[]>("data/clusters.json");
+}
+
+/** Preguntas por convocatoria (~1,2 MB). Solo la vista Exámenes. */
+export function cargaPreguntas(): Promise<Pregunta[]> {
+  return carga<Pregunta[]>("data/preguntas.json");
+}
+
+/** Conceptos por embeddings (~250 KB). Solo la pestaña Conceptos. */
+export function cargaConceptos(): Promise<ConceptosData | null> {
+  return carga<ConceptosData | null>("data/conceptos.json");
+}
+
 export function cohesion(sim: number): "alta" | "media" | "baja" {
   if (sim >= 0.85) return "alta";
   if (sim >= 0.78) return "media";
@@ -71,9 +66,4 @@ export function agrupaPorArticulo(clusters: Cluster[]): Map<number, Cluster[]> {
     }
   }
   return m;
-}
-
-export function textoRespuesta(c: { opciones: Record<string, string>; correcta: string | null }, letra: string | null): string {
-  if (!letra) return "—";
-  return c.opciones[letra] ?? "—";
 }
