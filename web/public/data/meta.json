@@ -16,7 +16,8 @@
       "corto": "Constitución",
       "clusters": 8,
       "preguntas": 9,
-      "score_total": 11.25
+      "score_total": 11.25,
+      "es_clinica": false
     },
     {
       "tema": 2,
@@ -24,39 +25,44 @@
       "corto": "Estatuto Andalucía",
       "clusters": 7,
       "preguntas": 9,
-      "score_total": 11.25
+      "score_total": 11.25,
+      "es_clinica": false
     },
     {
       "tema": 3,
       "nombre": "Organización sanitaria (I): SSPA",
       "corto": "Organización sanitaria I",
-      "clusters": 28,
-      "preguntas": 43,
-      "score_total": 56.0
+      "clusters": 21,
+      "preguntas": 31,
+      "score_total": 40.0,
+      "es_clinica": false
     },
     {
       "tema": 4,
       "nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
       "corto": "Organización sanitaria II",
-      "clusters": 17,
-      "preguntas": 26,
-      "score_total": 32.5
+      "clusters": 11,
+      "preguntas": 16,
+      "score_total": 20.0,
+      "es_clinica": false
     },
     {
       "tema": 5,
       "nombre": "Protección de datos y transparencia",
       "corto": "Protección de datos",
-      "clusters": 6,
-      "preguntas": 7,
-      "score_total": 8.75
+      "clusters": 5,
+      "preguntas": 6,
+      "score_total": 7.5,
+      "es_clinica": false
     },
     {
       "tema": 6,
       "nombre": "Prevención de riesgos laborales",
       "corto": "Prevención riesgos",
-      "clusters": 15,
-      "preguntas": 19,
-      "score_total": 23.75
+      "clusters": 20,
+      "preguntas": 26,
+      "score_total": 32.5,
+      "es_clinica": false
     },
     {
       "tema": 7,
@@ -64,41 +70,216 @@
       "corto": "Igualdad y violencia género",
       "clusters": 3,
       "preguntas": 3,
-      "score_total": 3.75
+      "score_total": 3.75,
+      "es_clinica": false
     },
     {
       "tema": 8,
       "nombre": "Estatuto Marco del personal estatutario",
       "corto": "Estatuto Marco",
-      "clusters": 9,
-      "preguntas": 10,
-      "score_total": 12.5
+      "clusters": 7,
+      "preguntas": 8,
+      "score_total": 10.0,
+      "es_clinica": false
     },
     {
       "tema": 9,
       "nombre": "Autonomía del paciente y derechos y deberes",
       "corto": "Autonomía del paciente",
-      "clusters": 21,
-      "preguntas": 32,
-      "score_total": 40.0
+      "clusters": 16,
+      "preguntas": 28,
+      "score_total": 37.5,
+      "es_clinica": false
     },
     {
       "tema": 10,
       "nombre": "TIC en el SAS",
       "corto": "TIC SAS",
-      "clusters": 6,
-      "preguntas": 8,
-      "score_total": 10.0
+      "clusters": 5,
+      "preguntas": 7,
+      "score_total": 8.75,
+      "es_clinica": false
+    },
+    {
+      "tema": 11,
+      "nombre": "La documentación sanitaria",
+      "corto": "Documentación sanitaria",
+      "clusters": 8,
+      "preguntas": 10,
+      "score_total": 12.5,
+      "es_clinica": false
+    },
+    {
+      "tema": 12,
+      "nombre": "El trabajo en equipo y la comunicación",
+      "corto": "Equipo y comunicación",
+      "clusters": 23,
+      "preguntas": 38,
+      "score_total": 48.25,
+      "es_clinica": false
+    },
+    {
+      "tema": 14,
+      "nombre": "Principios fundamentales de la Bioética",
+      "corto": "Bioética",
+      "clusters": 11,
+      "preguntas": 17,
+      "score_total": 21.25,
+      "es_clinica": false
+    },
+    {
+      "tema": 15,
+      "nombre": "Higiene hospitalaria e IRA",
+      "corto": "Higiene hospitalaria / IRA",
+      "clusters": 18,
+      "preguntas": 37,
+      "score_total": 50.75,
+      "es_clinica": false
+    },
+    {
+      "tema": 16,
+      "nombre": "Limpieza, desinfección y esterilización",
+      "corto": "Limpieza y esterilización",
+      "clusters": 32,
+      "preguntas": 54,
+      "score_total": 68.5,
+      "es_clinica": false
+    },
+    {
+      "tema": 17,
+      "nombre": "El aislamiento hospitalario",
+      "corto": "Aislamiento hospitalario",
+      "clusters": 7,
+      "preguntas": 9,
+      "score_total": 11.25,
+      "es_clinica": false
+    },
+    {
+      "tema": 18,
+      "nombre": "Gestión de los residuos sanitarios",
+      "corto": "Residuos sanitarios",
+      "clusters": 32,
+      "preguntas": 52,
+      "score_total": 66.5,
+      "es_clinica": false
+    },
+    {
+      "tema": 19,
+      "nombre": "Muestras biológicas",
+      "corto": "Muestras biológicas",
+      "clusters": 31,
+      "preguntas": 53,
+      "score_total": 68.0,
+      "es_clinica": false
+    },
+    {
+      "tema": 20,
+      "nombre": "Necesidad de higiene",
+      "corto": "Necesidad de higiene",
+      "clusters": 12,
+      "preguntas": 27,
+      "score_total": 36.25,
+      "es_clinica": false
+    },
+    {
+      "tema": 21,
+      "nombre": "Necesidad de eliminación",
+      "corto": "Necesidad de eliminación",
+      "clusters": 26,
+      "preguntas": 47,
+      "score_total": 59.75,
+      "es_clinica": false
+    },
+    {
+      "tema": 22,
+      "nombre": "Necesidad de alimentación",
+      "corto": "Necesidad de alimentación",
+      "clusters": 50,
+      "preguntas": 89,
+      "score_total": 115.75,
+      "es_clinica": false
+    },
+    {
+      "tema": 23,
+      "nombre": "Necesidad de movilización",
+      "corto": "Necesidad de movilización",
+      "clusters": 25,
+      "preguntas": 47,
+      "score_total": 60.75,
+      "es_clinica": false
+    },
+    {
+      "tema": 24,
+      "nombre": "Úlceras por presión",
+      "corto": "Úlceras por presión",
+      "clusters": 49,
+      "preguntas": 80,
+      "score_total": 102.5,
+      "es_clinica": false
+    },
+    {
+      "tema": 25,
+      "nombre": "Exploración y quirófano",
+      "corto": "Exploración y quirófano",
+      "clusters": 42,
+      "preguntas": 74,
+      "score_total": 94.25,
+      "es_clinica": false
+    },
+    {
+      "tema": 26,
+      "nombre": "Salud mental",
+      "corto": "Salud mental",
+      "clusters": 35,
+      "preguntas": 58,
+      "score_total": 73.5,
+      "es_clinica": false
+    },
+    {
+      "tema": 27,
+      "nombre": "El anciano",
+      "corto": "El anciano",
+      "clusters": 9,
+      "preguntas": 17,
+      "score_total": 22.25,
+      "es_clinica": false
+    },
+    {
+      "tema": 28,
+      "nombre": "Terminal y paliativos",
+      "corto": "Terminal y paliativos",
+      "clusters": 27,
+      "preguntas": 39,
+      "score_total": 49.5,
+      "es_clinica": false
+    },
+    {
+      "tema": 29,
+      "nombre": "RCP y primeros auxilios",
+      "corto": "RCP y primeros auxilios",
+      "clusters": 31,
+      "preguntas": 61,
+      "score_total": 79.75,
+      "es_clinica": false
+    },
+    {
+      "tema": null,
+      "nombre": "Otros y sin clasificar",
+      "corto": "Otros",
+      "clusters": 331,
+      "preguntas": 552,
+      "score_total": 702.75,
+      "es_clinica": true
     }
   ],
   "totales": {
-    "preguntas": 166,
-    "clusters": 120,
-    "repetidos": 43,
-    "multi_anio": 3,
+    "preguntas": 1504,
+    "clusters": 902,
+    "repetidos": 526,
+    "multi_anio": 46,
     "examenes": 13,
     "conceptos_multi_anio": 123,
     "conceptos": 486
   },
-  "score_formula": "frecuencia * (1 + 0.25 * anios_diferentes)"
+  "score_formula": "frecuencia × (1 + 0.25 × años_diferentes)"
 }

@@ -29,20 +29,45 @@ TEMAS = {
     8: "Estatuto Marco del personal estatutario",
     9: "Autonomía del paciente y derechos y deberes",
     10: "TIC en el SAS",
+    11: "La documentación sanitaria",
+    12: "El trabajo en equipo y la comunicación",
+    13: "La atención al usuario",
+    14: "Principios fundamentales de la Bioética",
+    15: "Higiene hospitalaria e IRA",
+    16: "Limpieza, desinfección y esterilización",
+    17: "El aislamiento hospitalario",
+    18: "Gestión de los residuos sanitarios",
+    19: "Muestras biológicas",
+    20: "Necesidad de higiene",
+    21: "Necesidad de eliminación",
+    22: "Necesidad de alimentación",
+    23: "Necesidad de movilización",
+    24: "Úlceras por presión",
+    25: "Exploración y quirófano",
+    26: "Salud mental",
+    27: "El anciano",
+    28: "Terminal y paliativos",
+    29: "RCP y primeros auxilios",
 }
 
 ABREVIATURAS = {
-    1: "Constitución",
-    2: "Estatuto Andalucía",
-    3: "Organización sanitaria I",
-    4: "Organización sanitaria II",
-    5: "Protección de datos",
-    6: "Prevención riesgos",
-    7: "Igualdad y violencia género",
-    8: "Estatuto Marco",
-    9: "Autonomía del paciente",
-    10: "TIC SAS",
+    1: "Constitución", 2: "Estatuto Andalucía", 3: "Organización sanitaria I",
+    4: "Organización sanitaria II", 5: "Protección de datos", 6: "Prevención riesgos",
+    7: "Igualdad y violencia género", 8: "Estatuto Marco", 9: "Autonomía del paciente",
+    10: "TIC SAS", 11: "Documentación sanitaria", 12: "Equipo y comunicación",
+    13: "Atención al usuario", 14: "Bioética", 15: "Higiene hospitalaria / IRA",
+    16: "Limpieza y esterilización", 17: "Aislamiento hospitalario", 18: "Residuos sanitarios",
+    19: "Muestras biológicas", 20: "Necesidad de higiene", 21: "Necesidad de eliminación",
+    22: "Necesidad de alimentación", 23: "Necesidad de movilización", 24: "Úlceras por presión",
+    25: "Exploración y quirófano", 26: "Salud mental", 27: "El anciano",
+    28: "Terminal y paliativos", 29: "RCP y primeros auxilios",
 }
+
+# Clínica y anatomía: NO es uno de los 29 temas oficiales del BOJA 153.
+# Es contenido transversal del título de TCAE (FP de Grado Medio) que el
+# examen sí pregunta. Se marca aparte para no confundirlo con el temario.
+NOMBRE_CLINICA = "Anatomía, fisiología y clínica"
+CORTO_CLINICA = "Anatomía y clínica"
 
 FUENTE = "Servicio Andaluz de Salud (Junta de Andalucía)"
 
@@ -60,7 +85,7 @@ def main() -> int:
 
     preguntas_out = []
     for p in preguntas:
-        if p.get("bloque") != "comun" or p.get("anulada"):
+        if p.get("anulada"):
             continue
         cluster_id = None
         for cid, ids in ids_por_cluster.items():
@@ -82,6 +107,8 @@ def main() -> int:
             "parte": p.get("parte"),
             "tema": p.get("tema"),
             "tema_nombre": p.get("tema_nombre"),
+            "tema_corto": p.get("tema_corto"),
+            "bloque": p.get("bloque"),
         })
 
     clusters_out = []
@@ -90,7 +117,8 @@ def main() -> int:
             "cluster_id": c["cluster_id"],
             "tema": c.get("tema"),
             "tema_nombre": c.get("tema_nombre"),
-            "tema_corto": ABREVIATURAS.get(c.get("tema"), ""),
+            "tema_corto": ABREVIATURAS.get(c.get("tema"))
+            or (CORTO_CLINICA if not c.get("tema") else ""),
             "enunciado": c["enunciado"],
             "opciones": c["opciones"],
             "correcta": c.get("correcta"),
@@ -130,23 +158,45 @@ def main() -> int:
 
     # meta: temas con conteos, años, totales
     por_tema: dict[int, dict] = {}
+    clinica = {"tema": None, "nombre": "Anatomía, fisiología y clínica", "corto": "Anatomía y clínica",
+               "clusters": 0, "preguntas": 0, "score_total": 0.0, "es_clinica": True}
+    sin_tema = {"tema": None, "nombre": "Otros y sin clasificar", "corto": "Otros",
+                "clusters": 0, "preguntas": 0, "score_total": 0.0, "es_clinica": True}
     for c in clusters_out:
         t = c["tema"]
-        if t is None:
-            continue
-        d = por_tema.setdefault(t, {
-            "tema": t,
-            "nombre": TEMAS.get(t, ""),
-            "corto": ABREVIATURAS.get(t, ""),
-            "clusters": 0,
-            "preguntas": 0,
-            "score_total": 0.0,
-        })
-        d["clusters"] += 1
-        d["preguntas"] += c["frecuencia"]
-        d["score_total"] += c["score"]
-    for d in por_tema.values():
+        nombre = (c.get("tema_nombre") or "").lower()
+        if t is not None:
+            d = por_tema.setdefault(t, {
+                "tema": t,
+                "nombre": TEMAS.get(t, ""),
+                "corto": ABREVIATURAS.get(t, ""),
+                "clusters": 0,
+                "preguntas": 0,
+                "score_total": 0.0,
+                "es_clinica": False,
+            })
+            d["clusters"] += 1
+            d["preguntas"] += c["frecuencia"]
+            d["score_total"] += c["score"]
+        elif "anatom" in nombre or "clínic" in nombre or "clinic" in nombre or "fisiolog" in nombre:
+            clinica["clusters"] += 1
+            clinica["preguntas"] += c["frecuencia"]
+            clinica["score_total"] += c["score"]
+        else:
+            # Sin tema oficial asignado: anatomía, farmacología y clínica que el
+            # temario del BOJA 153 no enumera. Se agrupan como «Otros» para no
+            # inventar un tema que no existe.
+            sin_tema["clusters"] += 1
+            sin_tema["preguntas"] += c["frecuencia"]
+            sin_tema["score_total"] += c["score"]
+    for d in list(por_tema.values()) + [clinica, sin_tema]:
         d["score_total"] = round(d["score_total"], 2)
+
+    temas_lista = [por_tema[t] for t in sorted(por_tema)]
+    if clinica["preguntas"]:
+        temas_lista.append(clinica)
+    if sin_tema["preguntas"]:
+        temas_lista.append(sin_tema)
 
     meta = {
         "fuente": FUENTE,
@@ -156,7 +206,7 @@ def main() -> int:
             "Consulte siempre el original en la web del SAS."
         ),
         "anios": sorted({p["anio"] for p in preguntas_out}),
-        "temas": [por_tema[t] for t in sorted(por_tema)],
+        "temas": temas_lista,
         "totales": {
             "preguntas": len(preguntas_out),
             "clusters": len(clusters_out),
@@ -164,7 +214,7 @@ def main() -> int:
             "multi_anio": sum(1 for c in clusters_out if c["n_anios"] >= 2),
             "examenes": len(examenes_out),
         },
-        "score_formula": "frecuencia * (1 + 0.25 * anios_diferentes)",
+        "score_formula": "frecuencia × (1 + 0.25 × años_diferentes)",
     }
 
     (DESTINO / "clusters.json").write_text(

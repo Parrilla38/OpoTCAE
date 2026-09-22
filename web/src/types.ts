@@ -48,6 +48,8 @@ export interface Pregunta {
   parte: string | null;
   tema: number | null;
   tema_nombre: string | null;
+  tema_corto?: string | null;
+  bloque?: string;
 }
 
 export interface Examen {
@@ -60,12 +62,13 @@ export interface Examen {
 }
 
 export interface TemaMeta {
-  tema: number;
+  tema: number | null;
   nombre: string;
   corto: string;
   clusters: number;
   preguntas: number;
   score_total: number;
+  es_clinica?: boolean;
 }
 
 export interface Meta {

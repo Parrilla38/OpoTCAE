@@ -34,6 +34,25 @@ TEMAS = {
     8: "Estatuto Marco del personal estatutario",
     9: "Autonomía del paciente y derechos y deberes",
     10: "TIC en el SAS",
+    11: "La documentación sanitaria",
+    12: "El trabajo en equipo y la comunicación",
+    13: "La atención al usuario",
+    14: "Principios fundamentales de la Bioética",
+    15: "Higiene hospitalaria e IRA",
+    16: "Limpieza, desinfección y esterilización",
+    17: "El aislamiento hospitalario",
+    18: "Gestión de los residuos sanitarios",
+    19: "Muestras biológicas",
+    20: "Necesidad de higiene",
+    21: "Necesidad de eliminación",
+    22: "Necesidad de alimentación",
+    23: "Necesidad de movilización",
+    24: "Úlceras por presión",
+    25: "Exploración y quirófano",
+    26: "Salud mental",
+    27: "El anciano",
+    28: "Terminal y paliativos",
+    29: "RCP y primeros auxilios",
 }
 
 RE_ART = re.compile(r"art(?:[íi]cul?)?o?\s*n[úu]m\.?\s*(\d{1,3})|art(?:[íi]cul?)?o?\s*\.?\s*(\d{1,3})", re.I)
@@ -61,10 +80,30 @@ def similitud(a: str, b: str) -> float:
     return SequenceMatcher(None, a, b).ratio()
 
 
+def agrupa(pares_similares: list[tuple[str, str]], claves: list[str]) -> dict[str, str]:
+    """Une cadenas con Union-Find sobre los pares ya aceptados. O(n·α)."""
+    padre = {k: k for k in claves}
+
+    def busca(x: str) -> str:
+        while padre[x] != x:
+            padre[x] = padre[padre[x]]
+            x = padre[x]
+        return x
+
+    for a, b in pares_similares:
+        ra, rb = busca(a), busca(b)
+        if ra != rb:
+            padre[ra] = rb
+    raices: dict[str, str] = {}
+    for k in claves:
+        raices[k] = busca(k)
+    return raices
+
+
 def main() -> int:
     preguntas = json.loads(SALIDA.read_text(encoding="utf-8"))
-    comunes = [p for p in preguntas if p.get("bloque") == "comun" and not p.get("anulada")]
-    print(f"preguntas de bloque común: {len(comunes)}")
+    comunes = [p for p in preguntas if not p.get("anulada")]
+    print(f"preguntas analizadas: {len(comunes)}")
 
     # normaliza y etiqueta artículos (solo del enunciado: en las opciones
     # aparecen números de leyes ajenas que ensucian el conteo)
@@ -77,33 +116,31 @@ def main() -> int:
     for p in comunes:
         por_norm[p["_norm"]].append(p)
 
-    clusters: list[dict] = []
-    usados: set[str] = set()
-    for norm, grupo in sorted(por_norm.items(), key=lambda kv: -len(kv[1])):
-        if norm in usados:
-            continue
-        miembros = list(grupo)
-        usados.add(norm)
-        clusters.append({"clave": norm, "miembros": miembros, "match": "exacto"})
-    # fuzzy: une clústeres pequeños a los grandes si la similitud es alta
-    final: list[dict] = []
-    asignado: set[str] = set()
-    for c in sorted(clusters, key=lambda c: -len(c["miembros"])):
-        if c["clave"] in asignado:
-            continue
-        agregados = [c]
-        asignado.add(c["clave"])
-        for otro in clusters:
-            if otro["clave"] in asignado:
+    claves = sorted(por_norm.keys(), key=lambda k: -len(por_norm[k]))
+    # fuzzy solo entre claves de longitud similar y comparten algún token:
+    # evita comparar las ~120k parejas y baja de minutos a segundos.
+    tokens = {k: set(k.split()) for k in claves}
+    pares_sim: list[tuple[str, str]] = []
+    for i, a in enumerate(claves):
+        for b in claves[i + 1:]:
+            if abs(len(a) - len(b)) > 40:
                 continue
-            if similitud(c["clave"], otro["clave"]) >= 0.85:
-                agregados.append(otro)
-                asignado.add(otro["clave"])
-        miembros = [p for a in agregados for p in a["miembros"]]
-        tipo = "exacto" if len(agregados) == 1 else "exacto+fuzzy"
-        if len(agregados) == 1 and len(c["miembros"]) == 1:
-            tipo = "unico"
-        final.append({"miembros": miembros, "match": tipo})
+            ta, tb = tokens[a], tokens[b]
+            if not ta or not tb:
+                continue
+            inter = len(ta & tb)
+            if inter == 0 or inter / min(len(ta), len(tb)) < 0.4:
+                continue
+            if similitud(a, b) >= 0.85:
+                pares_sim.append((a, b))
+    raices = agrupa(pares_sim, claves)
+
+    grupos: dict[str, list[dict]] = defaultdict(list)
+    for k in claves:
+        grupos[raices[k]].extend(por_norm[k])
+
+    final = [{"miembros": m, "match": "exacto" if len({x["_norm"] for x in m}) == 1 else "exacto+fuzzy"}
+             for m in grupos.values()]
 
     # ── métricas por clúster ──
     for c in final:
@@ -113,6 +150,8 @@ def main() -> int:
         c["n_años"] = len(años)
         c["score"] = round(c["frecuencia"] * (1 + 0.25 * len(años)), 2)
         c["tema"] = c["miembros"][0].get("tema")
+        c["tema_nombre"] = c["miembros"][0].get("tema_nombre")
+        c["tema_corto"] = c["miembros"][0].get("tema_corto")
         c["enunciado"] = c["miembros"][0]["enunciado"]
         c["correcta"] = c["miembros"][0].get("correcta")
         arts: set[int] = set()
@@ -180,7 +219,7 @@ def main() -> int:
                f"repetidos: **{sum(1 for c in salida_clusters if c['frecuencia'] > 1)}**")
     lin.append("")
     for tema in sorted(por_tema):
-        lin.append(f"## Tema {tema} — {TEMAS[tema]}")
+        lin.append(f"## Tema {tema} — {TEMAS.get(tema, 'Sin título')}")
         lin.append("")
         lin.append("| # | frec | años | score | enunciado | correcta |")
         lin.append("|---|------|------|-------|-----------|----------|")
@@ -248,11 +287,15 @@ def main() -> int:
     lin.append("")
     lin.append("| Tema | Art. | frec | años | ejemplo de enunciado |")
     lin.append("|------|------|------|------|---------------------|")
-    arts_ord = sorted(articulos_conteo.values(), key=lambda d: (-d["frecuencia"], d["tema"], d["art"]))
+    arts_ord = sorted(
+        articulos_conteo.values(),
+        key=lambda d: (-d["frecuencia"], d["tema"] or 0, d["art"]),
+    )
     for d in arts_ord[:30]:
         años = ",".join(str(a) for a in sorted(d["años"]))
         ejemplo = d["enunciados"][0].replace("|", "/")
-        lin.append(f"| T{d['tema']:02d} | {d['art']} | {d['frecuencia']} | {años} | {ejemplo} |")
+        etiqueta_tema = f"T{d['tema']:02d}" if d["tema"] else "clínica"
+        lin.append(f"| {etiqueta_tema} | {d['art']} | {d['frecuencia']} | {años} | {ejemplo} |")
     lin.append("")
 
     lin.append("## Heatmap tema × año (preguntas del bloque común)")

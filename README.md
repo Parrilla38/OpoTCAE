@@ -1,20 +1,24 @@
 # OpoTCAE · Lo que más se repite en los exámenes de TCAE (Andalucía)
 
-Plataforma gratuita para repasar las preguntas del bloque común (Temas 1-10) de
-los **exámenes oficiales de TCAE del Servicio Andaluz de Salud**, analizando
-qué artículos y conceptos son los que de verdad se repiten convocatoria tras
+Plataforma gratuita para repasar lo que más se pregunta en los **exámenes
+oficiales de TCAE del Servicio Andaluz de Salud**, con los 29 temas del temario
+oficial y el análisis de qué artículos y conceptos se repiten convocatoria tras
 convocatoria.
 
 Sin cuenta, sin cookies de seguimiento, sin muros de pago. El progreso se queda
 en tu navegador.
+
+**Empieza en <https://opotcae.vercel.app/>**
 
 ---
 
 ## El hallazgo que ordena todo el proyecto
 
 Se analizaron **1.539 preguntas** de las convocatorias oficiales de **2016 a
-2025** (2008 queda archivado: estructura no comparable). Del bloque común salen
-**166 preguntas** agrupadas en **120 clústeres**.
+2025** (2008 queda archivado: estructura no comparable). Con ellas se cubren los
+**29 temas del temario oficial**, más un bloque de **anatomía y clínica** que el
+examen pregunta pero que el temario no enumera (es contenido implícito del
+título de TCAE).
 
 > **La repetición *literal* entre años es casi nula: 1 sola pregunta de 166.**
 
@@ -42,13 +46,14 @@ coincidencia literal de enunciado.
 
 ## Modos de estudio
 
-| Modo | Qué hace |
+Cuatro pantallas, pensadas para que en un toque sepas qué hacer.
+
+| Pantalla | Qué hace |
 |---|---|
-| **🎯 Test** | Test libre configurable (5/10/25/50 preguntas, banco filtrable, penalización 0 · ¼ SAS · ⅓, cronómetro opcional) y **⏱ Simulacro** con condiciones de examen (50 preguntas, 60 min, penaliza ¼). Muestreo ponderado por score. Corrección con referencia de artículo y norma. |
-| **📖 Repaso** | Tres pestañas: **Temas** (peso real → artículos → preguntas), **Heatmap** artículo × año clicable, y **Conceptos** con las formulaciones agrupadas por embeddings y su cohesión (alta / media / baja). |
-| **🗓️ Exámenes** | Por año y convocatoria. Cada pregunta va marcada como **«Nueva este año»** o **«Ya había caído»**. |
-| **🃏 Tarjetas** | **Hoy**: repetición espaciada SM-2 sobre tus errores (botones Otra vez / Difícil / Bien / Fácil, con calendario de repaso). **Tarjetas**: las 166 preguntas ordenadas por peso, con «+ Añadir a mis tarjetas». |
-| **📊 Stats** | Nota media, dominio por tema, últimos intentos, y exportación a `.md` / impresión para repaso en papel. |
+| **🎯 Practicar** | Un botón grande para empezar. Test de 5/10/25/50 preguntas con lo que más cae primero, y **simulacro** como el examen (50 preguntas, 60 min, penaliza el error). Ajustes avanzados desplegados bajo «Cambiar preguntas». |
+| **📖 Aprender** | Lo que más se pregunta, por tema y en orden de peso real. Y la vista **Conceptos**: preguntas que el tribunal repite con otras palabras. |
+| **🗓 Exámenes** | Qué preguntó el tribunal cada convocatoria, con cada pregunta marcada como **«Nueva este año»** o **«Ya había caído»**. |
+| **👤 Mi progreso** | Repaso del día con repasos espaciados (vuelven cuando estés a punto de olvidarlas), tus tarjetas, tus datos y descarga en `.md` para repasar en papel. |
 
 Extras: modo oscuro, PWA instalable, diseño móvil-first. El progreso se guarda
 solo en el navegador (`localStorage`), sin cuenta ni servidor.
@@ -163,10 +168,10 @@ supuestos prácticos de 55) queda archivado por no ser comparable.
 En producción en **<https://opotcae.vercel.app/>**.
 
 - [x] **Fase 0** — inventario y extracción de 45 PDFs oficiales
-- [x] **Fase 1** — parseo, clasificación por tema, clustering literal y radar del bloque común
-- [x] **Fase 2** — MVP web con los cinco modos
-- [x] **Fase 3** — matching semántico (123 conceptos multi-año), heatmap artículo × año, simulacro cronometrado, repetición espaciada SM-2 y flashcards
+- [x] **Fase 1** — parseo, clasificación por tema, clustering literal y radar
+- [x] **Fase 2** — MVP web con los modos de estudio
+- [x] **Fase 3** — matching semántico (123 conceptos multi-año), repetición espaciada y tarjetas
+- [x] **Fase 5** — los 29 temas del temario oficial + pasada de UX
 - [ ] **Fase 4** — multiusuario y estadísticas agregadas (solo si el uso lo justifica)
-- [ ] **Fase 5** — expansión a los Temas 11-29 (bloque específico)
 
 Pendiente: nombre y dominio definitivos, y verificación de la Ley 37/2007.
