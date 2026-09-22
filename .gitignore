@@ -1,0 +1,28 @@
+# Dependencias y artefactos de build
+node_modules/
+dist/
+.vercel/
+*.log
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# PDFs oficiales del SAS: no se redistribuyen.
+# Se re-descargan con `python scripts/descargar.py`.
+# Pendiente de verificar la Ley 37/2007 de reutilización.
+data/pdfs/
+
+# Texto extraído de los PDFs: derivado y regenerable con `extraer_pdf.py`.
+data/raw/
+
+# Andamiaje de Parra OS, no forma parte de este proyecto.
+wiki/
+
+# Sistema
+.DS_Store
+Thumbs.db
+.env
+.env.*
+
+# Artefactos de build de TypeScript
+*.tsbuildinfo

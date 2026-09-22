@@ -1,0 +1,4243 @@
+[
+  {
+    "cluster_id": 1,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "Con las nuevas tendencias de atención a la salud, impulsadas por la Ley General de Sanidad de 1986 (LGS), los Servicios de Salud Mental deben dar respuesta a la prevención primaria, secundaria y terciaria, para lo que han de tener como objetivos:",
+    "opciones": {
+      "A": "Evitar la enfermedad mental.",
+      "B": "Diagnosticar su procedencia.",
+      "C": "Influir en el mapa sanitario de la zona.",
+      "D": "Conseguir que el enfermo psíquico se integre en la sociedad."
+    },
+    "correcta": "B",
+    "frecuencia": 4,
+    "anios": [
+      2016,
+      2019
+    ],
+    "n_anios": 2,
+    "score": 6.0,
+    "articulos": [],
+    "match": "exacto+fuzzy",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_089",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 89,
+        "correcta": "B"
+      },
+      {
+        "id": "2019-04-27_pi_089",
+        "exam_id": "2019-04-27_pi",
+        "anio": 2019,
+        "modalidad": "pi",
+        "numero": 89,
+        "correcta": "B"
+      },
+      {
+        "id": "2016-01-30_libre_087",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 87,
+        "correcta": "A"
+      },
+      {
+        "id": "2016-01-30_pi_086",
+        "exam_id": "2016-01-30_pi",
+        "anio": 2016,
+        "modalidad": "pi",
+        "numero": 86,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 2,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "El Nodo de coordinación del Biobanco del SSPA, se encuentra en la provincia de:",
+    "opciones": {
+      "A": "Sevilla.",
+      "B": "Málaga.",
+      "C": "Cádiz.",
+      "D": "Granada."
+    },
+    "correcta": "D",
+    "frecuencia": 3,
+    "anios": [
+      2016,
+      2022
+    ],
+    "n_anios": 2,
+    "score": 4.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_031",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 31,
+        "correcta": "D"
+      },
+      {
+        "id": "2016-01-30_libre_020",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 20,
+        "correcta": "A"
+      },
+      {
+        "id": "2016-01-30_pi_004",
+        "exam_id": "2016-01-30_pi",
+        "anio": 2016,
+        "modalidad": "pi",
+        "numero": 4,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 3,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "El Artículo 47 de la Ley de Salud de Andalucía (Ley 2/1998, de 15 de junio) determina que el Sistema Sanitario Público de Andalucía se organiza en demarcaciones territoriales denominadas:",
+    "opciones": {
+      "A": "Zonas Básicas de Salud.",
+      "B": "Áreas Hospitalarias.",
+      "C": "Áreas de Salud.",
+      "D": "Áreas de Gestión Sanitaria."
+    },
+    "correcta": "C",
+    "frecuencia": 2,
+    "anios": [
+      2019,
+      2022
+    ],
+    "n_anios": 2,
+    "score": 3.0,
+    "articulos": [
+      47
+    ],
+    "match": "exacto+fuzzy",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_003",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 3,
+        "correcta": "C"
+      },
+      {
+        "id": "2019-04-27_libre_008",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 8,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 4,
+    "tema": 6,
+    "tema_nombre": "Prevención de riesgos laborales",
+    "tema_corto": "Prevención riesgos",
+    "enunciado": "Definimos \"ergonomía\" como:",
+    "opciones": {
+      "A": "La ciencia que estudia y analiza los aspectos temporales y organizativos del trabajo.",
+      "B": "El conjunto de técnicas que intentan adaptar el trabajo a las características de producción.",
+      "C": "El conjunto de técnicas que tienen como objetivo adecuar el puesto de trabajo al individuo teniendo en cuenta sus condiciones físicas o psíquicas.",
+      "D": "La desviación de lo aceptable como ergonómico o confortable para el trabajador."
+    },
+    "correcta": "C",
+    "frecuencia": 2,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2025-06-07_libre_021",
+        "exam_id": "2025-06-07_libre",
+        "anio": 2025,
+        "modalidad": "libre",
+        "numero": 21,
+        "correcta": "C"
+      },
+      {
+        "id": "2025-06-07_pi_021",
+        "exam_id": "2025-06-07_pi",
+        "anio": 2025,
+        "modalidad": "pi",
+        "numero": 21,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 5,
+    "tema": 6,
+    "tema_nombre": "Prevención de riesgos laborales",
+    "tema_corto": "Prevención riesgos",
+    "enunciado": "¿Cuáles son los síntomas conductuales que sufren los profesionales sanitarios como consecuencia del síndrome de burnout?",
+    "opciones": {
+      "A": "Sentimientos de soledad, alineación, impotencia, omnipotencia y ansiedad.",
+      "B": "Apatía, hostilidad, cinismo y suspicacia.",
+      "C": "Alteraciones inmunológicas (alergia, infecciones, problemas dermatológicos).",
+      "D": "Aislamiento profesional, agresividad, cambios bruscos de humor, enfado frecuente, irritabilidad, baja autoestima, falta de motivación."
+    },
+    "correcta": "D",
+    "frecuencia": 2,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2025-06-07_libre_022",
+        "exam_id": "2025-06-07_libre",
+        "anio": 2025,
+        "modalidad": "libre",
+        "numero": 22,
+        "correcta": "D"
+      },
+      {
+        "id": "2025-06-07_pi_022",
+        "exam_id": "2025-06-07_pi",
+        "anio": 2025,
+        "modalidad": "pi",
+        "numero": 22,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 6,
+    "tema": 4,
+    "tema_nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+    "tema_corto": "Organización sanitaria II",
+    "enunciado": "Cuando citamos el decreto de ordenación administrativa y funcional de los servicios de Salud Mental en el ámbito del Servicio Andaluz de Salud, nos referimos al:",
+    "opciones": {
+      "A": "Decreto 80/2009, de 6 de Julio.",
+      "B": "Decreto 100/2007, de 14 de Febrero.",
+      "C": "Decreto 02/2010, de 07 de Noviembre.",
+      "D": "Decreto 77/2008, de 4 de Marzo."
+    },
+    "correcta": "D",
+    "frecuencia": 2,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2025-06-07_libre_070",
+        "exam_id": "2025-06-07_libre",
+        "anio": 2025,
+        "modalidad": "libre",
+        "numero": 70,
+        "correcta": "D"
+      },
+      {
+        "id": "2025-06-07_pi_070",
+        "exam_id": "2025-06-07_pi",
+        "anio": 2025,
+        "modalidad": "pi",
+        "numero": 70,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 7,
+    "tema": 2,
+    "tema_nombre": "Estatuto de Autonomía para Andalucía",
+    "tema_corto": "Estatuto Andalucía",
+    "enunciado": "¿Quién integra la Junta de Andalucía?",
+    "opciones": {
+      "A": "Parlamento de Andalucía.",
+      "B": "Presidencia de la Junta.",
+      "C": "Consejo de Gobierno.",
+      "D": "Todos los anteriores."
+    },
+    "correcta": "D",
+    "frecuencia": 2,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2024-02-10_centros-sas_001",
+        "exam_id": "2024-02-10_centros-sas",
+        "anio": 2024,
+        "modalidad": "centros_sas",
+        "numero": 1,
+        "correcta": "D"
+      },
+      {
+        "id": "2024-02-10_apes_001",
+        "exam_id": "2024-02-10_apes",
+        "anio": 2024,
+        "modalidad": "apes",
+        "numero": 1,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 8,
+    "tema": 1,
+    "tema_nombre": "Constitución Española de 1978",
+    "tema_corto": "Constitución",
+    "enunciado": "¿Cuál es el plazo, pasado el cual, si ningún candidato alcanza la mayoría necesaria para ser nombrado Presidente del Gobierno, se debe proceder a la convocatoria de nuevas elecciones?",
+    "opciones": {
+      "A": "Dos meses desde la tercera votación.",
+      "B": "Dos meses desde la segunda votación.",
+      "C": "Dos meses desde la primera votación.",
+      "D": "Un mes desde la primera votación."
+    },
+    "correcta": "C",
+    "frecuencia": 2,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2024-02-10_centros-sas_002",
+        "exam_id": "2024-02-10_centros-sas",
+        "anio": 2024,
+        "modalidad": "centros_sas",
+        "numero": 2,
+        "correcta": "C"
+      },
+      {
+        "id": "2024-02-10_apes_002",
+        "exam_id": "2024-02-10_apes",
+        "anio": 2024,
+        "modalidad": "apes",
+        "numero": 2,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 9,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "Según el artículo 55 de la Ley 14/1986, de 25 de abril, ¿a quién corresponde regular la organización, funciones y asignación de medios naturales y personales de cada uno de los Servicios de Salud?",
+    "opciones": {
+      "A": "A las Diputaciones Provinciales.",
+      "B": "A los Ayuntamientos.",
+      "C": "Al Estado, a través del Ministerio de Sanidad.",
+      "D": "A las Comunidades Autónomas."
+    },
+    "correcta": "D",
+    "frecuencia": 2,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [
+      55
+    ],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2024-02-10_centros-sas_003",
+        "exam_id": "2024-02-10_centros-sas",
+        "anio": 2024,
+        "modalidad": "centros_sas",
+        "numero": 3,
+        "correcta": "D"
+      },
+      {
+        "id": "2024-02-10_apes_003",
+        "exam_id": "2024-02-10_apes",
+        "anio": 2024,
+        "modalidad": "apes",
+        "numero": 3,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 10,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "Según la ley 2/1998, de 15 de junio, de Salud de Andalucía, los ciudadanos tienen derecho a:",
+    "opciones": {
+      "A": "Al acceso a su historial clínico.",
+      "B": "A negarse, siempre que lo desee, a un tratamiento médico indistintamente de la causa que lo genere.",
+      "C": "A una habitación individual.",
+      "D": "A las prestaciones de salud individual, siempre que estén al día en las prestaciones de la seguridad social."
+    },
+    "correcta": "A",
+    "frecuencia": 2,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2024-02-10_centros-sas_004",
+        "exam_id": "2024-02-10_centros-sas",
+        "anio": 2024,
+        "modalidad": "centros_sas",
+        "numero": 4,
+        "correcta": "A"
+      },
+      {
+        "id": "2024-02-10_apes_004",
+        "exam_id": "2024-02-10_apes",
+        "anio": 2024,
+        "modalidad": "apes",
+        "numero": 4,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 11,
+    "tema": 8,
+    "tema_nombre": "Estatuto Marco del personal estatutario",
+    "tema_corto": "Estatuto Marco",
+    "enunciado": "La negociación colectiva del personal estatutario se articula a través de:",
+    "opciones": {
+      "A": "Mesas sectoriales de negociación de cada uno de los Servicios de Salud.",
+      "B": "Juntas de personal y delegados de personal.",
+      "C": "Sindicatos.",
+      "D": "Comités de empresas y delegados de personal."
+    },
+    "correcta": "A",
+    "frecuencia": 2,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2024-02-10_centros-sas_005",
+        "exam_id": "2024-02-10_centros-sas",
+        "anio": 2024,
+        "modalidad": "centros_sas",
+        "numero": 5,
+        "correcta": "A"
+      },
+      {
+        "id": "2024-02-10_apes_005",
+        "exam_id": "2024-02-10_apes",
+        "anio": 2024,
+        "modalidad": "apes",
+        "numero": 5,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 12,
+    "tema": 5,
+    "tema_nombre": "Protección de datos y transparencia",
+    "tema_corto": "Protección de datos",
+    "enunciado": "Según la vigente Ley de Protección de Datos Personales y garantía de los derechos digitales (Ley Orgánica 3/2018), la siguiente definición: \" Dato que no puede asociarse a una persona identificada o identificable, por haberse destruido el nexo con toda información que identifique al sujeto, o porque dicha asociación exige un esfuerzo no razonable, entendiendo por tal el empleo de una cantidad de tiempo, gastos y trabajo desproporcionados\", se refiera a:",
+    "opciones": {
+      "A": "Dato anónimo.",
+      "B": "Dato codificado o reversiblemente disociado.",
+      "C": "Dato anonimizado o irreversiblemente disociado.",
+      "D": "Dato consentido."
+    },
+    "correcta": "C",
+    "frecuencia": 2,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2024-02-10_centros-sas_007",
+        "exam_id": "2024-02-10_centros-sas",
+        "anio": 2024,
+        "modalidad": "centros_sas",
+        "numero": 7,
+        "correcta": "C"
+      },
+      {
+        "id": "2024-02-10_apes_007",
+        "exam_id": "2024-02-10_apes",
+        "anio": 2024,
+        "modalidad": "apes",
+        "numero": 7,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 13,
+    "tema": 2,
+    "tema_nombre": "Estatuto de Autonomía para Andalucía",
+    "tema_corto": "Estatuto Andalucía",
+    "enunciado": "La persona titular de un biobanco de la Junta de Andalucía, ¿a quién tiene que solicitar el cierre del biobanco del que posee la titularidad?",
+    "opciones": {
+      "A": "Al presidente de la Junta de Andalucía.",
+      "B": "A la Consejería de Gobernación de la Junta de Andalucía.",
+      "C": "Al órgano competente para autorizar la constitución y funcionamiento de los biobancos en Andalucía.",
+      "D": "Al ministro de Sanidad (o persona titular del ministerio competente en materia de salud)."
+    },
+    "correcta": "C",
+    "frecuencia": 2,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2024-02-10_centros-sas_008",
+        "exam_id": "2024-02-10_centros-sas",
+        "anio": 2024,
+        "modalidad": "centros_sas",
+        "numero": 8,
+        "correcta": "C"
+      },
+      {
+        "id": "2024-02-10_apes_008",
+        "exam_id": "2024-02-10_apes",
+        "anio": 2024,
+        "modalidad": "apes",
+        "numero": 8,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 14,
+    "tema": 4,
+    "tema_nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+    "tema_corto": "Organización sanitaria II",
+    "enunciado": "En un accidente laboral con exposición a sangre y fluidos corporales contaminados, un TCAE deberá:",
+    "opciones": {
+      "A": "Comunicar a su Director de UGC o Mando Intermedio correspondiente el accidente el mismo día del suceso, y entregar cumplimentado el Protocolo de Actuación Sanitaria en Accidentes Biológicos del centro (PASAB).",
+      "B": "Inmediatamente después de producirse el contacto accidental con sangre y fluidos corporales, deberá quitarse los guantes y notificarlo a su Director de UGC o Mando Intermedio correspondiente.",
+      "C": "Comunicar a su Director de UGC o Mando Intermedio correspondiente el accidente el mismo día y turno del suceso, y entregar debidamente cumplimentado el documento de Comunicación de Accidentes de Trabajo e Incidentes (CATI).",
+      "D": "En ausencia del Director de la UGC o Mando Intermedio si no está presente (ej: sábados, domingo, festivos, ausencias justificadas, etc.) comunicará el accidente el día posterior al suceso, y entregará debidamente cumplimentado el CATI."
+    },
+    "correcta": "C",
+    "frecuencia": 2,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2024-02-10_centros-sas_017",
+        "exam_id": "2024-02-10_centros-sas",
+        "anio": 2024,
+        "modalidad": "centros_sas",
+        "numero": 17,
+        "correcta": "C"
+      },
+      {
+        "id": "2024-02-10_apes_017",
+        "exam_id": "2024-02-10_apes",
+        "anio": 2024,
+        "modalidad": "apes",
+        "numero": 17,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 15,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "Dentro de los \"principios de la Bioética\", el consentimiento informado estaría dentro del principio de:",
+    "opciones": {
+      "A": "Justicia.",
+      "B": "No maleficencia.",
+      "C": "Autonomía.",
+      "D": "Beneficencia."
+    },
+    "correcta": "C",
+    "frecuencia": 2,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2024-02-10_centros-sas_018",
+        "exam_id": "2024-02-10_centros-sas",
+        "anio": 2024,
+        "modalidad": "centros_sas",
+        "numero": 18,
+        "correcta": "C"
+      },
+      {
+        "id": "2024-02-10_apes_018",
+        "exam_id": "2024-02-10_apes",
+        "anio": 2024,
+        "modalidad": "apes",
+        "numero": 18,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 16,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "El Biobanco del Sistema Sanitario Público de Andalucía (SSPA), en su área de tejidos, sustancias y muestras biológicas para investigación, está organizado como un biobanco en red formado por:",
+    "opciones": {
+      "A": "Nodos asociados.",
+      "B": "Puntos asociados.",
+      "C": "Focos asociados.",
+      "D": "Centros asociados."
+    },
+    "correcta": "A",
+    "frecuencia": 2,
+    "anios": [
+      2021
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2021-12-19_libre_002",
+        "exam_id": "2021-12-19_libre",
+        "anio": 2021,
+        "modalidad": "libre",
+        "numero": 2,
+        "correcta": "A"
+      },
+      {
+        "id": "2021-12-19_pi_002",
+        "exam_id": "2021-12-19_pi",
+        "anio": 2021,
+        "modalidad": "pi",
+        "numero": 2,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 17,
+    "tema": 6,
+    "tema_nombre": "Prevención de riesgos laborales",
+    "tema_corto": "Prevención riesgos",
+    "enunciado": "La función de vigilancia y control de la normativa sobre prevención de riesgos laborales corresponde:",
+    "opciones": {
+      "A": "A la Dirección General de Personal.",
+      "B": "A la Delegación Provincial de Trabajo.",
+      "C": "A la Inspección de Trabajo y Seguridad Social.",
+      "D": "Al Servicio de Medicina Preventiva."
+    },
+    "correcta": "C",
+    "frecuencia": 2,
+    "anios": [
+      2021
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2021-12-19_libre_006",
+        "exam_id": "2021-12-19_libre",
+        "anio": 2021,
+        "modalidad": "libre",
+        "numero": 6,
+        "correcta": "C"
+      },
+      {
+        "id": "2021-12-19_pi_006",
+        "exam_id": "2021-12-19_pi",
+        "anio": 2021,
+        "modalidad": "pi",
+        "numero": 6,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 18,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "¿Cuál es la ley básica reguladora de la autonomía del paciente y de derechos y obligaciones en materia de información y documentación clínica?",
+    "opciones": {
+      "A": "La Ley 14/2001, de 14 de noviembre.",
+      "B": "La Ley 41/2002, de 14 de noviembre.",
+      "C": "La Ley 30/2010, de 9 de junio.",
+      "D": "La Ley 33/2010, de 9 de junio."
+    },
+    "correcta": "B",
+    "frecuencia": 2,
+    "anios": [
+      2021
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2021-12-19_libre_011",
+        "exam_id": "2021-12-19_libre",
+        "anio": 2021,
+        "modalidad": "libre",
+        "numero": 11,
+        "correcta": "B"
+      },
+      {
+        "id": "2021-12-19_pi_011",
+        "exam_id": "2021-12-19_pi",
+        "anio": 2021,
+        "modalidad": "pi",
+        "numero": 11,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 19,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "Señale la opción INCORRECTA en relación al Biobanco del Sistema Sanitario Público de Andalucía:",
+    "opciones": {
+      "A": "Funciona bajo un marco ético común.",
+      "B": "Tiene un funcionamiento en red.",
+      "C": "Posee una estructura organizativa única.",
+      "D": "Su actividad está centralizada."
+    },
+    "correcta": "D",
+    "frecuencia": 2,
+    "anios": [
+      2021
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2021-12-19_libre_026",
+        "exam_id": "2021-12-19_libre",
+        "anio": 2021,
+        "modalidad": "libre",
+        "numero": 26,
+        "correcta": "D"
+      },
+      {
+        "id": "2021-12-19_pi_026",
+        "exam_id": "2021-12-19_pi",
+        "anio": 2021,
+        "modalidad": "pi",
+        "numero": 26,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 20,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "¿Cuál de las siguientes intervenciones NO corresponde a la fase del postoperatorio inmediato?",
+    "opciones": {
+      "A": "Registro de ingresos y pérdidas.",
+      "B": "Control de temperatura.",
+      "C": "Observación del estado general y nivel de conciencia.",
+      "D": "Revisión de consentimiento informado."
+    },
+    "correcta": "D",
+    "frecuencia": 2,
+    "anios": [
+      2021
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2021-12-19_libre_050",
+        "exam_id": "2021-12-19_libre",
+        "anio": 2021,
+        "modalidad": "libre",
+        "numero": 50,
+        "correcta": "D"
+      },
+      {
+        "id": "2021-12-19_pi_050",
+        "exam_id": "2021-12-19_pi",
+        "anio": 2021,
+        "modalidad": "pi",
+        "numero": 50,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 21,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "¿Cuál es la función primordial de la B.D.U.?",
+    "opciones": {
+      "A": "Disponer de un procedimiento del uso de historia clínica.",
+      "B": "Asignar a cada ciudadano un número único de historia clínica de Andalucía (NUHSA).",
+      "C": "Conocer las prestaciones sanitarias públicas.",
+      "D": "Tener un censo de la población."
+    },
+    "correcta": "B",
+    "frecuencia": 2,
+    "anios": [
+      2021
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2021-12-19_libre_058",
+        "exam_id": "2021-12-19_libre",
+        "anio": 2021,
+        "modalidad": "libre",
+        "numero": 58,
+        "correcta": "B"
+      },
+      {
+        "id": "2021-12-19_pi_058",
+        "exam_id": "2021-12-19_pi",
+        "anio": 2021,
+        "modalidad": "pi",
+        "numero": 58,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 22,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "De las siguientes recomendaciones para garantizar la confidencialidad durante la atención sanitaria, señala la FALSA:",
+    "opciones": {
+      "A": "Informar a los pacientes y/o personas autorizadas en lugares reservados y adecuados para ello, fuera del alcance de personas ajenas.",
+      "B": "Adoptar medidas de seguridad para una localización y acceso restringido a las historias clínicas.",
+      "C": "Definir claves colectivas de acceso a la historia clínica digital.",
+      "D": "Disponer de un procedimiento de acceso y uso de la historia clínica así como de un procedimiento para la destrucción de los registros clínicos."
+    },
+    "correcta": "C",
+    "frecuencia": 2,
+    "anios": [
+      2021
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2021-12-19_libre_059",
+        "exam_id": "2021-12-19_libre",
+        "anio": 2021,
+        "modalidad": "libre",
+        "numero": 59,
+        "correcta": "C"
+      },
+      {
+        "id": "2021-12-19_pi_059",
+        "exam_id": "2021-12-19_pi",
+        "anio": 2021,
+        "modalidad": "pi",
+        "numero": 59,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 23,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "¿Qué nombre recibe el sistema que se utiliza en el Servicio Andaluz de Salud como soporte de la historia clínica electrónica y que integra toda la información de salud de cada una de las personas atendidas en los centros sanitarios?",
+    "opciones": {
+      "A": "BDU.",
+      "B": "Diraya.",
+      "C": "ClicSalud+.",
+      "D": "Programa Gacela."
+    },
+    "correcta": "B",
+    "frecuencia": 2,
+    "anios": [
+      2021
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2021-12-19_libre_061",
+        "exam_id": "2021-12-19_libre",
+        "anio": 2021,
+        "modalidad": "libre",
+        "numero": 61,
+        "correcta": "B"
+      },
+      {
+        "id": "2021-12-19_pi_061",
+        "exam_id": "2021-12-19_pi",
+        "anio": 2021,
+        "modalidad": "pi",
+        "numero": 61,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 24,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "El Biobanco del SSPA depende de:",
+    "opciones": {
+      "A": "La presidencia de la junta de Andalucía.",
+      "B": "Consejería de Salud y Familias.",
+      "C": "El Servicio Andaluz de Salud.",
+      "D": "El Parlamento de Andalucía."
+    },
+    "correcta": "A",
+    "frecuencia": 2,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_012",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 12,
+        "correcta": "A"
+      },
+      {
+        "id": "2019-04-27_pi_012",
+        "exam_id": "2019-04-27_pi",
+        "anio": 2019,
+        "modalidad": "pi",
+        "numero": 12,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 25,
+    "tema": 10,
+    "tema_nombre": "TIC en el SAS",
+    "tema_corto": "TIC SAS",
+    "enunciado": "El núcleo de la aplicación informática Diraya se estructura en:",
+    "opciones": {
+      "A": "En la base de datos de usuarios (BDU)",
+      "B": "En la historia digital de salud del usuario (HDS)",
+      "C": "En el módulo de tratamiento de información (MTI)",
+      "D": "Todas las respuestas son correctas."
+    },
+    "correcta": "C",
+    "frecuencia": 2,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_014",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 14,
+        "correcta": "C"
+      },
+      {
+        "id": "2019-04-27_pi_014",
+        "exam_id": "2019-04-27_pi",
+        "anio": 2019,
+        "modalidad": "pi",
+        "numero": 14,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 26,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "¿Cuál es la función primordial de la base de datos del usuario BDU?",
+    "opciones": {
+      "A": "Conocer las prestaciones sanitarias publicas.",
+      "B": "Disponer de un procedimiento del uso de historia clínica.",
+      "C": "Asignar a cada ciudadanos un numero único de historia clínica de Andalucía (NUHSA)",
+      "D": "Crear una base de datos epidemiológicas y estadísticas."
+    },
+    "correcta": "C",
+    "frecuencia": 2,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_015",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 15,
+        "correcta": "C"
+      },
+      {
+        "id": "2019-04-27_pi_015",
+        "exam_id": "2019-04-27_pi",
+        "anio": 2019,
+        "modalidad": "pi",
+        "numero": 15,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 27,
+    "tema": 6,
+    "tema_nombre": "Prevención de riesgos laborales",
+    "tema_corto": "Prevención riesgos",
+    "enunciado": "Ante un accidente laboral con exposición a sangre o fluidos corporales, se deben aplicar una serie de medidas u acciones. ¿Cuál es la primera de ellas?",
+    "opciones": {
+      "A": "Terminar la técnica que estábamos realizando.",
+      "B": "Comprobar el estado inmunológico del paciente.",
+      "C": "Limpieza de la herida con Iodoforos.",
+      "D": "Comunicación al servicio de prevención."
+    },
+    "correcta": "A",
+    "frecuencia": 2,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_024",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 24,
+        "correcta": "A"
+      },
+      {
+        "id": "2019-04-27_pi_024",
+        "exam_id": "2019-04-27_pi",
+        "anio": 2019,
+        "modalidad": "pi",
+        "numero": 24,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 28,
+    "tema": 4,
+    "tema_nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+    "tema_corto": "Organización sanitaria II",
+    "enunciado": "Son objetivos generales de la atención a la salud mental en el ámbito del Servicio Andaluz de Salud:",
+    "opciones": {
+      "A": "Promocionar la salud mental, la prevención de la enfermedad, la asistencia, los cuidados y la rehabilitación de las personas con problemas de salud mental.",
+      "B": "Desarrollar en todos los dispositivos asistenciales de atención a la salud mental, programas y actividades de rehabilitación.",
+      "C": "Garantizar la continuidad de la atención sanitaria, de cuidados y el apoyo a la integración social.",
+      "D": "Todos los anteriores, son objetivos generales de la atención a la salud mental en el ámbito del Servicio Andaluz de Salud."
+    },
+    "correcta": "A",
+    "frecuencia": 2,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_086",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 86,
+        "correcta": "A"
+      },
+      {
+        "id": "2019-04-27_pi_086",
+        "exam_id": "2019-04-27_pi",
+        "anio": 2019,
+        "modalidad": "pi",
+        "numero": 86,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 29,
+    "tema": 4,
+    "tema_nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+    "tema_corto": "Organización sanitaria II",
+    "enunciado": "De acuerdo con lo establecido los procedimientos del Plan de Gestión de Residuos del Servicio Andaluz de Salud, los Viales y jeringas con restos de la vacuna y las vacunas caducadas serán eliminadas como:",
+    "opciones": {
+      "A": "Grupo II. Residuos Generales asimilables a urbanos.",
+      "B": "Grupo II A. Residuos sanitarios asimilables a urbanos.",
+      "C": "Grupo III A. Residuos peligrosos sanitarios.",
+      "D": "Grupo III.B. Residuos químicos y citostáticos."
+    },
+    "correcta": "D",
+    "frecuencia": 2,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_141",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 141,
+        "correcta": "D"
+      },
+      {
+        "id": "2019-04-27_pi_141",
+        "exam_id": "2019-04-27_pi",
+        "anio": 2019,
+        "modalidad": "pi",
+        "numero": 141,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 30,
+    "tema": 4,
+    "tema_nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+    "tema_corto": "Organización sanitaria II",
+    "enunciado": "Mateo acude al centro de salud a su pediatra para la vacunación de sarampión ¿que reacciones adversas pueden aparecer por este motivo?",
+    "opciones": {
+      "A": "Problemas de hígado, cirrosis, cáncer de hígado.",
+      "B": "Meningitis, inflamación testicular.",
+      "C": "Neumonía, encefalitis.",
+      "D": "Diarrea, infecciones de oído, neumonía, encefalitis, convulsiones y muerte."
+    },
+    "correcta": "B",
+    "frecuencia": 2,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_142",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 142,
+        "correcta": "B"
+      },
+      {
+        "id": "2019-04-27_pi_142",
+        "exam_id": "2019-04-27_pi",
+        "anio": 2019,
+        "modalidad": "pi",
+        "numero": 142,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 31,
+    "tema": 4,
+    "tema_nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+    "tema_corto": "Organización sanitaria II",
+    "enunciado": "Al desplazarse a un centro sanitario de la Zona Básica a la que pertenece su Centro de Salud, observa que delante del centro una niña juega con unas amigas y cae al suelo cortándose con un cristal. ¿Cuál sería la manera más correcta de detener la hemorragia?",
+    "opciones": {
+      "A": "Realizando un torniquete.",
+      "B": "Aplicando frío.",
+      "C": "Aplicando solución antiséptica.",
+      "D": "Comprimiendo con un apósito limpio."
+    },
+    "correcta": "B",
+    "frecuencia": 2,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_144",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 144,
+        "correcta": "B"
+      },
+      {
+        "id": "2019-04-27_pi_144",
+        "exam_id": "2019-04-27_pi",
+        "anio": 2019,
+        "modalidad": "pi",
+        "numero": 144,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 32,
+    "tema": 4,
+    "tema_nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+    "tema_corto": "Organización sanitaria II",
+    "enunciado": "A la hora del descanso reglamentario en su centro de salud, se dirige a un Bar Restaurante cercano donde habitualmente desayuna. Allí se encuentra con una persona que sufre un atragantamiento. Parece una obstrucción parcial. Se lleva las manos a la garganta. Tras darle 5 golpes interscapulares que no han sido efectivos, ¿qué harías?",
+    "opciones": {
+      "A": "Pedir ayuda.",
+      "B": "Maniobra de Heimlich.",
+      "C": "Masaje cardiaco.",
+      "D": "Comenzar maniobra RCP."
+    },
+    "correcta": "A",
+    "frecuencia": 2,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_145",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 145,
+        "correcta": "A"
+      },
+      {
+        "id": "2019-04-27_pi_145",
+        "exam_id": "2019-04-27_pi",
+        "anio": 2019,
+        "modalidad": "pi",
+        "numero": 145,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 33,
+    "tema": 4,
+    "tema_nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+    "tema_corto": "Organización sanitaria II",
+    "enunciado": "El medico de familia de su centro de Salud tras la valoración de un paciente que ha acudido a su consulta decide debe ser atendido por los servicios de atención a la salud mental , ¿a qué unidad lo debe derivar?",
+    "opciones": {
+      "A": "Hospital de día de salud mental.",
+      "B": "Comunidad terapéutica de salud mental.",
+      "C": "Unidad de hospitalización de salud mental.",
+      "D": "Unidad de salud mental comunitaria."
+    },
+    "correcta": "C",
+    "frecuencia": 2,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_148",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 148,
+        "correcta": "C"
+      },
+      {
+        "id": "2019-04-27_pi_148",
+        "exam_id": "2019-04-27_pi",
+        "anio": 2019,
+        "modalidad": "pi",
+        "numero": 148,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 34,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "Según el artículo 95 de la Ley 14/1986, General de Sanidad, corresponde valorar la idoneidad sanitaria de los medicamentos, tanto para autorizar su circulación y uso como para controlar su calidad:",
+    "opciones": {
+      "A": "Administración Sanitaria del Estado.",
+      "B": "Administración Sanitaria Comunidad autónoma.",
+      "C": "Consejo interterritorial de Salud.",
+      "D": "Agencia Europea del Medicamento."
+    },
+    "correcta": "A",
+    "frecuencia": 2,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [
+      95
+    ],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_153",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 153,
+        "correcta": "A"
+      },
+      {
+        "id": "2019-04-27_pi_153",
+        "exam_id": "2019-04-27_pi",
+        "anio": 2019,
+        "modalidad": "pi",
+        "numero": 153,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 35,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "La visión de los Biobancos del sistema sanitario público de Andalucía(SSPA) es:",
+    "opciones": {
+      "A": "Ofrecer al usuario las mayores y mejores opciones de productos sanguíneos y derivados",
+      "B": "Mantener el espíritu de servicio público, accesible, abierto y cercano al usuario, orientado a sus necesidades que genera confianza",
+      "C": "Disponer de una estructura moderna, adaptable, competitiva y capaz de dar respuesta o cualquier requerimiento y expectativa en este campo. Ser un referente nacional e internacional por calidad y eficiencia en el servicio",
+      "D": "Ser transparente en el funcionamiento y no tener ánimo de lucro"
+    },
+    "correcta": "D",
+    "frecuencia": 2,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_017",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 17,
+        "correcta": "D"
+      },
+      {
+        "id": "2016-01-30_pi_001",
+        "exam_id": "2016-01-30_pi",
+        "anio": 2016,
+        "modalidad": "pi",
+        "numero": 1,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 36,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "Los valores de los Biobancos del SSPA son:",
+    "opciones": {
+      "A": "Ser transparentes en el funcionamiento",
+      "B": "Compromiso con la sociedad en mantener el rigor científico-técnico y en mejora continua",
+      "C": "Buscar la sostenibilidad",
+      "D": "Todas las respuestas son correctas"
+    },
+    "correcta": "C",
+    "frecuencia": 2,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_018",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 18,
+        "correcta": "C"
+      },
+      {
+        "id": "2016-01-30_pi_002",
+        "exam_id": "2016-01-30_pi",
+        "anio": 2016,
+        "modalidad": "pi",
+        "numero": 2,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 37,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "La constitución y funcionamiento de los Biobancos, con fines de investigación en Andalucía, se regula por:",
+    "opciones": {
+      "A": "Ley 14/2007 de 18 de Noviembre",
+      "B": "Real Decreto 1720/2007 de 21 de Diciembre",
+      "C": "Decreto 1/2013 de 8 de Enero",
+      "D": "Ley 41/2002 de 14 Noviembre"
+    },
+    "correcta": "D",
+    "frecuencia": 2,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_019",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 19,
+        "correcta": "D"
+      },
+      {
+        "id": "2016-01-30_pi_003",
+        "exam_id": "2016-01-30_pi",
+        "anio": 2016,
+        "modalidad": "pi",
+        "numero": 3,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 38,
+    "tema": 4,
+    "tema_nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+    "tema_corto": "Organización sanitaria II",
+    "enunciado": "La cartera de Servicios del Biobanco se fundamenta en cinco pilares. Señala la correcta",
+    "opciones": {
+      "A": "Provisión, procesamiento, preservación y custodia de muestras, asesoramiento y formación",
+      "B": "Formación, asesoramiento, custodia de muestras, eficacia y seguridad",
+      "C": "Procesamiento, preservación, procedimiento, transformación, investigación",
+      "D": "Multiplicación, investigación, procesamiento, formación, seguridad"
+    },
+    "correcta": "D",
+    "frecuencia": 2,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_021",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 21,
+        "correcta": "D"
+      },
+      {
+        "id": "2016-01-30_pi_031",
+        "exam_id": "2016-01-30_pi",
+        "anio": 2016,
+        "modalidad": "pi",
+        "numero": 31,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 39,
+    "tema": 10,
+    "tema_nombre": "TIC en el SAS",
+    "tema_corto": "TIC SAS",
+    "enunciado": "La finalidad del proyecto Diraya es:",
+    "opciones": {
+      "A": "Conseguir una historia digital de salud única",
+      "B": "Gestionar las agendas de atención de consultas y pruebas diagnosticas",
+      "C": "Seguimiento de todos los tratamientos indicados",
+      "D": "Todas las respuestas son correctas"
+    },
+    "correcta": "B",
+    "frecuencia": 2,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_022",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 22,
+        "correcta": "B"
+      },
+      {
+        "id": "2016-01-30_pi_006",
+        "exam_id": "2016-01-30_pi",
+        "anio": 2016,
+        "modalidad": "pi",
+        "numero": 6,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 40,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "¿Para qué se podrá solicitar la donación de muestras biológicas?; señala la respuesta incorrecta.",
+    "opciones": {
+      "A": "Para la realización de proyectos de investigación",
+      "B": "Para la cesión a laboratorios farmacéuticos",
+      "C": "Para una colección de muestras biológicas",
+      "D": "Para la cesión al Biobanco del SSPA"
+    },
+    "correcta": "A",
+    "frecuencia": 2,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_023",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 23,
+        "correcta": "A"
+      },
+      {
+        "id": "2016-01-30_pi_008",
+        "exam_id": "2016-01-30_pi",
+        "anio": 2016,
+        "modalidad": "pi",
+        "numero": 8,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 41,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "El consentimiento informado es:",
+    "opciones": {
+      "A": "Un documento que el cirujano entrega al paciente.",
+      "B": "Una autorización escrita que firma el paciente y que faculta al cirujano para operarle en los términos establecidos en la fase de información.",
+      "C": "El informe que emite el equipo médico tras la operación.",
+      "D": "El documento que se le entrega al paciente en el momento del alta."
+    },
+    "correcta": "D",
+    "frecuencia": 2,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_084",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 84,
+        "correcta": "D"
+      },
+      {
+        "id": "2016-01-30_pi_031",
+        "exam_id": "2016-01-30_pi",
+        "anio": 2016,
+        "modalidad": "pi",
+        "numero": 31,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 42,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "ÍA 2021 / LIBRE El paciente tiene derecho a revocar libremente su consentimiento:",
+    "opciones": {
+      "A": "Hasta la entrada en quirófano.",
+      "B": "En cualquier momento.",
+      "C": "En la visita médica anterior a la realización del procedimiento.",
+      "D": "Solo en procedimientos de alto riesgo."
+    },
+    "correcta": "B",
+    "frecuencia": 2,
+    "anios": [
+      2021
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto+fuzzy",
+    "ocurrencias": [
+      {
+        "id": "2021-12-19_libre_001",
+        "exam_id": "2021-12-19_libre",
+        "anio": 2021,
+        "modalidad": "libre",
+        "numero": 1,
+        "correcta": "B"
+      },
+      {
+        "id": "2021-12-19_pi_001",
+        "exam_id": "2021-12-19_pi",
+        "anio": 2021,
+        "modalidad": "pi",
+        "numero": 1,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 43,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "La ley 41/2002, básica reguladora de la Autonomía de autonomía del paciente y derechos y obligaciones en materia de información y documentación clínica establece la obligación de obtener el consentimiento libre y voluntario del paciente:",
+    "opciones": {
+      "A": "Sólo en los casos de intervención quirúrgica.",
+      "B": "Sólo en casos de procedimientos diagnósticos y terapéuticos invasores.",
+      "C": "Sólo en los casos de procedimientos que supongan riesgos o inconvenientes de previsible repercusión negativa sobre la salud del paciente.",
+      "D": "Para toda actuación en el ámbito de la salud de un paciente."
+    },
+    "correcta": "D",
+    "frecuencia": 2,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 2.5,
+    "articulos": [],
+    "match": "exacto+fuzzy",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_081",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 81,
+        "correcta": "D"
+      },
+      {
+        "id": "2019-04-27_pi_081",
+        "exam_id": "2019-04-27_pi",
+        "anio": 2019,
+        "modalidad": "pi",
+        "numero": 81,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 44,
+    "tema": 10,
+    "tema_nombre": "TIC en el SAS",
+    "tema_corto": "TIC SAS",
+    "enunciado": "¿Qué aplicación se utiliza hospitalariamente para recoger datos clínicos de los pacientes atendidos, con excepción del área de urgencias?",
+    "opciones": {
+      "A": "DAH-ECC.",
+      "B": "HSAP.",
+      "C": "DAH-EXT.",
+      "D": "DAH-EG."
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-06-07_libre_001",
+        "exam_id": "2025-06-07_libre",
+        "anio": 2025,
+        "modalidad": "libre",
+        "numero": 1,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 45,
+    "tema": 4,
+    "tema_nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+    "tema_corto": "Organización sanitaria II",
+    "enunciado": "¿Cuál de los siguientes aspectos se considera fundamental en la diferenciación y consolidación de la gestión clínica en el SAS?",
+    "opciones": {
+      "A": "La definición exhaustiva de los puestos de trabajo de los profesionales de las distintas unidades.",
+      "B": "La orientación hacia la mejora de la evaluación de los objetivos de resultados de la unidad considerados estratégicos.",
+      "C": "La definición de la cartera de servicios complementaria de las unidades.",
+      "D": "La estructuración de las agendas de los profesionales de las unidades."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-06-07_libre_002",
+        "exam_id": "2025-06-07_libre",
+        "anio": 2025,
+        "modalidad": "libre",
+        "numero": 2,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 46,
+    "tema": 7,
+    "tema_nombre": "Igualdad y violencia de género en Andalucía",
+    "tema_corto": "Igualdad y violencia género",
+    "enunciado": "La ley 13/2007, de 26 de noviembre, de medidas de prevención y protección integral contra la violencia de género, reconoce que tienen garantizados todos los derechos:",
+    "opciones": {
+      "A": "Todas las españolas víctimas de violencia de género, independientemente del territorio en el que se encuentren.",
+      "B": "Todas las mujeres que se encuentren en el territorio andaluz.",
+      "C": "Todas las víctimas de violencia de género que sean andaluzas, independientemente del territorio donde se encuentren.",
+      "D": "Todas las víctimas de violencia de género que se encuentren en el territorio nacional."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-06-07_libre_003",
+        "exam_id": "2025-06-07_libre",
+        "anio": 2025,
+        "modalidad": "libre",
+        "numero": 3,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 47,
+    "tema": 1,
+    "tema_nombre": "Constitución Española de 1978",
+    "tema_corto": "Constitución",
+    "enunciado": "Según establece la Constitución Española, respecto del Estado, el Rey es un símbolo de su:",
+    "opciones": {
+      "A": "Integridad y soberanía.",
+      "B": "Independencia y soberanía.",
+      "C": "Unidad y permanencia.",
+      "D": "Unidad e integridad."
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-06-07_libre_004",
+        "exam_id": "2025-06-07_libre",
+        "anio": 2025,
+        "modalidad": "libre",
+        "numero": 4,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 48,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "Según se establece en la Ley General de Sanidad, “los servicios sanitarios, así como los administrativos, económicos y cualesquiera otros que sean precisos para el funcionamiento del Sistema de Salud, adecuarán su organización y funcionamiento a los principios de…",
+    "opciones": {
+      "A": "…eficacia, celeridad, flexibilidad y economía”.",
+      "B": "…eficacia, celeridad, descentralización y flexibilidad”.",
+      "C": "…eficiencia, celeridad y economía”.",
+      "D": "…eficiencia, economía y descentralización”."
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-06-07_libre_005",
+        "exam_id": "2025-06-07_libre",
+        "anio": 2025,
+        "modalidad": "libre",
+        "numero": 5,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 49,
+    "tema": 1,
+    "tema_nombre": "Constitución Española de 1978",
+    "tema_corto": "Constitución",
+    "enunciado": "La Constitución Española, de conformidad con su artículo 1, propugna como valores superiores de su ordenamiento jurídico:",
+    "opciones": {
+      "A": "La libertad, la justicia, la igualdad y la solidaridad.",
+      "B": "La libertad, la justicia, la igualdad y la cooperación.",
+      "C": "La libertad, la justicia, la igualdad y la fraternidad.",
+      "D": "La libertad, la justicia, la igualdad y el pluralismo político."
+    },
+    "correcta": "D",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [
+      1
+    ],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-06-07_libre_006",
+        "exam_id": "2025-06-07_libre",
+        "anio": 2025,
+        "modalidad": "libre",
+        "numero": 6,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 50,
+    "tema": 6,
+    "tema_nombre": "Prevención de riesgos laborales",
+    "tema_corto": "Prevención riesgos",
+    "enunciado": "El órgano científico técnico especializado de la Administración General de Estado que tiene como misión el análisis y estudio de las condiciones de seguridad y salud en trabajo, así como la promoción y apoyo a la mejora de las mismas, es:",
+    "opciones": {
+      "A": "La Inspección de Trabajo y Seguridad Social.",
+      "B": "El Instituto Nacional de Seguridad e Higiene en el Trabajo.",
+      "C": "La Dirección General de Personal del Ministerio de Trabajo.",
+      "D": "La Dirección Gerencia del Servicio Andaluz de Salud."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-06-07_libre_007",
+        "exam_id": "2025-06-07_libre",
+        "anio": 2025,
+        "modalidad": "libre",
+        "numero": 7,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 51,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "¿Cuántos compromisos tiene el IV Plan Andaluz de Salud?",
+    "opciones": {
+      "A": "1.",
+      "B": "6.",
+      "C": "10.",
+      "D": "23."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-07-28_aplazada_003",
+        "exam_id": "2025-07-28_aplazada",
+        "anio": 2025,
+        "modalidad": "aplazada",
+        "numero": 3,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 52,
+    "tema": 5,
+    "tema_nombre": "Protección de datos y transparencia",
+    "tema_corto": "Protección de datos",
+    "enunciado": "Según la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales, en su Título II \"Principios de protección de datos\" el artículo 4 indica la Exactitud de Datos. ¿Cómo deben ser los datos?",
+    "opciones": {
+      "A": "Deben ser exactos y, si fuera necesario, actualizados.",
+      "B": "Deben ser aproximados y, en ningún caso, actualizados.",
+      "C": "Deben ser exactos y, en ningún caso, actualizados.",
+      "D": "Deben ser aproximados y, si fuera necesario, actualizados."
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [
+      4
+    ],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-07-28_aplazada_004",
+        "exam_id": "2025-07-28_aplazada",
+        "anio": 2025,
+        "modalidad": "aplazada",
+        "numero": 4,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 53,
+    "tema": 7,
+    "tema_nombre": "Igualdad y violencia de género en Andalucía",
+    "tema_corto": "Igualdad y violencia género",
+    "enunciado": "Según la Ley 12/2007, para la Promoción de la Igualdad de Género en Andalucía, el Plan Estratégico para la Igualdad de Mujeres y Hombres se aprobará por:",
+    "opciones": {
+      "A": "El Instituto Andaluz de la Mujer.",
+      "B": "El Parlamento de Andalucía.",
+      "C": "La Consejería competente en materia de Igualdad.",
+      "D": "El Consejo de Gobierno de la Junta de Andalucía."
+    },
+    "correcta": "D",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-07-28_aplazada_005",
+        "exam_id": "2025-07-28_aplazada",
+        "anio": 2025,
+        "modalidad": "aplazada",
+        "numero": 5,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 54,
+    "tema": 6,
+    "tema_nombre": "Prevención de riesgos laborales",
+    "tema_corto": "Prevención riesgos",
+    "enunciado": "Para calificar un riesgo laboral desde el punto de vista de su gravedad, se valorará conjuntamente:",
+    "opciones": {
+      "A": "Las características del centro de trabajo y las condiciones personales del trabajador.",
+      "B": "La existencia de procesos, actividades, operaciones, equipos o productos potencialmente peligrosos y con las medidas preventivas adoptadas.",
+      "C": "El tipo de riesgo y el número posible de trabajadores afectados.",
+      "D": "La probabilidad que se produzca el daño y la severidad del mismo."
+    },
+    "correcta": "D",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-07-28_aplazada_006",
+        "exam_id": "2025-07-28_aplazada",
+        "anio": 2025,
+        "modalidad": "aplazada",
+        "numero": 6,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 55,
+    "tema": 8,
+    "tema_nombre": "Estatuto Marco del personal estatutario",
+    "tema_corto": "Estatuto Marco",
+    "enunciado": "La ley 55/2003, de 16 de diciembre, del Estatuto Marco del personal estatutario de los servicios de salud, argumenta en su Capítulo XII el régimen disciplinario por el que se regula nuestra responsabilidad disciplinaria. \"Dañar o deteriorar las instalaciones, equipamiento, instrumental o documentación cuando se produzca por negligencia inexcusable\", sería una falta:",
+    "opciones": {
+      "A": "Muy grave.",
+      "B": "Grave.",
+      "C": "Media.",
+      "D": "Leve."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-07-28_aplazada_007",
+        "exam_id": "2025-07-28_aplazada",
+        "anio": 2025,
+        "modalidad": "aplazada",
+        "numero": 7,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 56,
+    "tema": 10,
+    "tema_nombre": "TIC en el SAS",
+    "tema_corto": "TIC SAS",
+    "enunciado": "Cuando se diseña el programa Diraya se tiene en cuenta la labor realizada por el equipo de Enfermería y se crea un módulo para el soporte del trabajo asistencial. ¿Cómo se denomina dicho módulo?",
+    "opciones": {
+      "A": "Selene.",
+      "B": "Azahar.",
+      "C": "Nanda.",
+      "D": "Gacela."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-07-28_aplazada_008",
+        "exam_id": "2025-07-28_aplazada",
+        "anio": 2025,
+        "modalidad": "aplazada",
+        "numero": 8,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 57,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "El Plan de Humanización del Sistema Sanitario Público de Andalucía (SSPA) plantea una estrategia de humanización compartida, en la que todos los agentes implicados están en todas las fases del proyecto, incluido también en:",
+    "opciones": {
+      "A": "La implantación, la evolución, el seguimiento anual.",
+      "B": "La implantación, la evaluación, el seguimiento semestral.",
+      "C": "La implantación, la evaluación, el seguimiento anual.",
+      "D": "La implantación, la evolución, el seguimiento semestral."
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-07-28_aplazada_009",
+        "exam_id": "2025-07-28_aplazada",
+        "anio": 2025,
+        "modalidad": "aplazada",
+        "numero": 9,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 58,
+    "tema": 4,
+    "tema_nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+    "tema_corto": "Organización sanitaria II",
+    "enunciado": "Uno de los sistemas más comunes de identificación de los pacientes en el Servicio Andaluz de Salud (SAS) son las pulseras identificativas. En ellas debe constar siempre:",
+    "opciones": {
+      "A": "Nombre, apellidos, fecha de nacimiento, documento nacional de identidad.",
+      "B": "Nombre, apellidos, fecha de nacimiento, numero de la seguridad social.",
+      "C": "Nombre, apellidos, fecha de nacimiento, numero de la habitación.",
+      "D": "Nombre, apellidos, fecha de nacimiento, numero único de historia de salud."
+    },
+    "correcta": "D",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-07-28_aplazada_010",
+        "exam_id": "2025-07-28_aplazada",
+        "anio": 2025,
+        "modalidad": "aplazada",
+        "numero": 10,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 59,
+    "tema": 6,
+    "tema_nombre": "Prevención de riesgos laborales",
+    "tema_corto": "Prevención riesgos",
+    "enunciado": "Según el artículo 4.1 de la Ley de Prevención de Riesgos Laborales (LPRL), entendemos por prevención:",
+    "opciones": {
+      "A": "El conjunto de actividades o medidas adoptadas o previstas en todas las fases de actividad de la empresa con el fin de evitar o disminuir los riesgos derivados del trabajo.",
+      "B": "Los costes de las actividades y medidas relacionadas con la seguridad y salud en el trabajo.",
+      "C": "El conjunto de actividades o medidas adoptadas por la empresa para evitar el absentismo laboral.",
+      "D": "Evaluar los riesgos que no se pueden evitar."
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [
+      4
+    ],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-07-28_aplazada_017",
+        "exam_id": "2025-07-28_aplazada",
+        "anio": 2025,
+        "modalidad": "aplazada",
+        "numero": 17,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 60,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "¿Qué condición es aquella que posee el secreto profesional del deber de guardar el hecho conocido cuando este pueda producir resultados nocivos o injustos sobre el paciente si se viola el mismo?",
+    "opciones": {
+      "A": "Condición legal.",
+      "B": "Condición moral.",
+      "C": "Condición jurídica.",
+      "D": "Condición legítima."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-07-28_aplazada_019",
+        "exam_id": "2025-07-28_aplazada",
+        "anio": 2025,
+        "modalidad": "aplazada",
+        "numero": 19,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 61,
+    "tema": 6,
+    "tema_nombre": "Prevención de riesgos laborales",
+    "tema_corto": "Prevención riesgos",
+    "enunciado": "La finalidad de la ergonomía ambiental es:",
+    "opciones": {
+      "A": "La relación entre el trabajador y su entorno de trabajo (condiciones medioambientales). Su objetivo es prevenir la aparición de enfermedades profesionales y conseguir el máximo bienestar posible.",
+      "B": "El estudio global de los sistemas de trabajo donde se intenta corregir aquellas situaciones que impliquen algún tipo de riesgo para las personas.",
+      "C": "La adaptación del trabajo a la persona en función del tiempo dedicado al trabajo. Su objetivo es facilitar el descanso y evitar la fatiga física y psicológica.",
+      "D": "La relación entre el trabajo y las condiciones métricas del puesto de trabajo, es decir, de su comodidad y su confort. Su objetivo es conseguir que todos los elementos, instrumentos, etc., tengan un diseño y una disposición que garantice su seguridad y eviten esfuerzos físicos y/o psicológicos, etc."
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-07-28_aplazada_028",
+        "exam_id": "2025-07-28_aplazada",
+        "anio": 2025,
+        "modalidad": "aplazada",
+        "numero": 28,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 62,
+    "tema": 2,
+    "tema_nombre": "Estatuto de Autonomía para Andalucía",
+    "tema_corto": "Estatuto Andalucía",
+    "enunciado": "El Plan Estratégico de Vacunaciones de la Consejería de Salud y Familias de la Junta de Andalucía ha creado un espacio de formación, actualización y divulgación sobre vacunas, que se llama:",
+    "opciones": {
+      "A": "Proyecto AMDAVAC.",
+      "B": "Proyecto AVAMAC.",
+      "C": "Proyecto ANDAVAC.",
+      "D": "Proyecto VACANDA."
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-07-28_aplazada_052",
+        "exam_id": "2025-07-28_aplazada",
+        "anio": 2025,
+        "modalidad": "aplazada",
+        "numero": 52,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 63,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "Según Ezekiel J. Enmanuel y Linda L. Enmanuel, existen cuatro modelos de relación clínica. ¿Qué modelo es el que concibe la autonomía del paciente como el control del mismo sobre la toma de decisiones médicas?",
+    "opciones": {
+      "A": "Modelo paternalista.",
+      "B": "Modelo interpretativo.",
+      "C": "Modelo deliberativo.",
+      "D": "Modelo informativo. AUXILIARES DE ENFERMERÍA / 2025 / PRUEBA APLAZADA"
+    },
+    "correcta": "D",
+    "frecuencia": 1,
+    "anios": [
+      2025
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2025-07-28_aplazada_075",
+        "exam_id": "2025-07-28_aplazada",
+        "anio": 2025,
+        "modalidad": "aplazada",
+        "numero": 75,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 64,
+    "tema": 8,
+    "tema_nombre": "Estatuto Marco del personal estatutario",
+    "tema_corto": "Estatuto Marco",
+    "enunciado": "¿a qué principios responderá el régimen disciplinario en todo el Sistema Nacional de Salud?",
+    "opciones": {
+      "A": "A los principios de honestidad, rapidez y adaptabilidad.",
+      "B": "A los principios de tipicidad, eficacia y proporcionalidad.",
+      "C": "A los principios de responsabilidad, flexibilidad y equidad.",
+      "D": "A los principios de trasparencia, confidencialidad y lealtad."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2024-04-29_aplazada_001",
+        "exam_id": "2024-04-29_aplazada",
+        "anio": 2024,
+        "modalidad": "aplazada",
+        "numero": 1,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 65,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "Según el artículo 20 de la Ley 41/2002, de 14 de noviembre, reguladora de la autonomía del paciente y de derechos y obligaciones en materia de información y documentación clínica, respecto al informe de alta:",
+    "opciones": {
+      "A": "Todo paciente, familiar o persona vinculada a él, en su caso, tendrá el derecho a recibir del centro o servicio sanitario, una vez finalizado el proceso asistencial, un informe de alta con los contenidos mínimos que determina el artículo 3.",
+      "B": "Todo familiar del paciente tendrá el derecho a recibir del centro o servicio sanitario, una vez finalizado el proceso asistencial, un informe de alta con los contenidos mínimos que determina el artículo 3.",
+      "C": "Toda persona vinculada al paciente tendrá el derecho a recibir del centro o servicio sanitario, una vez finalizado el proceso asistencial, un informe de alta con los contenidos mínimos que determina el artículo 3.",
+      "D": "Todo paciente tendrá el derecho a recibir del centro o servicio sanitario, una vez finalizado el proceso asistencial, un informe de alta con los contenidos mínimos que determina el artículo 3."
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [
+      20
+    ],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2024-04-29_aplazada_002",
+        "exam_id": "2024-04-29_aplazada",
+        "anio": 2024,
+        "modalidad": "aplazada",
+        "numero": 2,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 66,
+    "tema": 2,
+    "tema_nombre": "Estatuto de Autonomía para Andalucía",
+    "tema_corto": "Estatuto Andalucía",
+    "enunciado": "El Consejo de Gobierno, según el artículo 124 de la Ley Orgánica 2/2007, responde políticamente ante el Parlamento de Andalucía:",
+    "opciones": {
+      "A": "De forma solidaria.",
+      "B": "De forma subsidiaria.",
+      "C": "De forma cooperativa.",
+      "D": "De forma interesada."
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [
+      124
+    ],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2024-04-29_aplazada_004",
+        "exam_id": "2024-04-29_aplazada",
+        "anio": 2024,
+        "modalidad": "aplazada",
+        "numero": 4,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 67,
+    "tema": 6,
+    "tema_nombre": "Prevención de riesgos laborales",
+    "tema_corto": "Prevención riesgos",
+    "enunciado": "\"El conjunto de medios humanos y materiales necesarios para realizar las actividades preventivas a fin de garantizar la adecuada protección de la seguridad y la salud de los trabajadores, asistiendo y asesorando para ello al empresario, a los trabajadores y a sus representantes y a los órganos de representación especializados\" es, de acuerdo a la Ley 31/1995, la definición de:",
+    "opciones": {
+      "A": "Servicios de salud.",
+      "B": "Comités de seguridad y salud.",
+      "C": "Servicios de prevención.",
+      "D": "Delegados de prevención."
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2024-04-29_aplazada_005",
+        "exam_id": "2024-04-29_aplazada",
+        "anio": 2024,
+        "modalidad": "aplazada",
+        "numero": 5,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 68,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "El Biobanco del Sistema Sanitario Público de Andalucía (SSPA) lleva a cabo una actividad descentralizada a través de sus nodos, y cuenta con un nodo de coordinación actuando como plataforma de soporte técnico y de gestión, encargada de coordinar todos los nodos del Biobanco del SSPA. ¿Dónde se ubica el nodo de coordinación del Biobanco del SSPA?",
+    "opciones": {
+      "A": "El nodo de coordinación del Biobanco del SSPA se ubica en Sevilla.",
+      "B": "El nodo de coordinación del Biobanco del SSPA se ubica en Málaga.",
+      "C": "El nodo de coordinación del Biobanco del SSPA se ubica en Granada.",
+      "D": "La ubicación del nodo de coordinación del Biobanco del SSPA cambia cada 5 años."
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2024-04-29_aplazada_007",
+        "exam_id": "2024-04-29_aplazada",
+        "anio": 2024,
+        "modalidad": "aplazada",
+        "numero": 7,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 69,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "¿Cómo se denomina la oficina virtual del Sistema Sanitario Público de Andalucía?",
+    "opciones": {
+      "A": "Inters@s.",
+      "B": "Base de Datos de Usuarios (BDU).",
+      "C": "GeiSAS.",
+      "D": ""
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2024-04-29_aplazada_009",
+        "exam_id": "2024-04-29_aplazada",
+        "anio": 2024,
+        "modalidad": "aplazada",
+        "numero": 9,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 70,
+    "tema": 10,
+    "tema_nombre": "TIC en el SAS",
+    "tema_corto": "TIC SAS",
+    "enunciado": "Diraya. ¿Qué es la empatía?",
+    "opciones": {
+      "A": "La capacidad de comunicar correctamente lo que uno experimenta.",
+      "B": "La capacidad de escuchar activamente a los demás.",
+      "C": "La capacidad de expresar emociones con palabras.",
+      "D": "La capacidad de percibir correctamente lo que experimenta otra persona, y comunicar esta percepción en un lenguaje acomodado a los sentimientos de ésta."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2024-04-29_aplazada_011",
+        "exam_id": "2024-04-29_aplazada",
+        "anio": 2024,
+        "modalidad": "aplazada",
+        "numero": 11,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 71,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "¿En qué consiste la evaluación biomédica en el paciente geriátrico?",
+    "opciones": {
+      "A": "En recopilar a través de la historia clínica información sobre antecedentes personales, enfermedades activas y tratamientos que sigue el paciente.",
+      "B": "En evaluar enfermedades psíquicas que se consideran factores de riesgo de caídas.",
+      "C": "En evaluar el núcleo familiar o cuidador principal.",
+      "D": "En evaluar la pérdida de autoconfianza y la dependencia cuando hay cambios de hábitos."
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2024-04-29_aplazada_043",
+        "exam_id": "2024-04-29_aplazada",
+        "anio": 2024,
+        "modalidad": "aplazada",
+        "numero": 43,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 72,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "Según la Ley 14/2007, de investigación biomédica, una «muestra biológica» es:",
+    "opciones": {
+      "A": "Cualquier material humano que incluye excretas (orina, excrementos), sangre y sus componentes, y excluye secreciones (genitales, respiratorias); recogidas con el propósito de obtener resultados que colaboran con el diagnóstico clínico.",
+      "B": "Cualquier material de origen humano susceptible de conservación, y que puede albergar información sobre la dotación genética característica de una persona.",
+      "C": "Cualquier material de origen humano no susceptible de conservación, y que puede albergar información sobre la dotación genética de una persona.",
+      "D": "Cualquier material proveniente de tejidos o fluidos (sangre, orina, materia fecal, líquido cefalorraquídeo), exceptuando semen, saliva, sudor, líquido amniótico y otros líquidos internos) obtenido para su análisis. Los resultados obtenidos ayudan al diagnóstico, pronóstico y tratamiento de enfermedades. AUXILIARES DE ENFERMERÍA 2023 / PRUEBA APLAZADA"
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2024
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2024-04-29_aplazada_075",
+        "exam_id": "2024-04-29_aplazada",
+        "anio": 2024,
+        "modalidad": "aplazada",
+        "numero": 75,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 73,
+    "tema": 1,
+    "tema_nombre": "Constitución Española de 1978",
+    "tema_corto": "Constitución",
+    "enunciado": "1 La constitución Española de 1978, vigente actualmente, establece en su artículo 10.1 una serie de principios como fundamento del orden político y de la paz social en nuestra Nación. Entre estos principios se encuentra:",
+    "opciones": {
+      "A": "La dignidad de la persona y los derechos inviolables que le son inherentes.",
+      "B": "El libre desarrollo de la personalidad.",
+      "C": "El respeto a la ley y a los derechos de los demás.",
+      "D": "Todas las respuestas anteriores son correctas."
+    },
+    "correcta": "D",
+    "frecuencia": 1,
+    "anios": [
+      2022
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [
+      10
+    ],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_001",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 1,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 74,
+    "tema": 2,
+    "tema_nombre": "Estatuto de Autonomía para Andalucía",
+    "tema_corto": "Estatuto Andalucía",
+    "enunciado": "El artículo 1.1 del Estatuto de Autonomía de Andalucía (Ley Orgánica 2/2007, de 19 de marzo), se refiere a ésta comunidad como:",
+    "opciones": {
+      "A": "Nación.",
+      "B": "Nacionalidad histórica.",
+      "C": "Región histórica.",
+      "D": "Realidad nacional."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2022
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [
+      1
+    ],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_002",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 2,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 75,
+    "tema": 2,
+    "tema_nombre": "Estatuto de Autonomía para Andalucía",
+    "tema_corto": "Estatuto Andalucía",
+    "enunciado": "El Servicio Andaluz de Salud, creado como Organismo Autónomo de carácter administrativo de la Junta de Andalucía el 6 de mayo de 1986 (Ley 8/1986), actualmente es una entidad instrumental de la Administración de la Junta de Andalucía que tiene forma jurídica de:",
+    "opciones": {
+      "A": "Agencia administrativa.",
+      "B": "Agencia pública empresarial.",
+      "C": "Agencia de régimen especial.",
+      "D": "Fundación pública."
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2022
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_004",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 4,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 76,
+    "tema": 5,
+    "tema_nombre": "Protección de datos y transparencia",
+    "tema_corto": "Protección de datos",
+    "enunciado": "La vigente Ley Orgánica de Protección de Datos Personales incorpora los derechos digitales, traspone en nuestro país normativa europea (Reglamento UE 2016/679), y deroga la Ley Orgánica 15/1999, de 13 de diciembre, de Protección de Datos de Carácter Personal. Pero, ¿cuándo se publicó y entró en vigor la nueva Ley?",
+    "opciones": {
+      "A": "2016.",
+      "B": "2017.",
+      "C": "2018.",
+      "D": "2019."
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2022
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_005",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 5,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 77,
+    "tema": 6,
+    "tema_nombre": "Prevención de riesgos laborales",
+    "tema_corto": "Prevención riesgos",
+    "enunciado": "Según el vigente Plan de Prevención de Riesgos Laborales (PPRRLL) del Servicio Andaluz de Salud (SAS), ¿a qué centro directivo de su estructura actual le corresponde, entre otras funciones, elaborar, implantar, controlar, revisar y actualizar el PPRRLL del organismo?",
+    "opciones": {
+      "A": "A la dirección gerencia.",
+      "B": "A la dirección de personal.",
+      "C": "A la dirección económico-financiera.",
+      "D": "A la secretaría general técnica."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2022
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_006",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 6,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 78,
+    "tema": 6,
+    "tema_nombre": "Prevención de riesgos laborales",
+    "tema_corto": "Prevención riesgos",
+    "enunciado": "Señale la afirmación correcta sobre el objeto de la Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales, tal y como queda recogido en el artículo 2 punto 1 del citado texto legal:",
+    "opciones": {
+      "A": "Crear los servicios de prevención de riesgos laborales.",
+      "B": "Desarrollar los reglamentos que deben tener todas las empresas y la Administración Pública sobre riesgos laborales.",
+      "C": "Establecer un marco legal que permita las compensaciones a los trabajadores y las sanciones a las empresas en caso de accidentes de trabajo.",
+      "D": "Promover la seguridad y la salud de los trabajadores mediante la aplicación de medidas y el desarrollo de las actividades necesarias para la prevención de riesgos derivados del trabajo."
+    },
+    "correcta": "D",
+    "frecuencia": 1,
+    "anios": [
+      2022
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [
+      2
+    ],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_007",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 7,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 79,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "Según la Ley 41/2002, de autonomía del paciente, ¿quién tiene derecho a la información asistencial?",
+    "opciones": {
+      "A": "El paciente, salvo que exprese su derecho a no ser informado.",
+      "B": "Los familiares del paciente, en cualquier caso.",
+      "C": "Las personas vinculadas al paciente por razones de hecho, en cualquier caso.",
+      "D": "Todas las respuestas anteriores son ciertas."
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2022
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_008",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 8,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 80,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "La Ley 41/2002, básica reguladora de la autonomía del paciente, se sustenta en un instrumento, con carácter jurídico vinculante, que establece un marco común europeo para la protección de los derechos humanos y la dignidad humana en la aplicación de la biología y la medicina, firmado por el Consejo de Europa el 4 de abril de 1997. ¿Cómo se conoce a dicho instrumento, que además entró en vigor en España el 1 de enero del año 2000?",
+    "opciones": {
+      "A": "El Convenio de Maastrich.",
+      "B": "El Convenio de Oviedo.",
+      "C": "El Convenio de Roma.",
+      "D": "El Convenio de Amsterdam."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2022
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_009",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 9,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 81,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "Según la ley 41/2002, de 14 de noviembre, básica reguladora de la autonomía del paciente y de derechos y obligaciones en materia de información y documentación clínica, ¿qué actuaciones requieren del consentimiento previo de la persona, como paciente o usuario?",
+    "opciones": {
+      "A": "Sólo las actuaciones o exploraciones invasivas, dolorosas o molestas para el paciente o usuario.",
+      "B": "Exclusivamente las actuaciones que tengan riesgo para el paciente o usuario.",
+      "C": "Específicamente sólo las actuaciones en el contexto de una investigación en la que participe el paciente, o que se lleven a cabo para un objetivo docente.",
+      "D": "Todas las actuaciones en el ámbito de la salud del paciente o usuario."
+    },
+    "correcta": "D",
+    "frecuencia": 1,
+    "anios": [
+      2022
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_010",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 10,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 82,
+    "tema": 10,
+    "tema_nombre": "TIC en el SAS",
+    "tema_corto": "TIC SAS",
+    "enunciado": "El núcleo de DIRAYA está formado por:",
+    "opciones": {
+      "A": "Base de Datos de Usuarios (BDU).",
+      "B": "Historia Digital de Salud del Ciudadano (HDS).",
+      "C": "Módulo de Tratamiento de Información (MTI).",
+      "D": "Todas las respuestas son correctas."
+    },
+    "correcta": "D",
+    "frecuencia": 1,
+    "anios": [
+      2022
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_011",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 11,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 83,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "¿Qué información puede consultar el usuario del SSPA en ClicSalud+?",
+    "opciones": {
+      "A": "Las citas pasadas y futuras.",
+      "B": "Los medicamentos que tiene prescritos.",
+      "C": "Resultados de analíticas.",
+      "D": "Todas las respuestas son correctas."
+    },
+    "correcta": "D",
+    "frecuencia": 1,
+    "anios": [
+      2022
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_012",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 12,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 84,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "El Biobanco del SSPA se encuentra bajo la dependencia de:",
+    "opciones": {
+      "A": "El Parlamento Andaluz.",
+      "B": "La Consejería con competencias en materia de salud.",
+      "C": "La Junta de Andalucía.",
+      "D": "El Sistema de Salud Andaluz."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2022
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_029",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 29,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 85,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "El Biobanco del SSPA, en su área de tejidos, sustancias y muestras biológicas para investigación, está organizado como un biobanco en red formado por ¿cuántos nodos?",
+    "opciones": {
+      "A": "10.",
+      "B": "14.",
+      "C": "26.",
+      "D": "42."
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2022
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_030",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 30,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 86,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "El Biobanco del Sistema Sanitario Público de Andalucía NO integra a:",
+    "opciones": {
+      "A": "Bancos de Sangre y Tejidos con fines terapéuticos.",
+      "B": "Biobancos de investigación.",
+      "C": "Cualquier espacio sanitario público andaluz dedicado a la colección, tratamiento, conservación y gestión de muestras biológicas animales.",
+      "D": "Integra todo lo que se cita."
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2022
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_032",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 32,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 87,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "¿En qué caso se puede romper el secreto profesional?",
+    "opciones": {
+      "A": "Cuando lo solicite un familiar del paciente.",
+      "B": "Cuando el personal sanitario declare en un juicio.",
+      "C": "Cuando la Dirección del Centro lo considere necesario.",
+      "D": "A petición de la Policía o Guardia Civil."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2022
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_033",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 33,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 88,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "A los efectos de la ley 14/2007, de 3 de julio, de Investigación biomédica, se entenderá por muestra biológica:",
+    "opciones": {
+      "A": "Cualquier material biológico de origen humano susceptible de conservación y que pueda albergar información sobre la dotación genética característica de una persona.",
+      "B": "Muestra que no puede asociarse a una persona identificada o identificable por haberse destruido el nexo con toda información que identifique al sujeto, o porque dicha asociación exige un esfuerzo no razonable.",
+      "C": "Muestra recogida sin un nexo con una persona identificada o identificable de la que, consiguientemente, no se conoce la procedencia y es imposible trazar el origen.",
+      "D": "Muestra no asociada a una persona identificada o identificable por haberse sustituido o desligado la información que identifica a esa persona utilizando un código que permita la operación inversa."
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2022
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_058",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 58,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 89,
+    "tema": 4,
+    "tema_nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+    "tema_corto": "Organización sanitaria II",
+    "enunciado": "¿Cómo clasificaría, de acuerdo con lo establecido en los procedimientos del Plan de Gestión de Residuos del Servicio Andaluz de Salud, un drenaje tipo Redon con resto de contenido hemático de más de 100 ml?",
+    "opciones": {
+      "A": "Grupo IIIA. Residuos Peligrosos Sanitarios.",
+      "B": "Grupo II. Residuos Generales asimilables a urbanos.",
+      "C": "Grupo III B. Residuos químicos y citostáticos.",
+      "D": "Grupo II A. Residuos sanitarios asimilables a urbanos."
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2022
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2022-04-03_aplazada_108",
+        "exam_id": "2022-04-03_aplazada",
+        "anio": 2022,
+        "modalidad": "aplazada",
+        "numero": 108,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 90,
+    "tema": 1,
+    "tema_nombre": "Constitución Española de 1978",
+    "tema_corto": "Constitución",
+    "enunciado": "Según la Constitución Española de 1978, ¿en quién reside la soberanía nacional?",
+    "opciones": {
+      "A": "En el Rey",
+      "B": "En el Parlamento, constituido por las dos cámaras (Congreso y Senado)",
+      "C": "En el pueblo español",
+      "D": "En el Gobierno de la nación"
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2021
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2021-12-19_libre_003",
+        "exam_id": "2021-12-19_libre",
+        "anio": 2021,
+        "modalidad": "libre",
+        "numero": 3,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 91,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "¿Cuándo se promulgó la vigente Ley de Salud de Andalucía?",
+    "opciones": {
+      "A": "En 2007",
+      "B": "En 1998",
+      "C": "En 2020",
+      "D": "Andalucía no tiene una Ley de Salud"
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2021
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2021-12-19_libre_004",
+        "exam_id": "2021-12-19_libre",
+        "anio": 2021,
+        "modalidad": "libre",
+        "numero": 4,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 92,
+    "tema": 4,
+    "tema_nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+    "tema_corto": "Organización sanitaria II",
+    "enunciado": "La actual Consejería de Salud y Familias tiene, en su estructura orgánica, tres Direcciones Generales. ¿Cuál de las siguientes NO lo es?",
+    "opciones": {
+      "A": "Dirección General de Familias",
+      "B": "Dirección General de Consumo",
+      "C": "Dirección General de Cuidados Sociosanitarios",
+      "D": "Dirección General de Salud Pública y Ordenación Farmacéutica"
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2021
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2021-12-19_libre_005",
+        "exam_id": "2021-12-19_libre",
+        "anio": 2021,
+        "modalidad": "libre",
+        "numero": 5,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 93,
+    "tema": 4,
+    "tema_nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+    "tema_corto": "Organización sanitaria II",
+    "enunciado": "Según la actual organización del Servicio Andaluz de Salud (SAS) y de las Agencias Públicas Empresariales Sanitarias que le están adscritas, ¿a quién corresponde la dirección operativa de los Planes Integrales y Procesos Asistenciales?",
+    "opciones": {
+      "A": "A la Dirección Gerencia",
+      "B": "A la Dirección General de Asistencia Sanitaria y Resultados en Salud",
+      "C": "A la Dirección General de Personal",
+      "D": "No le corresponde al SAS, sino a la Viceconsejería de Salud y Familias"
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2021
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2021-12-19_libre_007",
+        "exam_id": "2021-12-19_libre",
+        "anio": 2021,
+        "modalidad": "libre",
+        "numero": 7,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 94,
+    "tema": 5,
+    "tema_nombre": "Protección de datos y transparencia",
+    "tema_corto": "Protección de datos",
+    "enunciado": "La norma jurídica vigente, con rango de Ley Orgánica, que regula la protección de datos personales en España, es:",
+    "opciones": {
+      "A": "La Ley Orgánica 41/2002",
+      "B": "La Ley Orgánica 15/1999",
+      "C": "La Ley Orgánica 3/2018",
+      "D": "La Ley Orgánica 14/2021"
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2021
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2021-12-19_libre_008",
+        "exam_id": "2021-12-19_libre",
+        "anio": 2021,
+        "modalidad": "libre",
+        "numero": 8,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 95,
+    "tema": 5,
+    "tema_nombre": "Protección de datos y transparencia",
+    "tema_corto": "Protección de datos",
+    "enunciado": "Los requisitos básicos de autorización y funcionamiento de los biobancos con fines de investigación biomédica, y del tratamiento de las muestras biológicas de origen humano, se recogen en:",
+    "opciones": {
+      "A": "La Ley 14/2007, de investigación biomédica.",
+      "B": "La Ley Orgánica 15/1999, de 13 de diciembre, de Protección de Datos de Carácter Personal.",
+      "C": "El Real Decreto 1716/2011, de 18 de noviembre.",
+      "D": "La Ley 41/2002, de 14 noviembre."
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2021
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2021-12-19_pi_003",
+        "exam_id": "2021-12-19_pi",
+        "anio": 2021,
+        "modalidad": "pi",
+        "numero": 3,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 96,
+    "tema": 8,
+    "tema_nombre": "Estatuto Marco del personal estatutario",
+    "tema_corto": "Estatuto Marco",
+    "enunciado": "Las gotas oculares deben administrarse en:",
+    "opciones": {
+      "A": "El centro del globo ocular.",
+      "B": "El centro del saco conjuntival.",
+      "C": "El ángulo interno del ojo.",
+      "D": "El ángulo externo del ojo. TÉCNICO EN CUIDADOS AUXILIARES DE ENFERMERÍA 2021 / PROMOCIÓN INTERNA CASO PRÁCTICO 1: Enrique de 70 años de edad, con antecedentes de hipertensión arterial en tratamiento con un antihipertensivo, es atendido en su domicilio. A la llegada de los Servicios de Emergencias, el paciente está siendo asistido mediante maniobras de RCP Básica por parte de su hija."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2021
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2021-12-19_pi_100",
+        "exam_id": "2021-12-19_pi",
+        "anio": 2021,
+        "modalidad": "pi",
+        "numero": 100,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 97,
+    "tema": 8,
+    "tema_nombre": "Estatuto Marco del personal estatutario",
+    "tema_corto": "Estatuto Marco",
+    "enunciado": "La enfermera ha administrado a Pedro una medicación termolábil. ¿Cuál es la temperatura en la que deben conservarse los medicamentos termolábiles?",
+    "opciones": {
+      "A": "Temperatura entre +2 y +8 grados centígrados.",
+      "B": "Temperatura entre +9 y +12 grados centígrados.",
+      "C": "Temperatura entre -1 y +1 grados centígrados.",
+      "D": "Temperatura ambiental. TÉCNICO EN CUIDADOS AUXILIARES DE ENFERMERÍA 2021 / PROMOCIÓN INTERNA"
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2021
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2021-12-19_pi_150",
+        "exam_id": "2021-12-19_pi",
+        "anio": 2021,
+        "modalidad": "pi",
+        "numero": 150,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 98,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "CATEGORIA: AUXILIAR DE ENFERMERÍA El Plan Andaluz de Salud será aprobado por:",
+    "opciones": {
+      "A": "El Parlamento de Andalucía.",
+      "B": "El Consejo de Gobierno de la Junta de Andalucía.",
+      "C": "El Servicio Andaluz de Salud.",
+      "D": "La Consejería de Salud de Andalucía."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_001",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 1,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 99,
+    "tema": 4,
+    "tema_nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+    "tema_corto": "Organización sanitaria II",
+    "enunciado": "La Comisión de Dirección de un Hospital del Servicio Andaluz de Salud estará presidida por:",
+    "opciones": {
+      "A": "La persona titular de la Dirección Gerencia del Hospital.",
+      "B": "La persona titular de la Dirección de Salud del Hospital.",
+      "C": "La persona titular de la Dirección Médica del Hospital.",
+      "D": "El Delegado/a Provincial de Salud."
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_003",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 3,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 100,
+    "tema": 2,
+    "tema_nombre": "Estatuto de Autonomía para Andalucía",
+    "tema_corto": "Estatuto Andalucía",
+    "enunciado": "El Parlamento de Andalucía, según el Estatuto de Autonomía para Andalucía, estará compuesto por:",
+    "opciones": {
+      "A": "Un mínimo de 100 diputados/a.",
+      "B": "Un máximo de 109 diputado/as.",
+      "C": "Un mínimo de 109 diputado/as.",
+      "D": "Un máximo de 105 diputado/as."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_004",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 4,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 101,
+    "tema": 8,
+    "tema_nombre": "Estatuto Marco del personal estatutario",
+    "tema_corto": "Estatuto Marco",
+    "enunciado": "Según el Estatuto Marco del personal estatutario de los Servicios de Salud, la situación de excedencia voluntaria por interés particular obliga a un periodo mínimo de permanencia en ella de:",
+    "opciones": {
+      "A": "Un año.",
+      "B": "Dos años.",
+      "C": "Doce meses.",
+      "D": "No establece periodo mínimo."
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_005",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 5,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 102,
+    "tema": 8,
+    "tema_nombre": "Estatuto Marco del personal estatutario",
+    "tema_corto": "Estatuto Marco",
+    "enunciado": "Según el Estatuto Marco del Personal Estatutario de los Servicios de Salud (Ley 55/2003 de 16 de diciembre), son retribuciones básicas:",
+    "opciones": {
+      "A": "El sueldo y los trienios.",
+      "B": "El sueldo, los trienios y el complemento de destino.",
+      "C": "El sueldo, los trienios y las pagas extraordinarias.",
+      "D": "El sueldo y las pagas extraordinarias."
+    },
+    "correcta": "D",
+    "frecuencia": 1,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_006",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 6,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 103,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "No forma parte del objeto de la Ley de Salud de Andalucía, expresado en su primer Artículo…",
+    "opciones": {
+      "A": "La regulación general de las actuaciones, que permitan hacer efectivo el derecho a la protección de la salud.",
+      "B": "La definición, el respeto y el cumplimiento de los derechos y obligaciones de los ciudadanos respecto de los servicios sanitarios en Andalucía.",
+      "C": "La ordenación general de las actividades sanitarias de las entidades públicas y privadas en Andalucía.",
+      "D": "La planificación y gestión de los recursos sanitarios para la consecución de altos niveles de calidad asistencial."
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_007",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 7,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 104,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "La administrativa del Servicio de Medicina Interna de un Hospital…",
+    "opciones": {
+      "A": "No puede acceder a la Historia Clínica de los pacientes de Medicina Interna.",
+      "B": "Puede acceder a aquellos datos de la Historia Clínica que consienta el paciente.",
+      "C": "Puede acceder a todos los datos de la Historia Clínica.",
+      "D": "Puede acceder solo a aquellos datos de la Historia Clínica relacionados con sus propias funciones."
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_009",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 9,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 105,
+    "tema": 1,
+    "tema_nombre": "Constitución Española de 1978",
+    "tema_corto": "Constitución",
+    "enunciado": "Según el art 43 de la Constitución Española:",
+    "opciones": {
+      "A": "Se reconoce el derecho a la protección de la salud.",
+      "B": "Compete a los poderes públicos organizar y tutelar la salud pública a través de medidas preventivas. Los poderes públicos establecerán los derechos y deberes de todos al respecto.",
+      "C": "La ley fomentará la educación sanitaria, la educación física y el deporte. Asimismo facilitarán la adecuada utilización del ocio.",
+      "D": "Todas son correctas."
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [
+      43
+    ],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_010",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 10,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 106,
+    "tema": 1,
+    "tema_nombre": "Constitución Española de 1978",
+    "tema_corto": "Constitución",
+    "enunciado": "El defensor del pueblo del Estado Español es designado por",
+    "opciones": {
+      "A": "Las Cortes Generales.",
+      "B": "El Gobierno.",
+      "C": "El Consejo General del Poder Judicial.",
+      "D": "El Congreso."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2019
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2019-04-27_libre_011",
+        "exam_id": "2019-04-27_libre",
+        "anio": 2019,
+        "modalidad": "libre",
+        "numero": 11,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 107,
+    "tema": 1,
+    "tema_nombre": "Constitución Española de 1978",
+    "tema_corto": "Constitución",
+    "enunciado": "Auxiliar de Enfermeria Según la Constitución Española, la forma política del Estado español es:",
+    "opciones": {
+      "A": "Monarquía parlamentaria",
+      "B": "Monarquía sucesoria",
+      "C": "En base a los partidos políticos",
+      "D": "El Gobierno de la Nación"
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_001",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 1,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 108,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "Según la Ley General de Sanidad, el órgano permanente de comunicación e información de los distintos Servicios de Salud entre sí y con la Administración del Estado se denomina:",
+    "opciones": {
+      "A": "Foro Marco para el Diálogo Social",
+      "B": "Consejo Interterritorial del Sistema Nacional de Salud",
+      "C": "Comisión Permanente del Sistema Nacional de Salud",
+      "D": "Consejo de Salud"
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_004",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 4,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 109,
+    "tema": 3,
+    "tema_nombre": "Organización sanitaria (I): SSPA",
+    "tema_corto": "Organización sanitaria I",
+    "enunciado": "La coordinación general de la Sanidad es una competencia que se califica en la Ley General de Sanidad como:",
+    "opciones": {
+      "A": "Exclusiva del Estado, respecto de toda la Nación.",
+      "B": "Exclusiva de cada Comunidad Autónoma, en sus respectivos territorios.",
+      "C": "Compartida entre el estado y las Comunidades Autónomas.",
+      "D": "La Ley General de Sanidad nada menciona sobre ella."
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_005",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 5,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 110,
+    "tema": 4,
+    "tema_nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+    "tema_corto": "Organización sanitaria II",
+    "enunciado": "El Decreto 197/2007, de 3 de julio, ha venido a regular la estructura, organización y funcionamiento de los servicios de atención primaria de salud en el ámbito del Servicio Andaluz de Salud. Según él, la Dirección de una Unidad de Gestión Clínica depende jerárquica y funcionalmente de:",
+    "opciones": {
+      "A": "La Dirección del Centro de Salud.",
+      "B": "La Dirección de Salud del Distrito.",
+      "C": "La Dirección Gerencia del Distrito.",
+      "D": "Es independiente y funciona por sí sola."
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_006",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 6,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 111,
+    "tema": 4,
+    "tema_nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+    "tema_corto": "Organización sanitaria II",
+    "enunciado": "El Decreto 105/1986 de 11 de junio, sobre ordenación de la asistencia especializada y órganos de dirección de los hospitales contempla como órgano unipersonal de dirección del Hospital:",
+    "opciones": {
+      "A": "La Dirección de Enfermería.",
+      "B": "La Dirección Médica.",
+      "C": "La Dirección Gerencia del Hospital.",
+      "D": "Los tres anteriores"
+    },
+    "correcta": "D",
+    "frecuencia": 1,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_007",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 7,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 112,
+    "tema": 5,
+    "tema_nombre": "Protección de datos y transparencia",
+    "tema_corto": "Protección de datos",
+    "enunciado": "Según la Ley Orgánica 15/1999, de protección de datos de carácter personal, la Agencia de Protección de Datos es un ente de derecho público, con personalidad jurídica propia y:",
+    "opciones": {
+      "A": "Capacidad limitada",
+      "B": "Capacidad privada, pero no pública.",
+      "C": "Capacidad pública, pero no privada",
+      "D": "Plena capacidad pública y privada"
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_008",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 8,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 113,
+    "tema": 7,
+    "tema_nombre": "Igualdad y violencia de género en Andalucía",
+    "tema_corto": "Igualdad y violencia género",
+    "enunciado": "La Ley 12/2007, de 26 de noviembre, para la promoción de la igualdad de género en Andalucía, ordenaba crear un órgano asesor denominado “Observatorio de la Igualdad de Género” para su adscripción a:",
+    "opciones": {
+      "A": "La Consejería competente en materia de Igualdad",
+      "B": "La Consejería competente en materia de Justicia.",
+      "C": "La Consejería competente en materia de Salud.",
+      "D": "La Consejería de Presidencia."
+    },
+    "correcta": "D",
+    "frecuencia": 1,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_009",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 9,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 114,
+    "tema": 8,
+    "tema_nombre": "Estatuto Marco del personal estatutario",
+    "tema_corto": "Estatuto Marco",
+    "enunciado": "La Ley 55/2003, del Estatuto Marco del personal estatutario de los servicios de salud, no contempla entre los denominados “sistemas de selección”:",
+    "opciones": {
+      "A": "El concurso-oposición",
+      "B": "El concurso",
+      "C": "La oposición",
+      "D": "La promoción interna"
+    },
+    "correcta": "D",
+    "frecuencia": 1,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_010",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 10,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 115,
+    "tema": 8,
+    "tema_nombre": "Estatuto Marco del personal estatutario",
+    "tema_corto": "Estatuto Marco",
+    "enunciado": "Entre los denominados “derechos individuales” reconocidos en el mismo Estatuto Marco (artículo 17) no se encuentra:",
+    "opciones": {
+      "A": "El descanso necesario",
+      "B": "La promoción interna",
+      "C": "La movilidad voluntaria",
+      "D": "Las vacaciones anuales reglamentarias"
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [
+      17
+    ],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_011",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 11,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 116,
+    "tema": 9,
+    "tema_nombre": "Autonomía del paciente y derechos y deberes",
+    "tema_corto": "Autonomía del paciente",
+    "enunciado": "Uno de estos derechos no se contempla en la Ley 41/2002 básica reguladora de la autonomía del paciente y de derechos y obligaciones en materia de información y documentación clínica. ¿Cuál?:",
+    "opciones": {
+      "A": "El derecho a la información asistencial",
+      "B": "El derecho a la gratuidad de la prestación asistencial",
+      "C": "El derecho a la información epidemiológica",
+      "D": "El derecho a la intimidad"
+    },
+    "correcta": "A",
+    "frecuencia": 1,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_012",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 12,
+        "correcta": "A"
+      }
+    ]
+  },
+  {
+    "cluster_id": 117,
+    "tema": 6,
+    "tema_nombre": "Prevención de riesgos laborales",
+    "tema_corto": "Prevención riesgos",
+    "enunciado": "Según lo dispuesto en el Artículo 20: Medidas de emergencia de la Ley 31/95 de Prevención de Riesgos Laborales, el empresario deberá analizar las posibles situaciones de emergencia y adoptar las medidas necesarias en materia de primeros auxilios, lucha contra incendios y evacuación de los trabajadores, teniendo en cuenta:",
+    "opciones": {
+      "A": "El tamaño y la actividad de la empresa, así como la posible presencia de personas ajenas a la misma.",
+      "B": "La actividad de la empresa de forma prioritaria.",
+      "C": "La existencia de trabajadores de contratas externas.",
+      "D": "El número de personas a evacuar y la altura del edificio."
+    },
+    "correcta": "B",
+    "frecuencia": 1,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [
+      20
+    ],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_013",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 13,
+        "correcta": "B"
+      }
+    ]
+  },
+  {
+    "cluster_id": 118,
+    "tema": 6,
+    "tema_nombre": "Prevención de riesgos laborales",
+    "tema_corto": "Prevención riesgos",
+    "enunciado": "Según se recoge en el artículo 26. Protección de la maternidad de la Ley 31/95 de Prevención de Riesgos Laborales, si los resultados de la evaluación de riesgos revelasen un riesgo para la seguridad y la salud o una posible repercusión sobre el embarazo o la lactancia de trabajadoras, el empresario adoptará las medidas necesarias para evitar la exposición a dicho riesgo, a través de:",
+    "opciones": {
+      "A": "La suspensión del contrato por riesgo durante el embarazo como medida prioritaria, y si no es posible se adaptará el puesto de trabajo.",
+      "B": "Una adaptación de las condiciones o del tiempo de trabajo de la trabajadora afectada.",
+      "C": "El cambio de puesto de trabajo en todo caso.",
+      "D": "El cambio de función en la empresa como primera opción."
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [
+      26
+    ],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_014",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 14,
+        "correcta": "C"
+      }
+    ]
+  },
+  {
+    "cluster_id": 119,
+    "tema": 6,
+    "tema_nombre": "Prevención de riesgos laborales",
+    "tema_corto": "Prevención riesgos",
+    "enunciado": "Indique la respuesta correcta:",
+    "opciones": {
+      "A": "El Plan de Prevención y Atención de Agresiones del SSPA incluye una \"Guía de Orientación Jurídica\", que se recoge en el Anexo 3, cuya finalidad es la de orientar a los profesionales en las acciones legales que puedan emprenderse en cada situación y caso.",
+      "B": "El Plan de Prevención y Atención de Agresiones del SSPA incluye un Plan de Comunicación Interno, para organismos colaboradores con el Plan y externo.",
+      "C": "A y B son ciertas.",
+      "D": "El Plan de Agresiones no recoge Plan de Comunicación ni Guía de Orientación Jurídica."
+    },
+    "correcta": "D",
+    "frecuencia": 1,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_libre_015",
+        "exam_id": "2016-01-30_libre",
+        "anio": 2016,
+        "modalidad": "libre",
+        "numero": 15,
+        "correcta": "D"
+      }
+    ]
+  },
+  {
+    "cluster_id": 120,
+    "tema": 6,
+    "tema_nombre": "Prevención de riesgos laborales",
+    "tema_corto": "Prevención riesgos",
+    "enunciado": "Prevención de riesgos laborales entendido como \"condición de trabajo\", cualquier característica del mismo que pueda tener una influencia significativa en la generación de riesgos por la seguridad y salud del trabajador. ¿Qué ley recoge esta definición?",
+    "opciones": {
+      "D": "Ley 51/1998 de 8 de noviembre",
+      "C": "Ley 31/1995 de 8 de noviembre",
+      "B": "Ley 51/1995 de 8 de noviembre",
+      "A": "Ley 31/1998 de 8 de noviembre"
+    },
+    "correcta": "C",
+    "frecuencia": 1,
+    "anios": [
+      2016
+    ],
+    "n_anios": 1,
+    "score": 1.25,
+    "articulos": [],
+    "match": "unico",
+    "ocurrencias": [
+      {
+        "id": "2016-01-30_pi_012",
+        "exam_id": "2016-01-30_pi",
+        "anio": 2016,
+        "modalidad": "pi",
+        "numero": 12,
+        "correcta": "C"
+      }
+    ]
+  }
+]

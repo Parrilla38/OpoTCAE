@@ -1,0 +1,102 @@
+{
+  "fuente": "Servicio Andaluz de Salud (Junta de Andalucía)",
+  "aviso": "Cuadernillos y plantillas oficiales del Servicio Andaluz de Salud (Junta de Andalucía). Transcripción con fines de estudio. Consulte siempre el original en la web del SAS.",
+  "anios": [
+    2016,
+    2019,
+    2021,
+    2022,
+    2024,
+    2025
+  ],
+  "temas": [
+    {
+      "tema": 1,
+      "nombre": "Constitución Española de 1978",
+      "corto": "Constitución",
+      "clusters": 8,
+      "preguntas": 9,
+      "score_total": 11.25
+    },
+    {
+      "tema": 2,
+      "nombre": "Estatuto de Autonomía para Andalucía",
+      "corto": "Estatuto Andalucía",
+      "clusters": 7,
+      "preguntas": 9,
+      "score_total": 11.25
+    },
+    {
+      "tema": 3,
+      "nombre": "Organización sanitaria (I): SSPA",
+      "corto": "Organización sanitaria I",
+      "clusters": 28,
+      "preguntas": 43,
+      "score_total": 56.0
+    },
+    {
+      "tema": 4,
+      "nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+      "corto": "Organización sanitaria II",
+      "clusters": 17,
+      "preguntas": 26,
+      "score_total": 32.5
+    },
+    {
+      "tema": 5,
+      "nombre": "Protección de datos y transparencia",
+      "corto": "Protección de datos",
+      "clusters": 6,
+      "preguntas": 7,
+      "score_total": 8.75
+    },
+    {
+      "tema": 6,
+      "nombre": "Prevención de riesgos laborales",
+      "corto": "Prevención riesgos",
+      "clusters": 15,
+      "preguntas": 19,
+      "score_total": 23.75
+    },
+    {
+      "tema": 7,
+      "nombre": "Igualdad y violencia de género en Andalucía",
+      "corto": "Igualdad y violencia género",
+      "clusters": 3,
+      "preguntas": 3,
+      "score_total": 3.75
+    },
+    {
+      "tema": 8,
+      "nombre": "Estatuto Marco del personal estatutario",
+      "corto": "Estatuto Marco",
+      "clusters": 9,
+      "preguntas": 10,
+      "score_total": 12.5
+    },
+    {
+      "tema": 9,
+      "nombre": "Autonomía del paciente y derechos y deberes",
+      "corto": "Autonomía del paciente",
+      "clusters": 21,
+      "preguntas": 32,
+      "score_total": 40.0
+    },
+    {
+      "tema": 10,
+      "nombre": "TIC en el SAS",
+      "corto": "TIC SAS",
+      "clusters": 6,
+      "preguntas": 8,
+      "score_total": 10.0
+    }
+  ],
+  "totales": {
+    "preguntas": 166,
+    "clusters": 120,
+    "repetidos": 43,
+    "multi_anio": 3,
+    "examenes": 13
+  },
+  "score_formula": "frecuencia * (1 + 0.25 * anios_diferentes)"
+}
