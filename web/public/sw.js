@@ -1,21 +1,25 @@
 /** Service worker de OpoTCAE.
  *
- *  Estrategia:
- *   - Shell de la app (HTML, JS, CSS, iconos): cache-first. Es contenido con
- *     nombre por hash, así que se puede cachear sin miedo.
- *   - Datos (data/*.json): stale-while-revalidate. Se muestra lo cacheado
- *     al instante y se actualiza en segundo plano cuando hay red.
- *  Con eso la app abre sin conexión una vez la hayas usado, que es lo que se
- *  espera de una herramienta de estudio.
+ *  Estrategia, pensada para que NUNCA se sirva una versión vieja de la app:
+ *
+ *   - HTML y navegación: **network-first**. Si hay red se usa la versión nueva;
+ *     solo se recurre a la cache sin conexión. Es lo que evita que un deploy
+ *     pase inadvertido (el fallo que nos costó una revisión: cacheábamos
+ *     index.html con cache-first y el usuario seguía viendo lo viejo).
+ *   - /assets/* (nombre con hash): **cache-first**. Son inmutables de por sí.
+ *   - /data/*.json: **stale-while-revalidate**. Se pinta al instante y se
+ *     actualiza por detrás.
+ *   - Resto (iconos, manifest): stale-while-revalidate.
+ *
+ *  La versión del cache va en el nombre: al subirla se descarta lo anterior.
  */
 
-const SHELL = "opotcae-shell-v1";
-const DATOS = "opotcae-datos-v1";
+const VERSION = "v2";
+const SHELL = `opotcae-shell-${VERSION}`;
+const DATOS = `opotcae-datos-${VERSION}`;
+const TODAS = [SHELL, DATOS];
 
-self.addEventListener("install", (evento) => {
-  evento.waitUntil(
-    caches.open(SHELL).then((c) => c.addAll(["/", "/manifest.webmanifest", "/favicon.svg"]))
-  );
+self.addEventListener("install", () => {
   self.skipWaiting();
 });
 
@@ -24,48 +28,77 @@ self.addEventListener("activate", (evento) => {
     caches
       .keys()
       .then((claves) =>
-        Promise.all(claves.filter((k) => k !== SHELL && k !== DATOS).map((k) => caches.delete(k)))
+        Promise.all(claves.filter((k) => !TODAS.includes(k)).map((k) => caches.delete(k)))
       )
       .then(() => self.clients.claim())
   );
 });
 
+/** ¿Es un documento HTML que hay que servir siempre lo más fresco posible? */
+function esDocumento(url) {
+  return (
+    url.pathname === "/" ||
+    url.pathname.endsWith(".html") ||
+    url.pathname.endsWith("/")
+  );
+}
+
 self.addEventListener("fetch", (evento) => {
-  const url = new URL(evento.request.url);
-  if (evento.request.method !== "GET" || url.origin !== self.location.origin) return;
+  const { request } = evento;
+  const url = new URL(request.url);
+  if (request.method !== "GET" || url.origin !== self.location.origin) return;
+  // el propio service worker y las peticiones de actualización no se cachean
+  if (url.pathname === "/sw.js") return;
 
   const esDato = url.pathname.startsWith("/data/");
+  const esAsset = url.pathname.startsWith("/assets/");
   const cache = esDato ? DATOS : SHELL;
 
-  if (esDato) {
-    // stale-while-revalidate: responde con la cache y actualiza por detrás
+  // HTML: network-first, con caída a cache solo si no hay red
+  if (esDocumento(url)) {
     evento.respondWith(
-      caches.open(cache).then(async (c) => {
-        const guardada = await c.match(evento.request);
-        const red = fetch(evento.request)
-          .then((res) => {
-            if (res.ok) c.put(evento.request, res.clone());
-            return res;
-          })
-          .catch(() => guardada);
-        return guardada || red;
-      })
+      fetch(request)
+        .then((res) => {
+          if (res.ok) {
+            const copia = res.clone();
+            caches.open(cache).then((c) => c.put(request, copia));
+          }
+          return res;
+        })
+        .catch(() => caches.match(request).then((g) => g || caches.match("/")))
     );
     return;
   }
 
-  // cache-first para el shell
+  // assets con hash: son inmutables, cache-first
+  if (esAsset) {
+    evento.respondWith(
+      caches.match(request).then(
+        (g) =>
+          g ||
+          fetch(request).then((res) => {
+            if (res.ok) {
+              const copia = res.clone();
+              caches.open(cache).then((c) => c.put(request, copia));
+            }
+            return res;
+          })
+      )
+    );
+    return;
+  }
+
+  // datos y el resto: stale-while-revalidate
   evento.respondWith(
-    caches.match(evento.request).then(
-      (guardada) =>
-        guardada ||
-        fetch(evento.request).then((res) => {
-          if (res.ok && res.type === "basic") {
-            const copia = res.clone();
-            caches.open(cache).then((c) => c.put(evento.request, copia));
-          }
+    caches.open(cache).then(async (c) => {
+      const guardada = await c.match(request);
+      const red = fetch(request)
+        .then((res) => {
+          if (res.ok) c.put(request, res.clone());
           return res;
         })
-    )
+        .catch(() => guardada);
+      return guardada || red;
+    })
   );
 });

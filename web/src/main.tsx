@@ -31,6 +31,21 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 // Service worker: hace que la app abra sin conexión una vez usada.
 if ("serviceWorker" in navigator && import.meta.env.PROD) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/sw.js").catch(() => {});
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then((reg) => {
+        // si hay una versión nueva del SW, recargar sola al terminar de instalar:
+        // así un deploy nunca se queda sin ver por culpa de la cache
+        reg.addEventListener("updatefound", () => {
+          const nuevo = reg.installing;
+          if (!nuevo) return;
+          nuevo.addEventListener("statechange", () => {
+            if (nuevo.state === "installed" && navigator.serviceWorker.controller) {
+              window.location.reload();
+            }
+          });
+        });
+      })
+      .catch(() => {});
   });
 }
