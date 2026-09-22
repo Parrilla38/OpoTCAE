@@ -5,6 +5,7 @@ import Practicar from "./views/Practicar";
 import Aprender from "./views/Aprender";
 import Examenes from "./views/Examenes";
 import Progreso from "./views/Progreso";
+import Guia from "./views/Guia";
 
 type Vista = "practicar" | "aprender" | "examenes" | "progreso";
 
@@ -26,6 +27,20 @@ function useDatos<T>(pedir: () => Promise<T>, activo: boolean) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activo]);
   return { datos, error };
+}
+
+function BotonGuia({ onClick }: { onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label="Cómo se usa"
+      title="Cómo se usa"
+      className="grid h-8 w-8 place-items-center rounded-full border border-hilo font-mono text-[13px] font-bold text-suave transition hover:bg-superficie hover:text-tinta"
+    >
+      ?
+    </button>
+  );
 }
 
 function BotonTema() {
@@ -65,6 +80,7 @@ function Aviso({ error }: { error: string }) {
 
 export default function App() {
   const [vista, setVista] = useState<Vista>("practicar");
+  const [verGuia, setVerGuia] = useState(false);
   const { datos: base, error: errorBase } = useDatos(cargaBase, true);
   const { datos: clusters, error: errorClusters } = useDatos(
     cargaClusters,
@@ -76,6 +92,7 @@ export default function App() {
 
   return (
     <div className="mx-auto flex min-h-screen max-w-2xl flex-col px-4 pb-28 pt-5">
+      {verGuia && <Guia onCerrar={() => setVerGuia(false)} />}
       <header className="mb-7 flex items-center justify-between gap-3">
         <div className="flex items-center gap-2.5">
           <Sello />
@@ -84,7 +101,10 @@ export default function App() {
             <p className="etiqueta mt-1">TCAE · Andalucía</p>
           </div>
         </div>
-        <BotonTema />
+        <div className="flex items-center gap-1.5">
+          <BotonGuia onClick={() => setVerGuia(true)} />
+          <BotonTema />
+        </div>
       </header>
 
       {error && <Aviso error={error} />}
@@ -139,6 +159,15 @@ export default function App() {
             <p className="mt-1.5 font-mono uppercase tracking-wider">
               {base.meta.totales.preguntas} preguntas · {base.meta.anios.join(", ")} · gratis y sin
               cuenta
+            </p>
+            <p className="mt-2">
+              <button
+                type="button"
+                onClick={() => setVerGuia(true)}
+                className="font-semibold text-verde underline underline-offset-2"
+              >
+                ¿Cómo se usa? Lee la guía
+              </button>
             </p>
           </footer>
 
