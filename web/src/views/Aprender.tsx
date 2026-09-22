@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { agrupaPorArticulo, cargaConceptos, cohesion, porTema } from "../data";
+import { buscaArticulo } from "../leyes";
 import type { Cluster, Concepto, ConceptosData, Meta, Selector } from "../types";
 import { Boton, Chip, Fila, ListaOpciones, NombreTema, Segmentado } from "../components/ui";
 
-type Pestana = "temas" | "conceptos" | "calendario";
+type Pestana = "temas" | "conceptos" | "calendario" | "buscar";
 type Vista =
   | { tipo: "lista" }
   | { tipo: "apartados"; sel: Selector }
@@ -66,8 +67,11 @@ export default function Aprender({ clusters, meta }: { clusters: Cluster[]; meta
           { valor: "temas" as Pestana, etiqueta: "Por tema" },
           { valor: "conceptos" as Pestana, etiqueta: "Conceptos" },
           { valor: "calendario" as Pestana, etiqueta: "Calendario" },
+          { valor: "buscar" as Pestana, etiqueta: "Buscar" },
         ]}
       />
+
+      {pestana === "buscar" && <Buscador clusters={clusters} />}
 
       {pestana === "calendario" && (
         <Calendario
@@ -180,6 +184,7 @@ export default function Aprender({ clusters, meta }: { clusters: Cluster[]; meta
           <span className="etiqueta">
             {preguntas.length} pregunta{preguntas.length === 1 ? "" : "s"} · por lo que más se repiten
           </span>
+          {vista.apartado !== 0 && <TextoArticulo tema={vista.sel} numero={vista.apartado} />}
           {preguntas.map((c) => (
             <TarjetaPregunta key={c.cluster_id} c={c} />
           ))}
@@ -203,6 +208,116 @@ function TarjetaPregunta({ c }: { c: Cluster }) {
         {c.articulos.length > 0 && <> · art. {c.articulos.join(", ")}</>}
       </p>
     </article>
+  );
+}
+
+/**
+ * Texto del artículo de la ley, traído del BOE. Es lo que falta para que
+ * «art. 47 de la Ley 2/1998» sirva para estudiar y no solo para señalarte.
+ * Si la norma no tiene texto embebido (normas andaluzas del BOJA), se enseña
+ * el enlace al original en vez de un hueco.
+ */
+function TextoArticulo({ tema, numero }: { tema: Selector; numero: number }) {
+  const [estado, setEstado] = useState<
+    | { tipo: "cargando" }
+    | { tipo: "listo"; hallados: { norma: { abrev: string; nombre: string; origen: string | null; fuente: string }; articulo: { titulo: string; epigrafe: string; texto: string } }[] }
+    | { tipo: "vacio" }
+  >({ tipo: "cargando" });
+
+  useEffect(() => {
+    let vivo = true;
+    setEstado({ tipo: "cargando" });
+    buscaArticulo(typeof tema === "number" ? tema : null, numero)
+      .then((hallados) => {
+        if (!vivo) return;
+        setEstado(hallados.length ? { tipo: "listo", hallados } : { tipo: "vacio" });
+      })
+      .catch(() => vivo && setEstado({ tipo: "vacio" }));
+    return () => {
+      vivo = false;
+    };
+  }, [tema, numero]);
+
+  return (
+    <div className="rounded-accion border border-hilo bg-superficie">
+      <div className="flex items-center gap-2 px-4 pt-4">
+        <Chip tono="berenjena">el artículo</Chip>
+        <span className="etiqueta">Art. {numero}</span>
+      </div>
+      {estado.tipo === "cargando" && (
+        <p className="px-4 py-4 text-sm text-suave">Buscando el texto en el BOE…</p>
+      )}
+      {estado.tipo === "vacio" && (
+        <p className="px-4 py-4 text-sm text-suave">
+          El texto de este artículo no está disponible aquí. Consulta el original en la fuente
+          oficial.
+        </p>
+      )}
+      {estado.tipo === "listo" &&
+        estado.hallados.map(({ norma, articulo }) => (
+          <div key={norma.abrev} className="border-t border-hilo px-4 py-4">
+            <p className="etiqueta">{norma.abrev}</p>
+            <h4 className="mt-1.5 text-[15px] font-semibold tracking-tight">{articulo.titulo}</h4>
+            {articulo.epigrafe && (
+              <p className="mt-0.5 text-[13px] font-semibold text-verde">{articulo.epigrafe}</p>
+            )}
+            <div className="mt-3 space-y-3 whitespace-pre-line text-[14px] leading-relaxed text-tinta">
+              {articulo.texto.split("\n\n").map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+            <p className="mt-4 font-mono text-[10px] uppercase tracking-wider text-suave">
+              {norma.fuente} ·{" "}
+              {norma.origen ? (
+                <a href={norma.origen} target="_blank" rel="noreferrer" className="underline">
+                  ver original
+                </a>
+              ) : (
+                "consulta el BOJA"
+              )}
+            </p>
+          </div>
+        ))}
+    </div>
+  );
+}
+
+/** Buscador sobre las 1.504 preguntas: enunciado y opciones. */
+function Buscador({ clusters }: { clusters: Cluster[] }) {
+  const [q, setQ] = useState("");
+  const resultados = useMemo(() => {
+    const t = q.trim().toLowerCase();
+    if (t.length < 2) return [];
+    return clusters
+      .filter((c) => {
+        const paja = `${c.enunciado} ${Object.values(c.opciones).join(" ")}`.toLowerCase();
+        return t.split(/\s+/).every((p) => paja.includes(p));
+      })
+      .sort((a, b) => b.score - a.score);
+  }, [clusters, q]);
+
+  return (
+    <div className="space-y-4">
+      <div>
+        <span className="etiqueta">Buscar en las 1.504 preguntas</span>
+        <input
+          className="campo mt-2"
+          type="search"
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+          placeholder="sonda de Foley, art. 47, úlceras…"
+          autoFocus
+        />
+        <p className="mt-2 font-mono text-[10.5px] font-bold uppercase tracking-wider text-suave">
+          {q.trim().length < 2
+            ? "escribe al menos 2 letras"
+            : `${resultados.length} resultado${resultados.length === 1 ? "" : "s"}`}
+        </p>
+      </div>
+      {resultados.map((c) => (
+        <TarjetaPregunta key={c.cluster_id} c={c} />
+      ))}
+    </div>
   );
 }
 

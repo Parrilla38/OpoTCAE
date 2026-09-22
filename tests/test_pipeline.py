@@ -25,6 +25,7 @@ from parsear import (  # noqa: E402
     limpiar,
     parsear_cuadernillo,
 )
+from articulos import en_palabras, numero_de_titulo  # noqa: E402
 
 
 # ─────────────────────────── clasificar ───────────────────────────
@@ -272,3 +273,57 @@ def test_toda_pregunta_tiene_respuesta_o_esta_anulada():
         if not p.get("anulada") and p.get("correcta") not in ("A", "B", "C", "D")
     ]
     assert not malas, f"{len(malas)} preguntas sin respuesta válida: {malas[:5]}"
+
+
+# ─────────────────────────── articulados del BOE ───────────────────────────
+
+
+def test_numerales_en_letra():
+    """La LGS numera los artículos con letra («Artículo uno»): hay que leerlos.
+
+    Regresión: si se rompe el conversor, la General de Sanidad se descarga con 0
+    artículos y el Modo Repaso deja de enseñar su texto.
+    """
+    casos = [
+        ("Artículo uno. Objeto de la Ley", 1),
+        ("Artículo tres. Ámbito", 3),
+        ("Artículo veintiuno", 21),
+        ("Artículo cincuenta y dos", 52),
+        ("Artículo ciento veintitrés", 123),
+        ("Artículo 47. Organización", 47),
+    ]
+    for titulo, esperado in casos:
+        assert numero_de_titulo(titulo) == esperado, f"{titulo!r}"
+
+
+def test_en_palabras_cubre_1_299():
+    for n in range(1, 300):
+        assert en_palabras(n)
+
+
+def test_los_articulos_se_descargan_completos():
+    """Si el parser del BOE se rompe, esto lo caza antes de publicar."""
+    d = RAIZ / "web" / "public" / "leyes"
+    if not (d / "indice.json").exists():
+        pytest.skip("aún no se ha ejecutado articulos.py")
+    indice = json.loads((d / "indice.json").read_text(encoding="utf-8"))
+    assert len(indice) >= 6, f"solo {len(indice)} normas en el índice"
+    por_clave = {n["clave"]: n for n in indice}
+    # mínimos razonables: si bajan de golpe, algo se ha roto en el parser
+    minimos = {"ce": 160, "l14-1986": 100, "l41-2002": 20, "l55-2003": 70, "l31-1995": 50}
+    for clave, minimo in minimos.items():
+        n = por_clave.get(clave, {}).get("n_articulos", 0)
+        assert n >= minimo, f"{clave} solo tiene {n} artículos (mínimo {minimo})"
+
+
+def test_el_texto_de_un_articulo_es_real_y_no_vacio():
+    d = RAIZ / "web" / "public" / "leyes"
+    ruta = d / "ce.json"
+    if not ruta.exists():
+        pytest.skip("aún no se ha ejecutado articulos.py")
+    ce = json.loads(ruta.read_text(encoding="utf-8"))
+    art = ce["articulos"].get("1")
+    assert art, "falta el artículo 1 de la Constitución"
+    # el texto debe ser el real del art. 1.1 CE
+    assert "valores superiores" in art["texto"]
+    assert "libertad, la justicia, la igualdad" in art["texto"]

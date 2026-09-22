@@ -50,7 +50,7 @@ Cuatro pantallas, pensadas para que en un toque sepas qué hacer.
 | Pantalla | Qué hace |
 |---|---|
 | **🎯 Practicar** | Un botón grande para empezar. Test de 5/10/25/50 preguntas con lo que más cae primero, y **simulacro** como el examen (50 preguntas, 60 min, penaliza el error). Ajustes avanzados desplegados bajo «Cambiar preguntas». |
-| **📖 Aprender** | Lo que más se pregunta, por tema y en orden de peso real. La vista **Conceptos** agrupa las preguntas que el tribunal repite con otras palabras. Y el **Calendario** muestra qué artículos caen en cada convocatoria. |
+| **📖 Aprender** | Lo que más se pregunta, por tema y en orden de peso real. La vista **Conceptos** agrupa las preguntas que el tribunal repite con otras palabras, con su respuesta. El **Calendario** muestra qué artículos caen en cada convocatoria. Y **Buscar** recorre las 1.504 preguntas. Al abrir un artículo se enseña **el texto del artículo**, traído del BOE. |
 | **🗓 Exámenes** | Qué preguntó el tribunal cada convocatoria, con cada pregunta marcada como **«Nueva este año»** o **«Ya había caído»**. |
 | **👤 Mi progreso** | Repaso del día con repasos espaciados (vuelven cuando estés a punto de olvidarlas), tus tarjetas, tus datos y descarga en `.md` o **impresión** para repasar en papel. |
 
@@ -97,9 +97,10 @@ python scripts/limpia_parseo.py    # corrige portadas y enunciados sueltos
 python scripts/clasificar.py       # 29 temas + clínica
 python scripts/radar.py            # clústeres literales + RADAR
 python scripts/semantico.py        # clústeres semánticos + SEMANTICO.md
+python scripts/articulos.py        # 538 artículos del BOE -> web/public/leyes/
 python scripts/exporta_web.py      # -> web/public/data/
 
-python -m pytest                   # tests del pipeline (52)
+python -m pytest                   # tests del pipeline (56)
 ```
 
 `limpia_parseo.py` es idempotente sobre `parsear.py`, pero **no lo corras dos

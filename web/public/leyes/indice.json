@@ -1,0 +1,86 @@
+[
+  {
+    "clave": "ce",
+    "nombre": "Constitución Española",
+    "corto": "Constitución",
+    "abrev": "CE",
+    "origen": "https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229",
+    "fuente": "BOE",
+    "temas": [
+      1
+    ],
+    "n_articulos": 169
+  },
+  {
+    "clave": "l41-2002",
+    "nombre": "Ley 41/2002, básica reguladora de la autonomía del paciente",
+    "corto": "Autonomía del paciente",
+    "abrev": "Ley 41/2002",
+    "origen": "https://www.boe.es/buscar/act.php?id=BOE-A-2002-22188",
+    "fuente": "BOE",
+    "temas": [
+      9
+    ],
+    "n_articulos": 23
+  },
+  {
+    "clave": "l14-1986",
+    "nombre": "Ley 14/1986, General de Sanidad",
+    "corto": "General de Sanidad",
+    "abrev": "Ley 14/1986",
+    "origen": "https://www.boe.es/buscar/act.php?id=BOE-A-1986-10499",
+    "fuente": "BOE",
+    "temas": [
+      3
+    ],
+    "n_articulos": 115
+  },
+  {
+    "clave": "l31-1995",
+    "nombre": "Ley 31/1995, de Prevención de Riesgos Laborales",
+    "corto": "Prevención de riesgos",
+    "abrev": "Ley 31/1995",
+    "origen": "https://www.boe.es/buscar/act.php?id=BOE-A-1995-24292",
+    "fuente": "BOE",
+    "temas": [
+      6
+    ],
+    "n_articulos": 54
+  },
+  {
+    "clave": "l55-2003",
+    "nombre": "Ley 55/2003, Estatuto Marco del personal estatutario",
+    "corto": "Estatuto Marco",
+    "abrev": "Ley 55/2003",
+    "origen": "https://www.boe.es/buscar/act.php?id=BOE-A-2003-23101",
+    "fuente": "BOE",
+    "temas": [
+      8
+    ],
+    "n_articulos": 80
+  },
+  {
+    "clave": "lo3-2018",
+    "nombre": "Ley Orgánica 3/2018, Protección de Datos y garantía de los derechos digitales",
+    "corto": "Protección de datos",
+    "abrev": "LO 3/2018",
+    "origen": "https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673",
+    "fuente": "BOE",
+    "temas": [
+      5
+    ],
+    "n_articulos": 97
+  },
+  {
+    "clave": "l2-1998",
+    "nombre": "Ley 2/1998, de Salud de Andalucía",
+    "corto": "Salud de Andalucía",
+    "abrev": "Ley 2/1998",
+    "origen": "https://www.juntadeandalucia.es/boja/1998/98/BOJA9809800133.pdf",
+    "fuente": "BOJA (sin texto embebido)",
+    "temas": [
+      3
+    ],
+    "n_articulos": 0
+  }
+]

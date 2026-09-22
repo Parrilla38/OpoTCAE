@@ -34,6 +34,49 @@ Jesús, 2026-09-22) · **Código: <https://github.com/Parrilla38/OpoTCAE>**
 | — | **Pasada de UX seria** | ✅ |
 | — | Cierre de anomalías, T13, heatmap e impresión recuperados | ✅ |
 | — | Rediseño visual (maquetas → Patio Blanco) | ✅ |
+| — | Articulado del BOE + buscador de preguntas | ✅ |
+
+## Articulado y buscador (2026-09-22)
+
+El bucle del producto se cierra: hasta ahora la app decía *«art. 47 de la Ley
+2/1998»* y te dejaba tirado. Ahora, al abrir un artículo, se enseña **el texto
+del artículo tal cual**, traído del BOE.
+
+**538 artículos de 6 normas**, en `web/public/leyes/` (se cargan bajo demanda):
+
+| Norma | Arts. | Fuente |
+|---|---|---|
+| Constitución Española | 169 | BOE |
+| Ley 14/1986, General de Sanidad | 115 | BOE |
+| LO 3/2018, Protección de Datos | 97 | BOE |
+| Ley 55/2003, Estatuto Marco | 80 | BOE |
+| Ley 31/1995, Prevención de Riesgos Laborales | 54 | BOE |
+| Ley 41/2002, Autonomía del paciente | 23 | BOE |
+| Ley 2/1998, Salud de Andalucía | — | BOJA, **sin texto** |
+| LO 2/2007, Estatuto de Andalucía | — | BOE, **ID por encontrar** |
+
+**El texto legal nunca se inventa.** Si una norma no se ha podido traer, la UI
+muestra el enlace al original en vez de un hueco. Faltan las dos andaluzas:
+- `l2-1998` (Ley de Salud de Andalucía, la del art. 47): está en el BOJA, no en
+  el BOE. Se deja con enlace.
+- `lo2-2007` (Estatuto de Autonomía): el `id=BOE-A-2007-…` correcto no se ha
+  encontrado. Hay que buscarlo a mano y reejecutar `scripts/articulos.py`.
+
+Scripts: `scripts/articulos.py` (descarga y parsea), `scripts/sondea_boe.py` y
+`scripts/diagnostica_boe.py` (sondeo de formato), `scripts/busca_boe.py`.
+
+Dos sorpresas del BOE que conviene no olvidar:
+- Los IDs `BOE-A-YYYY-NNNNN` se asignan por orden de publicación, **no por norma**:
+  hay que buscarlos, no adivinarlos (se intentó con 3 falsos que devolvían
+  resoluciones de industria).
+- Leyes antiguas como la LGS numeran los artículos **con letra** («Artículo
+  uno»). `numero_de_titulo()` los convierte; si se rompe, la LGS se descarga con
+  0 artículos. Hay test que lo protege.
+
+### Buscador
+
+Pestaña **Buscar** en *Aprender*: busca sobre las 1.504 preguntas (enunciado +
+opciones), con todas las palabras del término. Ordenado por lo que más se repite.
 
 ## Estilo visual — Patio Blanco
 
