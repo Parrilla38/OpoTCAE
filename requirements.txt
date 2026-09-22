@@ -1,0 +1,10 @@
+# Pipeline de extracción y análisis de los exámenes TCAE SAS
+pypdf>=6.0
+fontTools>=4.50
+
+# Clustering aglomerativo del matching semántico
+scikit-learn>=1.5
+numpy>=1.26
+
+# Embeddings multilingües (la primera ejecución descarga el modelo, ~470 MB)
+sentence-transformers>=3.0

@@ -1,6 +1,9 @@
 import type { ConfigTest, IntentoTest, Letra, Progreso, ResultadoPregunta } from "./types";
+import type { EstadoSm2 } from "./sm2";
+import { nuevaTarjeta, repasa } from "./sm2";
 
 const CLAVE = "tcae-progreso-v1";
+const CLAVE_SM2 = "tcae-sm2-v1";
 
 export function cargaProgreso(): Progreso {
   try {
@@ -24,6 +27,47 @@ export function guardaProgreso(p: Progreso): void {
 
 export function reiniciaProgreso(): void {
   localStorage.removeItem(CLAVE);
+  localStorage.removeItem(CLAVE_SM2);
+}
+
+// ─────────────────────────── SM-2 ───────────────────────────
+
+export function cargaSm2(): Record<number, EstadoSm2> {
+  try {
+    const crudo = localStorage.getItem(CLAVE_SM2);
+    return crudo ? (JSON.parse(crudo) as Record<number, EstadoSm2>) : {};
+  } catch {
+    return {};
+  }
+}
+
+export function guardaSm2(ts: Record<number, EstadoSm2>): void {
+  localStorage.setItem(CLAVE_SM2, JSON.stringify(ts));
+}
+
+/** Da de alta una tarjeta si no existía (al fallar una pregunta). */
+export function altaTarjeta(clusterId: number): void {
+  const ts = cargaSm2();
+  if (!ts[clusterId]) {
+    ts[clusterId] = nuevaTarjeta(clusterId);
+    guardaSm2(ts);
+  }
+}
+
+/** Registra un repaso de la tarjeta con calidad q (0-5). */
+export function repasaTarjeta(clusterId: number, q: number): EstadoSm2 {
+  const ts = cargaSm2();
+  const actual = ts[clusterId] ?? nuevaTarjeta(clusterId);
+  const nuevo = repasa(actual, q);
+  ts[clusterId] = nuevo;
+  guardaSm2(ts);
+  return nuevo;
+}
+
+export function reiniciaTarjeta(clusterId: number): void {
+  const ts = cargaSm2();
+  ts[clusterId] = nuevaTarjeta(clusterId);
+  guardaSm2(ts);
 }
 
 export function registraIntento(
@@ -45,6 +89,7 @@ export function registraIntento(
     } else {
       fallos++;
       p.errores[r.cluster_id] = (p.errores[r.cluster_id] ?? 0) + 1;
+      altaTarjeta(r.cluster_id); // entra en repetición espaciada
     }
   }
   const bruto = aciertos - config.penalizacion * fallos;

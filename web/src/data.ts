@@ -1,9 +1,10 @@
-import type { Cluster, Examen, Meta, Pregunta } from "./types";
+import type { Cluster, ConceptosData, Examen, Meta, Pregunta } from "./types";
 
 let _clusters: Cluster[] | null = null;
 let _preguntas: Pregunta[] | null = null;
 let _examenes: Examen[] | null = null;
 let _meta: Meta | null = null;
+let _conceptos: ConceptosData | null = null;
 
 async function carga<T>(ruta: string): Promise<T> {
   const res = await fetch(ruta);
@@ -16,21 +17,37 @@ export async function cargaTodo(): Promise<{
   preguntas: Pregunta[];
   examenes: Examen[];
   meta: Meta;
+  conceptos: ConceptosData | null;
 }> {
   if (_clusters && _preguntas && _examenes && _meta) {
-    return { clusters: _clusters, preguntas: _preguntas, examenes: _examenes, meta: _meta };
+    return {
+      clusters: _clusters,
+      preguntas: _preguntas,
+      examenes: _examenes,
+      meta: _meta,
+      conceptos: _conceptos,
+    };
   }
-  const [clusters, preguntas, examenes, meta] = await Promise.all([
+  const [clusters, preguntas, examenes, meta, conceptos] = await Promise.all([
     carga<Cluster[]>("data/clusters.json"),
     carga<Pregunta[]>("data/preguntas.json"),
     carga<Examen[]>("data/examenes.json"),
     carga<Meta>("data/meta.json"),
+    carga<ConceptosData>("data/conceptos.json").catch(() => null),
   ]);
   _clusters = clusters;
   _preguntas = preguntas;
   _examenes = examenes;
   _meta = meta;
-  return { clusters, preguntas, examenes, meta };
+  _conceptos = conceptos;
+  return { clusters, preguntas, examenes, meta, conceptos };
+}
+
+/** Alta/Media/Baja cohesión intra-grupo según la similitud de coseno. */
+export function cohesion(sim: number): "alta" | "media" | "baja" {
+  if (sim >= 0.85) return "alta";
+  if (sim >= 0.78) return "media";
+  return "baja";
 }
 
 export function ordenaPorScore<T extends { score: number }>(xs: T[]): T[] {

@@ -22,7 +22,7 @@ de **TCAE del Servicio Andaluz de Salud** (Andalucía), con foco inicial en la
 | **0** | Inventario y extracción cruda | ✅ `docs/FASE0_INVENTARIO.md` |
 | **1** | Bloque común (Temas 1-10): parseo, clústeres, radar | ✅ **VALIDADO por Jesús** |
 | **2** | MVP plataforma (Modo Test / Modo Repaso / Últimos exámenes) | ✅ `web/` build OK, 54 KB gzip |
-| **3** | Libreta de errores, heatmap, simulacro, flashcards | ⬜ pendiente |
+| **3** | Repetición espaciada, heatmap, simulacro, flashcards, semántico | ✅ **123 conceptos multi-año** |
 | **4** | Multiusuario (Workers + D1), stats agregadas | ⬜ pendiente |
 | **5** | Expansión a Temas 2-29 | ⬜ pendiente |
 
@@ -95,27 +95,76 @@ El radar de Constitución es, por volumen, **una herramienta nicho**.
 - **Producto gratuito y público**, sin nombre ni dominio todavía.
 - **Fase 1 ampliada a Temas 1-10** (bloque común / legislación), no solo Constitución.
 
-## Pipeline de Fase 1 (reproducible)
+## Pipeline reproducible
 
 ```bash
-python scripts/parsear.py        # PDFs -> data/parsed/preguntas.json
-python scripts/limpia_parseo.py  # corrige portadas, enunciados vacíos
-python scripts/clasificar.py     # etiqueta Temas 1-10 vs específico
-python scripts/radar.py          # clústeres + RADAR + VALIDACION
-python scripts/exporta_web.py    # -> web/public/data/
+pip install -r requirements.txt
+python scripts/descargar.py        # 45 PDFs oficiales del SAS -> data/pdfs/
+python scripts/extraer_pdf.py      # PDF -> data/raw/*.json
+python scripts/parsear.py          # -> data/parsed/preguntas.json
+python scripts/limpia_parseo.py    # corrige portadas y enunciados sueltos
+python scripts/clasificar.py       # etiqueta Temas 1-10 vs específico
+python scripts/radar.py            # clústeres literales + RADAR + VALIDACION
+python scripts/semantico.py        # clústeres semánticos + SEMANTICO.md
+python scripts/exporta_web.py      # -> web/public/data/
 ```
 
 `limpia_parseo.py` es idempotente sobre `parsear.py`, NO lo corras dos veces
 sobre el mismo JSON (acumula recortes).
 
+## Fase 2 — MVP
+
 ## Pendiente de Jesús
 
-1. **Nombre y dominio** de la plataforma.
-2. **Reutilización de los PDFs del SAS** (Ley 37/2007): verificar antes del deploy público. Medida conservadora actual: enlazar al original + atribución visible.
-3. **Matching semántico** (embeddings): queda en **Fase 3** (decisión de Jesús, 2026-09-22).
-4. **Anomalías 2 y 3 de Fase 0** (anuladas idénticas libre vs PI en 2019 y 2021): verificar comparando enunciados.
+1. **Nombre y dominio** definitivos (hoy: `opotcae.vercel.app`).
+2. **Reutilización de los PDFs del SAS** (Ley 37/2007): verificar antes de dar por publicado el proyecto. Medida conservadora: no se redistribuyen los PDFs, se re-descargan; atribución visible.
+3. **Anomalías 2 y 3 de Fase 0** (anuladas idénticas libre vs PI en 2019 y 2021): verificar comparando enunciados.
+4. **Revisar `docs/SEMANTICO.md`**: 123 grupos multi-año. Los de cohesión «baja» son tema, no concepto — decidir si se filtran.
 
-## Fase 2 — MVP lista para deploy
+## Fase 3 — completada
+
+### 3.1 Matching semántico (el hallazgo grande)
+
+`scripts/semantico.py` codifica las 1.504 preguntas con
+`paraphrase-multilingual-MiniLM-L12-v2` y las agrupa con clustering aglomerativo
+sobre coseno (umbral 0,72).
+
+| Métrica | Literal (`radar.py`) | Semántico (`semantico.py`) |
+|---|---|---|
+| Conceptos con ≥2 formulaciones | 43 | **486** |
+| De ellos en ≥2 años distintos | **3** | **123** |
+| Preguntas sin repetición | 123 | 273 |
+
+**Esto confirma la tesis con números: la señal de «esto se repite» está en el
+concepto, no en la redacción.** Ejemplos verificados a mano:
+
+- *Ley 41/2002 autonomía del paciente* — 10 formulaciones en 2016, 2019, 2021,
+  2022 y 2024 (similitud 0,82).
+- *Definición de úlcera por presión* — 9 formulaciones en 4 años (0,82).
+- *Salud mental comunitaria* — 11 formulaciones en 5 años (0,78).
+
+Calidad: solo 4 de 486 grupos mezclan más de un tema (casos límite reales:
+biobanco = T02/T09, Diraya = T03/T10). 34 grupos tienen similitud < 0,8 y se
+etiquetan en la UI como cohesión «baja» (mismo tema, preguntas distintas).
+
+Informes: `docs/SEMANTICO.md` · datos `data/parsed/clusters_semanticos.json`
+
+### 3.2-3.6 Features
+
+| Feature | Dónde |
+|---|---|
+| **Conceptos multi-año** | Modo Repaso → pestaña «Conceptos», con cohesión alta/media/baja |
+| **Heatmap artículo × año** | Modo Repaso → pestaña «Heatmap», clicable para ver las preguntas |
+| **Simulacro** | Modo Test → botón «⏱ Simulacro»: 50 preguntas, 60 min, penaliza ¼ |
+| **Repetición espaciada SM-2** | Tarjetas → pestaña «Hoy». Se dan de alta solas al fallar un test. Botones Otra vez / Difícil / Bien / Fácil |
+| **Flashcards** | Tarjetas → pestaña «Tarjetas»: las 166 preguntas ordenadas por score, con «+ Añadir a mis tarjetas» |
+| **Exportar / imprimir** | Stats → `.md` de la libreta + radar, y `window.print()` con CSS de impresión |
+
+Build: 189 KB JS (58 KB gzip) + 33 KB CSS (5,5 KB gzip). Dependencias Python en
+`requirements.txt` (incluye `sentence-transformers`, que descarga el modelo la
+primera vez).
+
+**Deploy en producción: https://opotcae.vercel.app/**
 
 Stack: **Vite + React 18 + TypeScript + Tailwind 3** en `web/`. Sin backend.
 Datos como JSON estático en `web/public/data/`, progreso en `localStorage`.

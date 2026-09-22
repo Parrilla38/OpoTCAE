@@ -6,6 +6,15 @@ import { BarraProgreso, EtiquetaRepeticion, EtiquetaTema, RefArticulos, TarjetaO
 
 type Fase = "config" | "jugando" | "resultado";
 
+const PRESET_SIMULACRO: ConfigTest = {
+  n: 50,
+  penalizacion: 0.25,
+  filtro: "repetidas",
+  tema: null,
+  cronometrado: true,
+  minutos: 60,
+};
+
 function eligePreguntas(clusters: Cluster[], cfg: ConfigTest, fallados: Set<number>): Cluster[] {
   let base = [...clusters];
   if (cfg.filtro === "repetidas") {
@@ -118,6 +127,37 @@ export default function TestMode({
             {meta.totales.examenes} exámenes oficiales del SAS ({meta.anios.join(", ")}). Lo que más
             se repite sale primero.
           </p>
+        </div>
+
+        <div className="grid gap-2 sm:grid-cols-2">
+          <button
+            type="button"
+            onClick={() => setCfg({ ...CONFIG_DEFECTO })}
+            className={
+              "rounded-2xl border p-4 text-left transition " +
+              (!cfg.cronometrado && cfg.penalizacion === 0.25 && cfg.n === 10
+                ? "border-marca-600 ring-1 ring-marca-600"
+                : "border-stone-200 hover:border-marca-400 dark:border-stone-800")
+            }
+          >
+            <div className="text-sm font-bold">🎯 Test libre</div>
+            <div className="mt-0.5 text-xs text-stone-500 dark:text-stone-400">
+              Eliges nº, banco y penalización. Sin presión de tiempo.
+            </div>
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setCfg({ ...PRESET_SIMULACRO });
+              window.setTimeout(empieza, 0);
+            }}
+            className="rounded-2xl border border-stone-200 p-4 text-left transition hover:border-marca-400 dark:border-stone-800"
+          >
+            <div className="text-sm font-bold">⏱ Simulacro</div>
+            <div className="mt-0.5 text-xs text-stone-500 dark:text-stone-400">
+              50 preguntas · 60 min · penaliza ¼, como el SAS. Entra directo.
+            </div>
+          </button>
         </div>
 
         <div className="card space-y-4">

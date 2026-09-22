@@ -2,6 +2,59 @@ import { useMemo } from "react";
 import { cargaProgreso, resumenProgreso } from "../store";
 import type { Cluster, Meta } from "../types";
 
+function exportaMd(clusters: Cluster[], meta: Meta) {
+  const p = cargaProgreso();
+  const fallados = Object.entries(p.errores)
+    .filter(([, n]) => (n as number) > 0)
+    .map(([k, n]) => ({ id: Number(k), veces: n as number }))
+    .sort((a, b) => b.veces - a.veces);
+  const porId = new Map(clusters.map((c) => [c.cluster_id, c]));
+
+  const L: string[] = ["# Repaso TCAE Andalucía — mi libreta y el radar", ""];
+  L.push(`_Exportado el ${new Date().toLocaleString("es-ES")}_`, "");
+  L.push("## Mi libreta de errores", "");
+  if (!fallados.length) L.push("_Todavía no hay errores registrados._", "");
+  for (const { id, veces } of fallados) {
+    const c = porId.get(id);
+    if (!c) continue;
+    L.push(`### [${veces} fallo${veces === 1 ? "" : "s"}] ${c.enunciado}`);
+    L.push("");
+    for (const l of ["A", "B", "C", "D"] as const) {
+      L.push(`- ${l}${l === c.correcta ? " ✓" : ""}) ${c.opciones[l]}`);
+    }
+    L.push(
+      "",
+      `T${String(c.tema ?? 0).padStart(2, "0")} · ${c.tema_corto} · ${
+        c.articulos.length ? `art. ${c.articulos.join(", ")}` : "sin art."
+      } · cae en ${c.anios.join(", ")}`,
+      ""
+    );
+  }
+
+  L.push("## Radar — lo que más se repite", "");
+  L.push("| # | score | años | Tema | Art. | Enunciado |");
+  L.push("|---|-------|------|------|------|-----------|");
+  for (const c of [...clusters].sort((a, b) => b.score - a.score).slice(0, 40)) {
+    L.push(
+      `| ${c.cluster_id} | ${c.score} | ${c.anios.join(",")} | T${String(c.tema ?? 0).padStart(2, "0")} | ${
+        c.articulos.join(",") || "—"
+      } | ${c.enunciado.replace(/\|/g, "/").slice(0, 90)} |`
+    );
+  }
+  L.push("", "## Peso por tema", "");
+  for (const t of meta.temas) {
+    L.push(`- T${String(t.tema).padStart(2, "0")} · ${t.nombre}: ${t.preguntas} preguntas`);
+  }
+  L.push("", "---", "", `_Fuente: ${meta.fuente}. ${meta.aviso}_`, "");
+
+  const blob = new Blob([L.join("\n")], { type: "text/markdown;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `tcae-repaso-${new Date().toISOString().slice(0, 10)}.md`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
 export default function StatsMode({ clusters, meta }: { clusters: Cluster[]; meta: Meta }) {
   const resumen = useMemo(() => resumenProgreso(), []);
   const progreso = useMemo(() => cargaProgreso(), []);
@@ -101,14 +154,38 @@ export default function StatsMode({ clusters, meta }: { clusters: Cluster[]; met
           <li>· {meta.totales.clusters} clústeres distintos</li>
           <li>· {meta.totales.repetidos} se repiten en el corpus</li>
           <li>· {meta.totales.multi_anio} caen en 2+ años distintos</li>
+          {meta.totales.conceptos_multi_anio !== undefined && (
+            <li>
+              ·{" "}
+              <b className="text-stone-700 dark:text-stone-200">
+                {meta.totales.conceptos_multi_anio} conceptos multi-año
+              </b>{" "}
+              (de {meta.totales.conceptos} detectados por embeddings)
+            </li>
+          )}
           <li>· {meta.totales.examenes} convocatorias ({meta.anios.join(", ")})</li>
           <li>· Score = {meta.score_formula}</li>
         </ul>
         <p className="mt-2 text-[11px] text-stone-500">
           Dato clave: la repetición <em>literal</em> entre años es casi nula. Lo que se repite es el
-          artículo y el concepto, no la redacción. Por eso el Modo Repaso por artículos es la
-          herramienta principal.
+          artículo y el concepto, no la redacción. Por eso el Modo Repaso por artículos y la vista
+          de Conceptos son las herramientas principales.
         </p>
+      </div>
+
+      <div className="card">
+        <h3 className="text-sm font-bold">Repaso en papel</h3>
+        <p className="mb-3 text-xs text-stone-500 dark:text-stone-400">
+          Exporta tu libreta de errores y el radar de artículos para repasar sin pantalla.
+        </p>
+        <div className="grid gap-2 sm:grid-cols-2">
+          <button type="button" onClick={() => exportaMd(clusters, meta)} className="btn-secundario">
+            ⬇ Exportar resumen (.md)
+          </button>
+          <button type="button" onClick={() => window.print()} className="btn-secundario">
+            🖨 Imprimir
+          </button>
+        </div>
       </div>
 
       {progreso.intentos.length > 0 && (

@@ -79,8 +79,43 @@ export interface Meta {
     repetidos: number;
     multi_anio: number;
     examenes: number;
+    conceptos?: number;
+    conceptos_multi_anio?: number;
   };
   score_formula: string;
+}
+
+export interface MiembroConcepto {
+  id: string;
+  exam_id: string;
+  anio: number;
+  modalidad: string;
+  numero: number;
+  tema: number | null;
+  enunciado: string;
+  correcta: string | null;
+  cluster_id: number | null;
+}
+
+export interface Concepto {
+  concepto_id: number;
+  rank: number;
+  representante: string;
+  n_preguntas: number;
+  anios: number[];
+  n_anios: number;
+  temas: number[];
+  similitud_media: number;
+  score: number;
+  miembros: MiembroConcepto[];
+}
+
+export interface ConceptosData {
+  modelo: string;
+  umbral: number;
+  n_conceptos_total: number;
+  n_multi_anio: number;
+  conceptos: Concepto[];
 }
 
 export interface ResultadoPregunta {

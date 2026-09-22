@@ -96,7 +96,9 @@
     "clusters": 120,
     "repetidos": 43,
     "multi_anio": 3,
-    "examenes": 13
+    "examenes": 13,
+    "conceptos_multi_anio": 123,
+    "conceptos": 486
   },
   "score_formula": "frecuencia * (1 + 0.25 * anios_diferentes)"
 }

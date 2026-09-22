@@ -26,3 +26,7 @@ Thumbs.db
 
 # Artefactos de build de TypeScript
 *.tsbuildinfo
+
+# Modelo de embeddings descargado por sentence-transformers
+.cache/
+sentence-transformers/

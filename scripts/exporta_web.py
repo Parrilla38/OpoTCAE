@@ -176,9 +176,47 @@ def main() -> int:
     (DESTINO / "examenes.json").write_text(
         json.dumps(examenes_out, ensure_ascii=False, indent=2), encoding="utf-8"
     )
-    (DESTINO / "meta.json").write_text(
-        json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"
-    )
+
+    # conceptos semánticos (si existe el análisis)
+    sem_path = PARSED / "clusters_semanticos.json"
+    if sem_path.exists():
+        sem = json.loads(sem_path.read_text(encoding="utf-8"))
+        conceptos_out = []
+        for g in sem.get("conceptos", []):
+            # solo los que caen en >=2 años: es la señal fuerte de repetición
+            if g.get("n_anios", 0) < 2:
+                continue
+            conceptos_out.append({
+                "concepto_id": g["concepto_id"],
+                "rank": g["rank"],
+                "representante": g["representante"],
+                "n_preguntas": g["n_preguntas"],
+                "anios": g["anios"],
+                "n_anios": g["n_anios"],
+                "temas": g["temas"],
+                "similitud_media": g["similitud_media"],
+                "score": g["score_concepto"],
+                "miembros": g["miembros"],
+            })
+        conceptos_out.sort(key=lambda g: -g["score"])
+        for n, g in enumerate(conceptos_out, 1):
+            g["rank"] = n
+        (DESTINO / "conceptos.json").write_text(
+            json.dumps({
+                "modelo": sem.get("modelo"),
+                "umbral": sem.get("umbral"),
+                "n_conceptos_total": sem.get("n_conceptos"),
+                "n_multi_anio": len(conceptos_out),
+                "conceptos": conceptos_out,
+            }, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        meta["totales"]["conceptos_multi_anio"] = len(conceptos_out)
+        meta["totales"]["conceptos"] = sem.get("n_conceptos")
+        (DESTINO / "meta.json").write_text(
+            json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        print(f"conceptos:  {len(conceptos_out):>4}  -> {DESTINO / 'conceptos.json'}")
 
     print(f"clusters:   {len(clusters_out):>4}  -> {DESTINO / 'clusters.json'}")
     print(f"preguntas:  {len(preguntas_out):>4}  -> {DESTINO / 'preguntas.json'}")

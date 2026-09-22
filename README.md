@@ -22,18 +22,21 @@ Las 43 «repeticiones» del corpus son en su mayoría **libre + promoción inter
 del mismo año** (el SAS reutiliza preguntas entre turnos), no reutilización
 interanual.
 
-Lo que sí se repite es el **artículo y el concepto**, no la redacción:
+A cambio, el **matching semántico** (`sentence-transformers` + clustering
+aglomerativo sobre las 1.504 preguntas) encuentra **486 conceptos con ≥2
+formulaciones distintas, y 123 de ellos caen en 2 o más años**. Ejemplos
+verificados a mano:
 
-| Señal | Ejemplo |
-|---|---|
-| Art. 47 Ley 2/1998 (Salud de Andalucía) | cae en 2019 y 2022 con redacciones distintas |
-| Art. 55 Ley 14/1986 (LGS) | competencias de los Servicios de Salud |
-| Arts. 1, 10 y 43 CE | valores superiores, principios del orden político, derecho a la salud |
-| Biobanco del SSPA | 4 formulaciones distintas en 2016, 2019, 2021 y 2022 |
+| Concepto | Formulaciones | Años |
+|---|---|---|
+| Ley 41/2002, autonomía del paciente | 10 | 2016, 2019, 2021, 2022, 2024 |
+| Definición de úlcera por presión | 9 | 2016, 2019, 2021, 2025 |
+| Salud mental comunitaria | 11 | 2016, 2019, 2022, 2024, 2025 |
+| Art. 47 Ley 2/1998 (Salud de Andalucía) | 2 | 2019, 2022 |
 
-De ahí que la herramienta principal sea el **Modo Repaso por artículos**, y que
-el Modo Test muestree ponderado por peso de artículo/tema y no por coincidencia
-literal de enunciado.
+De ahí que la herramienta principal sea el **Modo Repaso** (artículos + conceptos)
+y que el Modo Test muestree ponderado por peso de concepto/artículo y no por
+coincidencia literal de enunciado.
 
 ---
 
@@ -41,13 +44,14 @@ literal de enunciado.
 
 | Modo | Qué hace |
 |---|---|
-| **🎯 Test** | 5 / 10 / 25 / 50 preguntas. Banco filtrable: solo repetidas, todo el bloque, por tema, o mis errores. Penalización configurable (0 · ¼ como el SAS · ⅓). Cronómetro opcional. Muestreo ponderado por score. Corrección con referencia de artículo y norma. |
-| **📖 Repaso** | Temas ordenados por peso real en el examen → artículos ordenados por score → preguntas con su año de aparición. |
+| **🎯 Test** | Test libre configurable (5/10/25/50 preguntas, banco filtrable, penalización 0 · ¼ SAS · ⅓, cronómetro opcional) y **⏱ Simulacro** con condiciones de examen (50 preguntas, 60 min, penaliza ¼). Muestreo ponderado por score. Corrección con referencia de artículo y norma. |
+| **📖 Repaso** | Tres pestañas: **Temas** (peso real → artículos → preguntas), **Heatmap** artículo × año clicable, y **Conceptos** con las formulaciones agrupadas por embeddings y su cohesión (alta / media / baja). |
 | **🗓️ Exámenes** | Por año y convocatoria. Cada pregunta va marcada como **«Nueva este año»** o **«Ya había caído»**. |
-| **📕 Errores** | Libreta que acumula tus fallos y sirve de filtro en el Modo Test. |
-| **📊 Stats** | Nota media, dominio por tema, últimos intentos. Todo local. |
+| **🃏 Tarjetas** | **Hoy**: repetición espaciada SM-2 sobre tus errores (botones Otra vez / Difícil / Bien / Fácil, con calendario de repaso). **Tarjetas**: las 166 preguntas ordenadas por peso, con «+ Añadir a mis tarjetas». |
+| **📊 Stats** | Nota media, dominio por tema, últimos intentos, y exportación a `.md` / impresión para repaso en papel. |
 
-Extras: modo oscuro, PWA instalable, diseño móvil-first.
+Extras: modo oscuro, PWA instalable, diseño móvil-first. El progreso se guarda
+solo en el navegador (`localStorage`), sin cuenta ni servidor.
 
 ---
 
@@ -75,15 +79,20 @@ web/           SPA (Vite + React + TypeScript + Tailwind)
 
 ## Reproducir el análisis
 
-Necesita Python 3.11+ con `pypdf` y `fontTools`.
+Necesita Python 3.11+. Dependencias en `requirements.txt` (incluye
+`sentence-transformers`, que descarga el modelo de embeddings la primera vez,
+unos 470 MB).
 
 ```bash
+pip install -r requirements.txt
+
 python scripts/descargar.py        # 45 PDFs oficiales del SAS -> data/pdfs/
 python scripts/extraer_pdf.py      # PDF -> data/raw/*.json
 python scripts/parsear.py          # -> data/parsed/preguntas.json
 python scripts/limpia_parseo.py    # corrige portadas y enunciados sueltos
 python scripts/clasificar.py       # etiqueta Temas 1-10 vs específico
-python scripts/radar.py            # clústeres + RADAR + VALIDACION
+python scripts/radar.py            # clústeres literales + RADAR + VALIDACION
+python scripts/semantico.py        # clústeres semánticos + SEMANTICO.md
 python scripts/exporta_web.py      # -> web/public/data/
 ```
 
@@ -151,10 +160,12 @@ supuestos prácticos de 55) queda archivado por no ser comparable.
 
 ## Estado y hoja de ruta
 
+En producción en **<https://opotcae.vercel.app/>**.
+
 - [x] **Fase 0** — inventario y extracción de 45 PDFs oficiales
-- [x] **Fase 1** — parseo, clasificación por tema, clustering y radar del bloque común
+- [x] **Fase 1** — parseo, clasificación por tema, clustering literal y radar del bloque común
 - [x] **Fase 2** — MVP web con los cinco modos
-- [ ] **Fase 3** — repetición espaciada, heatmap, simulacro cronometrado, flashcards y *matching* semántico para repetición de concepto
+- [x] **Fase 3** — matching semántico (123 conceptos multi-año), heatmap artículo × año, simulacro cronometrado, repetición espaciada SM-2 y flashcards
 - [ ] **Fase 4** — multiusuario y estadísticas agregadas (solo si el uso lo justifica)
 - [ ] **Fase 5** — expansión a los Temas 11-29 (bloque específico)
 

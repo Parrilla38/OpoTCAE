@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import { cargaTodo } from "./data";
-import type { Cluster, Examen, Meta, Pregunta } from "./types";
+import type { Cluster, ConceptosData, Examen, Meta, Pregunta } from "./types";
 import TestMode from "./modes/TestMode";
 import ReviewMode from "./modes/ReviewMode";
 import PastExamsMode from "./modes/PastExamsMode";
-import NotebookMode from "./modes/NotebookMode";
+import CardsMode from "./modes/CardsMode";
 import StatsMode from "./modes/StatsMode";
 
-type Vista = "test" | "repaso" | "examenes" | "errores" | "stats";
+type Vista = "test" | "repaso" | "examenes" | "tarjetas" | "stats";
 
 const NAV: { id: Vista; etiqueta: string; icono: string }[] = [
   { id: "test", etiqueta: "Test", icono: "🎯" },
   { id: "repaso", etiqueta: "Repaso", icono: "📖" },
   { id: "examenes", etiqueta: "Exámenes", icono: "🗓️" },
-  { id: "errores", etiqueta: "Errores", icono: "📕" },
+  { id: "tarjetas", etiqueta: "Tarjetas", icono: "🃏" },
   { id: "stats", etiqueta: "Stats", icono: "📊" },
 ];
 
@@ -43,6 +43,7 @@ export default function App() {
     preguntas: Pregunta[];
     examenes: Examen[];
     meta: Meta;
+    conceptos: ConceptosData | null;
   } | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -83,11 +84,11 @@ export default function App() {
             <TestMode
               clusters={datos.clusters}
               meta={datos.meta}
-              onIrAErrores={() => setVista("errores")}
+              onIrAErrores={() => setVista("tarjetas")}
             />
           )}
           {vista === "repaso" && (
-            <ReviewMode clusters={datos.clusters} meta={datos.meta} />
+            <ReviewMode clusters={datos.clusters} meta={datos.meta} conceptos={datos.conceptos} />
           )}
           {vista === "examenes" && (
             <PastExamsMode
@@ -96,8 +97,8 @@ export default function App() {
               clusters={datos.clusters}
             />
           )}
-          {vista === "errores" && (
-            <NotebookMode clusters={datos.clusters} onIrATest={() => setVista("test")} />
+          {vista === "tarjetas" && (
+            <CardsMode clusters={datos.clusters} onIrATest={() => setVista("test")} />
           )}
           {vista === "stats" && <StatsMode clusters={datos.clusters} meta={datos.meta} />}
         </main>
