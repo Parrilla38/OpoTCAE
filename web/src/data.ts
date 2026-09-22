@@ -1,4 +1,4 @@
-import type { Cluster, ConceptosData, Examen, Meta, Pregunta } from "./types";
+import type { Cluster, ConceptosData, Examen, Meta, Pregunta, Selector } from "./types";
 
 /** Caché en memoria de los JSON, para no repetir fetch. */
 const caché: Record<string, unknown> = {};
@@ -49,8 +49,9 @@ export function ordenaPorScore<T extends { score: number }>(xs: T[]): T[] {
   return [...xs].sort((a, b) => b.score - a.score);
 }
 
-export function porTema(clusters: Cluster[], tema: number): Cluster[] {
-  return ordenaPorScore(clusters.filter((c) => c.tema === tema));
+/** Filtra por tema del BOJA (número) o por el bloque «clinica» / «otros». */
+export function porTema(clusters: Cluster[], sel: Selector): Cluster[] {
+  return ordenaPorScore(clusters.filter((c) => c.clave === sel));
 }
 
 export function agrupaPorArticulo(clusters: Cluster[]): Map<number, Cluster[]> {

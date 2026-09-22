@@ -1,19 +1,20 @@
 import { useEffect, useMemo, useState } from "react";
 import { agrupaPorArticulo, cargaConceptos, cohesion, porTema } from "../data";
-import type { Cluster, Concepto, ConceptosData, Letra, Meta } from "../types";
-import { Boton, Chip, Fila, NombreTema, Segmentado } from "../components/ui";
+import type { Cluster, Concepto, ConceptosData, Meta, Selector } from "../types";
+import { Boton, Chip, Fila, ListaOpciones, NombreTema, Segmentado } from "../components/ui";
 
 type Pestana = "temas" | "conceptos" | "calendario";
 type Vista =
   | { tipo: "lista" }
-  | { tipo: "apartados"; tema: number }
-  | { tipo: "preguntas"; tema: number; apartado: number };
+  | { tipo: "apartados"; sel: Selector }
+  | { tipo: "preguntas"; sel: Selector; apartado: number };
 
 export default function Aprender({ clusters, meta }: { clusters: Cluster[]; meta: Meta }) {
   const [pestana, setPestana] = useState<Pestana>("temas");
   const [vista, setVista] = useState<Vista>({ tipo: "lista" });
   const [abierto, setAbierto] = useState<number | null>(null);
 
+  // los conceptos por embeddings (~250 KB) solo se piden al abrir esa pestaña
   const [conceptos, setConceptos] = useState<ConceptosData | null>(null);
   useEffect(() => {
     if (pestana !== "conceptos" || conceptos) return;
@@ -24,7 +25,7 @@ export default function Aprender({ clusters, meta }: { clusters: Cluster[]; meta
 
   const apartados = useMemo(() => {
     if (vista.tipo !== "apartados") return new Map<number, Cluster[]>();
-    const cs = porTema(clusters, vista.tema);
+    const cs = porTema(clusters, vista.sel);
     const m = agrupaPorArticulo(cs);
     return new Map(
       [...m.entries()].sort(
@@ -35,10 +36,13 @@ export default function Aprender({ clusters, meta }: { clusters: Cluster[]; meta
 
   const preguntas = useMemo(() => {
     if (vista.tipo !== "preguntas") return [];
-    const cs = porTema(clusters, vista.tema);
+    const cs = porTema(clusters, vista.sel);
     if (vista.apartado === 0) return cs.filter((c) => !c.articulos.length);
     return cs.filter((c) => c.articulos.includes(vista.apartado));
   }, [clusters, vista]);
+
+  const nombreSel = (sel: Selector) =>
+    meta.temas.find((t) => t.clave === sel)?.corto ?? "Sin clasificar";
 
   return (
     <section className="space-y-5">
@@ -69,9 +73,9 @@ export default function Aprender({ clusters, meta }: { clusters: Cluster[]; meta
         <Calendario
           clusters={clusters}
           meta={meta}
-          onAbre={(tema, art) => {
+          onAbre={(sel, art) => {
             setPestana("temas");
-            setVista({ tipo: "preguntas", tema, apartado: art });
+            setVista({ tipo: "preguntas", sel, apartado: art });
           }}
         />
       )}
@@ -83,26 +87,27 @@ export default function Aprender({ clusters, meta }: { clusters: Cluster[]; meta
       {pestana === "temas" && vista.tipo === "lista" && (
         <ol className="space-y-2">
           {temas.map((t, i) => {
-            const id = t.tema;
+            const sel = t.clave;
             const sinPreguntas = t.preguntas === 0;
+            const esOficial = typeof sel === "number";
             return (
-              <li key={t.tema ?? t.corto}>
+              <li key={String(sel)}>
                 <Fila
                   atenuado={sinPreguntas}
                   titulo={t.corto}
                   detalle={
                     sinPreguntas
                       ? "Prácticamente no cae · apenas aparece en los exámenes"
-                      : `${t.preguntas} preguntas${id !== null && id <= 10 ? " · bloque común" : ""}`
+                      : `${t.preguntas} preguntas${esOficial && sel <= 10 ? " · bloque común" : ""}`
                   }
                   onClick={() => {
                     if (sinPreguntas) return;
-                    if (id === null) setVista({ tipo: "preguntas", tema: -1, apartado: 0 });
-                    else if (id <= 10) setVista({ tipo: "apartados", tema: id });
-                    else setVista({ tipo: "preguntas", tema: id, apartado: 0 });
+                    // los temas legales tienen artículos; el resto va directo a preguntas
+                    if (esOficial && (sel as number) <= 10) setVista({ tipo: "apartados", sel });
+                    else setVista({ tipo: "preguntas", sel, apartado: 0 });
                   }}
                   derecha={
-                    <span className="font-mono text-[11px] tabular-nums text-suave">
+                    <span className="font-mono text-[11px] font-bold tabular-nums text-suave">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   }
@@ -119,9 +124,7 @@ export default function Aprender({ clusters, meta }: { clusters: Cluster[]; meta
             <Boton tipo="fantasma" onClick={() => setVista({ tipo: "lista" })}>
               Atrás
             </Boton>
-            <span className="text-sm font-semibold tracking-tight">
-              {meta.temas.find((t) => t.tema === vista.tema)?.corto}
-            </span>
+            <span className="text-sm font-semibold tracking-tight">{nombreSel(vista.sel)}</span>
           </div>
           {[...apartados.entries()]
             .filter(([art]) => art !== 0)
@@ -134,9 +137,9 @@ export default function Aprender({ clusters, meta }: { clusters: Cluster[]; meta
                   ]
                     .sort()
                     .join(", ")}`}
-                  onClick={() => setVista({ tipo: "preguntas", tema: vista.tema, apartado: art })}
+                  onClick={() => setVista({ tipo: "preguntas", sel: vista.sel, apartado: art })}
                   derecha={
-                    <span className="font-mono text-[11px] tabular-nums text-suave">
+                    <span className="font-mono text-[11px] font-bold tabular-nums text-suave">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   }
@@ -148,7 +151,7 @@ export default function Aprender({ clusters, meta }: { clusters: Cluster[]; meta
               <Fila
                 titulo="Preguntas sin artículo concreto"
                 detalle="Definiciones y conceptos generales del tema"
-                onClick={() => setVista({ tipo: "preguntas", tema: vista.tema, apartado: 0 })}
+                onClick={() => setVista({ tipo: "preguntas", sel: vista.sel, apartado: 0 })}
               />
             </li>
           )}
@@ -162,8 +165,8 @@ export default function Aprender({ clusters, meta }: { clusters: Cluster[]; meta
               tipo="fantasma"
               onClick={() =>
                 setVista(
-                  vista.tema > 0 && vista.tema <= 10
-                    ? { tipo: "apartados", tema: vista.tema }
+                  typeof vista.sel === "number" && vista.sel <= 10
+                    ? { tipo: "apartados", sel: vista.sel }
                     : { tipo: "lista" }
                 )
               }
@@ -171,9 +174,7 @@ export default function Aprender({ clusters, meta }: { clusters: Cluster[]; meta
               Atrás
             </Boton>
             <span className="text-sm font-semibold tracking-tight">
-              {vista.apartado === 0
-                ? meta.temas.find((t) => t.tema === vista.tema)?.corto
-                : `Artículo ${vista.apartado}`}
+              {vista.apartado === 0 ? nombreSel(vista.sel) : `Artículo ${vista.apartado}`}
             </span>
           </div>
           <span className="etiqueta">
@@ -191,28 +192,14 @@ export default function Aprender({ clusters, meta }: { clusters: Cluster[]; meta
 function TarjetaPregunta({ c }: { c: Cluster }) {
   return (
     <article className="tarjeta p-5">
-      <NombreTema cluster={c} />
+      <div className="flex flex-wrap items-center gap-1.5">
+        <NombreTema cluster={c} />
+        <Chip tono="cobalto">ha caído en {c.anios.join(", ")}</Chip>
+      </div>
       <h3 className="mt-2.5 text-[15.5px] font-medium leading-snug tracking-tight">{c.enunciado}</h3>
-      <ul className="mt-3 grid gap-1.5 text-[13.8px] leading-snug">
-        {(["A", "B", "C", "D"] as Letra[]).map((l) => (
-          <li
-            key={l}
-            className={
-              l === c.correcta
-                ? "flex gap-2.5 rounded-opcion bg-aguaverde px-3.5 py-2 font-medium text-verde"
-                : "flex gap-2.5 px-3.5 py-1.5 text-suave"
-            }
-          >
-            <span className="font-mono text-[11px] font-semibold">{l}</span>
-            <span className="flex-1">
-              {c.opciones[l]}
-              {l === c.correcta && " ✓"}
-            </span>
-          </li>
-        ))}
-      </ul>
-      <p className="mt-3 font-mono text-[10px] uppercase tracking-wider text-suave">
-        ha caído en {c.anios.join(", ")} ({c.frecuencia} vez/veces)
+      <ListaOpciones opciones={c.opciones} correcta={c.correcta} />
+      <p className="mt-3 font-mono text-[10.5px] font-bold uppercase tracking-wider text-suave">
+        {c.frecuencia} vez/veces
         {c.articulos.length > 0 && <> · art. {c.articulos.join(", ")}</>}
       </p>
     </article>
@@ -244,7 +231,8 @@ function Conceptos({
         El tribunal casi nunca repite la misma pregunta. Lo que hace es preguntar{" "}
         <b className="text-tinta">lo mismo con otras palabras</b>. Aquí están esos casos:{" "}
         <b className="text-tinta">{conceptos.n_multi_anio} preguntas que se repiten</b> a lo largo
-        de {new Set(conceptos.conceptos.flatMap((c) => c.anios)).size} años.
+        de {new Set(conceptos.conceptos.flatMap((c) => c.anios)).size} años. Con su respuesta, para
+        poder estudiarla.
       </div>
       {conceptos.conceptos.map((c) => (
         <TarjetaConcepto
@@ -261,30 +249,52 @@ function Conceptos({
 function TarjetaConcepto({ c, abierto, toggle }: { c: Concepto; abierto: boolean; toggle: () => void }) {
   const coh = cohesion(c.similitud_media);
   const etiquetaCoh =
-    coh === "alta" ? "casi la misma pregunta" : coh === "media" ? "mismo concepto" : "mismo tema";
+    coh === "alta"
+      ? "casi la misma pregunta"
+      : coh === "media"
+        ? "mismo concepto"
+        : "mismo tema";
+  const tonoCoh = coh === "alta" ? "verde" : coh === "media" ? "albero" : "neutro";
   return (
     <article className="tarjeta">
       <button type="button" onClick={toggle} className="w-full p-5 text-left">
         <div className="flex flex-wrap items-center gap-1.5">
-          <Chip tono="verde">ha caído en {c.anios.join(", ")}</Chip>
-          <Chip>{etiquetaCoh}</Chip>
+          <Chip tono="cobalto">ha caído en {c.anios.join(", ")}</Chip>
+          <Chip tono={tonoCoh as "verde" | "albero" | "neutro"}>{etiquetaCoh}</Chip>
+          <Chip tono="berenjena">concepto</Chip>
         </div>
         <h3 className="mt-3 text-[15.5px] font-medium leading-snug tracking-tight">
           {c.representante}
         </h3>
-        <p className="mt-1.5 font-mono text-[10px] uppercase tracking-wider text-suave">
+        <p className="mt-1.5 font-mono text-[10.5px] font-bold uppercase tracking-wider text-suave">
           formulada de {c.n_preguntas} formas distintas
-          {c.temas.length > 0 && <> · {c.temas.map((t) => `T${String(t).padStart(2, "0")}`).join(" ")}</>}
+          {c.temas.length > 0 && (
+            <> · {c.temas.map((t) => `T${String(t).padStart(2, "0")}`).join(" ")}</>
+          )}
+          {" · "}
+          {abierto ? "tocar para cerrar" : "tocar para ver las respuestas"}
         </p>
       </button>
       {abierto && (
-        <ul className="space-y-2.5 border-t border-hilo px-5 pb-5 pt-4">
+        <ul className="space-y-4 border-t border-hilo px-5 pb-5 pt-4">
           {c.miembros.map((m) => (
-            <li key={m.id} className="rounded-opcion bg-fondo px-3.5 py-3">
-              <Chip>
-                {m.anio} · {m.modalidad}
-              </Chip>
-              <p className="mt-2 text-[13.8px] leading-snug">{m.enunciado}</p>
+            <li key={m.id} className="rounded-opcion bg-superficie px-4 py-3.5">
+              <div className="flex flex-wrap items-center gap-1.5">
+                <Chip tono="cobalto">
+                  {m.anio} · {m.modalidad}
+                </Chip>
+                {m.tema !== null && <Chip>T{String(m.tema).padStart(2, "0")}</Chip>}
+              </div>
+              <p className="mt-2.5 text-[14.5px] font-medium leading-snug tracking-tight">
+                {m.enunciado}
+              </p>
+              {m.opciones ? (
+                <ListaOpciones opciones={m.opciones} correcta={m.correcta} />
+              ) : (
+                <p className="mt-2 font-mono text-[10.5px] uppercase tracking-wider text-suave">
+                  respuesta: {m.correcta ?? "—"}
+                </p>
+              )}
             </li>
           ))}
         </ul>
@@ -300,16 +310,25 @@ function Calendario({
 }: {
   clusters: Cluster[];
   meta: Meta;
-  onAbre: (tema: number, articulo: number) => void;
+  onAbre: (sel: Selector, articulo: number) => void;
 }) {
   const anios = meta.anios;
   const filas = useMemo(() => {
-    const m = new Map<string, { tema: number; art: number; porAnio: Map<number, number>; total: number }>();
+    const m = new Map<
+      string,
+      { sel: Selector; art: number; etiqueta: string; porAnio: Map<number, number>; total: number }
+    >();
     for (const c of clusters) {
       const arts = c.articulos.length ? c.articulos : [0];
       for (const a of arts) {
-        const k = `${c.tema ?? 0}:${a}`;
-        const d = m.get(k) ?? { tema: c.tema ?? 0, art: a, porAnio: new Map<number, number>(), total: 0 };
+        const k = `${String(c.clave)}:${a}`;
+        const d = m.get(k) ?? {
+          sel: c.clave,
+          art: a,
+          etiqueta: c.tema_corto || c.tema_nombre || "Sin clasificar",
+          porAnio: new Map<number, number>(),
+          total: 0,
+        };
         for (const anio of c.anios) {
           d.porAnio.set(anio, (d.porAnio.get(anio) ?? 0) + 1);
           d.total += 1;
@@ -347,16 +366,14 @@ function Calendario({
           </thead>
           <tbody>
             {filas.slice(0, 30).map((f) => (
-              <tr key={`${f.tema}:${f.art}`} className="border-t border-hilo">
+              <tr key={`${String(f.sel)}:${f.art}`} className="border-t border-hilo">
                 <td className="sticky left-0 bg-fondo py-2 pr-2">
                   <button
                     type="button"
-                    onClick={() => onAbre(f.tema, f.art)}
-                    className="text-left text-[13px] font-medium underline decoration-dotted underline-offset-2 hover:text-verde"
+                    onClick={() => onAbre(f.sel, f.art)}
+                    className="text-left text-[13px] font-semibold underline decoration-dotted underline-offset-2 hover:text-verde"
                   >
-                    {f.art === 0
-                      ? meta.temas.find((t) => t.tema === f.tema)?.corto ?? "Sin artículo"
-                      : `Art. ${f.art}`}
+                    {f.art === 0 ? f.etiqueta : `Art. ${f.art}`}
                   </button>
                 </td>
                 {anios.map((a) => {
@@ -365,7 +382,7 @@ function Calendario({
                   return (
                     <td key={a} className="px-1 py-1.5 text-center">
                       <span
-                        className="inline-flex h-6 w-8 items-center justify-center rounded-[4px] font-mono text-[11px] font-medium tabular-nums"
+                        className="inline-flex h-6 w-8 items-center justify-center rounded-[4px] font-mono text-[11px] font-bold tabular-nums"
                         style={{
                           background: n ? `rgba(15, 81, 50, ${op})` : "transparent",
                           color: n && op > 0.55 ? "#fff" : undefined,
@@ -376,7 +393,7 @@ function Calendario({
                     </td>
                   );
                 })}
-                <td className="py-2 pl-2 text-center font-mono text-[13px] font-semibold tabular-nums">
+                <td className="py-2 pl-2 text-center font-mono text-[13px] font-bold tabular-nums">
                   {f.total}
                 </td>
               </tr>

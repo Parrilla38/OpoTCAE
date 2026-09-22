@@ -12,12 +12,19 @@
   --fondo: 255 255 255; /* cal */
   --superficie: 246 248 246; /* sombra de cal */
   --tinta: 20 38 28; /* verde casi negro */
-  --suave: 63 122 92; /* verde hoja */
+  --suave: 47 90 66; /* verde hoja, algo más hondo para que se lea */
   --hilo: 221 230 223; /* hilo verde */
   --verde: 15 81 50; /* verde de bandera */
   --aguaverde: 231 240 233; /* agua de verde */
-  --mal: 194 69 59;
+  --mal: 182 54 48;
   --aguamal: 251 235 233;
+  /* color por significado */
+  --albero: 138 92 24; /* tierra de la Alhambra · «ya había caído», nivel medio */
+  --aguaalbero: 247 239 224;
+  --cobalto: 27 76 126; /* azulejo de Triana · convocatorias, información */
+  --aguacobalto: 228 237 245;
+  --berenjena: 91 58 94; /* conceptos y análisis semántico */
+  --aguaberenjena: 240 232 241;
   color-scheme: light;
 }
 
@@ -25,12 +32,18 @@
   --fondo: 12 19 15;
   --superficie: 19 28 23;
   --tinta: 234 240 235;
-  --suave: 137 179 155;
+  --suave: 154 192 170;
   --hilo: 34 48 42;
   --verde: 95 168 125;
   --aguaverde: 21 40 32;
-  --mal: 229 118 107;
+  --mal: 232 122 111;
   --aguamal: 45 24 22;
+  --albero: 214 161 74;
+  --aguaalbero: 42 33 18;
+  --cobalto: 122 172 214;
+  --aguacobalto: 18 32 44;
+  --berenjena: 186 142 190;
+  --aguaberenjena: 40 26 42;
   color-scheme: dark;
 }
 
@@ -43,6 +56,8 @@
     @apply bg-fondo text-tinta antialiased;
     font-family: "Familjen Grotesk", ui-sans-serif, system-ui, sans-serif;
     letter-spacing: -0.012em;
+    /* medio en vez de regular: se lee sin forzar la vista */
+    font-weight: 500;
   }
   ::selection {
     @apply bg-aguaverde text-verde;
@@ -51,12 +66,21 @@
     outline: 2px solid rgb(var(--verde));
     outline-offset: 2px;
   }
+  /* el peso de entrada se hereda salvo donde haga falta diferenciar */
+  p,
+  li,
+  label,
+  input,
+  select,
+  option {
+    font-weight: 500;
+  }
 }
 
 @layer components {
   /* ── etiqueta de sección: mono, versalitas, tracking amplio ── */
   .etiqueta {
-    @apply font-mono text-[9.5px] font-medium uppercase tracking-etiqueta text-suave;
+    @apply font-mono text-[10.5px] font-bold uppercase tracking-etiqueta text-suave;
   }
 
   /* ── sello: cuadrito verde/blanco, guiño a la bandera sin serla ── */
@@ -102,10 +126,13 @@
   .op {
     @apply flex items-center gap-2.5 rounded-opcion border border-hilo bg-fondo px-3.5 py-2.5
       text-left text-[13.8px] leading-snug transition;
+    font-weight: 500;
   }
+  /* la letra va en negrita: se localiza sin forzar la vista */
   .op .let {
     @apply grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full bg-aguaverde
-      font-mono text-[11px] font-semibold text-verde;
+      font-mono text-[11px] text-verde;
+    font-weight: 700;
   }
   .op-ok {
     @apply border-verde bg-aguaverde;
@@ -135,19 +162,29 @@
     @apply boton text-suave hover:bg-superficie hover:text-tinta;
   }
 
-  /* ── etiquetas pequeñas (chips) ── */
+  /* ── etiquetas pequeñas (chips). El tono dice qué es, no solo es bonito ── */
   .chip {
-    @apply inline-flex items-center rounded-full px-2.5 py-0.5 font-mono text-[10px]
-      font-medium uppercase tracking-wider;
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 font-mono text-[10.5px]
+      uppercase tracking-wider;
+    font-weight: 700;
   }
   .chip-verde {
     @apply chip bg-aguaverde text-verde;
   }
-  .chip-neutro {
-    @apply chip bg-superficie text-suave;
-  }
   .chip-mal {
     @apply chip bg-aguamal text-mal;
+  }
+  .chip-albero {
+    @apply chip bg-aguaalbero text-albero;
+  }
+  .chip-cobalto {
+    @apply chip bg-aguacobalto text-cobalto;
+  }
+  .chip-berenjena {
+    @apply chip bg-aguaberenjena text-berenjena;
+  }
+  .chip-neutro {
+    @apply chip bg-superficie text-suave;
   }
 
   /* ── campos ── */

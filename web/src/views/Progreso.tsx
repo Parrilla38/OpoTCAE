@@ -10,7 +10,7 @@ import {
 } from "../store";
 import { enDias, vencidas, proximas } from "../sm2";
 import type { Cluster, Letra, Meta } from "../types";
-import { AccionSecundaria, Boton, NombreTema, Opcion, Segmentado } from "../components/ui";
+import { AccionSecundaria, Boton, ListaOpciones, NombreTema, Opcion, Segmentado } from "../components/ui";
 
 type Pestana = "repasar" | "mis" | "estadisticas";
 
@@ -150,24 +150,7 @@ export default function Progreso({ clusters, meta }: { clusters: Cluster[]; meta
                       {c.enunciado}
                     </h3>
                     {reveladaMis ? (
-                      <ul className="mt-3 grid gap-1.5 text-[13.8px] leading-snug">
-                        {(["A", "B", "C", "D"] as Letra[]).map((l) => (
-                          <li
-                            key={l}
-                            className={
-                              l === c.correcta
-                                ? "flex gap-2.5 rounded-opcion bg-aguaverde px-3.5 py-2 font-medium text-verde"
-                                : "flex gap-2.5 px-3.5 py-1.5 text-suave"
-                            }
-                          >
-                            <span className="font-mono text-[11px] font-semibold">{l}</span>
-                            <span className="flex-1">
-                              {c.opciones[l]}
-                              {l === c.correcta && " ✓"}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
+                      <ListaOpciones opciones={c.opciones} correcta={c.correcta} />
                     ) : (
                       <p className="mt-3 text-sm text-suave">
                         Piensa la respuesta y luego revélala.
@@ -220,13 +203,13 @@ export default function Progreso({ clusters, meta }: { clusters: Cluster[]; meta
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
             {[
-              { t: "Tests", v: resumen.intentos },
-              { t: "Bien", v: resumen.aciertos },
-              { t: "Mal", v: resumen.fallos },
-              { t: "Nota media", v: resumen.notaMedia },
+              { t: "Tests", v: resumen.intentos, tono: "text-cobalto" },
+              { t: "Bien", v: resumen.aciertos, tono: "text-verde" },
+              { t: "Mal", v: resumen.fallos, tono: "text-mal" },
+              { t: "Nota media", v: resumen.notaMedia, tono: "text-albero" },
             ].map((s) => (
               <div key={s.t} className="tarjeta px-3 py-4 text-center">
-                <div className="font-mono text-2xl font-medium tabular-nums text-verde">{s.v}</div>
+                <div className={`font-mono text-2xl font-bold tabular-nums ${s.tono}`}>{s.v}</div>
                 <div className="etiqueta mt-1">{s.t}</div>
               </div>
             ))}
@@ -255,7 +238,7 @@ export default function Progreso({ clusters, meta }: { clusters: Cluster[]; meta
                     <li key={t.tema ?? t.corto}>
                       <div className="mb-1.5 flex items-baseline justify-between gap-2">
                         <span className="text-[13.8px]">{t.corto}</span>
-                        <span className="font-mono text-[11px] tabular-nums text-suave">
+                        <span className="font-mono text-[11px] font-bold tabular-nums text-suave">
                           {total === 0 ? "sin datos" : `${pct}%`}
                         </span>
                       </div>
@@ -270,7 +253,7 @@ export default function Progreso({ clusters, meta }: { clusters: Cluster[]; meta
                                 : pct >= 70
                                   ? "rgb(var(--verde))"
                                   : pct >= 40
-                                    ? "#B0873B"
+                                    ? "rgb(var(--albero))"
                                     : "rgb(var(--mal))",
                           }}
                         />

@@ -167,7 +167,8 @@ def main() -> int:
         salida_clusters.append({
             "cluster_id": i,
             "tema": c["tema"],
-            "tema_nombre": TEMAS.get(c["tema"]),
+            "tema_nombre": c.get("tema_nombre"),
+            "tema_corto": c.get("tema_corto"),
             "enunciado": c["enunciado"],
             "opciones": c["miembros"][0]["opciones"],
             "correcta": c["correcta"],

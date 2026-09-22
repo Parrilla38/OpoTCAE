@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import type { Cluster, Examen, Letra, Pregunta } from "../types";
-import { Chip, NombreTema } from "../components/ui";
+import type { Cluster, Examen, Pregunta } from "../types";
+import { Chip, ListaOpciones, NombreTema } from "../components/ui";
 
 const MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
 
@@ -71,7 +71,7 @@ export default function Examenes({
                       <span className="block text-[15px] font-semibold tracking-tight">
                         {fecha(e.fecha)} · {MODALIDAD[e.modalidad] ?? e.modalidad}
                       </span>
-                      <span className="mt-0.5 block font-mono text-[10.5px] uppercase tracking-wider text-suave">
+                      <span className="mt-0.5 block font-mono text-[10.5px] font-bold uppercase tracking-wider text-suave">
                         {e.n_preguntas_comun} preguntas · {nuevas.length} nuevas · {repetidas.length}{" "}
                         repetidas
                       </span>
@@ -86,35 +86,18 @@ export default function Examenes({
                         return (
                           <li key={p.id} className="rounded-opcion bg-fondo px-4 py-3.5">
                             <div className="flex flex-wrap items-center gap-1.5">
-                              <span className="font-mono text-[11px] text-suave">
+                              <span className="font-mono text-[11px] font-bold text-suave">
                                 {String(p.numero).padStart(2, "0")}
                               </span>
                               {cl && <NombreTema cluster={cl} />}
-                              <Chip tono={esNueva ? "verde" : "neutro"}>
+                              <Chip tono={esNueva ? "verde" : "albero"}>
                                 {esNueva ? "nueva este año" : "ya había caído"}
                               </Chip>
                             </div>
                             <p className="mt-2.5 text-[14.5px] font-medium leading-snug tracking-tight">
                               {p.enunciado}
                             </p>
-                            <ul className="mt-2.5 grid gap-1 text-[13px] leading-snug text-suave">
-                              {(["A", "B", "C", "D"] as Letra[]).map((l) => (
-                                <li
-                                  key={l}
-                                  className={
-                                    l === p.correcta
-                                      ? "flex gap-2 font-medium text-verde"
-                                      : "flex gap-2"
-                                  }
-                                >
-                                  <span className="font-mono text-[11px] font-semibold">{l}</span>
-                                  <span className="flex-1">
-                                    {p.opciones[l]}
-                                    {l === p.correcta && " ✓"}
-                                  </span>
-                                </li>
-                              ))}
-                            </ul>
+                            <ListaOpciones opciones={p.opciones} correcta={p.correcta} />
                           </li>
                         );
                       })}

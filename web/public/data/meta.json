@@ -12,15 +12,27 @@
   "temas": [
     {
       "tema": null,
+      "clave": "otros",
       "nombre": "Otros y sin clasificar",
       "corto": "Otros",
-      "clusters": 322,
-      "preguntas": 536,
-      "score_total": 682.75,
+      "clusters": 203,
+      "preguntas": 341,
+      "score_total": 434.5,
+      "es_clinica": false
+    },
+    {
+      "tema": null,
+      "clave": "clinica",
+      "nombre": "Anatomía, fisiología y clínica",
+      "corto": "Anatomía y clínica",
+      "clusters": 119,
+      "preguntas": 195,
+      "score_total": 248.25,
       "es_clinica": true
     },
     {
       "tema": 22,
+      "clave": 22,
       "nombre": "Necesidad de alimentación",
       "corto": "Necesidad de alimentación",
       "clusters": 50,
@@ -30,6 +42,7 @@
     },
     {
       "tema": 24,
+      "clave": 24,
       "nombre": "Úlceras por presión",
       "corto": "Úlceras por presión",
       "clusters": 51,
@@ -39,6 +52,7 @@
     },
     {
       "tema": 25,
+      "clave": 25,
       "nombre": "Exploración y quirófano",
       "corto": "Exploración y quirófano",
       "clusters": 39,
@@ -48,6 +62,7 @@
     },
     {
       "tema": 29,
+      "clave": 29,
       "nombre": "RCP y primeros auxilios",
       "corto": "RCP y primeros auxilios",
       "clusters": 35,
@@ -57,6 +72,7 @@
     },
     {
       "tema": 26,
+      "clave": 26,
       "nombre": "Salud mental",
       "corto": "Salud mental",
       "clusters": 35,
@@ -66,6 +82,7 @@
     },
     {
       "tema": 19,
+      "clave": 19,
       "nombre": "Muestras biológicas",
       "corto": "Muestras biológicas",
       "clusters": 33,
@@ -75,6 +92,7 @@
     },
     {
       "tema": 16,
+      "clave": 16,
       "nombre": "Limpieza, desinfección y esterilización",
       "corto": "Limpieza y esterilización",
       "clusters": 32,
@@ -84,6 +102,7 @@
     },
     {
       "tema": 18,
+      "clave": 18,
       "nombre": "Gestión de los residuos sanitarios",
       "corto": "Residuos sanitarios",
       "clusters": 32,
@@ -93,6 +112,7 @@
     },
     {
       "tema": 21,
+      "clave": 21,
       "nombre": "Necesidad de eliminación",
       "corto": "Necesidad de eliminación",
       "clusters": 27,
@@ -102,6 +122,7 @@
     },
     {
       "tema": 23,
+      "clave": 23,
       "nombre": "Necesidad de movilización",
       "corto": "Necesidad de movilización",
       "clusters": 25,
@@ -111,6 +132,7 @@
     },
     {
       "tema": 28,
+      "clave": 28,
       "nombre": "Terminal y paliativos",
       "corto": "Terminal y paliativos",
       "clusters": 27,
@@ -120,6 +142,7 @@
     },
     {
       "tema": 12,
+      "clave": 12,
       "nombre": "El trabajo en equipo y la comunicación",
       "corto": "Equipo y comunicación",
       "clusters": 23,
@@ -129,6 +152,7 @@
     },
     {
       "tema": 15,
+      "clave": 15,
       "nombre": "Higiene hospitalaria e IRA",
       "corto": "Higiene hospitalaria / IRA",
       "clusters": 19,
@@ -138,6 +162,7 @@
     },
     {
       "tema": 3,
+      "clave": 3,
       "nombre": "Organización sanitaria (I): SSPA",
       "corto": "Organización sanitaria I",
       "clusters": 21,
@@ -147,6 +172,7 @@
     },
     {
       "tema": 9,
+      "clave": 9,
       "nombre": "Autonomía del paciente y derechos y deberes",
       "corto": "Autonomía del paciente",
       "clusters": 16,
@@ -156,6 +182,7 @@
     },
     {
       "tema": 20,
+      "clave": 20,
       "nombre": "Necesidad de higiene",
       "corto": "Necesidad de higiene",
       "clusters": 12,
@@ -165,6 +192,7 @@
     },
     {
       "tema": 6,
+      "clave": 6,
       "nombre": "Prevención de riesgos laborales",
       "corto": "Prevención riesgos",
       "clusters": 20,
@@ -174,6 +202,7 @@
     },
     {
       "tema": 14,
+      "clave": 14,
       "nombre": "Principios fundamentales de la Bioética",
       "corto": "Bioética",
       "clusters": 12,
@@ -183,6 +212,7 @@
     },
     {
       "tema": 27,
+      "clave": 27,
       "nombre": "El anciano",
       "corto": "El anciano",
       "clusters": 9,
@@ -192,6 +222,7 @@
     },
     {
       "tema": 4,
+      "clave": 4,
       "nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
       "corto": "Organización sanitaria II",
       "clusters": 11,
@@ -201,6 +232,7 @@
     },
     {
       "tema": 17,
+      "clave": 17,
       "nombre": "El aislamiento hospitalario",
       "corto": "Aislamiento hospitalario",
       "clusters": 8,
@@ -210,6 +242,7 @@
     },
     {
       "tema": 11,
+      "clave": 11,
       "nombre": "La documentación sanitaria",
       "corto": "Documentación sanitaria",
       "clusters": 8,
@@ -219,6 +252,7 @@
     },
     {
       "tema": 1,
+      "clave": 1,
       "nombre": "Constitución Española de 1978",
       "corto": "Constitución",
       "clusters": 8,
@@ -228,6 +262,7 @@
     },
     {
       "tema": 2,
+      "clave": 2,
       "nombre": "Estatuto de Autonomía para Andalucía",
       "corto": "Estatuto Andalucía",
       "clusters": 7,
@@ -237,6 +272,7 @@
     },
     {
       "tema": 8,
+      "clave": 8,
       "nombre": "Estatuto Marco del personal estatutario",
       "corto": "Estatuto Marco",
       "clusters": 7,
@@ -246,6 +282,7 @@
     },
     {
       "tema": 10,
+      "clave": 10,
       "nombre": "TIC en el SAS",
       "corto": "TIC SAS",
       "clusters": 5,
@@ -255,6 +292,7 @@
     },
     {
       "tema": 5,
+      "clave": 5,
       "nombre": "Protección de datos y transparencia",
       "corto": "Protección de datos",
       "clusters": 5,
@@ -264,6 +302,7 @@
     },
     {
       "tema": 7,
+      "clave": 7,
       "nombre": "Igualdad y violencia de género en Andalucía",
       "corto": "Igualdad y violencia género",
       "clusters": 3,
@@ -273,6 +312,7 @@
     },
     {
       "tema": 13,
+      "clave": 13,
       "nombre": "La atención al usuario",
       "corto": "Atención al usuario",
       "clusters": 0,

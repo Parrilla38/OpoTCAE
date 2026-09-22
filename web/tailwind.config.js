@@ -15,6 +15,13 @@ export default {
         aguaverde: "rgb(var(--aguaverde) / <alpha-value>)",
         mal: "rgb(var(--mal) / <alpha-value>)",
         aguamal: "rgb(var(--aguamal) / <alpha-value>)",
+        // color por significado, no decorativo
+        albero: "rgb(var(--albero) / <alpha-value>)", // tierra de la Alhambra · «ya había caído», nivel medio
+        aguaalbero: "rgb(var(--aguaalbero) / <alpha-value>)",
+        cobalto: "rgb(var(--cobalto) / <alpha-value>)", // azulejo de Triana · convocatorias, información
+        aguacobalto: "rgb(var(--aguacobalto) / <alpha-value>)",
+        berenjena: "rgb(var(--berenjena) / <alpha-value>)", // conceptos y análisis semántico
+        aguaberenjena: "rgb(var(--aguaberenjena) / <alpha-value>)",
       },
       fontFamily: {
         sans: ['"Familjen Grotesk"', "ui-sans-serif", "system-ui", "sans-serif"],

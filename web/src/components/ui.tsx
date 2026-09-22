@@ -17,15 +17,28 @@ export function Etiqueta({ children }: { children: React.ReactNode }) {
   return <span className="etiqueta">{children}</span>;
 }
 
-/** Chip pequeño. */
+/** Chip pequeño. El tono indica significado: no es decorativo.
+ *  verde = acierto/nuevo · mal = fallo · albero = ya había caído / nivel medio
+ *  cobalto = convocatoria / información · berenjena = concepto semántico */
 export function Chip({
   children,
   tono = "neutro",
 }: {
   children: React.ReactNode;
-  tono?: "verde" | "neutro" | "mal";
+  tono?: "verde" | "mal" | "albero" | "cobalto" | "berenjena" | "neutro";
 }) {
-  const c = tono === "verde" ? "chip-verde" : tono === "mal" ? "chip-mal" : "chip-neutro";
+  const c =
+    tono === "verde"
+      ? "chip-verde"
+      : tono === "mal"
+        ? "chip-mal"
+        : tono === "albero"
+          ? "chip-albero"
+          : tono === "cobalto"
+            ? "chip-cobalto"
+            : tono === "berenjena"
+              ? "chip-berenjena"
+              : "chip-neutro";
   return <span className={c}>{children}</span>;
 }
 
@@ -60,6 +73,50 @@ export function Opcion({
       <span className="let">{marca}</span>
       <span className="flex-1">{opciones[letra] || <em className="opacity-50">vacía</em>}</span>
     </Tag>
+  );
+}
+
+/** Opción sin caja, para listas densas (repasos y conceptos). La letra va en negrita. */
+export function OpcionRasa({
+  opciones,
+  letra,
+  esCorrecta,
+}: {
+  opciones: Opciones;
+  letra: Letra;
+  esCorrecta: boolean;
+}) {
+  return (
+    <li
+      className={
+        esCorrecta
+          ? "flex gap-2.5 rounded-opcion bg-aguaverde px-3.5 py-2 text-verde"
+          : "flex gap-2.5 px-3.5 py-1.5 text-suave"
+      }
+    >
+      <span className="shrink-0 font-mono text-[11.5px] font-bold">{letra}</span>
+      <span className="flex-1">
+        {opciones[letra]}
+        {esCorrecta && " ✓"}
+      </span>
+    </li>
+  );
+}
+
+/** Cuatro opciones en lista, con la correcta destacada. Para estudiar respuestas. */
+export function ListaOpciones({
+  opciones,
+  correcta,
+}: {
+  opciones: Opciones;
+  correcta: string | null;
+}) {
+  return (
+    <ul className="mt-2.5 grid gap-1 text-[13.8px] leading-snug">
+      {(["A", "B", "C", "D"] as Letra[]).map((l) => (
+        <OpcionRasa key={l} opciones={opciones} letra={l} esCorrecta={l === correcta} />
+      ))}
+    </ul>
   );
 }
 

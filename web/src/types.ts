@@ -21,6 +21,8 @@ export interface Cluster {
   tema: number | null;
   tema_nombre: string | null;
   tema_corto: string;
+  /** Clave estable para filtrar: nº de tema del BOJA, o "clinica" / "otros". */
+  clave: Selector;
   enunciado: string;
   opciones: Opciones;
   correcta: string | null;
@@ -32,6 +34,9 @@ export interface Cluster {
   match: string;
   ocurrencias: Ocurrencia[];
 }
+
+/** Un tema del BOJA es su número; lo que el temario no enumera es "clinica"/"otros". */
+export type Selector = number | "clinica" | "otros";
 
 export interface Pregunta {
   id: string;
@@ -63,6 +68,8 @@ export interface Examen {
 
 export interface TemaMeta {
   tema: number | null;
+  /** Misma clave que lleva cada clúster. Sirve para filtrar. */
+  clave: Selector;
   nombre: string;
   corto: string;
   clusters: number;
@@ -100,6 +107,8 @@ export interface MiembroConcepto {
   enunciado: string;
   correcta: string | null;
   cluster_id: number | null;
+  /** Opciones de esta formulación, para poder estudiar su respuesta. */
+  opciones?: Opciones;
 }
 
 export interface Concepto {

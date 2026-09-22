@@ -113,12 +113,20 @@ def main() -> int:
 
     clusters_out = []
     for c in clusters:
+        nombre = (c.get("tema_nombre") or "").lower()
+        if c.get("tema") is not None:
+            clave = c["tema"]
+        elif "anatom" in nombre or "clínic" in nombre or "clinic" in nombre or "fisiolog" in nombre:
+            clave = "clinica"
+        else:
+            clave = "otros"
         clusters_out.append({
             "cluster_id": c["cluster_id"],
             "tema": c.get("tema"),
             "tema_nombre": c.get("tema_nombre"),
             "tema_corto": ABREVIATURAS.get(c.get("tema"))
-            or (CORTO_CLINICA if not c.get("tema") else ""),
+            or (CORTO_CLINICA if clave == "clinica" else "Otros"),
+            "clave": clave,
             "enunciado": c["enunciado"],
             "opciones": c["opciones"],
             "correcta": c.get("correcta"),
@@ -157,19 +165,23 @@ def main() -> int:
         })
 
     # meta: temas con conteos, años, totales
+    # `clave` es lo que usa la UI para filtrar: un número para los temas del
+    # BOJA, o "clinica" / "otros" para lo que el temario no enumera.
     por_tema: dict[int, dict] = {}
-    clinica = {"tema": None, "nombre": "Anatomía, fisiología y clínica", "corto": "Anatomía y clínica",
-               "clusters": 0, "preguntas": 0, "score_total": 0.0, "es_clinica": True}
-    sin_tema = {"tema": None, "nombre": "Otros y sin clasificar", "corto": "Otros",
-                "clusters": 0, "preguntas": 0, "score_total": 0.0, "es_clinica": True}
+    clinica = {"tema": None, "clave": "clinica", "nombre": NOMBRE_CLINICA,
+               "corto": CORTO_CLINICA, "clusters": 0, "preguntas": 0,
+               "score_total": 0.0, "es_clinica": True}
+    sin_tema = {"tema": None, "clave": "otros", "nombre": "Otros y sin clasificar",
+                "corto": "Otros", "clusters": 0, "preguntas": 0,
+                "score_total": 0.0, "es_clinica": False}
     for c in clusters_out:
-        t = c["tema"]
-        nombre = (c.get("tema_nombre") or "").lower()
-        if t is not None:
-            d = por_tema.setdefault(t, {
-                "tema": t,
-                "nombre": TEMAS.get(t, ""),
-                "corto": ABREVIATURAS.get(t, ""),
+        clave = c["clave"]
+        if isinstance(clave, int):
+            d = por_tema.setdefault(clave, {
+                "tema": clave,
+                "clave": clave,
+                "nombre": TEMAS.get(clave, ""),
+                "corto": ABREVIATURAS.get(clave, ""),
                 "clusters": 0,
                 "preguntas": 0,
                 "score_total": 0.0,
@@ -178,7 +190,7 @@ def main() -> int:
             d["clusters"] += 1
             d["preguntas"] += c["frecuencia"]
             d["score_total"] += c["score"]
-        elif "anatom" in nombre or "clínic" in nombre or "clinic" in nombre or "fisiolog" in nombre:
+        elif clave == "clinica":
             clinica["clusters"] += 1
             clinica["preguntas"] += c["frecuencia"]
             clinica["score_total"] += c["score"]
@@ -207,6 +219,7 @@ def main() -> int:
             continue
         temas_lista.append({
             "tema": t,
+            "clave": t,
             "nombre": TEMAS.get(t, ""),
             "corto": ABREVIATURAS.get(t, ""),
             "clusters": 0,
@@ -215,7 +228,7 @@ def main() -> int:
             "es_clinica": False,
             "nota": "prácticamente no cae",
         })
-    temas_lista.sort(key=lambda d: (-d["preguntas"], d["tema"] if d["tema"] is not None else 99))
+    temas_lista.sort(key=lambda d: (-d["preguntas"], d["clave"] if isinstance(d["clave"], int) else 99))
 
     meta = {
         "fuente": FUENTE,
@@ -250,11 +263,19 @@ def main() -> int:
     sem_path = PARSED / "clusters_semanticos.json"
     if sem_path.exists():
         sem = json.loads(sem_path.read_text(encoding="utf-8"))
+        # mapa id -> opciones, para que cada formulación muestre su respuesta
+        opciones_por_id = {p["id"]: p["opciones"] for p in preguntas if not p.get("anulada")}
         conceptos_out = []
         for g in sem.get("conceptos", []):
             # solo los que caen en >=2 años: es la señal fuerte de repetición
             if g.get("n_anios", 0) < 2:
                 continue
+            miembros = []
+            for m in g["miembros"]:
+                miembros.append({
+                    **m,
+                    "opciones": opciones_por_id.get(m["id"], {}),
+                })
             conceptos_out.append({
                 "concepto_id": g["concepto_id"],
                 "rank": g["rank"],
@@ -265,7 +286,7 @@ def main() -> int:
                 "temas": g["temas"],
                 "similitud_media": g["similitud_media"],
                 "score": g["score_concepto"],
-                "miembros": g["miembros"],
+                "miembros": miembros,
             })
         conceptos_out.sort(key=lambda g: -g["score"])
         for n, g in enumerate(conceptos_out, 1):
