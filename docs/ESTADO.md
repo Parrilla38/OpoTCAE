@@ -33,6 +33,40 @@ Jesús, 2026-09-22) · **Código: <https://github.com/Parrilla38/OpoTCAE>**
 | 5 | Los 29 temas + pasada de UX | ✅ |
 | — | **Pasada de UX seria** | ✅ |
 | — | Cierre de anomalías, T13, heatmap e impresión recuperados | ✅ |
+| — | Rediseño visual (maquetas → Patio Blanco) | ✅ |
+
+## Estilo visual — Patio Blanco
+
+Se exploraron cuatro direcciones en `web/public/maquetas.html` (**A Alhambra**,
+**B Azulejo**, **C Áureo**, **D Patio Blanco**) y Jesús eligió **D**.
+
+Carácter del sistema, que hay que respetar al tocar la UI:
+
+- **Paleta**: blanco cal `#FFFFFF`, superficie `#F6F8F6`, tinta `#14261C`,
+  suave `#3F7A5C`, hilo `#DDE6DF`, verde de bandera `#0F5132`, agua de verde
+  `#E7F0E9`, mal `#C2453B`. En oscuro se oscurece todo menos el verde, que se
+  aclara a `#5FA875` para no perder contraste.
+- **Tipografía**: Familjen Grotesk para texto (tracking ligeramente negativo) e
+  IBM Plex Mono para etiquetas, cifras y numerales. Las etiquetas van en mono,
+  versalitas y `letter-spacing: 0.28em`.
+- **Radios deliberados**: acción 14px, tarjeta 18px, opción 12px, pastilla 16px.
+  Nada de `rounded-2xl` por defecto.
+- **Ornamento mínimo**: el sello de 4 cuadrados verde/blanco es el único guiño a
+  Andalucía. Filetes de 1px, cero sombras marcadas, cero degradados.
+- **Estados**: acierto = agua de verde con borde verde; fallo = agua de mal con
+  borde mal. Solo cambian fondo y disco de la letra, no la forma.
+- **Navegación inferior**: pastilla con 4 botones dentro; el activo se ilumina con
+  el color de fondo y una sombra mínima.
+
+**Contra el aspecto «hecho por IA»**: tipografías con carácter en vez de Inter,
+cero emoji como iconos, cero degradados, paleta corta de 7 valores, y estados que
+diferencian por color sin cambiar la geometría.
+
+Para cambiar algo de estilo, empezar por las variables de `web/src/index.css`
+(`:root` y `.dark`) y por los bloques `@layer components`. El resto de la UI se
+construye con esas clases (`etiqueta`, `sello`, `accion-uno`, `accion-dos`,
+`tarjeta`, `op` / `op-ok` / `op-mal`, `boton-*`, `chip-*`, `campo`, `fila`,
+`pie-*`, `pestanas`, `filete`).
 
 ## Hallazgos clave (no olvidar)
 
