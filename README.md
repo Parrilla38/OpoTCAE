@@ -51,9 +51,9 @@ Cuatro pantallas, pensadas para que en un toque sepas qué hacer.
 | Pantalla | Qué hace |
 |---|---|
 | **🎯 Practicar** | Un botón grande para empezar. Test de 5/10/25/50 preguntas con lo que más cae primero, y **simulacro** como el examen (50 preguntas, 60 min, penaliza el error). Ajustes avanzados desplegados bajo «Cambiar preguntas». |
-| **📖 Aprender** | Lo que más se pregunta, por tema y en orden de peso real. Y la vista **Conceptos**: preguntas que el tribunal repite con otras palabras. |
+| **📖 Aprender** | Lo que más se pregunta, por tema y en orden de peso real. La vista **Conceptos** agrupa las preguntas que el tribunal repite con otras palabras. Y el **Calendario** muestra qué artículos caen en cada convocatoria. |
 | **🗓 Exámenes** | Qué preguntó el tribunal cada convocatoria, con cada pregunta marcada como **«Nueva este año»** o **«Ya había caído»**. |
-| **👤 Mi progreso** | Repaso del día con repasos espaciados (vuelven cuando estés a punto de olvidarlas), tus tarjetas, tus datos y descarga en `.md` para repasar en papel. |
+| **👤 Mi progreso** | Repaso del día con repasos espaciados (vuelven cuando estés a punto de olvidarlas), tus tarjetas, tus datos y descarga en `.md` o **impresión** para repasar en papel. |
 
 Extras: modo oscuro, PWA instalable, diseño móvil-first. El progreso se guarda
 solo en el navegador (`localStorage`), sin cuenta ni servidor.
@@ -134,11 +134,8 @@ de Salud (Junta de Andalucía)**, publicados en su web institucional
 (`sspa.juntadeandalucia.es`). Este proyecto es una **transcripción con fines de
 estudio** y siempre enlaza y atribuye al original.
 
-> **Aviso legal.** La reutilización de los documentos del sector público se rige
-> por la Ley 37/2007. **Este punto está pendiente de verificación** antes de
-> considerar el proyecto plenamente publicado. Mientras tanto, el repositorio
-> **no redistribuye los PDFs oficiales**: se re-descargan con
-> `python scripts/descargar.py`. Consulte siempre el original en la web del SAS.
+El repositorio **no redistribuye los PDFs oficiales**: se re-descargan con
+`python scripts/descargar.py`. Consulte siempre el original en la web del SAS.
 
 ### Convocatorias analizadas
 
@@ -174,4 +171,4 @@ En producción en **<https://opotcae.vercel.app/>**.
 - [x] **Fase 5** — los 29 temas del temario oficial + pasada de UX
 - [ ] **Fase 4** — multiusuario y estadísticas agregadas (solo si el uso lo justifica)
 
-Pendiente: nombre y dominio definitivos, y verificación de la Ley 37/2007.
+Pendiente: nombre y dominio definitivos.

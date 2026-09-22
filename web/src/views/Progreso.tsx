@@ -240,13 +240,22 @@ export default function Progreso({ clusters, meta }: { clusters: Cluster[]; meta
             </ul>
           </div>
 
-          <AccionSecundaria
-            icono="⬇"
-            onClick={() => exporta(clusters, meta)}
-            subtitulo="Resumen con tus errores y lo que más se repite, para repasar en papel"
-          >
-            Descargar resumen
-          </AccionSecundaria>
+          <div className="grid gap-2 sm:grid-cols-2">
+            <AccionSecundaria
+              icono="⬇"
+              onClick={() => exporta(clusters, meta)}
+              subtitulo="Resumen en texto, para leer o imprimir donde quieras"
+            >
+              Descargar resumen
+            </AccionSecundaria>
+            <AccionSecundaria
+              icono="🖨"
+              onClick={() => window.print()}
+              subtitulo="Imprime esta pantalla con tus datos y lo que más cae"
+            >
+              Imprimir
+            </AccionSecundaria>
+          </div>
 
           <Boton
             ancho

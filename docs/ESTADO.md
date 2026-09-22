@@ -15,6 +15,8 @@ oficiales de **TCAE del Servicio Andaluz de Salud** (Andalucía).
 | Matching | Literal (`radar.py`) + semántico (`semantico.py`) |
 | 2008 | Archivado (estructura no comparable) |
 | **UX** | **Lo más fácil posible. Sin jerga, una acción obvia por pantalla, lo avanzado desplegado** |
+| Ley 37/2007 | Descartada por Jesús: material público, proyecto gratuito |
+| «Otros» (anatomía y clínica) | Se queda como bucket propio, sin inventar tema oficial |
 
 ## Estado por fase
 
@@ -27,6 +29,7 @@ oficiales de **TCAE del Servicio Andaluz de Salud** (Andalucía).
 | 4 | Multiusuario y stats agregadas | ⬜ solo si el uso lo justifica |
 | 5 | Los 29 temas + pasada de UX | ✅ |
 | — | **Pasada de UX seria** | ✅ |
+| — | Cierre de anomalías, T13, heatmap e impresión recuperados | ✅ |
 
 ## Hallazgos clave (no olvidar)
 
@@ -90,9 +93,37 @@ de usar posible**.
 
 Navegación actual (4 items): **Practicar · Aprender · Exámenes · Mi progreso**.
 
+## Anomalías de Fase 0 — estado
+
+| # | Anomalía | Estado |
+|---|---|---|
+| 1 | Cuadernillo 2025 libre+PI común | ✅ resuelta al parsear (corte por páginas 1-16 / 17-32) |
+| 2 | Anuladas idénticas libre vs PI en **2019** (53, 73, 88, 139) | ✅ **CONTRASTE OK** — los enunciados y las opciones son idénticos. Es dato real del SAS, no copy-paste |
+| 3 | Anuladas idénticas libre vs PI en **2021** (107, 109) | ✅ **CONTRASTE OK** — idem |
+| 4 | Typo en la plantilla definitiva de 2016 | ✅ resuelta: se usa `plantilla_corr` |
+| 5 | Plantilla prov. de APES inservible | ✅ resuelta: se usa la definitiva |
+| 6 | Nombres internos de PDF engañosos | ✅ corregido en el manifiesto |
+| 7 | 2008 con 3 supuestos distintos | ✅ **archivado** por decisión de Jesús |
+
+Script de contraste: `python scripts/verifica_anomalias.py`
+
+## T13 «Atención al usuario» — no se pregunta
+
+Diagnóstico cerrado (2026-09-22). El tema sale con **0 preguntas** y **es correcto**:
+el examen no lo evalúa.
+
+De 56 preguntas que mencionan «atención», «usuario», «acogida» o «reclamaciones»
+en el enunciado, **ninguna** encaja con el contenido del tema (carta de servicios,
+quejas y sugerencias, acogida formal, satisfacción del usuario). Se van a T26
+(salud mental), T29 (primeros auxilios) o clínica, donde pertenecen.
+
+**Consecuencia de producto:** es información útil para quien oposita — el Tema 13
+se puede estudiar a fondo bajo. Se puede mostrar en la UI como «prácticamente no
+cae» si se quiere.
+
 ## Pendiente de Jesús
 
 1. **Nombre y dominio** definitivos (hoy `opotcae.vercel.app`).
-2. **Verificar la Ley 37/2007** (reutilización de documentos del sector público) antes de dar por publicado el proyecto. Medida conservadora: los PDFs **no** se redistribuyen, se re-descargan.
-3. **Anomalías 2 y 3** de Fase 0 (anuladas idénticas libre vs PI en 2019 y 2021).
-4. **338 preguntas sin tema** asignado: decidir si se afinan reglas o se dejan en «Otros».
+2. ~~Verificar la Ley 37/2007~~ — **descartado por Jesús (2026-09-22)**: material público de internet y el proyecto es gratuito.
+3. ~~Anomalías 2 y 3~~ — **cerradas**: contraste OK, el dato es real.
+4. **338 preguntas sin tema** asignado: decidir si se afinan reglas o se dejan en «Otros» (hoy en «Otros» por decisión de Jesús).

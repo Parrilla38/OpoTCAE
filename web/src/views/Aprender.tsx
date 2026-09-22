@@ -3,7 +3,7 @@ import { agrupaPorArticulo, cohesion, porTema } from "../data";
 import type { Cluster, Concepto, ConceptosData, Letra, Meta } from "../types";
 import { AccionSecundaria, Boton, Etiqueta, Fila, NombreTema, Segmentado } from "../components/ui";
 
-type Pestana = "temas" | "conceptos";
+type Pestana = "temas" | "conceptos" | "calendario";
 type Vista =
   | { tipo: "lista" }
   | { tipo: "apartados"; tema: number }
@@ -54,14 +54,26 @@ export default function Aprender({
       <Segmentado
         valor={pestana}
         onChange={(p) => {
-          setPestana(p);
+          setPestana(p as Pestana);
           setVista({ tipo: "lista" });
         }}
         opciones={[
           { valor: "temas" as Pestana, etiqueta: "Por tema" },
           { valor: "conceptos" as Pestana, etiqueta: "Conceptos" },
+          { valor: "calendario" as Pestana, etiqueta: "Calendario" },
         ]}
       />
+
+      {pestana === "calendario" && (
+        <Calendario
+          clusters={clusters}
+          meta={meta}
+          onAbre={(tema, art) => {
+            setPestana("temas");
+            setVista({ tipo: "preguntas", tema, apartado: art });
+          }}
+        />
+      )}
 
       {pestana === "conceptos" && (
         <Conceptos conceptos={conceptos} abierto={abierto} setAbierto={setAbierto} />
@@ -276,5 +288,97 @@ function TarjetaConcepto({ c, abierto, toggle }: { c: Concepto; abierto: boolean
         </ul>
       )}
     </article>
+  );
+}
+
+/** Calendario artículo × año. Cuántas veces cae cada apartado en cada convocatoria. */
+function Calendario({
+  clusters,
+  meta,
+  onAbre,
+}: {
+  clusters: Cluster[];
+  meta: Meta;
+  onAbre: (tema: number, articulo: number) => void;
+}) {
+  const anios = meta.anios;
+  const filas = useMemo(() => {
+    const m = new Map<string, { tema: number; art: number; porAnio: Map<number, number>; total: number }>();
+    for (const c of clusters) {
+      const arts = c.articulos.length ? c.articulos : [0];
+      for (const a of arts) {
+        const k = `${c.tema ?? 0}:${a}`;
+        const d = m.get(k) ?? { tema: c.tema ?? 0, art: a, porAnio: new Map<number, number>(), total: 0 };
+        for (const anio of c.anios) {
+          d.porAnio.set(anio, (d.porAnio.get(anio) ?? 0) + 1);
+          d.total += 1;
+        }
+        m.set(k, d);
+      }
+    }
+    return [...m.values()].sort((a, b) => b.total - a.total);
+  }, [clusters]);
+
+  const max = Math.max(1, ...filas.map((f) => f.total));
+
+  return (
+    <div className="space-y-4">
+      <div className="rounded-2xl border border-stone-200 bg-white p-5 dark:border-stone-800 dark:bg-stone-900">
+        <p className="text-sm leading-relaxed text-stone-600 dark:text-stone-300">
+          Qué artículos caen en cada convocatoria. <b>Más verde = más veces</b>. Toca una fila para
+          ver las preguntas de ese artículo.
+        </p>
+      </div>
+      <div className="overflow-x-auto rounded-2xl border border-stone-200 bg-white p-4 dark:border-stone-800 dark:bg-stone-900">
+        <table className="w-full border-collapse text-xs">
+          <thead>
+            <tr>
+              <th className="sticky left-0 bg-white px-2 py-2 text-left dark:bg-stone-900">Artículo</th>
+              {anios.map((a) => (
+                <th key={a} className="px-2 py-2 text-center font-semibold">
+                  {a}
+                </th>
+              ))}
+              <th className="px-2 py-2 text-center font-semibold">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filas.slice(0, 30).map((f) => (
+              <tr key={`${f.tema}:${f.art}`} className="border-t border-stone-100 dark:border-stone-800">
+                <td className="sticky left-0 bg-white px-2 py-2 dark:bg-stone-900">
+                  <button
+                    type="button"
+                    onClick={() => onAbre(f.tema, f.art)}
+                    className="text-left underline decoration-dotted underline-offset-2 hover:text-emerald-700"
+                  >
+                    {f.art === 0
+                      ? meta.temas.find((t) => t.tema === f.tema)?.corto ?? "Sin artículo"
+                      : `Art. ${f.art}`}
+                  </button>
+                </td>
+                {anios.map((a) => {
+                  const n = f.porAnio.get(a) ?? 0;
+                  const op = n === 0 ? 0 : 0.18 + (n / max) * 0.82;
+                  return (
+                    <td key={a} className="px-1 py-1 text-center">
+                      <span
+                        className="inline-flex h-7 w-9 items-center justify-center rounded font-bold tabular-nums"
+                        style={{
+                          background: n ? `rgba(5, 150, 105, ${op})` : "transparent",
+                          color: n && op > 0.55 ? "#fff" : undefined,
+                        }}
+                      >
+                        {n || "·"}
+                      </span>
+                    </td>
+                  );
+                })}
+                <td className="px-2 py-2 text-center font-bold tabular-nums">{f.total}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 }

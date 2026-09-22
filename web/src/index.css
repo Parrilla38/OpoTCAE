@@ -18,17 +18,32 @@
 @media print {
   nav,
   footer,
-  .no-imprimir {
+  header button,
+  .no-imprimir,
+  [data-oculto-impresion] {
     display: none !important;
   }
   body {
     background: #fff !important;
     color: #000 !important;
+    padding: 0 !important;
   }
-  .card {
+  main .rounded-2xl,
+  main article,
+  main table,
+  main li {
     border: 1px solid #d4d4d4 !important;
     box-shadow: none !important;
+    background: #fff !important;
     break-inside: avoid;
+  }
+  .text-stone-500,
+  .text-stone-400,
+  .dark\:text-stone-400 {
+    color: #57534e !important;
+  }
+  a[href]::after {
+    content: "";
   }
 }
 
