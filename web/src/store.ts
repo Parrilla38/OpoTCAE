@@ -2,8 +2,8 @@ import type { ConfigTest, IntentoTest, Letra, Progreso, ResultadoPregunta } from
 import type { EstadoSm2 } from "./sm2";
 import { nuevaTarjeta, repasa } from "./sm2";
 
-const CLAVE = "tcae-progreso-v1";
-const CLAVE_SM2 = "tcae-sm2-v1";
+const CLAVE = "opotcae-progreso-v1";
+const CLAVE_SM2 = "opotcae-sm2-v1";
 
 export function cargaProgreso(): Progreso {
   try {

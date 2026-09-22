@@ -1,10 +1,10 @@
 {
-  "name": "TCAE Andalucía · Lo que más se repite",
-  "short_name": "TCAE Andalucía",
-  "description": "Repaso de las preguntas más repetidas de los exámenes oficiales de TCAE del SAS.",
+  "name": "OpoTCAE · Lo que más se pregunta",
+  "short_name": "OpoTCAE",
+  "description": "Repasa lo que más se pregunta en los exámenes oficiales de TCAE del Servicio Andaluz de Salud.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#022c22",
+  "background_color": "#fafaf9",
   "theme_color": "#059669",
   "lang": "es",
   "icons": [

@@ -1,14 +1,13 @@
-# OpoTCAE · Lo que más se repite en los exámenes de TCAE (Andalucía)
+# OpoTCAE
 
-Plataforma gratuita para repasar lo que más se pregunta en los **exámenes
-oficiales de TCAE del Servicio Andaluz de Salud**, con los 29 temas del temario
-oficial y el análisis de qué artículos y conceptos se repiten convocatoria tras
-convocatoria.
+Lo que más se pregunta en los **exámenes oficiales de TCAE del Servicio Andaluz
+de Salud** (Andalucía), con los 29 temas del temario oficial y el análisis de qué
+artículos y conceptos se repiten convocatoria tras convocatoria.
 
 Sin cuenta, sin cookies de seguimiento, sin muros de pago. El progreso se queda
 en tu navegador.
 
-**Empieza en <https://opotcae.vercel.app/>**
+**<https://opotcae.vercel.app/>**
 
 ---
 
@@ -162,7 +161,7 @@ supuestos prácticos de 55) queda archivado por no ser comparable.
 
 ## Estado y hoja de ruta
 
-En producción en **<https://opotcae.vercel.app/>**.
+**OpoTCAE** en producción en **<https://opotcae.vercel.app/>**.
 
 - [x] **Fase 0** — inventario y extracción de 45 PDFs oficiales
 - [x] **Fase 1** — parseo, clasificación por tema, clustering literal y radar
@@ -170,5 +169,3 @@ En producción en **<https://opotcae.vercel.app/>**.
 - [x] **Fase 3** — matching semántico (123 conceptos multi-año), repetición espaciada y tarjetas
 - [x] **Fase 5** — los 29 temas del temario oficial + pasada de UX
 - [ ] **Fase 4** — multiusuario y estadísticas agregadas (solo si el uso lo justifica)
-
-Pendiente: nombre y dominio definitivos.

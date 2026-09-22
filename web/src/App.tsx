@@ -19,7 +19,7 @@ function BotonTema() {
   const [oscuro, setOscuro] = useState(() => document.documentElement.classList.contains("dark"));
   useEffect(() => {
     document.documentElement.classList.toggle("dark", oscuro);
-    localStorage.setItem("tcae-tema", oscuro ? "oscuro" : "claro");
+    localStorage.setItem("opotcae-tema", oscuro ? "oscuro" : "claro");
   }, [oscuro]);
   return (
     <button
@@ -54,8 +54,10 @@ export default function App() {
     <div className="mx-auto flex min-h-screen max-w-2xl flex-col px-4 pb-28 pt-5">
       <header className="mb-6 flex items-center justify-between gap-3">
         <div>
-          <h1 className="text-lg font-bold leading-tight tracking-tight">TCAE Andalucía</h1>
-          <p className="text-xs text-stone-500 dark:text-stone-400">Lo que más se pregunta</p>
+          <h1 className="text-lg font-bold leading-tight tracking-tight">OpoTCAE</h1>
+          <p className="text-xs text-stone-500 dark:text-stone-400">
+            Lo que más se pregunta en el TCAE de Andalucía
+          </p>
         </div>
         <BotonTema />
       </header>

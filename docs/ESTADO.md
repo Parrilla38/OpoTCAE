@@ -1,9 +1,10 @@
-# Proyecto TCAE — continuidad
+# OpoTCAE — continuidad
 
 Plataforma web gratuita para repasar lo que más se pregunta en los exámenes
 oficiales de **TCAE del Servicio Andaluz de Salud** (Andalucía).
 
-**En producción: <https://opotcae.vercel.app/>** · **Código: <https://github.com/Parrilla38/OpoTCAE>**
+**Nombre: OpoTCAE** · **Dominio: <https://opotcae.vercel.app/>** (decidido por
+Jesús, 2026-09-22) · **Código: <https://github.com/Parrilla38/OpoTCAE>**
 
 ## Decisiones cerradas
 
@@ -17,6 +18,7 @@ oficiales de **TCAE del Servicio Andaluz de Salud** (Andalucía).
 | **UX** | **Lo más fácil posible. Sin jerga, una acción obvia por pantalla, lo avanzado desplegado** |
 | Ley 37/2007 | Descartada por Jesús: material público, proyecto gratuito |
 | «Otros» (anatomía y clínica) | Se queda como bucket propio, sin inventar tema oficial |
+| Nombre y dominio | **OpoTCAE** en `opotcae.vercel.app` |
 
 ## Estado por fase
 
@@ -123,7 +125,10 @@ cae» si se quiere.
 
 ## Pendiente de Jesús
 
-1. **Nombre y dominio** definitivos (hoy `opotcae.vercel.app`).
-2. ~~Verificar la Ley 37/2007~~ — **descartado por Jesús (2026-09-22)**: material público de internet y el proyecto es gratuito.
+1. ~~Nombre y dominio~~ — **cerrado**: OpoTCAE en `opotcae.vercel.app`.
+2. ~~Verificar la Ley 37/2007~~ — **descartado por Jesús**: material público, proyecto gratuito.
 3. ~~Anomalías 2 y 3~~ — **cerradas**: contraste OK, el dato es real.
-4. **338 preguntas sin tema** asignado: decidir si se afinan reglas o se dejan en «Otros» (hoy en «Otros» por decisión de Jesús).
+4. **338 preguntas sin tema** asignado: hoy en «Otros» por decisión de Jesús.
+
+Lo único abierto es la **Fase 4** (multiusuario y estadísticas agregadas), y solo
+si el uso real lo justifica.

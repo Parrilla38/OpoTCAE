@@ -1,4 +1,4 @@
-"""Manifiesto de PDFs oficiales del SAS — TCAE Andalucía.
+"""Manifiesto de PDFs oficiales del SAS — OpoTCAE.
 
 Fuente primaria: Servicio Andaluz de Salud (sspa.juntadeandalucia.es).
 Índice de verificación cruzada: opoluz.com/examenes-oficiales/sas/tcae/

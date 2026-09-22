@@ -167,7 +167,7 @@ export default function Progreso({ clusters, meta }: { clusters: Cluster[]; meta
                                 reiniciaTarjeta(c.cluster_id);
                                 const nts = cargaSm2();
                                 delete nts[c.cluster_id];
-                                localStorage.setItem("tcae-sm2-v1", JSON.stringify(nts));
+                                localStorage.setItem("opotcae-sm2-v1", JSON.stringify(nts));
                                 setIdxMis((i) => Math.max(0, Math.min(i, Object.keys(cargaSm2()).length - 1)));
                                 rerender((n) => n + 1);
                               }
@@ -337,7 +337,7 @@ function exporta(clusters: Cluster[], meta: Meta) {
     .sort((a, b) => b.veces - a.veces);
   const porId = new Map(clusters.map((c) => [c.cluster_id, c]));
 
-  const L: string[] = ["# Mi repaso TCAE", ""];
+  const L: string[] = ["# Mi repaso OpoTCAE", ""];
   L.push(`_Exportado el ${new Date().toLocaleString("es-ES")}_`, "", "## Lo que fallé", "");
   if (!fallados.length) L.push("_Aún no hay errores._", "");
   for (const { id, veces } of fallados) {
@@ -358,7 +358,7 @@ function exporta(clusters: Cluster[], meta: Meta) {
   const blob = new Blob([L.join("\n")], { type: "text/markdown;charset=utf-8" });
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
-  a.download = `repaso-tcae-${new Date().toISOString().slice(0, 10)}.md`;
+  a.download = `opotcae-repaso-${new Date().toISOString().slice(0, 10)}.md`;
   a.click();
   URL.revokeObjectURL(a.href);
 }
