@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Maquetas · OpoTCAE</title>
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Karla:wght@300;400;500;600;700&family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Familjen+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+/* ══════════════════════════════════════════════════════════════════
+   BASTIDOR COMÚN (selector). No forma parte de las maquetas.
+   ══════════════════════════════════════════════════════════════════ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: #14120F;
+  color: #EDE7DE;
+  font-family: "DM Sans", system-ui, sans-serif;
+  min-height: 100vh;
+}
+.selector {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(20,18,15,.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #2A2620;
+  padding: 14px 18px;
+}
+.selector-inner {
+  max-width: 1180px; margin: 0 auto;
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+}
+.selector h1 {
+  font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+  color: #8C8175; font-weight: 500;
+}
+.pestanas { display: flex; gap: 4px; flex-wrap: wrap; }
+.pestana {
+  appearance: none; border: 1px solid #2E2A24; background: transparent;
+  color: #B8AE9F; padding: 8px 14px; cursor: pointer;
+  font: 500 12.5px/1 "DM Sans", system-ui, sans-serif;
+  letter-spacing: .02em;
+  transition: .18s;
+}
+.pestana:hover { border-color: #4A4238; color: #EDE7DE; }
+.pestana[aria-selected="true"] {
+  background: #EDE7DE; color: #14120F; border-color: #EDE7DE;
+}
+.nota-bastidor {
+  max-width: 1180px; margin: 0 auto; padding: 12px 18px 0;
+  font-size: 12.5px; color: #8C8175; line-height: 1.55;
+}
+.nota-bastidor b { color: #C7BCAC; font-weight: 500; }
+
+.pantallas { max-width: 1180px; margin: 0 auto; padding: 22px 18px 80px; }
+.pantalla { display: none; }
+.pantalla[hidden] { display: none !important; }
+.pantalla.activa { display: block; }
+
+.encabezado-maqueta {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  gap: 16px; margin-bottom: 16px; flex-wrap: wrap;
+}
+.encabezado-maqueta h2 {
+  font: 500 13px/1.3 "DM Sans", system-ui, sans-serif;
+  letter-spacing: .04em; color: #C7BCAC;
+}
+.encabezado-maqueta p { font-size: 12.5px; color: #8C8175; max-width: 46ch; }
+
+/* lienzo donde se monta cada maqueta */
+.lienzo {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  gap: 22px;
+  align-items: start;
+}
+@media (max-width: 900px) { .lienzo { grid-template-columns: 1fr; } }
+
+.marco {
+  background: #0D0C0A;
+  border: 1px solid #26221D;
+  padding: 22px 22px 0;
+  overflow: hidden;
+}
+.marco > .etiqueta-marco {
+  font: 500 10px/1 "DM Sans", system-ui, sans-serif;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: #6E655A; margin-bottom: 14px;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   A · ALHAMBRA — editorial cálido. Papel, tinta oliva, terracota.
+   Referencia: catálogo de museo español; el ladrillo y la mudejar.
+   ══════════════════════════════════════════════════════════════════ */
+[data-diseno="alhambra"] {
+  --papel: #F4EFE6;
+  --papel-alto: #FBF8F2;
+  --tinta: #24382C;
+  --tinta-suave: #5C6B5F;
+  --linea: #DED3C0;
+  --terracota: #B0522C;
+  --terracota-hondo: #8C3E1F;
+  --oliva: #6B7A5A;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: "Karla", system-ui, sans-serif;
+  padding-bottom: 0;
+}
+[data-diseno="alhambra"] .alt {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 18px; border-bottom: 1px solid var(--linea);
+}
+[data-diseno="alhambra"] .marca {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600; font-size: 27px; letter-spacing: -.015em;
+  font-variation-settings: "SOFT" 0, "WONK" 1;
+}
+[data-diseno="alhambra"] .marca i {
+  display: block; font-size: 10px; font-weight: 400; font-style: italic;
+  letter-spacing: .16em; color: var(--terracota); margin-top: 2px;
+  font-family: "Fraunces", Georgia, serif;
+}
+[data-diseno="alhambra"] .luna {
+  width: 30px; height: 30px; border: 1px solid var(--linea);
+  border-radius: 50%; background: transparent; color: var(--tinta-suave);
+  cursor: pointer; display: grid; place-items: center; font-size: 13px;
+}
+[data-diseno="alhambra"] .tipo-etiqueta {
+  font-size: 10px; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--oliva); font-weight: 600;
+}
+[data-diseno="alhambra"] .titular {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500; font-size: 40px; line-height: 1.02;
+  letter-spacing: -.025em; margin: 26px 0 10px;
+  font-variation-settings: "SOFT" 0, "WONK" 1;
+}
+[data-diseno="alhambra"] .entradilla {
+  font-size: 14.5px; line-height: 1.6; color: var(--tinta-suave);
+  max-width: 38ch;
+}
+[data-diseno="alhambra"] .filete {
+  height: 1px; background: var(--linea); margin: 26px 0; position: relative;
+}
+[data-diseno="alhambra"] .filete::after {
+  content: ""; position: absolute; left: 0; top: -3px;
+  width: 7px; height: 7px; background: var(--terracota);
+  transform: rotate(45deg);
+}
+[data-diseno="alhambra"] .accion-uno {
+  display: flex; align-items: stretch; gap: 0; width: 100%;
+  background: var(--terracota); color: var(--papel-alto);
+  border: none; cursor: pointer; text-align: left; padding: 0;
+}
+[data-diseno="alhambra"] .accion-uno .cifra {
+  font-family: "Fraunces", Georgia, serif; font-weight: 400;
+  font-size: 54px; line-height: 1; padding: 18px 20px 16px;
+  border-right: 1px solid rgba(251,248,242,.22);
+  font-variation-settings: "SOFT" 0, "WONK" 1;
+}
+[data-diseno="alhambra"] .accion-uno .texto { padding: 18px 20px 16px; flex: 1; }
+[data-diseno="alhambra"] .accion-uno strong {
+  display: block; font-family: "Fraunces", Georgia, serif;
+  font-size: 19px; font-weight: 600; letter-spacing: -.01em;
+}
+[data-diseno="alhambra"] .accion-uno span {
+  display: block; font-size: 12.5px; margin-top: 4px; opacity: .82;
+}
+[data-diseno="alhambra"] .accion-dos {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  background: transparent; border: 1px solid var(--linea); border-top: none;
+  padding: 15px 20px; cursor: pointer; text-align: left; color: var(--tinta);
+}
+[data-diseno="alhambra"] .accion-dos:hover { background: var(--papel-alto); }
+[data-diseno="alhambra"] .accion-dos .num {
+  font-family: "Fraunces", Georgia, serif; font-size: 15px; color: var(--terracota);
+}
+[data-diseno="alhambra"] .accion-dos strong { display: block; font-size: 14.5px; font-weight: 600; }
+[data-diseno="alhambra"] .accion-dos span { display: block; font-size: 12.5px; color: var(--tinta-suave); margin-top: 1px; }
+
+[data-diseno="alhambra"] .pregunta {
+  background: var(--papel-alto); border: 1px solid var(--linea);
+  padding: 22px 22px 22px 22px; position: relative; margin-top: 4px;
+}
+[data-diseno="alhambra"] .pregunta .pie-num {
+  font-family: "Fraunces", Georgia, serif; font-size: 34px;
+  color: var(--terracota); line-height: 1; margin-bottom: 10px;
+  font-variation-settings: "SOFT" 0, "WONK" 1;
+}
+[data-diseno="alhambra"] .pregunta h3 {
+  font-family: "Fraunces", Georgia, serif; font-weight: 500;
+  font-size: 18.5px; line-height: 1.32; letter-spacing: -.012em;
+  font-variation-settings: "SOFT" 0, "WONK" 1;
+}
+[data-diseno="alhambra"] .opciones { margin-top: 18px; }
+[data-diseno="alhambra"] .op {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 11px 12px 11px 0; border-top: 1px solid var(--linea);
+  font-size: 14px; line-height: 1.45;
+}
+[data-diseno="alhambra"] .op:last-child { border-bottom: 1px solid var(--linea); }
+[data-diseno="alhambra"] .op .let {
+  width: 21px; height: 21px; border-radius: 50%; border: 1px solid var(--linea);
+  display: grid; place-items: center; font-family: "Fraunces", Georgia, serif;
+  font-size: 11.5px; color: var(--tinta-suave); flex: none;
+}
+[data-diseno="alhambra"] .op.ok { color: var(--tinta); background: #EFE7D6; padding-left: 12px; border-left: 3px solid var(--oliva); }
+[data-diseno="alhambra"] .op.ok .let { border-color: var(--oliva); background: var(--oliva); color: var(--papel-alto); }
+[data-diseno="alhambra"] .op.mal { background: #F0DCD2; padding-left: 12px; border-left: 3px solid var(--terracota); }
+[data-diseno="alhambra"] .op.mal .let { border-color: var(--terracota); background: var(--terracota); color: var(--papel-alto); }
+
+[data-diseno="alhambra"] .pie-nav {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-top: 1px solid var(--linea); margin-top: 24px;
+}
+[data-diseno="alhambra"] .pie-nav a {
+  padding: 15px 4px 17px; text-align: center; text-decoration: none;
+  color: var(--tinta-suave); font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase; font-weight: 600;
+}
+[data-diseno="alhambra"] .pie-nav a.on { color: var(--terracota); }
+[data-diseno="alhambra"] .pie-nav a.on::before {
+  content: ""; display: block; width: 5px; height: 5px;
+  background: var(--terracota); transform: rotate(45deg);
+  margin: 0 auto 7px;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   B · AZULEJO — geométrico y sevillano. Blanco azulejo, cobalto.
+   Referencia: la cerámica de Triana; catálogo tipográfico.
+   ══════════════════════════════════════════════════════════════════ */
+[data-diseno="azulejo"] {
+  --plancha: #EEF2F4;
+  --azulejo: #FFFFFF;
+  --cobalto: #1B4C7E;
+  --cobalto-fondo: #0E2B47;
+  --cernida: #5B8CB0;
+  --linea-a: #C6D5DF;
+  --tinta-a: #0E2B47;
+  background: var(--plancha);
+  color: var(--tinta-a);
+  font-family: "Archivo", system-ui, sans-serif;
+}
+[data-diseno="azulejo"] .alt {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--cobalto); color: #fff; padding: 16px 20px;
+  margin: -22px -22px 20px;
+}
+[data-diseno="azulejo"] .marca { display: flex; align-items: center; gap: 11px; }
+[data-diseno="azulejo"] .marca .sello {
+  width: 30px; height: 30px; background: #fff; display: grid; place-items: center;
+}
+[data-diseno="azulejo"] .marca .sello::before {
+  content: "+"; color: var(--cobalto); font-size: 25px; font-weight: 300; line-height: 1;
+}
+[data-diseno="azulejo"] .marca strong {
+  font-weight: 800; font-size: 17px; letter-spacing: -.02em; text-transform: uppercase;
+}
+[data-diseno="azulejo"] .marca i {
+  display: block; font-style: normal; font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px; letter-spacing: .26em; opacity: .68; margin-top: 2px;
+}
+[data-diseno="azulejo"] .luna {
+  width: 32px; height: 32px; border: 1px solid rgba(255,255,255,.34);
+  background: transparent; color: #fff; cursor: pointer; display: grid; place-items: center;
+  font-family: "JetBrains Mono", monospace; font-size: 12px;
+}
+[data-diseno="azulejo"] .tipo-etiqueta {
+  font-family: "JetBrains Mono", monospace; font-size: 10px;
+  letter-spacing: .3em; text-transform: uppercase; color: var(--cobalto);
+}
+[data-diseno="azulejo"] .titular {
+  font-weight: 800; font-size: 34px; line-height: .98;
+  letter-spacing: -.035em; text-transform: uppercase; margin: 14px 0 10px;
+}
+[data-diseno="azulejo"] .entradilla {
+  font-size: 13.5px; line-height: 1.55; color: #4B6E88; max-width: 40ch;
+}
+[data-diseno="azulejo"] .filete {
+  height: 8px; margin: 22px 0;
+  background:
+    repeating-linear-gradient(90deg, var(--cobalto) 0 8px, transparent 8px 16px),
+    repeating-linear-gradient(0deg, var(--cernida) 0 8px, transparent 8px 16px);
+  background-size: 16px 8px, 8px 16px;
+  opacity: .3;
+}
+[data-diseno="azulejo"] .accion-uno {
+  display: flex; align-items: center; gap: 16px; width: 100%;
+  background: var(--cobalto); color: #fff; border: none; cursor: pointer;
+  padding: 18px 20px; text-align: left;
+}
+[data-diseno="azulejo"] .accion-uno:hover { background: var(--cobalto-fondo); }
+[data-diseno="azulejo"] .accion-uno .cifra {
+  font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 40px;
+  line-height: 1; letter-spacing: -.05em;
+}
+[data-diseno="azulejo"] .accion-uno strong {
+  display: block; font-weight: 800; font-size: 15px; letter-spacing: .06em; text-transform: uppercase;
+}
+[data-diseno="azulejo"] .accion-uno span {
+  display: block; font-family: "JetBrains Mono", monospace;
+  font-size: 11px; margin-top: 4px; opacity: .74; letter-spacing: .04em;
+}
+[data-diseno="azulejo"] .accion-dos {
+  display: flex; align-items: center; gap: 14px; width: 100%;
+  background: var(--azulejo); border: 1px solid var(--linea-a); border-top: none;
+  padding: 15px 20px; cursor: pointer; text-align: left; color: var(--tinta-a);
+}
+[data-diseno="azulejo"] .accion-dos:hover { background: var(--plancha); }
+[data-diseno="azulejo"] .accion-dos .num {
+  font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--cernida); font-weight: 700;
+}
+[data-diseno="azulejo"] .accion-dos strong {
+  display: block; font-size: 13.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+}
+[data-diseno="azulejo"] .accion-dos span {
+  display: block; font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: #5B7C93; margin-top: 2px;
+}
+
+[data-diseno="azulejo"] .pregunta {
+  background: var(--azulejo); border: 1px solid var(--linea-a); padding: 20px; margin-top: 4px;
+}
+[data-diseno="azulejo"] .pregunta .pie-num {
+  display: inline-block; font-family: "JetBrains Mono", monospace;
+  font-size: 11px; font-weight: 700; letter-spacing: .18em;
+  color: var(--cobalto); border: 1px solid var(--linea-a);
+  padding: 4px 9px; margin-bottom: 12px;
+}
+[data-diseno="azulejo"] .pregunta h3 {
+  font-weight: 700; font-size: 16.5px; line-height: 1.28; letter-spacing: -.015em;
+}
+[data-diseno="azulejo"] .opciones { margin-top: 16px; display: grid; gap: 7px; }
+[data-diseno="azulejo"] .op {
+  display: flex; gap: 11px; align-items: center;
+  border: 1px solid var(--linea-a); padding: 10px 12px; font-size: 13.5px; line-height: 1.35;
+}
+[data-diseno="azulejo"] .op .let {
+  font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 12px;
+  color: var(--cobalto); flex: none;
+}
+[data-diseno="azulejo"] .op.ok { border-color: var(--cobalto); background: #E7EFF6; box-shadow: inset 3px 0 0 var(--cobalto); }
+[data-diseno="azulejo"] .op.mal { border-color: var(--terracota, #B0522C); background: #F7E6DF; box-shadow: inset 3px 0 0 #B0522C; }
+[data-diseno="azulejo"] .op.mal .let { color: #B0522C; }
+
+[data-diseno="azulejo"] .pie-nav {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  background: var(--cobalto-fondo); margin: 24px -22px 0;
+}
+[data-diseno="azulejo"] .pie-nav a {
+  padding: 14px 4px 16px; text-align: center; text-decoration: none; color: #93B3C9;
+  font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+}
+[data-diseno="azulejo"] .pie-nav a.on { color: #fff; box-shadow: inset 0 3px 0 var(--cernida); }
+
+/* ══════════════════════════════════════════════════════════════════
+   C · ÁUREO — minimal de lujo. Crema, verde pino, oro.
+   Referencia: la luz dorada de Andalucía; un cuaderno de campo médico.
+   ══════════════════════════════════════════════════════════════════ */
+[data-diseno="aureo"] {
+  --crema: #FBFAF6;
+  --crema-hondo: #F3F0E7;
+  --pino: #1E4A3C;
+  --pino-suave: #5A7C6F;
+  --oro: #B0873B;
+  --oro-alto: #D8B871;
+  --hilo: #E2DCCC;
+  background: var(--crema);
+  color: var(--pino);
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+[data-diseno="aureo"] .alt {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: 20px; border-bottom: 1px solid var(--hilo);
+}
+[data-diseno="aureo"] .marca {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 32px; letter-spacing: -.01em; line-height: 1;
+}
+[data-diseno="aureo"] .marca i {
+  display: block; font-style: italic; font-size: 12px; color: var(--oro);
+  margin-top: 5px; letter-spacing: .02em;
+}
+[data-diseno="aureo"] .luna {
+  width: 32px; height: 32px; border: 1px solid var(--hilo); border-radius: 50%;
+  background: transparent; color: var(--pino-suave); cursor: pointer;
+  display: grid; place-items: center; font-size: 13px;
+}
+[data-diseno="aureo"] .tipo-etiqueta {
+  font-family: "Instrument Serif", Georgia, serif; font-style: italic;
+  font-size: 15px; color: var(--oro); letter-spacing: .01em;
+}
+[data-diseno="aureo"] .titular {
+  font-family: "Instrument Serif", Georgia, serif; font-weight: 400;
+  font-size: 52px; line-height: .95; letter-spacing: -.025em; margin: 16px 0 14px;
+}
+[data-diseno="aureo"] .entradilla {
+  font-size: 14.5px; line-height: 1.65; color: var(--pino-suave); max-width: 36ch;
+}
+[data-diseno="aureo"] .filete {
+  height: 1px; background: linear-gradient(90deg, var(--oro) 0 42px, var(--hilo) 42px 100%);
+  margin: 34px 0 26px;
+}
+[data-diseno="aureo"] .accion-uno {
+  display: block; width: 100%; background: var(--pino); color: var(--crema);
+  border: none; cursor: pointer; text-align: left; padding: 26px 28px;
+  position: relative; overflow: hidden;
+}
+[data-diseno="aureo"] .accion-uno::after {
+  content: ""; position: absolute; right: -34px; top: -34px;
+  width: 128px; height: 128px; border-radius: 50%;
+  border: 1px solid var(--oro-alto); opacity: .45;
+}
+[data-diseno="aureo"] .accion-uno .cifra {
+  font-family: "Instrument Serif", Georgia, serif; font-size: 62px;
+  line-height: .85; color: var(--oro-alto); letter-spacing: -.03em;
+}
+[data-diseno="aureo"] .accion-uno strong {
+  display: block; font-family: "Instrument Serif", Georgia, serif;
+  font-size: 26px; font-weight: 400; margin-top: 12px; letter-spacing: -.015em;
+}
+[data-diseno="aureo"] .accion-uno span {
+  display: block; font-size: 13px; margin-top: 6px; opacity: .72; letter-spacing: .01em;
+}
+[data-diseno="aureo"] .accion-dos {
+  display: flex; align-items: baseline; gap: 14px; width: 100%;
+  background: transparent; border: none; border-bottom: 1px solid var(--hilo);
+  padding: 16px 4px; cursor: pointer; text-align: left; color: var(--pino);
+}
+[data-diseno="aureo"] .accion-dos:hover { background: var(--crema-hondo); }
+[data-diseno="aureo"] .accion-dos .num {
+  font-family: "Instrument Serif", Georgia, serif; font-style: italic;
+  font-size: 15px; color: var(--oro); width: 22px; flex: none;
+}
+[data-diseno="aureo"] .accion-dos strong {
+  font-family: "Instrument Serif", Georgia, serif; font-size: 19px; font-weight: 400;
+}
+[data-diseno="aureo"] .accion-dos span {
+  display: block; font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 12.5px; color: var(--pino-suave); margin-top: 3px;
+}
+
+[data-diseno="aureo"] .pregunta {
+  background: transparent; border-top: 1px solid var(--hilo); border-bottom: 1px solid var(--hilo);
+  padding: 26px 4px; margin-top: 4px;
+}
+[data-diseno="aureo"] .pregunta .pie-num {
+  font-family: "Instrument Serif", Georgia, serif; font-style: italic;
+  font-size: 15px; color: var(--oro); margin-bottom: 12px;
+}
+[data-diseno="aureo"] .pregunta h3 {
+  font-family: "Instrument Serif", Georgia, serif; font-weight: 400;
+  font-size: 25px; line-height: 1.2; letter-spacing: -.015em;
+}
+[data-diseno="aureo"] .opciones { margin-top: 20px; }
+[data-diseno="aureo"] .op {
+  display: flex; gap: 15px; align-items: baseline;
+  padding: 13px 4px; border-top: 1px solid var(--hilo); font-size: 14.5px; line-height: 1.45;
+}
+[data-diseno="aureo"] .op:last-child { border-bottom: 1px solid var(--hilo); }
+[data-diseno="aureo"] .op .let {
+  font-family: "Instrument Serif", Georgia, serif; font-style: italic;
+  font-size: 17px; color: var(--oro); flex: none; width: 18px;
+}
+[data-diseno="aureo"] .op.ok { background: var(--crema-hondo); box-shadow: inset 3px 0 0 var(--oro); padding-left: 15px; }
+[data-diseno="aureo"] .op.ok .let { color: var(--pino); }
+[data-diseno="aureo"] .op.mal { background: var(--crema-hondo); box-shadow: inset 3px 0 0 var(--pino-suave); padding-left: 15px; opacity: .62; }
+
+[data-diseno="aureo"] .pie-nav {
+  display: grid; grid-template-columns: repeat(4,1fr); margin-top: 30px;
+  border-top: 1px solid var(--hilo);
+}
+[data-diseno="aureo"] .pie-nav a {
+  padding: 16px 4px 18px; text-align: center; text-decoration: none;
+  color: var(--pino-suave); font-family: "Instrument Serif", Georgia, serif;
+  font-style: italic; font-size: 15px;
+}
+[data-diseno="aureo"] .pie-nav a.on { color: var(--pino); }
+[data-diseno="aureo"] .pie-nav a.on::before {
+  content: ""; display: block; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--oro); margin: 0 auto 6px;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   D · PATIO BLANCO — limpio y tranquilo. Blanco cal, verde bandera.
+   Referencia: el patio de los naranjos de Sevilla; la luz blanca.
+   ══════════════════════════════════════════════════════════════════ */
+[data-diseno="patio"] {
+  --cal: #FFFFFF;
+  --cal-sombra: #F6F8F6;
+  --verde-band: #0F5132;
+  --verde-hoja: #3F7A5C;
+  --verde-agua: #E7F0E9;
+  --hilo-v: #DDE6DF;
+  --tinta-v: #14261C;
+  background: var(--cal);
+  color: var(--tinta-v);
+  font-family: "Familjen Grotesk", system-ui, sans-serif;
+}
+[data-diseno="patio"] .alt {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: 18px;
+}
+[data-diseno="patio"] .marca { display: flex; align-items: center; gap: 10px; }
+[data-diseno="patio"] .marca .sello {
+  width: 26px; height: 26px; display: grid; grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+[data-diseno="patio"] .marca .sello span:nth-child(1),
+[data-diseno="patio"] .marca .sello span:nth-child(4) { background: var(--verde-band); }
+[data-diseno="patio"] .marca .sello span:nth-child(2),
+[data-diseno="patio"] .marca .sello span:nth-child(3) { background: var(--cal); border: 1px solid var(--hilo-v); }
+[data-diseno="patio"] .marca strong { font-weight: 600; font-size: 17px; letter-spacing: -.025em; }
+[data-diseno="patio"] .luna {
+  width: 32px; height: 32px; border: 1px solid var(--hilo-v); border-radius: 50%;
+  background: transparent; color: var(--verde-hoja); cursor: pointer;
+  display: grid; place-items: center; font-size: 13px;
+}
+[data-diseno="patio"] .tipo-etiqueta {
+  font-family: "IBM Plex Mono", monospace; font-size: 9.5px;
+  letter-spacing: .28em; text-transform: uppercase; color: var(--verde-hoja);
+}
+[data-diseno="patio"] .titular {
+  font-weight: 500; font-size: 33px; line-height: 1.06; letter-spacing: -.035em;
+  margin: 12px 0 10px;
+}
+[data-diseno="patio"] .entradilla {
+  font-size: 14px; line-height: 1.6; color: var(--verde-hoja); max-width: 38ch;
+}
+[data-diseno="patio"] .filete { height: 1px; background: var(--hilo-v); margin: 24px 0; }
+[data-diseno="patio"] .accion-uno {
+  display: flex; align-items: center; gap: 14px; width: 100%;
+  background: var(--verde-band); color: #fff; border: none; cursor: pointer;
+  padding: 17px 20px; text-align: left; border-radius: 14px;
+}
+[data-diseno="patio"] .accion-uno:hover { background: var(--verde-hoja); }
+[data-diseno="patio"] .accion-uno .cifra {
+  font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px;
+  line-height: 1; opacity: .8;
+}
+[data-diseno="patio"] .accion-uno strong { display: block; font-size: 16px; font-weight: 600; letter-spacing: -.015em; }
+[data-diseno="patio"] .accion-uno span { display: block; font-size: 12.5px; margin-top: 3px; opacity: .78; }
+[data-diseno="patio"] .accion-dos {
+  display: flex; align-items: center; gap: 13px; width: 100%;
+  background: var(--cal); border: 1px solid var(--hilo-v); border-radius: 14px;
+  padding: 15px 18px; margin-top: 8px; cursor: pointer; text-align: left; color: var(--tinta-v);
+}
+[data-diseno="patio"] .accion-dos:hover { background: var(--cal-sombra); }
+[data-diseno="patio"] .accion-dos .num {
+  width: 26px; height: 26px; border-radius: 50%; background: var(--verde-agua);
+  color: var(--verde-band); display: grid; place-items: center;
+  font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; flex: none;
+}
+[data-diseno="patio"] .accion-dos strong { display: block; font-size: 14.5px; font-weight: 600; letter-spacing: -.012em; }
+[data-diseno="patio"] .accion-dos span { display: block; font-size: 12.5px; color: var(--verde-hoja); margin-top: 2px; }
+
+[data-diseno="patio"] .pregunta {
+  background: var(--cal-sombra); border: 1px solid var(--hilo-v); border-radius: 18px;
+  padding: 22px; margin-top: 4px;
+}
+[data-diseno="patio"] .pregunta .pie-num {
+  font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600;
+  color: var(--verde-hoja); letter-spacing: .12em; margin-bottom: 10px;
+}
+[data-diseno="patio"] .pregunta h3 {
+  font-weight: 500; font-size: 17.5px; line-height: 1.3; letter-spacing: -.018em;
+}
+[data-diseno="patio"] .opciones { margin-top: 18px; display: grid; gap: 7px; }
+[data-diseno="patio"] .op {
+  display: flex; gap: 11px; align-items: center; background: var(--cal);
+  border: 1px solid var(--hilo-v); border-radius: 12px; padding: 11px 13px;
+  font-size: 13.8px; line-height: 1.38;
+}
+[data-diseno="patio"] .op .let {
+  width: 22px; height: 22px; border-radius: 50%; background: var(--verde-agua);
+  color: var(--verde-band); display: grid; place-items: center;
+  font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; flex: none;
+}
+[data-diseno="patio"] .op.ok { border-color: var(--verde-band); background: var(--verde-agua); }
+[data-diseno="patio"] .op.ok .let { background: var(--verde-band); color: #fff; }
+[data-diseno="patio"] .op.mal { border-color: #C2453B; background: #FBEBE9; }
+[data-diseno="patio"] .op.mal .let { background: #C2453B; color: #fff; }
+
+[data-diseno="patio"] .pie-nav {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 4px;
+  background: var(--cal-sombra); border: 1px solid var(--hilo-v);
+  border-radius: 16px; padding: 6px; margin-top: 24px;
+}
+[data-diseno="patio"] .pie-nav a {
+  padding: 11px 4px 12px; text-align: center; text-decoration: none;
+  color: var(--verde-hoja); font-family: "IBM Plex Mono", monospace;
+  font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; border-radius: 10px;
+}
+[data-diseno="patio"] .pie-nav a.on { background: var(--cal); color: var(--verde-band); box-shadow: 0 1px 2px rgba(20,38,28,.07); }
+
+/* copia de contenido de maqueta */
+.copia { padding-bottom: 0; }
+.copia .tipo-etiqueta { display: block; }
+</style>
+</head>
+<body>
+
+<div class="selector">
+  <div class="selector-inner">
+    <h1>Maquetas OpoTCAE</h1>
+    <div class="pestanas" role="tablist">
+      <button class="pestana" role="tab" aria-selected="true" data-ver="alhambra">A · Alhambra</button>
+      <button class="pestana" role="tab" aria-selected="false" data-ver="azulejo">B · Azulejo</button>
+      <button class="pestana" role="tab" aria-selected="false" data-ver="aureo">C · Áureo</button>
+      <button class="pestana" role="tab" aria-selected="false" data-ver="patio">D · Patio</button>
+      <button class="pestana" role="tab" aria-selected="false" data-ver="todos">Ver las 4</button>
+    </div>
+  </div>
+</div>
+
+<p class="nota-bastidor">
+  Cuatro lenguajes distintos, no cuatro colores del mismo. Cambia la tipografía, el
+  ritmo, la ornamentación y cómo se dibuja una opción marcada. <b>Idea común:</b>
+  aportar <b>Andalucía</b> sin postales ni flamenco, y <b>TCAE</b> sin cruces ni
+  bata azul. La referencia va por los materiales — el ladrillo, el azulejo de
+  Triana, la luz dorada, el patio encalado — y por la calma clínica.
+</p>
+
+<div class="pantallas">
+
+<!-- ═══════════════════════════ A · ALHAMBRA ═══════════════════════════ -->
+<section class="pantalla activa" data-pantalla="alhambra">
+  <div class="encabezado-maqueta">
+    <h2>A · Alhambra</h2>
+    <p>Editorial cálido, papel y terracota. Serif con más carácter (Fraunces con
+    contraste y «wonk»). Nada de tarjetas uniformes: filetes y un gran número.
+    Lo andaluz va en el ladrillo y el oliva, no en adornos.</p>
+  </div>
+  <div class="lienzo">
+    <div class="marco">
+      <div class="etiqueta-marco">Pantalla · Practicar</div>
+      <div class="copia" data-diseno="alhambra">
+        <div class="alt">
+          <div class="marca">OpoTCAE <i>Andalucía</i></div>
+          <button class="luna" aria-label="Modo oscuro">◐</button>
+        </div>
+        <div class="tipo-etiqueta">Servicio Andaluz de Salud · 2016–2025</div>
+        <h2 class="titular">¿Qué hacemos<br />hoy?</h2>
+        <p class="entradilla">1.539 preguntas de los exámenes oficiales, ordenadas
+        por lo que de verdad cae cada año.</p>
+        <div class="filete"></div>
+        <button class="accion-uno">
+          <span class="cifra">10</span>
+          <span class="texto"><strong>Empezar ahora</strong><span>penaliza el error, como en el examen</span></span>
+        </button>
+        <button class="accion-dos">
+          <span class="num">I</span>
+          <span><strong>Repasar lo que fallé</strong><span>5 preguntas por repasar hoy</span></span>
+        </button>
+        <button class="accion-dos">
+          <span class="num">II</span>
+          <span><strong>Simulacro como el examen</strong><span>50 preguntas · 60 minutos</span></span>
+        </button>
+        <div class="pie-nav">
+          <a class="on">Practicar</a><a>Aprender</a><a>Exámenes</a><a>Progreso</a>
+        </div>
+      </div>
+    </div>
+    <div class="marco">
+      <div class="etiqueta-marco">Pantalla · Pregunta</div>
+      <div class="copia" data-diseno="alhambra">
+        <div class="alt">
+          <div class="marca">OpoTCAE <i>Andalucía</i></div>
+          <button class="luna">◐</button>
+        </div>
+        <div class="tipo-etiqueta">4 de 10 · Úlceras por presión</div>
+        <div class="pregunta">
+          <div class="pie-num">IV</div>
+          <h3>Según el sistema de clasificación de las úlceras por presión, ¿en qué estadio aparece la escara?</h3>
+          <div class="opciones">
+            <div class="op"><span class="let">A</span><span>Estadio I, cuando la piel está íntegra.</span></div>
+            <div class="op ok"><span class="let">B</span><span>Estadio IV, con lesión tisular de espesor total.</span></div>
+            <div class="op mal"><span class="let">C</span><span>Estadio II, con pérdida de espesor parcial.</span></div>
+            <div class="op"><span class="let">D</span><span>Estadio III, con tejido subcutáneo visible.</span></div>
+          </div>
+        </div>
+        <div class="pie-nav">
+          <a class="on">Practicar</a><a>Aprender</a><a>Exámenes</a><a>Progreso</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ B · AZULEJO ═══════════════════════════ -->
+<section class="pantalla" data-pantalla="azulejo" hidden>
+  <div class="encabezado-maqueta">
+    <h2>B · Azulejo</h2>
+    <p>Geométrico y sevillano. Grotesca condensada + mono para cifras. Esquinas
+    vivas, retícula marcada y un filete de azulejo como corte. Andalucía va en la
+    cerámica de Triana y el cobalto, no en postales.</p>
+  </div>
+  <div class="lienzo">
+    <div class="marco">
+      <div class="etiqueta-marco">Pantalla · Practicar</div>
+      <div class="copia" data-diseno="azulejo">
+        <div class="alt">
+          <div class="marca"><span class="sello"></span><span><strong>OpoTCAE</strong><i>TCAE · SAS</i></span></div>
+          <button class="luna">◐</button>
+        </div>
+        <div class="tipo-etiqueta">1.539 preguntas · 2016–2025</div>
+        <h2 class="titular">¿Qué hacemos<br />hoy?</h2>
+        <p class="entradilla">Los exámenes oficiales del Servicio Andaluz de Salud,
+        ordenados por lo que de verdad cae.</p>
+        <div class="filete"></div>
+        <button class="accion-uno">
+          <span class="cifra">10</span>
+          <span><strong>Empezar ahora</strong><span>penaliza el error · como el examen</span></span>
+        </button>
+        <button class="accion-dos">
+          <span class="num">01</span>
+          <span><strong>Repasar lo que fallé</strong><span>5 pendientes hoy</span></span>
+        </button>
+        <button class="accion-dos">
+          <span class="num">02</span>
+          <span><strong>Simulacro</strong><span>50 preg · 60 min</span></span>
+        </button>
+        <div class="pie-nav">
+          <a class="on">Practicar</a><a>Aprender</a><a>Exámenes</a><a>Progreso</a>
+        </div>
+      </div>
+    </div>
+    <div class="marco">
+      <div class="etiqueta-marco">Pantalla · Pregunta</div>
+      <div class="copia" data-diseno="azulejo">
+        <div class="alt">
+          <div class="marca"><span class="sello"></span><span><strong>OpoTCAE</strong><i>TCAE · SAS</i></span></div>
+          <button class="luna">◐</button>
+        </div>
+        <div class="tipo-etiqueta">04 / 10 · Úlceras por presión</div>
+        <div class="pregunta">
+          <div class="pie-num">PREG. 04</div>
+          <h3>Según el sistema de clasificación de las úlceras por presión, ¿en qué estadio aparece la escara?</h3>
+          <div class="opciones">
+            <div class="op"><span class="let">A</span><span>Estadio I, cuando la piel está íntegra.</span></div>
+            <div class="op ok"><span class="let">B</span><span>Estadio IV, con lesión tisular de espesor total.</span></div>
+            <div class="op mal"><span class="let">C</span><span>Estadio II, con pérdida de espesor parcial.</span></div>
+            <div class="op"><span class="let">D</span><span>Estadio III, con tejido subcutáneo visible.</span></div>
+          </div>
+        </div>
+        <div class="pie-nav">
+          <a class="on">Practicar</a><a>Aprender</a><a>Exámenes</a><a>Progreso</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ C · ÁUREO ═══════════════════════════ -->
+<section class="pantalla" data-pantalla="aureo" hidden>
+  <div class="encabezado-maqueta">
+    <h2>C · Áureo</h2>
+    <p>Minimal de lujo. Serif display finísima (Instrument Serif), aire
+    desproporcionado, filetes de oro y cero cajas. La luz dorada de Andalucía y la
+    calma de un cuaderno de campo médico. Es el más «premium» de los cuatro.</p>
+  </div>
+  <div class="lienzo">
+    <div class="marco">
+      <div class="etiqueta-marco">Pantalla · Practicar</div>
+      <div class="copia" data-diseno="aureo">
+        <div class="alt">
+          <div class="marca">OpoTCAE <i>Andalucía</i></div>
+          <button class="luna">◐</button>
+        </div>
+        <div class="tipo-etiqueta">Servicio Andaluz de Salud</div>
+        <h2 class="titular">¿Qué<br />hacemos<br />hoy?</h2>
+        <p class="entradilla">1.539 preguntas de los exámenes oficiales, ordenadas
+        por lo que de verdad cae cada año.</p>
+        <div class="filete"></div>
+        <button class="accion-uno">
+          <span class="cifra">10</span>
+          <strong>Empezar ahora</strong>
+          <span>penaliza el error, como en el examen</span>
+        </button>
+        <button class="accion-dos">
+          <span class="num">i</span>
+          <span><strong>Repasar lo que fallé</strong><span>5 preguntas por repasar hoy</span></span>
+        </button>
+        <button class="accion-dos">
+          <span class="num">ii</span>
+          <span><strong>Simulacro como el examen</strong><span>50 preguntas · 60 minutos</span></span>
+        </button>
+        <div class="pie-nav">
+          <a class="on">Practicar</a><a>Aprender</a><a>Exámenes</a><a>Progreso</a>
+        </div>
+      </div>
+    </div>
+    <div class="marco">
+      <div class="etiqueta-marco">Pantalla · Pregunta</div>
+      <div class="copia" data-diseno="aureo">
+        <div class="alt">
+          <div class="marca">OpoTCAE <i>Andalucía</i></div>
+          <button class="luna">◐</button>
+        </div>
+        <div class="tipo-etiqueta">Úlceras por presión · 4 de 10</div>
+        <div class="pregunta">
+          <div class="pie-num">iv</div>
+          <h3>¿En qué estadio aparece la escara en las úlceras por presión?</h3>
+          <div class="opciones">
+            <div class="op"><span class="let">a</span><span>Estadio I, cuando la piel está íntegra.</span></div>
+            <div class="op ok"><span class="let">b</span><span>Estadio IV, con lesión tisular de espesor total.</span></div>
+            <div class="op mal"><span class="let">c</span><span>Estadio II, con pérdida de espesor parcial.</span></div>
+            <div class="op"><span class="let">d</span><span>Estadio III, con tejido subcutáneo visible.</span></div>
+          </div>
+        </div>
+        <div class="pie-nav">
+          <a class="on">Practicar</a><a>Aprender</a><a>Exámenes</a><a>Progreso</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ D · PATIO ═══════════════════════════ -->
+<section class="pantalla" data-pantalla="patio" hidden>
+  <div class="encabezado-maqueta">
+    <h2>D · Patio Blanco</h2>
+    <p>Tranquilo y luminoso. Blanco cal y el verde de la bandera andaluza, muy
+    bajito de saturación. Esquinas suaves, mono para las etiquetas, todo respira.
+    Es el más sencillo y el que mejor se porta en móvil.</p>
+  </div>
+  <div class="lienzo">
+    <div class="marco">
+      <div class="etiqueta-marco">Pantalla · Practicar</div>
+      <div class="copia" data-diseno="patio">
+        <div class="alt">
+          <div class="marca"><span class="sello"><span></span><span></span><span></span><span></span></span><strong>opotcae</strong></div>
+          <button class="luna">◐</button>
+        </div>
+        <div class="tipo-etiqueta">Servicio Andaluz de Salud · 2016–2025</div>
+        <h2 class="titular">¿Qué hacemos hoy?</h2>
+        <p class="entradilla">1.539 preguntas de los exámenes oficiales, ordenadas
+        por lo que de verdad cae cada año.</p>
+        <div class="filete"></div>
+        <button class="accion-uno">
+          <span class="cifra">10</span>
+          <span><strong>Empezar ahora</strong><span>penaliza el error, como en el examen</span></span>
+        </button>
+        <button class="accion-dos">
+          <span class="num">5</span>
+          <span><strong>Repasar lo que fallé</strong><span>5 preguntas por repasar hoy</span></span>
+        </button>
+        <button class="accion-dos">
+          <span class="num">⏱</span>
+          <span><strong>Simulacro como el examen</strong><span>50 preguntas · 60 minutos</span></span>
+        </button>
+        <div class="pie-nav">
+          <a class="on">Practicar</a><a>Aprender</a><a>Exámenes</a><a>Progreso</a>
+        </div>
+      </div>
+    </div>
+    <div class="marco">
+      <div class="etiqueta-marco">Pantalla · Pregunta</div>
+      <div class="copia" data-diseno="patio">
+        <div class="alt">
+          <div class="marca"><span class="sello"><span></span><span></span><span></span><span></span></span><strong>opotcae</strong></div>
+          <button class="luna">◐</button>
+        </div>
+        <div class="tipo-etiqueta">4 de 10 · Úlceras por presión</div>
+        <div class="pregunta">
+          <div class="pie-num">pregunta 04</div>
+          <h3>Según el sistema de clasificación de las úlceras por presión, ¿en qué estadio aparece la escara?</h3>
+          <div class="opciones">
+            <div class="op"><span class="let">A</span><span>Estadio I, cuando la piel está íntegra.</span></div>
+            <div class="op ok"><span class="let">B</span><span>Estadio IV, con lesión tisular de espesor total.</span></div>
+            <div class="op mal"><span class="let">C</span><span>Estadio II, con pérdida de espesor parcial.</span></div>
+            <div class="op"><span class="let">D</span><span>Estadio III, con tejido subcutáneo visible.</span></div>
+          </div>
+        </div>
+        <div class="pie-nav">
+          <a class="on">Practicar</a><a>Aprender</a><a>Exámenes</a><a>Progreso</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+const pestanas = document.querySelectorAll(".pestana");
+const pantallas = document.querySelectorAll(".pantalla");
+function ver(nombre) {
+  pestanas.forEach((p) => p.setAttribute("aria-selected", String(p.dataset.ver === nombre)));
+  pantallas.forEach((s) => {
+    const ok = nombre === "todos" || s.dataset.pantalla === nombre;
+    s.classList.toggle("activa", ok);
+    s.hidden = !ok;
+  });
+}
+pestanas.forEach((p) => p.addEventListener("click", () => ver(p.dataset.ver)));
+</script>
+</body>
+</html>
