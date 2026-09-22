@@ -2,23 +2,207 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ══════════════════════════════════════════════════════════════════
+   PATIO BLANCO — tokens
+   Blanco cal y el verde de la bandera andaluza, muy desaturado.
+   Andalucía sin postales; TCAE sin cruces ni bata azul.
+   Valores RGB sueltos para poder usar <alpha-value> en Tailwind.
+   ══════════════════════════════════════════════════════════════════ */
+:root {
+  --fondo: 255 255 255; /* cal */
+  --superficie: 246 248 246; /* sombra de cal */
+  --tinta: 20 38 28; /* verde casi negro */
+  --suave: 63 122 92; /* verde hoja */
+  --hilo: 221 230 223; /* hilo verde */
+  --verde: 15 81 50; /* verde de bandera */
+  --aguaverde: 231 240 233; /* agua de verde */
+  --mal: 194 69 59;
+  --aguamal: 251 235 233;
+  color-scheme: light;
+}
+
+.dark {
+  --fondo: 12 19 15;
+  --superficie: 19 28 23;
+  --tinta: 234 240 235;
+  --suave: 137 179 155;
+  --hilo: 34 48 42;
+  --verde: 95 168 125;
+  --aguaverde: 21 40 32;
+  --mal: 229 118 107;
+  --aguamal: 45 24 22;
+  color-scheme: dark;
+}
+
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
   }
   body {
-    @apply bg-stone-50 text-stone-900 antialiased dark:bg-stone-950 dark:text-stone-100;
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    @apply bg-fondo text-tinta antialiased;
+    font-family: "Familjen Grotesk", ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.012em;
   }
   ::selection {
-    @apply bg-marca-200 text-stone-900 dark:bg-marca-800 dark:text-stone-50;
+    @apply bg-aguaverde text-verde;
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--verde));
+    outline-offset: 2px;
   }
 }
 
+@layer components {
+  /* ── etiqueta de sección: mono, versalitas, tracking amplio ── */
+  .etiqueta {
+    @apply font-mono text-[9.5px] font-medium uppercase tracking-etiqueta text-suave;
+  }
+
+  /* ── sello: cuadrito verde/blanco, guiño a la bandera sin serla ── */
+  .sello {
+    @apply grid h-6 w-6 shrink-0 grid-cols-2 overflow-hidden;
+  }
+  .sello i:nth-child(1),
+  .sello i:nth-child(4) {
+    @apply bg-verde;
+  }
+  .sello i:nth-child(2),
+  .sello i:nth-child(3) {
+    @apply bg-fondo ring-1 ring-inset ring-hilo;
+  }
+
+  /* ── acción principal ── */
+  .accion-uno {
+    @apply flex w-full items-center gap-3.5 rounded-accion bg-verde px-5 py-4 text-left text-fondo
+      transition hover:brightness-110 active:brightness-95;
+  }
+  .accion-uno .cifra {
+    @apply font-mono text-3xl font-medium leading-none opacity-80;
+  }
+
+  /* ── acción secundaria ── */
+  .accion-dos {
+    @apply mt-2 flex w-full items-center gap-3 rounded-accion border border-hilo bg-fondo py-3.5
+      text-left text-tinta transition hover:bg-superficie;
+    padding-left: 1.125rem;
+    padding-right: 1.125rem;
+  }
+  .accion-dos .num {
+    @apply grid h-6 w-6 shrink-0 place-items-center rounded-full bg-aguaverde
+      font-mono text-[11px] font-semibold text-verde;
+  }
+
+  /* ── tarjeta ── */
+  .tarjeta {
+    @apply rounded-tarjeta border border-hilo bg-superficie;
+  }
+
+  /* ── opción de respuesta ── */
+  .op {
+    @apply flex items-center gap-2.5 rounded-opcion border border-hilo bg-fondo px-3.5 py-2.5
+      text-left text-[13.8px] leading-snug transition;
+  }
+  .op .let {
+    @apply grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full bg-aguaverde
+      font-mono text-[11px] font-semibold text-verde;
+  }
+  .op-ok {
+    @apply border-verde bg-aguaverde;
+  }
+  .op-ok .let {
+    @apply bg-verde text-fondo;
+  }
+  .op-mal {
+    @apply border-mal bg-aguamal;
+  }
+  .op-mal .let {
+    @apply bg-mal text-white;
+  }
+
+  /* ── botón ── */
+  .boton {
+    @apply inline-flex items-center justify-center gap-2 rounded-accion px-4 py-3 text-sm
+      font-semibold transition disabled:opacity-40;
+  }
+  .boton-uno {
+    @apply boton bg-verde text-fondo hover:brightness-110 active:brightness-95;
+  }
+  .boton-dos {
+    @apply boton border border-hilo bg-fondo text-tinta hover:bg-superficie;
+  }
+  .boton-fantasma {
+    @apply boton text-suave hover:bg-superficie hover:text-tinta;
+  }
+
+  /* ── etiquetas pequeñas (chips) ── */
+  .chip {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 font-mono text-[10px]
+      font-medium uppercase tracking-wider;
+  }
+  .chip-verde {
+    @apply chip bg-aguaverde text-verde;
+  }
+  .chip-neutro {
+    @apply chip bg-superficie text-suave;
+  }
+  .chip-mal {
+    @apply chip bg-aguamal text-mal;
+  }
+
+  /* ── campos ── */
+  .campo {
+    @apply w-full rounded-accion border border-hilo bg-fondo px-3.5 py-3 text-sm text-tinta
+      focus:border-verde focus:outline-none;
+  }
+
+  /* ── fila de lista ── */
+  .fila {
+    @apply flex w-full items-center gap-3 rounded-accion border border-hilo bg-fondo px-4 py-3.5
+      text-left transition hover:bg-superficie;
+  }
+
+  /* ── navegación inferior: pastilla con botones dentro ── */
+  .pie {
+    @apply fixed inset-x-0 bottom-0 z-40 px-3 pb-3 pt-2;
+  }
+  .pie-caja {
+    @apply mx-auto grid max-w-2xl grid-cols-4 gap-1 rounded-pastilla border border-hilo
+      bg-superficie p-1.5;
+  }
+  .pie-item {
+    @apply rounded-[10px] px-1 py-2.5 text-center font-mono text-[9.5px] uppercase
+      tracking-etiqueta text-suave transition;
+  }
+  .pie-item-on {
+    @apply bg-fondo text-verde shadow-[0_1px_2px_rgba(20,38,28,0.07)];
+  }
+
+  /* ── pestañas ── */
+  .pestanas {
+    @apply flex gap-1 rounded-pastilla bg-superficie p-1;
+  }
+  .pestana {
+    @apply flex-1 rounded-[10px] px-2 py-2 text-center text-[13px] font-semibold
+      text-suave transition;
+  }
+  .pestana-on {
+    @apply bg-fondo text-verde shadow-[0_1px_2px_rgba(20,38,28,0.07)];
+  }
+
+  .filete {
+    @apply my-6 h-px bg-hilo;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   Impresión
+   ══════════════════════════════════════════════════════════════════ */
 @media print {
   nav,
   footer,
   header button,
+  .pie,
   .no-imprimir,
   [data-oculto-impresion] {
     display: none !important;
@@ -28,76 +212,21 @@
     color: #000 !important;
     padding: 0 !important;
   }
-  main .rounded-2xl,
-  main article,
-  main table,
-  main li {
-    border: 1px solid #d4d4d4 !important;
+  main,
+  main * {
+    border-color: #d4d4d4 !important;
     box-shadow: none !important;
+  }
+  .tarjeta,
+  .fila,
+  article,
+  table {
     background: #fff !important;
     break-inside: avoid;
+    border: 1px solid #ddd !important;
   }
-  .text-stone-500,
-  .text-stone-400,
-  .dark\:text-stone-400 {
+  .etiqueta,
+  .text-suave {
     color: #57534e !important;
-  }
-  a[href]::after {
-    content: "";
-  }
-}
-
-@layer components {
-  .card {
-    @apply rounded-2xl border border-stone-200 bg-white p-4 shadow-sm dark:border-stone-800 dark:bg-stone-900;
-  }
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition
-      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca-600
-      disabled:cursor-not-allowed disabled:opacity-50;
-  }
-  .btn-primario {
-    @apply btn bg-marca-600 text-white hover:bg-marca-700 active:bg-marca-800;
-  }
-  .btn-secundario {
-    @apply btn border border-stone-300 bg-white text-stone-800 hover:bg-stone-100
-      dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100 dark:hover:bg-stone-800;
-  }
-  .btn-fantasma {
-    @apply btn text-stone-600 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60;
-  }
-  .chip {
-    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
-  }
-  .opcion {
-    @apply flex w-full items-start gap-3 rounded-xl border p-3 text-left text-sm transition
-      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca-600;
-  }
-  .opcion-ninguna {
-    @apply border-stone-200 bg-white hover:border-marca-400 hover:bg-marca-50
-      dark:border-stone-800 dark:bg-stone-900 dark:hover:border-marca-600 dark:hover:bg-stone-800;
-  }
-  .opcion-elegida {
-    @apply border-marca-600 bg-marca-50 ring-1 ring-marca-600 dark:bg-marca-950;
-  }
-  .opcion-correcta {
-    @apply border-emerald-600 bg-emerald-50 ring-1 ring-emerald-600 dark:bg-emerald-950/40;
-  }
-  .opcion-fallada {
-    @apply border-rose-500 bg-rose-50 ring-1 ring-rose-500 dark:bg-rose-950/40;
-  }
-  .opcion-deshabilitada {
-    @apply pointer-events-none opacity-70;
-  }
-  .progreso {
-    @apply h-2 w-full overflow-hidden rounded-full bg-stone-200 dark:bg-stone-800;
-  }
-  .progreso-relleno {
-    @apply h-full rounded-full bg-marca-600 transition-all duration-300;
-  }
-  .campo {
-    @apply w-full rounded-xl border border-stone-300 bg-white px-3 py-2 text-sm
-      focus:border-marca-600 focus:outline-none focus:ring-1 focus:ring-marca-600
-      dark:border-stone-700 dark:bg-stone-900;
   }
 }

@@ -1,5 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
-import { cargaProgreso, cargaSm2, altaTarjeta, reiniciaProgreso, reiniciaTarjeta, repasaTarjeta, resumenProgreso } from "../store";
+import {
+  cargaProgreso,
+  cargaSm2,
+  altaTarjeta,
+  reiniciaProgreso,
+  reiniciaTarjeta,
+  repasaTarjeta,
+  resumenProgreso,
+} from "../store";
 import { enDias, vencidas, proximas } from "../sm2";
 import type { Cluster, Letra, Meta } from "../types";
 import { AccionSecundaria, Boton, NombreTema, Opcion, Segmentado } from "../components/ui";
@@ -7,10 +15,10 @@ import { AccionSecundaria, Boton, NombreTema, Opcion, Segmentado } from "../comp
 type Pestana = "repasar" | "mis" | "estadisticas";
 
 const BOTONES = [
-  { q: 1, t: "No la sé", d: "hoy", c: "border-rose-300 text-rose-700 hover:bg-rose-50 dark:border-rose-900 dark:hover:bg-rose-950/40" },
-  { q: 3, t: "Casi", d: "1 día", c: "border-amber-300 text-amber-700 hover:bg-amber-50 dark:border-amber-900 dark:hover:bg-amber-950/40" },
-  { q: 4, t: "Bien", d: "3 días", c: "border-emerald-300 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-900 dark:hover:bg-emerald-950/40" },
-  { q: 5, t: "Fácil", d: "más", c: "border-sky-300 text-sky-700 hover:bg-sky-50 dark:border-sky-900 dark:hover:bg-sky-950/40" },
+  { q: 1, t: "No la sé", d: "hoy" },
+  { q: 3, t: "Casi", d: "1 día" },
+  { q: 4, t: "Bien", d: "3 días" },
+  { q: 5, t: "Fácil", d: "más" },
 ];
 
 export default function Progreso({ clusters, meta }: { clusters: Cluster[]; meta: Meta }) {
@@ -43,10 +51,11 @@ export default function Progreso({ clusters, meta }: { clusters: Cluster[]; meta
   const resumen = resumenProgreso();
 
   return (
-    <section className="space-y-4">
+    <section className="space-y-5">
       <div>
-        <h2 className="text-2xl font-bold tracking-tight">Mi progreso</h2>
-        <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
+        <span className="etiqueta">Tu progreso</span>
+        <h2 className="mt-3 text-[33px] font-medium leading-[1.06] tracking-[-0.035em]">Mi progreso</h2>
+        <p className="mt-2 max-w-[38ch] text-sm leading-relaxed text-suave">
           Se guarda solo en este navegador. Sin cuenta y sin contraseña.
         </p>
       </div>
@@ -55,8 +64,14 @@ export default function Progreso({ clusters, meta }: { clusters: Cluster[]; meta
         valor={pestana}
         onChange={(p) => setPestana(p as Pestana)}
         opciones={[
-          { valor: "repasar" as Pestana, etiqueta: cola.length > 0 ? `Hoy (${cola.length})` : "Hoy" },
-          { valor: "mis" as Pestana, etiqueta: `Mis tarjetas${todas.length ? ` (${todas.length})` : ""}` },
+          {
+            valor: "repasar" as Pestana,
+            etiqueta: cola.length > 0 ? `Hoy · ${cola.length}` : "Hoy",
+          },
+          {
+            valor: "mis" as Pestana,
+            etiqueta: todas.length ? `Tarjetas · ${todas.length}` : "Tarjetas",
+          },
           { valor: "estadisticas" as Pestana, etiqueta: "Datos" },
         ]}
       />
@@ -64,32 +79,40 @@ export default function Progreso({ clusters, meta }: { clusters: Cluster[]; meta
       {pestana === "repasar" && (
         <div className="space-y-4">
           {todas.length === 0 && (
-            <div className="rounded-2xl border border-stone-200 bg-white p-6 text-center dark:border-stone-800 dark:bg-stone-900">
-              <p className="text-sm text-stone-500">
-                Todavía no tienes preguntas pendientes. Se guardan solas cuando fallas en un test.
-              </p>
+            <div className="tarjeta px-5 py-8 text-center text-sm text-suave">
+              Todavía no tienes preguntas pendientes. Se guardan solas cuando fallas en un test.
             </div>
           )}
           {todas.length > 0 && cola.length === 0 && (
-            <div className="rounded-2xl border border-stone-200 bg-white p-6 text-center dark:border-stone-800 dark:bg-stone-900">
-              <p className="text-3xl">🎉</p>
-              <p className="mt-2 text-[15px] font-semibold">Repaso de hoy terminado</p>
-              <p className="mt-1 text-sm text-stone-500">
+            <div className="tarjeta px-5 py-8 text-center">
+              <p className="text-2xl">✓</p>
+              <p className="mt-2 text-[15.5px] font-semibold tracking-tight">
+                Repaso de hoy terminado
+              </p>
+              <p className="mt-1 text-sm text-suave">
                 {proximas(ts).length > 0
                   ? `La próxima vuelve ${enDias(proximas(ts)[0].proximo)}.`
                   : "No hay más repasos programados."}
               </p>
             </div>
           )}
-          {cola.length > 0 && porId.get(cola[0]) && <RepasoCard c={porId.get(cola[0])!} revelada={revelada} setRevelada={setRevelada} nRestantes={cola.length} onResponde={responde} />}
+          {cola.length > 0 && porId.get(cola[0]) && (
+            <RepasoCard
+              c={porId.get(cola[0])!}
+              revelada={revelada}
+              setRevelada={setRevelada}
+              nRestantes={cola.length}
+              onResponde={responde}
+            />
+          )}
         </div>
       )}
 
       {pestana === "mis" && (
         <div className="space-y-4">
           {todas.length === 0 ? (
-            <div className="rounded-2xl border border-stone-200 bg-white p-6 text-center dark:border-stone-800 dark:bg-stone-900">
-              <p className="text-sm text-stone-500">Aún no has guardado ninguna tarjeta.</p>
+            <div className="tarjeta px-5 py-8 text-center text-sm text-suave">
+              Aún no has guardado ninguna tarjeta.
             </div>
           ) : (
             <>
@@ -101,9 +124,9 @@ export default function Progreso({ clusters, meta }: { clusters: Cluster[]; meta
                   }}
                   disabled={idxMis === 0}
                 >
-                  ←
+                  Atrás
                 </Boton>
-                <span className="text-sm font-semibold tabular-nums">
+                <span className="font-mono text-[12px] tabular-nums text-suave">
                   {idxMis + 1} de {todas.length}
                 </span>
                 <Boton
@@ -113,7 +136,7 @@ export default function Progreso({ clusters, meta }: { clusters: Cluster[]; meta
                   }}
                   disabled={idxMis >= todas.length - 1}
                 >
-                  →
+                  Siguiente
                 </Boton>
               </div>
               {(() => {
@@ -121,37 +144,43 @@ export default function Progreso({ clusters, meta }: { clusters: Cluster[]; meta
                 const c = porId.get(t.id);
                 if (!c) return null;
                 return (
-                  <article className="rounded-2xl border border-stone-200 bg-white p-5 dark:border-stone-800 dark:bg-stone-900">
+                  <article className="tarjeta p-5">
                     <NombreTema cluster={c} />
-                    <h3 className="mt-3 text-[15px] font-semibold leading-snug">{c.enunciado}</h3>
+                    <h3 className="mt-3 text-[16px] font-medium leading-snug tracking-tight">
+                      {c.enunciado}
+                    </h3>
                     {reveladaMis ? (
-                      <div className="mt-3 grid gap-1.5 text-sm">
+                      <ul className="mt-3 grid gap-1.5 text-[13.8px] leading-snug">
                         {(["A", "B", "C", "D"] as Letra[]).map((l) => (
-                          <p
+                          <li
                             key={l}
                             className={
                               l === c.correcta
-                                ? "font-semibold text-emerald-700 dark:text-emerald-400"
-                                : "text-stone-600 dark:text-stone-300"
+                                ? "flex gap-2.5 rounded-opcion bg-aguaverde px-3.5 py-2 font-medium text-verde"
+                                : "flex gap-2.5 px-3.5 py-1.5 text-suave"
                             }
                           >
-                            <span className="font-bold">{l})</span> {c.opciones[l]}
-                            {l === c.correcta && " ✓"}
-                          </p>
+                            <span className="font-mono text-[11px] font-semibold">{l}</span>
+                            <span className="flex-1">
+                              {c.opciones[l]}
+                              {l === c.correcta && " ✓"}
+                            </span>
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     ) : (
-                      <p className="mt-3 text-sm text-stone-500">Piensa la respuesta y luego revélala.</p>
+                      <p className="mt-3 text-sm text-suave">
+                        Piensa la respuesta y luego revélala.
+                      </p>
                     )}
                     <div className="mt-4 flex flex-wrap gap-2">
                       {!reveladaMis ? (
-                        <Boton tipo="principal" onClick={() => setReveladaMis(true)} ancho>
+                        <Boton tipo="uno" onClick={() => setReveladaMis(true)} ancho>
                           Ver respuesta
                         </Boton>
                       ) : (
                         <>
                           <Boton
-                            tipo="secundario"
                             onClick={() => {
                               altaTarjeta(c.cluster_id);
                               reiniciaTarjeta(c.cluster_id);
@@ -161,14 +190,15 @@ export default function Progreso({ clusters, meta }: { clusters: Cluster[]; meta
                             Dejar para hoy
                           </Boton>
                           <Boton
-                            tipo="secundario"
                             onClick={() => {
                               if (confirm("¿Quitar esta tarjeta de tu lista?")) {
                                 reiniciaTarjeta(c.cluster_id);
                                 const nts = cargaSm2();
                                 delete nts[c.cluster_id];
                                 localStorage.setItem("opotcae-sm2-v1", JSON.stringify(nts));
-                                setIdxMis((i) => Math.max(0, Math.min(i, Object.keys(cargaSm2()).length - 1)));
+                                setIdxMis((i) =>
+                                  Math.max(0, Math.min(i, Object.keys(cargaSm2()).length - 1))
+                                );
                                 rerender((n) => n + 1);
                               }
                             }}
@@ -195,63 +225,74 @@ export default function Progreso({ clusters, meta }: { clusters: Cluster[]; meta
               { t: "Mal", v: resumen.fallos },
               { t: "Nota media", v: resumen.notaMedia },
             ].map((s) => (
-              <div key={s.t} className="rounded-2xl border border-stone-200 bg-white p-4 text-center dark:border-stone-800 dark:bg-stone-900">
-                <div className="text-2xl font-bold tabular-nums">{s.v}</div>
-                <div className="text-xs uppercase tracking-wide text-stone-500">{s.t}</div>
+              <div key={s.t} className="tarjeta px-3 py-4 text-center">
+                <div className="font-mono text-2xl font-medium tabular-nums text-verde">{s.v}</div>
+                <div className="etiqueta mt-1">{s.t}</div>
               </div>
             ))}
           </div>
 
-          <div className="rounded-2xl border border-stone-200 bg-white p-5 dark:border-stone-800 dark:bg-stone-900">
-            <h3 className="text-sm font-bold">Cómo vas en cada tema</h3>
-            <p className="mb-3 text-xs text-stone-500">Porcentaje de aciertos sobre lo que has respondido.</p>
-            <ul className="space-y-3">
-              {meta.temas.map((t) => {
-                const progreso = cargaProgreso();
-                let bien = 0;
-                let mal = 0;
-                for (const c of clusters) {
-                  if (c.tema !== t.tema) continue;
-                  bien += progreso.aciertos[c.cluster_id] ?? 0;
-                  mal += progreso.errores[c.cluster_id] ?? 0;
-                }
-                const total = bien + mal;
-                const pct = total ? Math.round((bien / total) * 100) : null;
-                return (
-                  <li key={t.tema ?? t.corto}>
-                    <div className="mb-1 flex items-baseline justify-between gap-2">
-                      <span className="text-sm">{t.corto}</span>
-                      <span className="text-xs tabular-nums text-stone-500">
-                        {total === 0 ? "sin datos" : `${pct}%`}
-                      </span>
-                    </div>
-                    <div className="h-2 w-full overflow-hidden rounded-full bg-stone-200 dark:bg-stone-800">
-                      <div
-                        className="h-full rounded-full"
-                        style={{
-                          width: `${pct ?? 0}%`,
-                          background: pct === null ? "transparent" : pct >= 70 ? "#059669" : pct >= 40 ? "#d97706" : "#e11d48",
-                        }}
-                      />
-                    </div>
-                  </li>
-                );
-              })}
+          <div className="tarjeta p-5">
+            <span className="etiqueta">Cómo vas en cada tema</span>
+            <p className="mt-2 text-sm text-suave">
+              Porcentaje de aciertos sobre lo que has respondido.
+            </p>
+            <ul className="mt-4 space-y-3.5">
+              {meta.temas
+                .filter((t) => t.preguntas > 0)
+                .map((t) => {
+                  const progreso = cargaProgreso();
+                  let bien = 0;
+                  let mal = 0;
+                  for (const c of clusters) {
+                    if (c.tema !== t.tema) continue;
+                    bien += progreso.aciertos[c.cluster_id] ?? 0;
+                    mal += progreso.errores[c.cluster_id] ?? 0;
+                  }
+                  const total = bien + mal;
+                  const pct = total ? Math.round((bien / total) * 100) : null;
+                  return (
+                    <li key={t.tema ?? t.corto}>
+                      <div className="mb-1.5 flex items-baseline justify-between gap-2">
+                        <span className="text-[13.8px]">{t.corto}</span>
+                        <span className="font-mono text-[11px] tabular-nums text-suave">
+                          {total === 0 ? "sin datos" : `${pct}%`}
+                        </span>
+                      </div>
+                      <div className="h-1.5 w-full overflow-hidden rounded-full bg-aguaverde">
+                        <div
+                          className="h-full rounded-full transition-all"
+                          style={{
+                            width: `${pct ?? 0}%`,
+                            background:
+                              pct === null
+                                ? "transparent"
+                                : pct >= 70
+                                  ? "rgb(var(--verde))"
+                                  : pct >= 40
+                                    ? "#B0873B"
+                                    : "rgb(var(--mal))",
+                          }}
+                        />
+                      </div>
+                    </li>
+                  );
+                })}
             </ul>
           </div>
 
           <div className="grid gap-2 sm:grid-cols-2">
             <AccionSecundaria
-              icono="⬇"
+              marca="↓"
               onClick={() => exporta(clusters, meta)}
-              subtitulo="Resumen en texto, para leer o imprimir donde quieras"
+              subtitulo="resumen en texto, para leer o imprimir"
             >
               Descargar resumen
             </AccionSecundaria>
             <AccionSecundaria
-              icono="🖨"
+              marca="⎙"
               onClick={() => window.print()}
-              subtitulo="Imprime esta pantalla con tus datos y lo que más cae"
+              subtitulo="imprime esta pantalla"
             >
               Imprimir
             </AccionSecundaria>
@@ -259,7 +300,6 @@ export default function Progreso({ clusters, meta }: { clusters: Cluster[]; meta
 
           <Boton
             ancho
-            tipo="secundario"
             onClick={() => {
               if (confirm("¿Borrar todo? Tests, tarjetas y estadísticas.")) {
                 reiniciaProgreso();
@@ -290,12 +330,12 @@ function RepasoCard({
 }) {
   return (
     <>
-      <p className="text-sm text-stone-500">
+      <span className="etiqueta">
         {nRestantes} pregunta{nRestantes === 1 ? "" : "s"} por repasar
-      </p>
-      <article className="rounded-2xl border border-stone-200 bg-white p-5 dark:border-stone-800 dark:bg-stone-900">
+      </span>
+      <article className="tarjeta p-5">
         <NombreTema cluster={c} />
-        <h3 className="mt-3 text-lg font-semibold leading-snug">{c.enunciado}</h3>
+        <h3 className="mt-3 text-[18px] font-medium leading-snug tracking-tight">{c.enunciado}</h3>
         {revelada ? (
           <div className="mt-4 grid gap-2">
             {(["A", "B", "C", "D"] as Letra[]).map((l) => (
@@ -303,11 +343,11 @@ function RepasoCard({
             ))}
           </div>
         ) : (
-          <p className="mt-4 text-sm text-stone-500">Piensa la respuesta y luego revélala.</p>
+          <p className="mt-4 text-sm text-suave">Piensa la respuesta y luego revélala.</p>
         )}
       </article>
       {!revelada ? (
-        <Boton tipo="principal" onClick={() => setRevelada(true)} ancho>
+        <Boton tipo="uno" onClick={() => setRevelada(true)} ancho>
           Ver respuesta
         </Boton>
       ) : (
@@ -317,10 +357,12 @@ function RepasoCard({
               key={b.q}
               type="button"
               onClick={() => onResponde(b.q)}
-              className={`flex flex-col items-center rounded-xl border bg-white py-3 dark:bg-stone-900 ${b.c}`}
+              className="flex flex-col items-center rounded-accion border border-hilo bg-fondo py-3 transition hover:bg-superficie"
             >
-              <span className="text-sm font-bold">{b.t}</span>
-              <span className="text-[10px] opacity-70">{b.d}</span>
+              <span className="text-[13.5px] font-semibold tracking-tight">{b.t}</span>
+              <span className="mt-0.5 font-mono text-[10px] uppercase tracking-wider text-suave">
+                {b.d}
+              </span>
             </button>
           ))}
         </div>
@@ -351,7 +393,9 @@ function exporta(clusters: Cluster[], meta: Meta) {
   }
   L.push("## Lo que más se repite", "", "| Años | Tema | Pregunta |", "|---|---|---|");
   for (const c of [...clusters].sort((a, b) => b.score - a.score).slice(0, 40)) {
-    L.push(`| ${c.anios.join(", ")} | ${c.tema_corto ?? "—"} | ${c.enunciado.replace(/\|/g, "/").slice(0, 90)} |`);
+    L.push(
+      `| ${c.anios.join(", ")} | ${c.tema_corto ?? "—"} | ${c.enunciado.replace(/\|/g, "/").slice(0, 90)} |`
+    );
   }
   L.push("", `---`, "", `_Fuente: ${meta.fuente}_`, "");
 

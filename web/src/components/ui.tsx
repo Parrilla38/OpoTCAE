@@ -1,6 +1,40 @@
 import type { Cluster, Letra, Opciones } from "../types";
 
-/** Botón de opción de respuesta. Sin jerga: solo se ve si es correcta o no. */
+/** Sello verde/blanco. Guiño a la bandera andaluza sin ser una bandera. */
+export function Sello() {
+  return (
+    <span className="sello" aria-hidden>
+      <i />
+      <i />
+      <i />
+      <i />
+    </span>
+  );
+}
+
+/** Etiqueta de sección: mono, versalitas, tracking amplio. */
+export function Etiqueta({ children }: { children: React.ReactNode }) {
+  return <span className="etiqueta">{children}</span>;
+}
+
+/** Chip pequeño. */
+export function Chip({
+  children,
+  tono = "neutro",
+}: {
+  children: React.ReactNode;
+  tono?: "verde" | "neutro" | "mal";
+}) {
+  const c = tono === "verde" ? "chip-verde" : tono === "mal" ? "chip-mal" : "chip-neutro";
+  return <span className={c}>{children}</span>;
+}
+
+/** Nombre del tema, sin número. */
+export function NombreTema({ cluster }: { cluster: Cluster }) {
+  return <Chip>{cluster.tema_corto || cluster.tema_nombre || "Sin clasificar"}</Chip>;
+}
+
+/** Opción de respuesta. Estados: neutra, acertada o fallada. */
 export function Opcion({
   opciones,
   letra,
@@ -14,206 +48,135 @@ export function Opcion({
   elegida?: Letra | null;
   onElige?: (l: Letra) => void;
 }) {
-  const base =
-    "flex w-full items-start gap-3 rounded-2xl border p-4 text-left text-[15px] leading-snug transition " +
-    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 " +
-    "disabled:cursor-default";
-  const visual =
-    estado === "correcta"
-      ? "border-emerald-600 bg-emerald-50 ring-1 ring-emerald-600 dark:bg-emerald-950/40"
-      : estado === "fallada"
-        ? "border-rose-500 bg-rose-50 ring-1 ring-rose-500 dark:bg-rose-950/40"
-        : elegida === letra
-          ? "border-emerald-600 bg-emerald-50 ring-1 ring-emerald-600 dark:bg-emerald-950/40"
-          : "border-stone-200 bg-white hover:border-emerald-400 hover:bg-emerald-50/50 dark:border-stone-800 dark:bg-stone-900";
+  const clase =
+    estado === "correcta" ? "op op-ok" : estado === "fallada" ? "op op-mal" : "op";
   const marca = estado === "correcta" ? "✓" : estado === "fallada" ? "✗" : letra;
+  const Tag = onElige ? "button" : "div";
   return (
-    <button type="button" className={`${base} ${visual}`} onClick={() => onElige?.(letra)} disabled={!onElige}>
-      <span
-        className={
-          "mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold " +
-          (estado === "correcta"
-            ? "bg-emerald-600 text-white"
-            : estado === "fallada"
-              ? "bg-rose-500 text-white"
-              : "bg-stone-200 text-stone-700 dark:bg-stone-800 dark:text-stone-200")
-        }
-      >
-        {marca}
-      </span>
-      <span className="flex-1">{opciones[letra] || <em className="text-stone-400">vacía</em>}</span>
-    </button>
+    <Tag
+      {...(onElige ? { type: "button" as const, onClick: () => onElige(letra) } : {})}
+      className={`${clase}${elegida === letra && estado === "neutra" ? " ring-1 ring-verde" : ""}`}
+    >
+      <span className="let">{marca}</span>
+      <span className="flex-1">{opciones[letra] || <em className="opacity-50">vacía</em>}</span>
+    </Tag>
   );
 }
 
-/** Barra de progreso. */
+/** Barra de progreso, plana y verde. */
 export function Barra({ valor, total }: { valor: number; total: number }) {
   const pct = total ? Math.round((valor / total) * 100) : 0;
   return (
-    <div className="h-2 w-full overflow-hidden rounded-full bg-stone-200 dark:bg-stone-800">
+    <div className="h-1.5 w-full overflow-hidden rounded-full bg-aguaverde">
       <div
-        className="h-full rounded-full bg-emerald-600 transition-all duration-300"
+        className="h-full rounded-full bg-verde transition-all duration-300"
         style={{ width: `${pct}%` }}
       />
     </div>
   );
 }
 
-/** Etiqueta pequeña. Solo donde aporta: máximo una por tarjeta. */
-export function Etiqueta({
+/** Acción principal de la pantalla de inicio. */
+export function AccionPrincipal({
   children,
-  tono = "gris",
+  onClick,
+  subtitulo,
+  cifra,
 }: {
   children: React.ReactNode;
-  tono?: "gris" | "verde" | "ambar" | "azul";
+  onClick: () => void;
+  subtitulo?: string;
+  cifra?: string | number;
 }) {
-  const colores = {
-    gris: "bg-stone-200 text-stone-700 dark:bg-stone-800 dark:text-stone-200",
-    verde: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200",
-    ambar: "bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-200",
-    azul: "bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-200",
-  };
   return (
-    <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${colores[tono]}`}>
-      {children}
-    </span>
+    <button type="button" onClick={onClick} className="accion-uno">
+      {cifra !== undefined && <span className="cifra">{cifra}</span>}
+      <span>
+        <strong className="block text-[16px] font-semibold tracking-tight">{children}</strong>
+        {subtitulo && <span className="mt-0.5 block text-[12.5px] opacity-80">{subtitulo}</span>}
+      </span>
+    </button>
   );
 }
 
-/** Nombre corto del tema, sin número si no es oficial. */
-export function NombreTema({ cluster }: { cluster: Cluster }) {
-  if (!cluster.tema_corto) return <Etiqueta>{cluster.tema_nombre ?? "Sin clasificar"}</Etiqueta>;
-  return <Etiqueta>{cluster.tema_corto}</Etiqueta>;
+/** Acción secundaria de la pantalla de inicio. */
+export function AccionSecundaria({
+  children,
+  onClick,
+  subtitulo,
+  marca,
+}: {
+  children: React.ReactNode;
+  onClick: () => void;
+  subtitulo?: string;
+  marca?: string;
+}) {
+  return (
+    <button type="button" onClick={onClick} className="accion-dos">
+      {marca && <span className="num">{marca}</span>}
+      <span>
+        <strong className="block text-[14.5px] font-semibold tracking-tight">{children}</strong>
+        {subtitulo && <span className="mt-0.5 block text-[12.5px] text-suave">{subtitulo}</span>}
+      </span>
+    </button>
+  );
 }
 
-/** Botón de sección tipo «fila». */
+/** Fila de lista (temas, artículos, convocatorias). */
 export function Fila({
   titulo,
   detalle,
   onClick,
   derecha,
+  atenuado,
 }: {
   titulo: string;
   detalle?: string;
   onClick: () => void;
   derecha?: React.ReactNode;
+  atenuado?: boolean;
 }) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className="flex w-full items-center gap-3 rounded-2xl border border-stone-200 bg-white p-4 text-left transition hover:border-emerald-400 hover:bg-emerald-50/50 dark:border-stone-800 dark:bg-stone-900 dark:hover:bg-stone-800"
+      disabled={atenuado}
+      className={`fila${atenuado ? " opacity-50" : ""}`}
     >
       <span className="flex-1">
-        <span className="block text-[15px] font-semibold leading-snug">{titulo}</span>
-        {detalle && (
-          <span className="mt-0.5 block text-xs text-stone-500 dark:text-stone-400">{detalle}</span>
-        )}
+        <span className="block text-[15px] font-semibold tracking-tight">{titulo}</span>
+        {detalle && <span className="mt-0.5 block text-[12.5px] text-suave">{detalle}</span>}
       </span>
       {derecha}
-      <span className="text-xl text-stone-300 dark:text-stone-600">›</span>
+      {!atenuado && <span className="text-suave">›</span>}
     </button>
   );
 }
 
-/** Botón grande de acción principal. */
-export function AccionPrincipal({
-  children,
-  onClick,
-  subtitulo,
-  icono,
-}: {
-  children: React.ReactNode;
-  onClick: () => void;
-  subtitulo?: string;
-  icono?: string;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="flex w-full items-center gap-4 rounded-2xl bg-emerald-600 p-5 text-left text-white shadow-sm transition hover:bg-emerald-700 active:bg-emerald-800"
-    >
-      {icono && (
-        <span aria-hidden className="text-3xl">
-          {icono}
-        </span>
-      )}
-      <span className="flex-1">
-        <span className="block text-lg font-bold leading-tight">{children}</span>
-        {subtitulo && <span className="mt-0.5 block text-sm text-emerald-50">{subtitulo}</span>}
-      </span>
-    </button>
-  );
-}
-
-/** Botón secundario grande. */
-export function AccionSecundaria({
-  children,
-  onClick,
-  subtitulo,
-  icono,
-}: {
-  children: React.ReactNode;
-  onClick: () => void;
-  subtitulo?: string;
-  icono?: string;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="flex w-full items-center gap-4 rounded-2xl border border-stone-200 bg-white p-4 text-left transition hover:border-emerald-400 hover:bg-emerald-50/50 dark:border-stone-800 dark:bg-stone-900 dark:hover:bg-stone-800"
-    >
-      {icono && (
-        <span aria-hidden className="text-2xl">
-          {icono}
-        </span>
-      )}
-      <span className="flex-1">
-        <span className="block text-[15px] font-semibold leading-tight">{children}</span>
-        {subtitulo && (
-          <span className="mt-0.5 block text-xs text-stone-500 dark:text-stone-400">{subtitulo}</span>
-        )}
-      </span>
-    </button>
-  );
-}
-
-/** Botón pequeño de navegación (atrás / siguiente). */
+/** Botón pequeño de navegación. */
 export function Boton({
   children,
   onClick,
-  tipo = "secundario",
+  tipo = "dos",
   disabled,
   ancho,
 }: {
   children: React.ReactNode;
   onClick: () => void;
-  tipo?: "principal" | "secundario" | "fantasma";
+  tipo?: "uno" | "dos" | "fantasma";
   disabled?: boolean;
   ancho?: boolean;
 }) {
-  const t =
-    tipo === "principal"
-      ? "bg-emerald-600 text-white hover:bg-emerald-700"
-      : tipo === "fantasma"
-        ? "text-stone-600 hover:bg-stone-200/60 dark:text-stone-300 dark:hover:bg-stone-800/60"
-        : "border border-stone-300 bg-white text-stone-800 hover:bg-stone-100 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100";
+  const c = tipo === "uno" ? "boton-uno" : tipo === "fantasma" ? "boton-fantasma" : "boton-dos";
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      disabled={disabled}
-      className={`inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold transition disabled:opacity-40 ${t} ${ancho ? "w-full" : ""}`}
-    >
+    <button type="button" onClick={onClick} disabled={disabled} className={`${c}${ancho ? " w-full" : ""}`}>
       {children}
     </button>
   );
 }
 
-/** Selector segmentado. */
-export function Segmentado<T extends string | number>({
+/** Selector segmentado tipo pastilla. */
+export function Segmentado<T extends string>({
   opciones,
   valor,
   onChange,
@@ -223,18 +186,15 @@ export function Segmentado<T extends string | number>({
   onChange: (v: T) => void;
 }) {
   return (
-    <div className="flex gap-1 rounded-xl bg-stone-200/60 p-1 dark:bg-stone-800/60">
+    <div className="pestanas" role="tablist">
       {opciones.map((o) => (
         <button
-          key={String(o.valor)}
+          key={o.valor}
           type="button"
+          role="tab"
+          aria-selected={valor === o.valor}
           onClick={() => onChange(o.valor)}
-          className={
-            "flex-1 rounded-lg px-2 py-2 text-sm font-semibold transition " +
-            (valor === o.valor
-              ? "bg-white shadow dark:bg-stone-900"
-              : "text-stone-600 dark:text-stone-300")
-          }
+          className={`pestana${valor === o.valor ? " pestana-on" : ""}`}
         >
           {o.etiqueta}
         </button>

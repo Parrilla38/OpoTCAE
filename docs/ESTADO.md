@@ -19,6 +19,7 @@ Jesús, 2026-09-22) · **Código: <https://github.com/Parrilla38/OpoTCAE>**
 | Ley 37/2007 | Descartada por Jesús: material público, proyecto gratuito |
 | «Otros» (anatomía y clínica) | Se queda como bucket propio, sin inventar tema oficial |
 | Nombre y dominio | **OpoTCAE** en `opotcae.vercel.app` |
+| **Estilo visual** | **Patio Blanco** (decidido por Jesús, 2026-09-22) |
 
 ## Estado por fase
 

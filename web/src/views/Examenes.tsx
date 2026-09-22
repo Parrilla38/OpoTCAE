@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import type { Cluster, Examen, Letra, Pregunta } from "../types";
-import { Etiqueta, NombreTema } from "../components/ui";
+import { Chip, NombreTema } from "../components/ui";
 
 const MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
 
@@ -39,17 +39,20 @@ export default function Examenes({
   }, [clusters]);
 
   return (
-    <section className="space-y-4">
+    <section className="space-y-5">
       <div>
-        <h2 className="text-2xl font-bold tracking-tight">Exámenes anteriores</h2>
-        <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
+        <span className="etiqueta">Convocatorias oficiales</span>
+        <h2 className="mt-3 text-[33px] font-medium leading-[1.06] tracking-[-0.035em]">
+          Exámenes anteriores
+        </h2>
+        <p className="mt-2 max-w-[38ch] text-sm leading-relaxed text-suave">
           Qué preguntó el tribunal cada año y qué se repite respecto a los anteriores.
         </p>
       </div>
 
       {anios.map((anio) => (
         <div key={anio} className="space-y-2">
-          <h3 className="text-sm font-bold uppercase tracking-wide text-stone-500">{anio}</h3>
+          <span className="etiqueta">{anio}</span>
           {examenes
             .filter((e) => e.anio === anio)
             .map((e) => {
@@ -58,46 +61,57 @@ export default function Examenes({
               const repetidas = ps.filter((p) => p.cluster_id !== null && (primeraVez.get(p.cluster_id) ?? 0) < anio);
               const estaAbierto = abierto === e.exam_id;
               return (
-                <article key={e.exam_id} className="rounded-2xl border border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+                <article key={e.exam_id} className="tarjeta overflow-hidden">
                   <button
                     type="button"
                     onClick={() => setAbierto(estaAbierto ? null : e.exam_id)}
-                    className="flex w-full items-center gap-3 p-4 text-left"
+                    className="flex w-full items-center gap-3 px-4 py-3.5 text-left"
                   >
                     <span className="flex-1">
-                      <span className="block text-[15px] font-semibold">
+                      <span className="block text-[15px] font-semibold tracking-tight">
                         {fecha(e.fecha)} · {MODALIDAD[e.modalidad] ?? e.modalidad}
                       </span>
-                      <span className="mt-0.5 block text-xs text-stone-500 dark:text-stone-400">
+                      <span className="mt-0.5 block font-mono text-[10.5px] uppercase tracking-wider text-suave">
                         {e.n_preguntas_comun} preguntas · {nuevas.length} nuevas · {repetidas.length}{" "}
-                        ya habían caído
+                        repetidas
                       </span>
                     </span>
-                    <span className="text-xl text-stone-300 dark:text-stone-600">{estaAbierto ? "⌄" : "›"}</span>
+                    <span className="font-mono text-suave">{estaAbierto ? "−" : "+"}</span>
                   </button>
                   {estaAbierto && (
-                    <ol className="space-y-3 border-t border-stone-200 p-4 dark:border-stone-800">
+                    <ol className="space-y-3 border-t border-hilo p-4">
                       {ps.map((p) => {
                         const cl = p.cluster_id !== null ? porId.get(p.cluster_id) : undefined;
                         const esNueva = p.cluster_id !== null && primeraVez.get(p.cluster_id) === anio;
                         return (
-                          <li key={p.id} className="rounded-xl bg-stone-50 p-4 dark:bg-stone-800/50">
-                            <div className="flex flex-wrap items-center gap-2">
-                              <span className="text-xs font-bold text-stone-400">#{p.numero}</span>
+                          <li key={p.id} className="rounded-opcion bg-fondo px-4 py-3.5">
+                            <div className="flex flex-wrap items-center gap-1.5">
+                              <span className="font-mono text-[11px] text-suave">
+                                {String(p.numero).padStart(2, "0")}
+                              </span>
                               {cl && <NombreTema cluster={cl} />}
-                              <Etiqueta tono={esNueva ? "verde" : "ambar"}>
-                                {esNueva ? "Nueva este año" : "Ya había caído"}
-                              </Etiqueta>
+                              <Chip tono={esNueva ? "verde" : "neutro"}>
+                                {esNueva ? "nueva este año" : "ya había caído"}
+                              </Chip>
                             </div>
-                            <p className="mt-2 text-sm font-medium leading-snug">{p.enunciado}</p>
-                            <ul className="mt-2 grid gap-1 text-xs text-stone-600 dark:text-stone-300">
+                            <p className="mt-2.5 text-[14.5px] font-medium leading-snug tracking-tight">
+                              {p.enunciado}
+                            </p>
+                            <ul className="mt-2.5 grid gap-1 text-[13px] leading-snug text-suave">
                               {(["A", "B", "C", "D"] as Letra[]).map((l) => (
                                 <li
                                   key={l}
-                                  className={l === p.correcta ? "font-semibold text-emerald-700 dark:text-emerald-400" : ""}
+                                  className={
+                                    l === p.correcta
+                                      ? "flex gap-2 font-medium text-verde"
+                                      : "flex gap-2"
+                                  }
                                 >
-                                  <span className="font-bold">{l})</span> {p.opciones[l]}
-                                  {l === p.correcta && " ✓"}
+                                  <span className="font-mono text-[11px] font-semibold">{l}</span>
+                                  <span className="flex-1">
+                                    {p.opciones[l]}
+                                    {l === p.correcta && " ✓"}
+                                  </span>
                                 </li>
                               ))}
                             </ul>
@@ -112,10 +126,9 @@ export default function Examenes({
         </div>
       ))}
 
-      <div className="rounded-2xl border border-stone-200 bg-white p-5 text-xs leading-relaxed text-stone-500 dark:border-stone-800 dark:bg-stone-900">
+      <div className="rounded-accion border border-hilo bg-fondo px-4 py-4 font-mono text-[10px] uppercase leading-relaxed tracking-wider text-suave">
         Fuente: cuadernillos y plantillas oficiales del Servicio Andaluz de Salud (Junta de
-        Andalucía). Solo se muestran las preguntas de los temas del temario oficial; el examen real
-        incluía además anatomía y clínica.
+        Andalucía). Solo se muestran las preguntas de los temas del temario oficial.
       </div>
     </section>
   );

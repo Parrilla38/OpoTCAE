@@ -5,30 +5,29 @@ export default {
   theme: {
     extend: {
       colors: {
-        marca: {
-          50: "#ecfdf5",
-          100: "#d1fae5",
-          200: "#a7f3d0",
-          300: "#6ee7b7",
-          400: "#34d399",
-          500: "#10b981",
-          600: "#059669",
-          700: "#047857",
-          800: "#065f46",
-          900: "#064e3b",
-          950: "#022c22",
-        },
+        // Los valores van por variables CSS para que el modo oscuro cambie solo.
+        fondo: "rgb(var(--fondo) / <alpha-value>)",
+        superficie: "rgb(var(--superficie) / <alpha-value>)",
+        tinta: "rgb(var(--tinta) / <alpha-value>)",
+        suave: "rgb(var(--suave) / <alpha-value>)",
+        hilo: "rgb(var(--hilo) / <alpha-value>)",
+        verde: "rgb(var(--verde) / <alpha-value>)",
+        aguaverde: "rgb(var(--aguaverde) / <alpha-value>)",
+        mal: "rgb(var(--mal) / <alpha-value>)",
+        aguamal: "rgb(var(--aguamal) / <alpha-value>)",
       },
       fontFamily: {
-        sans: [
-          "Inter",
-          "ui-sans-serif",
-          "system-ui",
-          "-apple-system",
-          "Segoe UI",
-          "Roboto",
-          "sans-serif",
-        ],
+        sans: ['"Familjen Grotesk"', "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ['"IBM Plex Mono"', "ui-monospace", "monospace"],
+      },
+      borderRadius: {
+        accion: "14px",
+        tarjeta: "18px",
+        opcion: "12px",
+        pastilla: "16px",
+      },
+      letterSpacing: {
+        etiqueta: "0.28em",
       },
     },
   },

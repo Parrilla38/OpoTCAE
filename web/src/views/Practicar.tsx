@@ -3,7 +3,7 @@ import { ordenaPorScore } from "../data";
 import { registraIntento, cargaSm2 } from "../store";
 import { vencidas } from "../sm2";
 import type { Cluster, ConfigTest, Letra, Meta, ResultadoPregunta } from "../types";
-import { AccionPrincipal, AccionSecundaria, Barra, Boton, NombreTema, Opcion, Segmentado } from "../components/ui";
+import { AccionPrincipal, AccionSecundaria, Barra, Boton, Chip, NombreTema, Opcion, Segmentado } from "../components/ui";
 import ComoFunciona from "../components/ComoFunciona";
 
 type Fase = "inicio" | "jugando" | "resultado";
@@ -29,7 +29,6 @@ function eligePreguntas(clusters: Cluster[], a: Ajustes): Cluster[] {
   if (a.soloRepetidas) base = base.filter((c) => c.frecuencia > 1 || c.n_anios > 1);
   if (a.tema !== null) base = base.filter((c) => c.tema === a.tema);
   base = ordenaPorScore(base);
-  // muestreo ponderado: lo que más cae sale antes, pero no siempre lo mismo
   const pool = [...base];
   const salida: Cluster[] = [];
   while (salida.length < a.n && pool.length) {
@@ -79,7 +78,7 @@ export default function Practicar({
     setRespuestas({});
     setIdx(0);
     setResultado(null);
-    setSegundos(config.cronometrado ? config.n * 72 : 0); // ~72 s por pregunta
+    setSegundos(config.cronometrado ? config.n * 72 : 0);
     setFase("jugando");
   }
 
@@ -101,38 +100,43 @@ export default function Practicar({
     setFase("resultado");
   }
 
-  // ─────────── pantalla de inicio ───────────
+  // ─────────── inicio ───────────
   if (fase === "inicio") {
     return (
-      <section className="space-y-4">
+      <section className="space-y-5">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight">¿Qué hacemos hoy?</h2>
-          <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
-            {meta.totales.preguntas} preguntas de los exámenes oficiales del SAS, con lo que más se
-            repite primero.
+          <span className="etiqueta">Servicio Andaluz de Salud · 2016–2025</span>
+          <h2 className="mt-3 text-[33px] font-medium leading-[1.06] tracking-[-0.035em]">
+            ¿Qué hacemos hoy?
+          </h2>
+          <p className="mt-2 max-w-[38ch] text-sm leading-relaxed text-suave">
+            {meta.totales.preguntas} preguntas de los exámenes oficiales, ordenadas por lo que de
+            verdad cae cada año.
           </p>
         </div>
 
+        <div className="filete" />
+
         <AccionPrincipal
-          icono="🎯"
+          cifra={ajustes.n}
           onClick={() => empieza(ajustes)}
-          subtitulo={`${ajustes.n} preguntas${ajustes.penaliza ? " · penaliza el error, como en el examen" : ""}`}
+          subtitulo={ajustes.penaliza ? "penaliza el error, como en el examen" : "sin penalizar"}
         >
           Empezar ahora
         </AccionPrincipal>
 
         {porRepasar > 0 && (
           <AccionSecundaria
-            icono="🃏"
+            marca={String(porRepasar)}
             onClick={onIrAProgreso}
-            subtitulo={`${porRepasar} pregunta${porRepasar === 1 ? "" : "s"} que fallaste y toca revisar`}
+            subtitulo={`${porRepasar} pregunta${porRepasar === 1 ? "" : "s"} por repasar hoy`}
           >
             Repasar lo que fallé
           </AccionSecundaria>
         )}
 
         <AccionSecundaria
-          icono="⏱"
+          marca="⏱"
           onClick={() => {
             const cfg = { ...ajustes, n: 50, penaliza: true, cronometrado: true, soloRepetidas: true };
             setAjustes(cfg);
@@ -143,38 +147,36 @@ export default function Practicar({
           Simulacro como el examen
         </AccionSecundaria>
 
-        <div className="rounded-2xl border border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+        <div className="rounded-accion border border-hilo bg-fondo">
           <button
             type="button"
             onClick={() => setVerAjustes((v) => !v)}
-            className="flex w-full items-center gap-2 p-4 text-left text-sm font-semibold"
+            className="flex w-full items-center gap-2 px-4 py-3.5 text-left text-[14.5px] font-semibold"
           >
             <span className="flex-1">Cambiar preguntas</span>
-            <span className="text-stone-400">{verAjustes ? "−" : "+"}</span>
+            <span className="font-mono text-suave">{verAjustes ? "−" : "+"}</span>
           </button>
           {verAjustes && (
-            <div className="space-y-4 px-4 pb-4">
+            <div className="space-y-5 border-t border-hilo px-4 pb-4 pt-4">
               <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
-                  Cuántas
-                </p>
-                <Segmentado
-                  valor={ajustes.n}
-                  onChange={(n) => setAjustes({ ...ajustes, n })}
-                  opciones={[
-                    { valor: 5, etiqueta: "5" },
-                    { valor: 10, etiqueta: "10" },
-                    { valor: 25, etiqueta: "25" },
-                    { valor: 50, etiqueta: "50" },
-                  ]}
-                />
+                <span className="etiqueta">Cuántas</span>
+                <div className="mt-2">
+                  <Segmentado
+                    valor={String(ajustes.n)}
+                    onChange={(n) => setAjustes({ ...ajustes, n: Number(n) })}
+                    opciones={[
+                      { valor: "5", etiqueta: "5" },
+                      { valor: "10", etiqueta: "10" },
+                      { valor: "25", etiqueta: "25" },
+                      { valor: "50", etiqueta: "50" },
+                    ]}
+                  />
+                </div>
               </div>
               <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
-                  De qué tema
-                </p>
+                <span className="etiqueta">De qué tema</span>
                 <select
-                  className="w-full rounded-xl border border-stone-300 bg-white px-3 py-3 text-sm dark:border-stone-700 dark:bg-stone-900"
+                  className="campo mt-2"
                   value={ajustes.tema === null ? "" : String(ajustes.tema)}
                   onChange={(e) =>
                     setAjustes({ ...ajustes, tema: e.target.value ? Number(e.target.value) : null })
@@ -191,36 +193,38 @@ export default function Practicar({
                 </select>
               </div>
               <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
-                  Penalizar errores
-                </p>
-                <Segmentado
-                  valor={ajustes.penaliza ? "si" : "no"}
-                  onChange={(v) => setAjustes({ ...ajustes, penaliza: v === "si" })}
-                  opciones={[
-                    { valor: "si", etiqueta: "Sí (como el examen)" },
-                    { valor: "no", etiqueta: "No" },
-                  ]}
-                />
+                <span className="etiqueta">Penalizar errores</span>
+                <div className="mt-2">
+                  <Segmentado
+                    valor={ajustes.penaliza ? "si" : "no"}
+                    onChange={(v) => setAjustes({ ...ajustes, penaliza: v === "si" })}
+                    opciones={[
+                      { valor: "si", etiqueta: "Sí" },
+                      { valor: "no", etiqueta: "No" },
+                    ]}
+                  />
+                </div>
               </div>
-              <label className="flex items-center gap-3 text-sm">
-                <input
-                  type="checkbox"
-                  checked={ajustes.cronometrado}
-                  onChange={(e) => setAjustes({ ...ajustes, cronometrado: e.target.checked })}
-                  className="h-5 w-5 rounded border-stone-300 text-emerald-600"
-                />
-                Poner cronómetro
-              </label>
-              <label className="flex items-center gap-3 text-sm">
-                <input
-                  type="checkbox"
-                  checked={ajustes.soloRepetidas}
-                  onChange={(e) => setAjustes({ ...ajustes, soloRepetidas: e.target.checked })}
-                  className="h-5 w-5 rounded border-stone-300 text-emerald-600"
-                />
-                Solo lo que más se repite
-              </label>
+              <div className="space-y-3 pt-1">
+                <label className="flex items-center gap-3 text-sm">
+                  <input
+                    type="checkbox"
+                    checked={ajustes.cronometrado}
+                    onChange={(e) => setAjustes({ ...ajustes, cronometrado: e.target.checked })}
+                    className="h-4 w-4 rounded border-hilo text-verde accent-[rgb(var(--verde))]"
+                  />
+                  Poner cronómetro
+                </label>
+                <label className="flex items-center gap-3 text-sm">
+                  <input
+                    type="checkbox"
+                    checked={ajustes.soloRepetidas}
+                    onChange={(e) => setAjustes({ ...ajustes, soloRepetidas: e.target.checked })}
+                    className="h-4 w-4 rounded border-hilo text-verde accent-[rgb(var(--verde))]"
+                  />
+                  Solo lo que más se repite
+                </label>
+              </div>
             </div>
           )}
         </div>
@@ -240,11 +244,11 @@ export default function Practicar({
     return (
       <section className="space-y-4">
         <div className="flex items-center justify-between gap-3">
-          <span className="text-sm font-semibold">
+          <span className="etiqueta">
             {idx + 1} de {bateria.length}
           </span>
           {ajustes.cronometrado && segundos > 0 && (
-            <span className="font-mono text-sm font-bold tabular-nums">
+            <span className="font-mono text-[13px] font-medium tabular-nums text-suave">
               {min}:{seg}
             </span>
           )}
@@ -254,10 +258,10 @@ export default function Practicar({
         </div>
         <Barra valor={respondidas} total={bateria.length} />
 
-        <article className="rounded-2xl border border-stone-200 bg-white p-5 dark:border-stone-800 dark:bg-stone-900">
+        <article className="tarjeta p-5">
           <NombreTema cluster={c} />
-          <h2 className="mt-3 text-lg font-semibold leading-snug">{c.enunciado}</h2>
-          <div className="mt-4 grid gap-2.5">
+          <h2 className="mt-3 text-[18px] font-medium leading-snug tracking-tight">{c.enunciado}</h2>
+          <div className="mt-4 grid gap-2">
             {(["A", "B", "C", "D"] as Letra[]).map((l) => (
               <Opcion
                 key={l}
@@ -270,22 +274,22 @@ export default function Practicar({
             ))}
           </div>
           {elegida && (
-            <p className="mt-3 text-center text-xs text-stone-500">
-              Puedes cambiar tu respuesta antes de seguir.
+            <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-etiqueta text-suave">
+              puedes cambiar tu respuesta
             </p>
           )}
         </article>
 
         <div className="flex gap-2">
           <Boton onClick={() => setIdx((i) => Math.max(0, i - 1))} disabled={idx === 0} ancho>
-            ← Atrás
+            Atrás
           </Boton>
           {idx < bateria.length - 1 ? (
-            <Boton tipo="principal" onClick={() => setIdx((i) => i + 1)} ancho>
-              Siguiente →
+            <Boton tipo="uno" onClick={() => setIdx((i) => i + 1)} ancho>
+              Siguiente
             </Boton>
           ) : (
-            <Boton tipo="principal" onClick={termina} ancho>
+            <Boton tipo="uno" onClick={termina} ancho>
               Ver resultado
             </Boton>
           )}
@@ -297,46 +301,45 @@ export default function Practicar({
   // ─────────── resultado ───────────
   return (
     <section className="space-y-4">
-      <div className="rounded-2xl border border-stone-200 bg-white p-6 text-center dark:border-stone-800 dark:bg-stone-900">
-        <p className="text-xs font-semibold uppercase tracking-wide text-stone-500">Tu nota</p>
-        <p className="mt-1 text-5xl font-bold tabular-nums">
+      <div className="tarjeta px-5 py-8 text-center">
+        <span className="etiqueta">Tu nota</span>
+        <p className="mt-2 font-mono text-6xl font-medium leading-none tabular-nums text-verde">
           {resultado?.nota ?? 0}
-          <span className="text-xl text-stone-400">/10</span>
+          <span className="text-xl text-suave">/10</span>
         </p>
-        <p className="mt-2 text-sm text-stone-600 dark:text-stone-300">
-          {resultado?.aciertos} bien · {resultado?.fallos} mal · {resultado?.en_blanco} sin contestar
+        <p className="mt-3 font-mono text-[12px] uppercase tracking-wider text-suave">
+          {resultado?.aciertos} bien · {resultado?.fallos} mal · {resultado?.en_blanco} en blanco
         </p>
         {ajustes.penaliza && (resultado?.fallos ?? 0) > 0 && (
-          <p className="mt-1 text-xs text-stone-500">Se descontó ¼ por cada error.</p>
+          <p className="mt-1.5 text-xs text-suave">se descontó ¼ por cada error</p>
         )}
       </div>
 
       {(resultado?.fallos ?? 0) > 0 && (
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100">
-          Has fallado {resultado?.fallos}. Se han guardado en tu lista para repasarlas: vuelven
-          solas cuando estés a punto de olvidarlas.{" "}
-          <button type="button" onClick={onIrAProgreso} className="font-semibold underline">
+        <div className="rounded-accion border border-hilo bg-superficie px-4 py-3.5 text-[13.8px] text-suave">
+          Has fallado {resultado?.fallos}. Se han guardado en tu lista: vuelven solas cuando estés
+          a punto de olvidarlas.{" "}
+          <button type="button" onClick={onIrAProgreso} className="font-semibold text-verde underline">
             Ir a repasar
           </button>
         </div>
       )}
 
-      <h3 className="text-sm font-bold text-stone-500">Repaso de las preguntas</h3>
+      <span className="etiqueta">Repaso de las preguntas</span>
       {bateria.map((c, i) => {
         const elegida = respuestas[c.cluster_id] ?? null;
         const bien = elegida === c.correcta;
         return (
-          <article
-            key={c.cluster_id}
-            className={`rounded-2xl border bg-white p-5 dark:bg-stone-900 ${
-              bien ? "border-stone-200 dark:border-stone-800" : "border-rose-300 dark:border-rose-900"
-            }`}
-          >
+          <article key={c.cluster_id} className="tarjeta p-5">
             <div className="flex items-center justify-between gap-2">
-              <span className="text-xs font-bold text-stone-400">{i + 1}</span>
-              <NombreTema cluster={c} />
+              <span className="font-mono text-[11px] text-suave">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              {bien ? <Chip tono="verde">bien</Chip> : <Chip tono="mal">mal</Chip>}
             </div>
-            <h3 className="mt-2 text-[15px] font-semibold leading-snug">{c.enunciado}</h3>
+            <h3 className="mt-2.5 text-[15.5px] font-medium leading-snug tracking-tight">
+              {c.enunciado}
+            </h3>
             <div className="mt-3 grid gap-2">
               {(["A", "B", "C", "D"] as Letra[]).map((l) => (
                 <Opcion
@@ -348,8 +351,8 @@ export default function Practicar({
                 />
               ))}
             </div>
-            <p className="mt-3 text-xs text-stone-500">
-              Ha caído en {c.anios.join(", ")}
+            <p className="mt-3 font-mono text-[10px] uppercase tracking-wider text-suave">
+              ha caído en {c.anios.join(", ")}
               {c.articulos.length > 0 && <> · art. {c.articulos.join(", ")}</>}
             </p>
           </article>
@@ -360,7 +363,7 @@ export default function Practicar({
         <Boton onClick={() => setFase("inicio")} ancho>
           Volver
         </Boton>
-        <Boton tipo="principal" onClick={() => empieza(ajustes)} ancho>
+        <Boton tipo="uno" onClick={() => empieza(ajustes)} ancho>
           Otra vez
         </Boton>
       </div>

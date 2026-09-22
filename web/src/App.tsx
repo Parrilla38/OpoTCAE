@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { cargaBase, cargaClusters, cargaPreguntas } from "./data";
+import { Sello } from "./components/ui";
 import Practicar from "./views/Practicar";
 import Aprender from "./views/Aprender";
 import Examenes from "./views/Examenes";
@@ -7,14 +8,13 @@ import Progreso from "./views/Progreso";
 
 type Vista = "practicar" | "aprender" | "examenes" | "progreso";
 
-const NAV: { id: Vista; texto: string; icono: string }[] = [
-  { id: "practicar", texto: "Practicar", icono: "🎯" },
-  { id: "aprender", texto: "Aprender", icono: "📖" },
-  { id: "examenes", texto: "Exámenes", icono: "🗓" },
-  { id: "progreso", texto: "Mi progreso", icono: "👤" },
+const NAV: { id: Vista; texto: string }[] = [
+  { id: "practicar", texto: "Practicar" },
+  { id: "aprender", texto: "Aprender" },
+  { id: "examenes", texto: "Exámenes" },
+  { id: "progreso", texto: "Progreso" },
 ];
 
-/** Hook: pide datos la primera vez que hacen falta y los mantiene. */
 function useDatos<T>(pedir: () => Promise<T>, activo: boolean) {
   const [datos, setDatos] = useState<T | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -39,26 +39,26 @@ function BotonTema() {
       type="button"
       onClick={() => setOscuro((v) => !v)}
       aria-label={oscuro ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
-      className="flex h-11 w-11 items-center justify-center rounded-full text-xl transition hover:bg-stone-200/60 dark:hover:bg-stone-800/60"
+      className="grid h-8 w-8 place-items-center rounded-full border border-hilo text-suave transition hover:bg-superficie"
     >
-      {oscuro ? "☀️" : "🌙"}
+      <span aria-hidden className="text-[13px]">
+        {oscuro ? "☾" : "◐"}
+      </span>
     </button>
   );
 }
 
-function Cargando({ texto = "Cargando preguntas…" }: { texto?: string }) {
+function Cargando({ texto = "Cargando…" }: { texto?: string }) {
   return (
-    <div className="rounded-2xl border border-stone-200 bg-white p-5 text-sm text-stone-500 dark:border-stone-800 dark:bg-stone-900">
-      {texto}
-    </div>
+    <div className="tarjeta px-4 py-5 text-sm text-suave">{texto}</div>
   );
 }
 
 function Aviso({ error }: { error: string }) {
   return (
-    <div className="rounded-2xl border border-rose-300 bg-rose-50 p-4 text-sm text-rose-800 dark:border-rose-900 dark:bg-rose-950/40 dark:text-rose-200">
+    <div className="rounded-accion border border-mal bg-aguamal px-4 py-3.5 text-[13.8px] text-mal">
       <p className="font-semibold">No se han podido cargar las preguntas</p>
-      <p className="text-xs">{error}</p>
+      <p className="mt-0.5 text-xs">{error}</p>
     </div>
   );
 }
@@ -76,12 +76,13 @@ export default function App() {
 
   return (
     <div className="mx-auto flex min-h-screen max-w-2xl flex-col px-4 pb-28 pt-5">
-      <header className="mb-6 flex items-center justify-between gap-3">
-        <div>
-          <h1 className="text-lg font-bold leading-tight tracking-tight">OpoTCAE</h1>
-          <p className="text-xs text-stone-500 dark:text-stone-400">
-            Lo que más se pregunta en el TCAE de Andalucía
-          </p>
+      <header className="mb-7 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2.5">
+          <Sello />
+          <div>
+            <h1 className="text-[17px] font-semibold leading-none tracking-tight">opotcae</h1>
+            <p className="etiqueta mt-1">TCAE · Andalucía</p>
+          </div>
         </div>
         <BotonTema />
       </header>
@@ -89,7 +90,7 @@ export default function App() {
       {error && <Aviso error={error} />}
 
       <main className="flex-1 space-y-3">
-        {!base && !errorBase && <Cargando texto="Cargando…" />}
+        {!base && !errorBase && <Cargando />}
 
         {base && vista === "practicar" && (
           <>
@@ -131,40 +132,29 @@ export default function App() {
 
       {base && (
         <>
-          <footer className="mt-10 border-t border-stone-200 pt-4 text-[11px] leading-relaxed text-stone-500 dark:border-stone-800 dark:text-stone-400">
+          <footer className="mt-10 border-t border-hilo pt-4 text-[11px] leading-relaxed text-suave">
             <p>
-              <b>Fuente:</b> {base.meta.fuente}. {base.meta.aviso}
+              <b className="text-tinta">Fuente:</b> {base.meta.fuente}. {base.meta.aviso}
             </p>
-            <p className="mt-1">
-              {base.meta.totales.preguntas} preguntas de exámenes oficiales (
-              {base.meta.anios.join(", ")}). Gratuito y sin cuenta.
+            <p className="mt-1.5 font-mono uppercase tracking-wider">
+              {base.meta.totales.preguntas} preguntas · {base.meta.anios.join(", ")} · gratis y sin
+              cuenta
             </p>
           </footer>
 
-          <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-stone-200 bg-white/95 backdrop-blur dark:border-stone-800 dark:bg-stone-950/95">
-            <div className="mx-auto flex max-w-2xl">
-              {NAV.map((n) => {
-                const activo = vista === n.id;
-                return (
-                  <button
-                    key={n.id}
-                    type="button"
-                    onClick={() => setVista(n.id)}
-                    aria-current={activo ? "page" : undefined}
-                    className={
-                      "flex flex-1 flex-col items-center gap-0.5 py-2.5 text-[11px] font-medium transition " +
-                      (activo
-                        ? "text-emerald-700 dark:text-emerald-400"
-                        : "text-stone-500 hover:text-stone-800 dark:text-stone-400 dark:hover:text-stone-200")
-                    }
-                  >
-                    <span aria-hidden className="text-lg leading-none">
-                      {n.icono}
-                    </span>
-                    {n.texto}
-                  </button>
-                );
-              })}
+          <nav className="pie">
+            <div className="pie-caja">
+              {NAV.map((n) => (
+                <button
+                  key={n.id}
+                  type="button"
+                  onClick={() => setVista(n.id)}
+                  aria-current={vista === n.id ? "page" : undefined}
+                  className={`pie-item${vista === n.id ? " pie-item-on" : ""}`}
+                >
+                  {n.texto}
+                </button>
+              ))}
             </div>
           </nav>
         </>
