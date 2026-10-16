@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { agrupaPorArticulo, cargaConceptos, cohesion, porTema } from "../data";
 import { buscaArticulo } from "../leyes";
 import type { Cluster, Concepto, ConceptosData, Meta, Selector } from "../types";
-import { Boton, Chip, Fila, ListaOpciones, NombreTema, Segmentado } from "../components/ui";
+import { Boton, Chip, Explicacion, Fila, ListaOpciones, NombreTema, Segmentado } from "../components/ui";
 
 type Pestana = "temas" | "conceptos" | "calendario" | "buscar";
 type Vista =
@@ -203,6 +203,7 @@ function TarjetaPregunta({ c }: { c: Cluster }) {
       </div>
       <h3 className="mt-2.5 text-[15.5px] font-medium leading-snug tracking-tight">{c.enunciado}</h3>
       <ListaOpciones opciones={c.opciones} correcta={c.correcta} />
+      <Explicacion texto={c.explicacion} />
       <p className="mt-3 font-mono text-[10.5px] font-bold uppercase tracking-wider text-suave">
         {c.frecuencia} vez/veces
         {c.articulos.length > 0 && <> · art. {c.articulos.join(", ")}</>}
@@ -404,7 +405,10 @@ function TarjetaConcepto({ c, abierto, toggle }: { c: Concepto; abierto: boolean
                 {m.enunciado}
               </p>
               {m.opciones ? (
-                <ListaOpciones opciones={m.opciones} correcta={m.correcta} />
+                <>
+                  <ListaOpciones opciones={m.opciones} correcta={m.correcta} />
+                  <Explicacion texto={m.explicacion} />
+                </>
               ) : (
                 <p className="mt-2 font-mono text-[10.5px] uppercase tracking-wider text-suave">
                   respuesta: {m.correcta ?? "—"}

@@ -17,6 +17,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 PARSED = RAIZ / "data" / "parsed"
 DESTINO = RAIZ / "web" / "public" / "data"
+EXPLICACIONES = RAIZ / "data" / "curado" / "explicaciones.json"
 
 TEMAS = {
     1: "Constitución Española de 1978",
@@ -72,6 +73,27 @@ CORTO_CLINICA = "Anatomía y clínica"
 FUENTE = "Servicio Andaluz de Salud (Junta de Andalucía)"
 
 
+def carga_explicaciones(ruta: Path = EXPLICACIONES) -> dict[str, str]:
+    """{pregunta_id: texto}. Opcional: si falta o está mal formado, no hay explicaciones."""
+    if not ruta.exists():
+        return {}
+    try:
+        datos = json.loads(ruta.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+    if not isinstance(datos, dict):
+        return {}
+    return {k: v.strip() for k, v in datos.items() if isinstance(v, str) and v.strip()}
+
+
+def explicacion_de(ids: list[str], explicaciones: dict[str, str]) -> str | None:
+    """Primera explicación disponible, en el orden dado (la pregunta propia antes que las del clúster)."""
+    for i in ids:
+        if i in explicaciones:
+            return explicaciones[i]
+    return None
+
+
 def main() -> int:
     DESTINO.mkdir(parents=True, exist_ok=True)
     preguntas = json.loads((PARSED / "preguntas.json").read_text(encoding="utf-8"))
@@ -93,11 +115,20 @@ def main() -> int:
         for o in c.get("ocurrencias", []):
             cluster_de[o["id"]] = c["cluster_id"]
 
+    explicaciones = carga_explicaciones()
+    # cluster_id -> ids de sus preguntas, para heredar la explicación de una hermana
+    ids_de_cluster: dict[int, list[str]] = {}
+    for id_p, cid in cluster_de.items():
+        ids_de_cluster.setdefault(cid, []).append(id_p)
+
     preguntas_out = []
     for p in preguntas:
         if p.get("anulada"):
             continue
         cluster_id = cluster_de.get(p["id"])
+        explicacion = explicacion_de(
+            [p["id"], *ids_de_cluster.get(cluster_id, [])], explicaciones
+        )
         preguntas_out.append({
             "id": p["id"],
             "cluster_id": cluster_id,
@@ -116,10 +147,15 @@ def main() -> int:
             "tema_corto": p.get("tema_corto"),
             "bloque": p.get("bloque"),
             **({"revisar": p["revisar"]} if p.get("revisar") else {}),
+            **({"explicacion": explicacion} if explicacion else {}),
         })
 
     clusters_out = []
     for c in clusters:
+        # la del representante primero: es la pregunta que el clúster muestra
+        explicacion = explicacion_de(
+            [c.get("representante_id"), *ids_de_cluster.get(c["cluster_id"], [])], explicaciones
+        )
         nombre = (c.get("tema_nombre") or "").lower()
         if c.get("tema") is not None:
             clave = c["tema"]
@@ -140,6 +176,7 @@ def main() -> int:
             "representante_id": c.get("representante_id"),
             "clave_estado": c.get("clave_estado", "unanime"),
             **({"revisar": c["revisar"]} if c.get("revisar") else {}),
+            **({"explicacion": explicacion} if explicacion else {}),
             "frecuencia": c["frecuencia"],
             "anios": c["años"],
             "n_anios": c["n_años"],

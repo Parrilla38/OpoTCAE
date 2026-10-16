@@ -32,6 +32,8 @@ export interface Cluster {
   clave_estado?: "unanime" | "conflicto";
   /** Preguntas del clúster con la clave en duda (id: motivo). */
   revisar?: string[];
+  /** Por qué es correcta la respuesta (curado aparte; puede faltar). */
+  explicacion?: string;
   frecuencia: number;
   anios: number[];
   n_anios: number;
@@ -63,6 +65,8 @@ export interface Pregunta {
   bloque?: string;
   /** Clave oficial en duda, pendiente de revisar a mano. */
   revisar?: string;
+  /** Por qué es correcta la respuesta (curado aparte; puede faltar). */
+  explicacion?: string;
 }
 
 export interface Examen {
@@ -117,6 +121,7 @@ export interface MiembroConcepto {
   cluster_id: number | null;
   /** Opciones de esta formulación, para poder estudiar su respuesta. */
   opciones?: Opciones;
+  explicacion?: string | null;
 }
 
 export interface Concepto {
