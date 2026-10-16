@@ -15,9 +15,9 @@
       "clave": "otros",
       "nombre": "Otros y sin clasificar",
       "corto": "Otros",
-      "clusters": 203,
-      "preguntas": 341,
-      "score_total": 434.5,
+      "clusters": 201,
+      "preguntas": 339,
+      "score_total": 431.0,
       "es_clinica": false
     },
     {
@@ -25,9 +25,9 @@
       "clave": "clinica",
       "nombre": "Anatomía, fisiología y clínica",
       "corto": "Anatomía y clínica",
-      "clusters": 119,
+      "clusters": 117,
       "preguntas": 195,
-      "score_total": 248.25,
+      "score_total": 247.5,
       "es_clinica": true
     },
     {
@@ -35,7 +35,7 @@
       "clave": 22,
       "nombre": "Necesidad de alimentación",
       "corto": "Necesidad de alimentación",
-      "clusters": 50,
+      "clusters": 51,
       "preguntas": 89,
       "score_total": 115.75,
       "es_clinica": false
@@ -46,8 +46,18 @@
       "nombre": "Úlceras por presión",
       "corto": "Úlceras por presión",
       "clusters": 51,
-      "preguntas": 84,
-      "score_total": 107.5,
+      "preguntas": 85,
+      "score_total": 108.25,
+      "es_clinica": false
+    },
+    {
+      "tema": 29,
+      "clave": 29,
+      "nombre": "RCP y primeros auxilios",
+      "corto": "RCP y primeros auxilios",
+      "clusters": 35,
+      "preguntas": 69,
+      "score_total": 90.0,
       "es_clinica": false
     },
     {
@@ -61,26 +71,6 @@
       "es_clinica": false
     },
     {
-      "tema": 29,
-      "clave": 29,
-      "nombre": "RCP y primeros auxilios",
-      "corto": "RCP y primeros auxilios",
-      "clusters": 35,
-      "preguntas": 68,
-      "score_total": 88.5,
-      "es_clinica": false
-    },
-    {
-      "tema": 26,
-      "clave": 26,
-      "nombre": "Salud mental",
-      "corto": "Salud mental",
-      "clusters": 35,
-      "preguntas": 58,
-      "score_total": 73.5,
-      "es_clinica": false
-    },
-    {
       "tema": 19,
       "clave": 19,
       "nombre": "Muestras biológicas",
@@ -91,13 +81,23 @@
       "es_clinica": false
     },
     {
+      "tema": 26,
+      "clave": 26,
+      "nombre": "Salud mental",
+      "corto": "Salud mental",
+      "clusters": 35,
+      "preguntas": 57,
+      "score_total": 71.25,
+      "es_clinica": false
+    },
+    {
       "tema": 16,
       "clave": 16,
       "nombre": "Limpieza, desinfección y esterilización",
       "corto": "Limpieza y esterilización",
-      "clusters": 32,
-      "preguntas": 54,
-      "score_total": 68.5,
+      "clusters": 31,
+      "preguntas": 52,
+      "score_total": 66.0,
       "es_clinica": false
     },
     {
@@ -105,9 +105,9 @@
       "clave": 18,
       "nombre": "Gestión de los residuos sanitarios",
       "corto": "Residuos sanitarios",
-      "clusters": 32,
-      "preguntas": 52,
-      "score_total": 66.5,
+      "clusters": 31,
+      "preguntas": 50,
+      "score_total": 64.0,
       "es_clinica": false
     },
     {
@@ -115,9 +115,9 @@
       "clave": 21,
       "nombre": "Necesidad de eliminación",
       "corto": "Necesidad de eliminación",
-      "clusters": 27,
+      "clusters": 26,
       "preguntas": 49,
-      "score_total": 62.25,
+      "score_total": 63.0,
       "es_clinica": false
     },
     {
@@ -125,19 +125,9 @@
       "clave": 23,
       "nombre": "Necesidad de movilización",
       "corto": "Necesidad de movilización",
-      "clusters": 25,
-      "preguntas": 47,
-      "score_total": 60.75,
-      "es_clinica": false
-    },
-    {
-      "tema": 28,
-      "clave": 28,
-      "nombre": "Terminal y paliativos",
-      "corto": "Terminal y paliativos",
-      "clusters": 27,
-      "preguntas": 39,
-      "score_total": 49.5,
+      "clusters": 24,
+      "preguntas": 46,
+      "score_total": 59.5,
       "es_clinica": false
     },
     {
@@ -146,8 +136,18 @@
       "nombre": "El trabajo en equipo y la comunicación",
       "corto": "Equipo y comunicación",
       "clusters": 23,
-      "preguntas": 38,
-      "score_total": 48.25,
+      "preguntas": 39,
+      "score_total": 49.5,
+      "es_clinica": false
+    },
+    {
+      "tema": 28,
+      "clave": 28,
+      "nombre": "Terminal y paliativos",
+      "corto": "Terminal y paliativos",
+      "clusters": 26,
+      "preguntas": 39,
+      "score_total": 49.75,
       "es_clinica": false
     },
     {
@@ -186,8 +186,8 @@
       "nombre": "Necesidad de higiene",
       "corto": "Necesidad de higiene",
       "clusters": 12,
-      "preguntas": 27,
-      "score_total": 36.25,
+      "preguntas": 28,
+      "score_total": 37.75,
       "es_clinica": false
     },
     {
@@ -211,6 +211,16 @@
       "es_clinica": false
     },
     {
+      "tema": 4,
+      "clave": 4,
+      "nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
+      "corto": "Organización sanitaria II",
+      "clusters": 12,
+      "preguntas": 18,
+      "score_total": 22.5,
+      "es_clinica": false
+    },
+    {
       "tema": 27,
       "clave": 27,
       "nombre": "El anciano",
@@ -221,13 +231,13 @@
       "es_clinica": false
     },
     {
-      "tema": 4,
-      "clave": 4,
-      "nombre": "Organización sanitaria (II): Consejería de Salud y SAS",
-      "corto": "Organización sanitaria II",
-      "clusters": 11,
-      "preguntas": 16,
-      "score_total": 20.0,
+      "tema": 2,
+      "clave": 2,
+      "nombre": "Estatuto de Autonomía para Andalucía",
+      "corto": "Estatuto Andalucía",
+      "clusters": 9,
+      "preguntas": 11,
+      "score_total": 13.75,
       "es_clinica": false
     },
     {
@@ -256,16 +266,6 @@
       "nombre": "Constitución Española de 1978",
       "corto": "Constitución",
       "clusters": 8,
-      "preguntas": 9,
-      "score_total": 11.25,
-      "es_clinica": false
-    },
-    {
-      "tema": 2,
-      "clave": 2,
-      "nombre": "Estatuto de Autonomía para Andalucía",
-      "corto": "Estatuto Andalucía",
-      "clusters": 7,
       "preguntas": 9,
       "score_total": 11.25,
       "es_clinica": false
@@ -324,12 +324,12 @@
   ],
   "totales": {
     "preguntas": 1504,
-    "clusters": 902,
-    "repetidos": 526,
-    "multi_anio": 46,
+    "clusters": 897,
+    "repetidos": 533,
+    "multi_anio": 44,
     "examenes": 13,
-    "conceptos_multi_anio": 123,
-    "conceptos": 486
+    "conceptos_multi_anio": 126,
+    "conceptos": 487
   },
   "score_formula": "frecuencia × (1 + 0.25 × años_diferentes)"
 }

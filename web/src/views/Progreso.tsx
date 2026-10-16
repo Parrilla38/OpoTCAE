@@ -10,7 +10,7 @@ import {
 } from "../store";
 import { enDias, vencidas, proximas } from "../sm2";
 import type { Cluster, Letra, Meta } from "../types";
-import { AccionSecundaria, Boton, ListaOpciones, NombreTema, Opcion, Segmentado } from "../components/ui";
+import { AccionSecundaria, Boton, Explicacion, ListaOpciones, NombreTema, Opcion, Segmentado } from "../components/ui";
 
 type Pestana = "repasar" | "mis" | "estadisticas";
 
@@ -150,7 +150,10 @@ export default function Progreso({ clusters, meta }: { clusters: Cluster[]; meta
                       {c.enunciado}
                     </h3>
                     {reveladaMis ? (
-                      <ListaOpciones opciones={c.opciones} correcta={c.correcta} />
+                      <>
+                        <ListaOpciones opciones={c.opciones} correcta={c.correcta} />
+                        <Explicacion texto={c.explicacion} />
+                      </>
                     ) : (
                       <p className="mt-3 text-sm text-suave">
                         Piensa la respuesta y luego revélala.
@@ -324,6 +327,7 @@ function RepasoCard({
             {(["A", "B", "C", "D"] as Letra[]).map((l) => (
               <Opcion key={l} opciones={c.opciones} letra={l} estado={l === c.correcta ? "correcta" : "neutra"} />
             ))}
+            <Explicacion texto={c.explicacion} />
           </div>
         ) : (
           <p className="mt-4 text-sm text-suave">Piensa la respuesta y luego revélala.</p>

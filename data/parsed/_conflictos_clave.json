@@ -1,0 +1,19 @@
+[
+  {
+    "cluster_id": 420,
+    "enunciado": "A su Centro de Salud se desplaza semanalmente un Ginecólogo para, dentro del proceso de atención al embarazo, realizar las consultas previstas en el mismo que han de ser desarrolladas por este Especialista en dicho centro. El Especialista solicita para una paciente la realización de una curva de tolerancia oral a la glucosa. ¿Qué se debe indicar a la paciente?:",
+    "clave_usada": {
+      "id": "2019-04-27_pi_145",
+      "correcta": "A",
+      "respuesta": "La importancia de guardar ayunas 10 horas antes de la prueba."
+    },
+    "discrepan": [
+      {
+        "id": "2019-04-27_libre_145",
+        "anio": 2019,
+        "correcta": "A",
+        "respuesta": "La importancia de guardar ayunas 6 horas antes de la prueba."
+      }
+    ]
+  }
+]

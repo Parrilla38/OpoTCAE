@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import type { Cluster, Examen, Pregunta } from "../types";
-import { Chip, ListaOpciones, NombreTema } from "../components/ui";
+import { Chip, Explicacion, ListaOpciones, NombreTema } from "../components/ui";
 
 const MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
 
@@ -98,6 +98,7 @@ export default function Examenes({
                               {p.enunciado}
                             </p>
                             <ListaOpciones opciones={p.opciones} correcta={p.correcta} />
+                            <Explicacion texto={p.explicacion ?? cl?.explicacion} />
                           </li>
                         );
                       })}

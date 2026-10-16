@@ -63,16 +63,32 @@ export function Opcion({
 }) {
   const clase =
     estado === "correcta" ? "op op-ok" : estado === "fallada" ? "op op-mal" : "op";
-  const marca = estado === "correcta" ? "✓" : estado === "fallada" ? "✗" : letra;
+  const marca = estado === "correcta" ? "✓" : estado === "fallada" ? "✗" : null;
   const Tag = onElige ? "button" : "div";
   return (
     <Tag
       {...(onElige ? { type: "button" as const, onClick: () => onElige(letra) } : {})}
       className={`${clase}${elegida === letra && estado === "neutra" ? " ring-1 ring-verde" : ""}`}
     >
-      <span className="let">{marca}</span>
+      <span className="let">{letra}</span>
+      {marca && (
+        <span aria-label={estado === "correcta" ? "correcta" : "incorrecta"} className="shrink-0 font-bold">
+          {marca}
+        </span>
+      )}
       <span className="flex-1">{opciones[letra] || <em className="opacity-50">vacía</em>}</span>
     </Tag>
+  );
+}
+
+/** «Por qué» de la respuesta. No pinta nada si no hay texto; mostrar solo tras responder. */
+export function Explicacion({ texto }: { texto?: string | null }) {
+  if (!texto) return null;
+  return (
+    <div className="mt-3 rounded-opcion border border-hilo bg-fondo px-3.5 py-3">
+      <span className="etiqueta">Por qué</span>
+      <p className="mt-1.5 text-[13.8px] leading-snug">{texto}</p>
+    </div>
   );
 }
 

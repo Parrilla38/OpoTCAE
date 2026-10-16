@@ -3,7 +3,7 @@ import { ordenaPorScore } from "../data";
 import { registraIntento, cargaSm2 } from "../store";
 import { vencidas } from "../sm2";
 import type { Cluster, ConfigTest, Letra, Meta, ResultadoPregunta } from "../types";
-import { AccionPrincipal, AccionSecundaria, Barra, Boton, Chip, NombreTema, Opcion, Segmentado } from "../components/ui";
+import { AccionPrincipal, AccionSecundaria, Barra, Boton, Chip, Explicacion, NombreTema, Opcion, Segmentado } from "../components/ui";
 import ComoFunciona from "../components/ComoFunciona";
 
 type Fase = "inicio" | "jugando" | "resultado";
@@ -267,17 +267,25 @@ export default function Practicar({
                 key={l}
                 opciones={c.opciones}
                 letra={l}
-                estado="neutra"
+                estado={
+                  elegida && c.correcta
+                    ? l === c.correcta
+                      ? "correcta"
+                      : l === elegida
+                        ? "fallada"
+                        : "neutra"
+                    : "neutra"
+                }
                 elegida={elegida}
-                onElige={(letra) => setRespuestas({ ...respuestas, [c.cluster_id]: letra })}
+                onElige={
+                  elegida
+                    ? undefined
+                    : (letra) => setRespuestas({ ...respuestas, [c.cluster_id]: letra })
+                }
               />
             ))}
           </div>
-          {elegida && (
-            <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-etiqueta text-suave">
-              puedes cambiar tu respuesta
-            </p>
-          )}
+          {elegida && <Explicacion texto={c.explicacion} />}
         </article>
 
         <div className="flex gap-2">
@@ -351,6 +359,7 @@ export default function Practicar({
                 />
               ))}
             </div>
+            <Explicacion texto={c.explicacion} />
             <p className="mt-3 font-mono text-[10px] uppercase tracking-wider text-suave">
               ha caído en {c.anios.join(", ")}
               {c.articulos.length > 0 && <> · art. {c.articulos.join(", ")}</>}
