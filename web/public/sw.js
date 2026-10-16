@@ -14,7 +14,7 @@
  *  La versión del cache va en el nombre: al subirla se descarta lo anterior.
  */
 
-const VERSION = "v2";
+const VERSION = "v3";
 const SHELL = `opotcae-shell-${VERSION}`;
 const DATOS = `opotcae-datos-${VERSION}`;
 const TODAS = [SHELL, DATOS];
