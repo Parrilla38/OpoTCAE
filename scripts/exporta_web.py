@@ -11,7 +11,7 @@ Uso: python scripts/exporta_web.py
 from __future__ import annotations
 
 import json
-from collections import defaultdict
+from collections import Counter
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -77,21 +77,27 @@ def main() -> int:
     preguntas = json.loads((PARSED / "preguntas.json").read_text(encoding="utf-8"))
     clusters = json.loads((PARSED / "clusters.json").read_text(encoding="utf-8"))
 
-    # mapa cluster_id -> pregunta original id
-    ids_por_cluster: dict[int, set[str]] = defaultdict(set)
+    # Un id repetido hace que dos preguntas distintas compartan clúster, clave de React
+    # y clave de respuesta: es un fallo del parseo, no algo que exportar.
+    repetidos = [i for i, n in Counter(p["id"] for p in preguntas).items() if n > 1]
+    if repetidos:
+        raise SystemExit(f"ids de pregunta repetidos ({len(repetidos)}): {repetidos[:5]}. "
+                         "Corre scripts/verifica_plantillas.py")
+    ids_cluster = [c["cluster_id"] for c in clusters]
+    if len(ids_cluster) != len(set(ids_cluster)):
+        raise SystemExit("cluster_id repetido en clusters.json")
+
+    # pregunta original id -> cluster_id
+    cluster_de: dict[str, int] = {}
     for c in clusters:
         for o in c.get("ocurrencias", []):
-            ids_por_cluster[c["cluster_id"]].add(o["id"])
+            cluster_de[o["id"]] = c["cluster_id"]
 
     preguntas_out = []
     for p in preguntas:
         if p.get("anulada"):
             continue
-        cluster_id = None
-        for cid, ids in ids_por_cluster.items():
-            if p["id"] in ids:
-                cluster_id = cid
-                break
+        cluster_id = cluster_de.get(p["id"])
         preguntas_out.append({
             "id": p["id"],
             "cluster_id": cluster_id,
@@ -109,6 +115,7 @@ def main() -> int:
             "tema_nombre": p.get("tema_nombre"),
             "tema_corto": p.get("tema_corto"),
             "bloque": p.get("bloque"),
+            **({"revisar": p["revisar"]} if p.get("revisar") else {}),
         })
 
     clusters_out = []
@@ -130,6 +137,9 @@ def main() -> int:
             "enunciado": c["enunciado"],
             "opciones": c["opciones"],
             "correcta": c.get("correcta"),
+            "representante_id": c.get("representante_id"),
+            "clave_estado": c.get("clave_estado", "unanime"),
+            **({"revisar": c["revisar"]} if c.get("revisar") else {}),
             "frecuencia": c["frecuencia"],
             "anios": c["años"],
             "n_anios": c["n_años"],

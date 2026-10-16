@@ -26,6 +26,12 @@ export interface Cluster {
   enunciado: string;
   opciones: Opciones;
   correcta: string | null;
+  /** Pregunta de la que salen enunciado, opciones y clave: la más reciente del clúster. */
+  representante_id?: string;
+  /** "conflicto" si algún miembro da otra respuesta (por texto); manda la clave del más reciente. */
+  clave_estado?: "unanime" | "conflicto";
+  /** Preguntas del clúster con la clave en duda (id: motivo). */
+  revisar?: string[];
   frecuencia: number;
   anios: number[];
   n_anios: number;
@@ -55,6 +61,8 @@ export interface Pregunta {
   tema_nombre: string | null;
   tema_corto?: string | null;
   bloque?: string;
+  /** Clave oficial en duda, pendiente de revisar a mano. */
+  revisar?: string;
 }
 
 export interface Examen {

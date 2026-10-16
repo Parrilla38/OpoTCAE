@@ -1,0 +1,177 @@
+{
+  "examenes": [
+    {
+      "exam_id": "2025-06-07_libre",
+      "preguntas": 78,
+      "cuadran": 78,
+      "fallan": 0,
+      "no_comprobables": 0,
+      "desde_provisional": 0,
+      "conflictos_plantilla": [],
+      "detalle_fallos": [],
+      "problemas_estructura": [],
+      "problemas_independientes": []
+    },
+    {
+      "exam_id": "2025-06-07_pi",
+      "preguntas": 78,
+      "cuadran": 78,
+      "fallan": 0,
+      "no_comprobables": 0,
+      "desde_provisional": 0,
+      "conflictos_plantilla": [],
+      "detalle_fallos": [],
+      "problemas_estructura": [],
+      "problemas_independientes": []
+    },
+    {
+      "exam_id": "2025-07-28_aplazada",
+      "preguntas": 78,
+      "cuadran": 78,
+      "fallan": 0,
+      "no_comprobables": 0,
+      "desde_provisional": 0,
+      "conflictos_plantilla": [],
+      "detalle_fallos": [],
+      "problemas_estructura": [],
+      "problemas_independientes": []
+    },
+    {
+      "exam_id": "2024-02-10_centros-sas",
+      "preguntas": 78,
+      "cuadran": 78,
+      "fallan": 0,
+      "no_comprobables": 0,
+      "desde_provisional": 0,
+      "conflictos_plantilla": [],
+      "detalle_fallos": [],
+      "problemas_estructura": [],
+      "problemas_independientes": []
+    },
+    {
+      "exam_id": "2024-02-10_apes",
+      "preguntas": 78,
+      "cuadran": 78,
+      "fallan": 0,
+      "no_comprobables": 0,
+      "desde_provisional": 0,
+      "conflictos_plantilla": [],
+      "detalle_fallos": [],
+      "problemas_estructura": [],
+      "problemas_independientes": []
+    },
+    {
+      "exam_id": "2024-04-29_aplazada",
+      "preguntas": 78,
+      "cuadran": 78,
+      "fallan": 0,
+      "no_comprobables": 0,
+      "desde_provisional": 0,
+      "conflictos_plantilla": [],
+      "detalle_fallos": [],
+      "problemas_estructura": [],
+      "problemas_independientes": []
+    },
+    {
+      "exam_id": "2022-04-03_aplazada",
+      "preguntas": 153,
+      "cuadran": 153,
+      "fallan": 0,
+      "no_comprobables": 0,
+      "desde_provisional": 3,
+      "conflictos_plantilla": [],
+      "detalle_fallos": [],
+      "problemas_estructura": [],
+      "problemas_independientes": []
+    },
+    {
+      "exam_id": "2021-12-19_libre",
+      "preguntas": 153,
+      "cuadran": 153,
+      "fallan": 0,
+      "no_comprobables": 0,
+      "desde_provisional": 0,
+      "conflictos_plantilla": [],
+      "detalle_fallos": [],
+      "problemas_estructura": [],
+      "problemas_independientes": []
+    },
+    {
+      "exam_id": "2021-12-19_pi",
+      "preguntas": 153,
+      "cuadran": 153,
+      "fallan": 0,
+      "no_comprobables": 0,
+      "desde_provisional": 0,
+      "conflictos_plantilla": [],
+      "detalle_fallos": [],
+      "problemas_estructura": [],
+      "problemas_independientes": []
+    },
+    {
+      "exam_id": "2019-04-27_libre",
+      "preguntas": 153,
+      "cuadran": 153,
+      "fallan": 0,
+      "no_comprobables": 0,
+      "desde_provisional": 0,
+      "conflictos_plantilla": [],
+      "detalle_fallos": [],
+      "problemas_estructura": [],
+      "problemas_independientes": []
+    },
+    {
+      "exam_id": "2019-04-27_pi",
+      "preguntas": 153,
+      "cuadran": 153,
+      "fallan": 0,
+      "no_comprobables": 0,
+      "desde_provisional": 0,
+      "conflictos_plantilla": [],
+      "detalle_fallos": [],
+      "problemas_estructura": [],
+      "problemas_independientes": []
+    },
+    {
+      "exam_id": "2016-01-30_libre",
+      "preguntas": 153,
+      "cuadran": 153,
+      "fallan": 0,
+      "no_comprobables": 0,
+      "desde_provisional": 0,
+      "conflictos_plantilla": [],
+      "detalle_fallos": [],
+      "problemas_estructura": [],
+      "problemas_independientes": []
+    },
+    {
+      "exam_id": "2016-01-30_pi",
+      "preguntas": 153,
+      "cuadran": 153,
+      "fallan": 0,
+      "no_comprobables": 0,
+      "desde_provisional": 0,
+      "conflictos_plantilla": [],
+      "detalle_fallos": [],
+      "problemas_estructura": [],
+      "problemas_independientes": []
+    }
+  ],
+  "global": {
+    "preguntas": 1539,
+    "cuadran": 1539,
+    "fallan": 0,
+    "no_comprobables": 0,
+    "problemas_estructura": 0,
+    "problemas_independientes": 0,
+    "ids_repetidos": 0,
+    "independiente_ejecutado": true
+  },
+  "revisar": [
+    {
+      "id": "2016-01-30_libre_134",
+      "revisar": "Jesús: plantilla dice D, el usuario cree C",
+      "correcta": "D"
+    }
+  ]
+}

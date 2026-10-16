@@ -83,7 +83,11 @@ def main() -> int:
 
     for i, p in enumerate(preguntas):
         antes = p["enunciado"]
-        p["enunciado"] = recortar_portada(p["enunciado"])
+        # Solo la primera pregunta de cada cuadernillo puede arrastrar portada. El resto
+        # de enunciados salen limpios del parser: aplicar RE_BASURA a todos recortaba
+        # enunciados legítimos que dicen «técnico en cuidados» o «auxiliar de enfermería».
+        if p.get("pos") == 0:
+            p["enunciado"] = recortar_portada(p["enunciado"])
         if p["enunciado"] != antes:
             arreglos["portada"] += 1
         if not p["enunciado"] and recuperar_de_opcion_anterior(preguntas, i):

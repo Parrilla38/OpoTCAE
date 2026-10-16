@@ -10,18 +10,27 @@ Uso: python scripts/radar.py
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
 import unicodedata
-from collections import defaultdict
+from collections import Counter, defaultdict
 from difflib import SequenceMatcher
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 SALIDA = RAIZ / "data" / "parsed" / "preguntas.json"
 CLUSTERS = RAIZ / "data" / "parsed" / "clusters.json"
+CONFLICTOS = RAIZ / "data" / "parsed" / "_conflictos_clave.json"
+# Registro de ids de clúster (entrada versionada, no derivado): huella del enunciado
+# normalizado -> cluster_id. Lo lee y lo amplía radar.py; ver asigna_ids().
+CURADO = RAIZ / "data" / "curado"
+REGISTRO = CURADO / "cluster_ids.json"
 DOCS = RAIZ / "docs"
+# Dos respuestas cuentan como la misma si su texto normalizado se parece tanto
+# (redacciones que cambian una coma o un artículo).
+UMBRAL_MISMA_RESPUESTA = 0.9
 
 TEMAS = {
     1: "Constitución Española de 1978",
@@ -100,6 +109,80 @@ def agrupa(pares_similares: list[tuple[str, str]], claves: list[str]) -> dict[st
     return raices
 
 
+def orden_reciente(m: dict) -> tuple:
+    """Más reciente = fecha de la convocatoria; a igualdad, el id (determinista)."""
+    return (m["fecha"], m["id"])
+
+
+def texto_respuesta(m: dict) -> str:
+    """La respuesta oficial de una pregunta POR TEXTO, no por letra: las opciones
+    cambian de orden entre convocatorias y la letra sola no es comparable."""
+    return normalizar(m["opciones"].get(m.get("correcta") or "", ""))
+
+
+def valida_clave(miembros: list[dict], rep: dict) -> tuple[str, list[dict]]:
+    """Comprueba que todos los miembros del clúster dan la misma respuesta (por texto).
+    Si alguno difiere se marca el clúster; la clave que manda es la del más reciente."""
+    ref = texto_respuesta(rep)
+    discrepan = []
+    for m in miembros:
+        if m is rep or not m.get("correcta"):
+            continue
+        t = texto_respuesta(m)
+        # «6 horas» frente a «10 horas» se parece al 97 %, pero es otra respuesta:
+        # una errata de redacción no cambia los números.
+        if t != ref and (similitud(t, ref) < UMBRAL_MISMA_RESPUESTA
+                         or re.findall(r"\d+", t) != re.findall(r"\d+", ref)):
+            discrepan.append({
+                "id": m["id"], "anio": m["anio"], "correcta": m["correcta"],
+                "respuesta": m["opciones"].get(m["correcta"], ""),
+            })
+    return ("conflicto" if discrepan else "unanime"), discrepan
+
+
+def huella(norm: str) -> str:
+    return hashlib.sha1(norm.encode("utf-8")).hexdigest()[:12]
+
+
+def carga_registro() -> dict:
+    if REGISTRO.exists():
+        return json.loads(REGISTRO.read_text(encoding="utf-8"))
+    return {"siguiente": 1, "ids": {}}
+
+
+def asigna_ids(final: list[dict], registro: dict) -> None:
+    """Da a cada clúster el cluster_id que ya tenía su texto en el registro.
+
+    El id NO sale del puesto en el ranking (cambiaba al regenerar y el progreso
+    guardado en el navegador apuntaba a otra pregunta): cada enunciado normalizado
+    recuerda su id y el clúster hereda el más votado de sus miembros. Si dos
+    clústeres reclaman el mismo id, se queda el más grande; el otro recibe uno nuevo."""
+    ids: dict[str, int] = registro["ids"]
+    siguiente: int = registro["siguiente"]
+    tomados: set[int] = set()
+    for c in sorted(final, key=lambda c: (-c["frecuencia"], -c["score"], c["huellas"][0])):
+        votos = Counter(ids[h] for h in c["huellas"] if h in ids)
+        asignado = next((cid for cid, _ in sorted(votos.items(), key=lambda kv: (-kv[1], kv[0]))
+                         if cid not in tomados), None)
+        if asignado is None:
+            asignado = siguiente
+            siguiente += 1
+        tomados.add(asignado)
+        c["cluster_id"] = asignado
+    registro["siguiente"] = siguiente
+
+
+def guarda_registro(registro: dict, final: list[dict]) -> None:
+    for c in final:
+        for h in c["huellas"]:
+            registro["ids"][h] = c["cluster_id"]
+    registro["ejemplos"] = {str(c["cluster_id"]): c["enunciado"][:90] for c in final}
+    CURADO.mkdir(parents=True, exist_ok=True)
+    REGISTRO.write_text(
+        json.dumps(registro, ensure_ascii=False, indent=1, sort_keys=True), encoding="utf-8"
+    )
+
+
 def main() -> int:
     preguntas = json.loads(SALIDA.read_text(encoding="utf-8"))
     comunes = [p for p in preguntas if not p.get("anulada")]
@@ -143,35 +226,55 @@ def main() -> int:
              for m in grupos.values()]
 
     # ── métricas por clúster ──
+    conflictos: list[dict] = []
     for c in final:
         años = sorted({m["anio"] for m in c["miembros"]})
         c["frecuencia"] = len(c["miembros"])
         c["años"] = años
         c["n_años"] = len(años)
         c["score"] = round(c["frecuencia"] * (1 + 0.25 * len(años)), 2)
-        c["tema"] = c["miembros"][0].get("tema")
-        c["tema_nombre"] = c["miembros"][0].get("tema_nombre")
-        c["tema_corto"] = c["miembros"][0].get("tema_corto")
-        c["enunciado"] = c["miembros"][0]["enunciado"]
-        c["correcta"] = c["miembros"][0].get("correcta")
+        # El representante (enunciado + opciones + clave) sale SIEMPRE del mismo
+        # miembro, el más reciente: así la letra y el texto de las opciones son
+        # coherentes entre sí y la clave es la de la convocatoria más cercana.
+        rep = max(c["miembros"], key=orden_reciente)
+        c["representante"] = rep
+        c["tema"] = rep.get("tema")
+        c["tema_nombre"] = rep.get("tema_nombre")
+        c["tema_corto"] = rep.get("tema_corto")
+        c["enunciado"] = rep["enunciado"]
+        c["correcta"] = rep.get("correcta")
+        c["clave_estado"], c["clave_discrepan"] = valida_clave(c["miembros"], rep)
+        if c["clave_discrepan"]:
+            conflictos.append({"rep": rep, "cluster": c})
         arts: set[int] = set()
         for m in c["miembros"]:
             arts.update(m.get("_arts") or [])
         c["articulos"] = sorted(arts)
+        c["huellas"] = sorted({huella(m["_norm"]) for m in c["miembros"]})
 
-    final.sort(key=lambda c: -c["score"])
+    # ids estables: el progreso del usuario (localStorage) cuelga de cluster_id
+    registro = carga_registro()
+    asigna_ids(final, registro)
+    guarda_registro(registro, final)
+
+    final.sort(key=lambda c: (-c["score"], c["cluster_id"]))
 
     # ── persiste ──
     salida_clusters = []
-    for i, c in enumerate(final, 1):
+    for c in final:
         salida_clusters.append({
-            "cluster_id": i,
+            "cluster_id": c["cluster_id"],
             "tema": c["tema"],
             "tema_nombre": c.get("tema_nombre"),
             "tema_corto": c.get("tema_corto"),
             "enunciado": c["enunciado"],
-            "opciones": c["miembros"][0]["opciones"],
+            "opciones": c["representante"]["opciones"],
             "correcta": c["correcta"],
+            "representante_id": c["representante"]["id"],
+            "clave_estado": c["clave_estado"],
+            "clave_discrepan": c["clave_discrepan"],
+            **({"revisar": [m["id"] + ": " + m["revisar"] for m in c["miembros"] if m.get("revisar")]}
+               if any(m.get("revisar") for m in c["miembros"]) else {}),
             "frecuencia": c["frecuencia"],
             "años": c["años"],
             "n_años": c["n_años"],
@@ -191,6 +294,25 @@ def main() -> int:
             ],
         })
     CLUSTERS.write_text(json.dumps(salida_clusters, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    informe_conflictos = [
+        {
+            "cluster_id": x["cluster"]["cluster_id"],
+            "enunciado": x["cluster"]["enunciado"],
+            "clave_usada": {"id": x["rep"]["id"], "correcta": x["rep"]["correcta"],
+                            "respuesta": x["rep"]["opciones"].get(x["rep"]["correcta"], "")},
+            "discrepan": x["cluster"]["clave_discrepan"],
+        }
+        for x in sorted(conflictos, key=lambda x: x["cluster"]["cluster_id"])
+    ]
+    CONFLICTOS.write_text(json.dumps(informe_conflictos, ensure_ascii=False, indent=2), encoding="utf-8")
+    if informe_conflictos:
+        print(f"\nAVISO: {len(informe_conflictos)} clústeres con respuestas distintas entre miembros "
+              f"(manda la clave del miembro más reciente; detalle en {CONFLICTOS.relative_to(RAIZ)})")
+        for x in informe_conflictos[:15]:
+            print(f"  #{x['cluster_id']} {x['enunciado'][:70]!r}: usa {x['clave_usada']['id']} "
+                  f"= {x['clave_usada']['correcta']} {x['clave_usada']['respuesta'][:40]!r}; "
+                  + "; ".join(f"{d['id']} = {d['correcta']} {d['respuesta'][:30]!r}" for d in x["discrepan"][:3]))
 
     # ── radar por tema y por artículo ──
     por_tema: dict[int, list[dict]] = defaultdict(list)
