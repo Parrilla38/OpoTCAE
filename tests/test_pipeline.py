@@ -20,9 +20,11 @@ sys.path.insert(0, str(RAIZ / "scripts"))
 from clasificar import REGLAS, TEMAS, ABREVIATURAS, clasificar  # noqa: E402
 from parsear import (  # noqa: E402
     agrupar_opciones,
-    cortar_hueco,
-    extraer_numero,
+    cortar_caso,
     limpiar,
+    numero_antes,
+    numero_despues,
+    separar_opcion_enunciado,
     parsear_cuadernillo,
 )
 from articulos import en_palabras, numero_de_titulo  # noqa: E402
@@ -108,53 +110,50 @@ def test_tema_13_no_se_pregunta():
 # ─────────────────────────── parsear ───────────────────────────
 
 
-def test_extraer_numero_en_linea_propia():
+def test_numero_antes_en_linea_propia():
     """Formato A (2025 / 2024 / 2021): el número va solo en su línea."""
-    pre = "\n12\n\n ¿Qué aplicación se utiliza hospitalariamente?\n"
-    assert extraer_numero(pre) == 12
+    region = "\n12\n\n ¿Qué aplicación se utiliza hospitalariamente?\n"
+    assert numero_antes(region, 12) is not None
+    assert numero_antes(region, 13) is None
 
 
-def test_extraer_numero_al_inicio():
+def test_numero_antes_al_inicio_del_enunciado():
     """Formato C (2022): número + enunciado en la misma línea."""
-    pre = "1 La constitución Española de 1978 establece en su artículo 10.1"
-    assert extraer_numero(pre) == 1
+    region = "1 La constitución Española de 1978 establece en su artículo 10.1"
+    assert numero_antes(region, 1) is not None
 
 
-def test_extraer_numero_al_final():
-    """Formato B (2019): el número cierra el enunciado."""
-    pre = "El Plan Andaluz de Salud será aprobado por: 27"
-    assert extraer_numero(pre) == 27
+def test_numero_despues_al_final_del_enunciado():
+    """Formato B (2019): el número cierra el enunciado, pegado o en línea propia."""
+    assert numero_despues("El Plan Andaluz de Salud será aprobado por:\n27\n", 27) is not None
+    assert numero_despues("El Plan Andaluz de Salud será aprobado por:27", 27) is not None
 
 
-def test_extraer_numero_no_se_come_un_articulo():
-    """«artículo 10.1» no debe confundirse con el número de pregunta."""
-    pre = "10.1 una serie de principios como fundamento del orden político"
-    assert extraer_numero(pre) != 10 or extraer_numero(pre) == 1
+def test_numero_no_se_come_un_articulo():
+    """«artículo 10.1» no debe confundirse con el número de pregunta 10 ni con el 1."""
+    region = "Según el artículo 10.1 de la norma, los derechos son inviolables:"
+    assert numero_antes(region, 10) is None
+    assert numero_despues(region, 1) is None
 
 
-def test_cortar_hueco_separa_opcion_de_enunciado():
-    hueco = (
-        "La Consejería de Salud de Andalucía.\n"
-        "La Comisión de Dirección de un Hospital del Servicio Andaluz de Salud estará\n"
-        "presidida por:\n27\n"
-    )
-    opcion, pre, numero = cortar_hueco(hueco)
-    assert "Comisión" not in opcion
-    assert "Comisión" in pre
-    assert numero == 27
-
-
-def test_cortar_hueco_formato_d():
-    """Formato D (2016-PI): la última opción arrastra el enunciado siguiente."""
-    hueco = (
+def test_separar_opcion_de_enunciado():
+    """La última opción arrastra el enunciado siguiente: la línea sin espacio final cierra la opción."""
+    texto = (
         "Ofrecer al usuario las mayores y mejores opciones de productos sanguíneos y \n"
         "derivados\n"
-        "La visión de los Biobancos del sistema sanitario público de Andalucía(SSPA) es:\n2\n"
+        "La visión de los Biobancos del sistema sanitario público de Andalucía es:\n"
     )
-    opcion, pre, _ = cortar_hueco(hueco)
+    opcion, enun = separar_opcion_enunciado(texto)
     assert "derivados" in opcion
-    assert "derivados" not in pre
-    assert "La visión" in pre
+    assert "derivados" not in enun
+    assert "La visión" in enun
+
+
+def test_cortar_caso_separa_el_planteamiento_de_la_opcion():
+    opcion, caso = cortar_caso("Avisar al médico.\nCASO PRÁCTICO\nAna es auxiliar de enfermería...")
+    assert opcion.strip() == "Avisar al médico."
+    assert caso and caso.startswith("CASO PRÁCTICO")
+    assert cortar_caso("Avisar al médico.") == ("Avisar al médico.", None)
 
 
 def test_limpier_borra_paginacion_y_cabeceras():
@@ -327,3 +326,73 @@ def test_el_texto_de_un_articulo_es_real_y_no_vacio():
     # el texto debe ser el real del art. 1.1 CE
     assert "valores superiores" in art["texto"]
     assert "libertad, la justicia, la igualdad" in art["texto"]
+
+
+# ─────────────────────── integridad del parseo (fases 1-3) ───────────────────────
+
+PARSED = RAIZ / "data" / "parsed"
+
+
+def _parseadas():
+    if not (PARSED / "preguntas.json").exists():
+        pytest.skip("aún no se ha ejecutado parsear.py")
+    return json.loads((PARSED / "preguntas.json").read_text(encoding="utf-8"))
+
+
+def test_ids_de_pregunta_unicos():
+    ids = [p["id"] for p in _parseadas()]
+    assert len(ids) == len(set(ids))
+
+
+def test_numeracion_1_a_n_por_examen():
+    """1..N seguidos y, tras ellos, las 3 reservas (151..153): los cuadernillos cortos las
+    numeran así, los largos las llevan dentro de 1..153."""
+    por_examen: dict[str, list[int]] = {}
+    for p in _parseadas():
+        por_examen.setdefault(p["exam_id"], []).append(p["numero"])
+    malos = []
+    for e, n in por_examen.items():
+        n = sorted(n)
+        principales = len(n) - 3
+        if n != list(range(1, principales + 1)) + [151, 152, 153] and n != list(range(1, len(n) + 1)):
+            malos.append(e)
+    assert not malos, f"numeración rota en {malos}"
+
+
+def test_sin_opciones_vacias_ni_texto_colado():
+    colado = re.compile(r"CASO PR[ÁA]CTICO|AUXILIAR DE ENFERMER[ÍI]A|P[áa]gina \d+ de")
+    malas = []
+    for p in _parseadas():
+        textos = [p["enunciado"], *p["opciones"].values()]
+        if len(p["opciones"]) != 4 or any(not t.strip() for t in p["opciones"].values()):
+            malas.append(p["id"])
+        elif any(colado.search(t) for t in textos):
+            malas.append(p["id"])
+    assert not malas, f"{len(malas)} preguntas con opciones vacías o texto colado: {malas[:5]}"
+
+
+def test_regresion_2019_libre_20_32_78():
+    """Valores de la plantilla oficial definitiva, comprobados a mano contra el enunciado
+    (20: «todas correctas»; 32: huésped; 78: bordes laterales de los pies). Antes de
+    corregir el parser, la numeración desplazada daba otras letras."""
+    por_num = {p["numero"]: p["correcta"] for p in _parseadas() if p["exam_id"] == "2019-04-27_libre"}
+    assert (por_num[20], por_num[32], por_num[78]) == ("D", "C", "D")
+
+
+def test_todo_cuadra_con_la_plantilla():
+    f = PARSED / "_verificacion_plantillas.json"
+    if not f.exists():
+        pytest.skip("aún no se ha ejecutado verifica_plantillas.py")
+    v = json.loads(f.read_text(encoding="utf-8"))
+    fallos = [(e["exam_id"], e["fallan"]) for e in v["examenes"] if e["fallan"]]
+    assert not fallos, f"no cuadran con la plantilla: {fallos}"
+    assert v["global"], "resumen global ausente"
+
+
+def test_migracion_ids_apunta_a_clusters_vivos():
+    d = RAIZ / "web" / "public" / "data"
+    if not (d / "migracion_ids.json").exists():
+        pytest.skip("sin migracion_ids.json")
+    mapa = json.loads((d / "migracion_ids.json").read_text(encoding="utf-8"))["ids"]
+    vivos = {c["cluster_id"] for c in json.loads((d / "clusters.json").read_text(encoding="utf-8"))}
+    assert set(mapa.values()) <= vivos

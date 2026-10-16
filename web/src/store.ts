@@ -1,11 +1,51 @@
 import type { ConfigTest, IntentoTest, Letra, Progreso, ResultadoPregunta } from "./types";
 import type { EstadoSm2 } from "./sm2";
 import { nuevaTarjeta, repasa } from "./sm2";
+import migracion from "../public/data/migracion_ids.json";
 
 const CLAVE = "opotcae-progreso-v1";
 const CLAVE_SM2 = "opotcae-sm2-v1";
+const CLAVE_MIGRACION = "opotcae-ids-migrados";
+
+// Al corregir el parser, algunos cluster_id cambiaron. Se traslada el progreso
+// guardado una sola vez; los ids sin pareja se conservan tal cual (no se inventa).
+function remapea<T>(obj: Record<number, T>, mapa: Record<string, number>): Record<number, T> {
+  const sal: Record<number, T> = {};
+  for (const [k, v] of Object.entries(obj)) {
+    const nuevo = mapa[k] ?? Number(k);
+    if (!(nuevo in sal) || nuevo === Number(k)) sal[nuevo] = v;
+  }
+  return sal;
+}
+
+export function migraIds(): void {
+  try {
+    if (localStorage.getItem(CLAVE_MIGRACION) === String(migracion.version)) return;
+    const mapa = migracion.ids as Record<string, number>;
+    const crudo = localStorage.getItem(CLAVE);
+    if (crudo) {
+      const p = JSON.parse(crudo) as Progreso;
+      p.errores = remapea(p.errores ?? {}, mapa);
+      p.aciertos = remapea(p.aciertos ?? {}, mapa);
+      p.visitados = remapea(p.visitados ?? {}, mapa);
+      for (const i of p.intentos ?? [])
+        for (const r of i.resultados ?? []) r.cluster_id = mapa[String(r.cluster_id)] ?? r.cluster_id;
+      localStorage.setItem(CLAVE, JSON.stringify(p));
+    }
+    const sm2 = localStorage.getItem(CLAVE_SM2);
+    if (sm2) {
+      const ts = remapea(JSON.parse(sm2) as Record<number, EstadoSm2>, mapa);
+      for (const [k, t] of Object.entries(ts)) t.id = Number(k);
+      localStorage.setItem(CLAVE_SM2, JSON.stringify(ts));
+    }
+    localStorage.setItem(CLAVE_MIGRACION, String(migracion.version));
+  } catch {
+    /* sin localStorage: nada que migrar */
+  }
+}
 
 export function cargaProgreso(): Progreso {
+  migraIds();
   try {
     const crudo = localStorage.getItem(CLAVE);
     if (!crudo) return { intentos: [], errores: {}, aciertos: {}, visitados: {} };
@@ -33,6 +73,7 @@ export function reiniciaProgreso(): void {
 // ─────────────────────────── SM-2 ───────────────────────────
 
 export function cargaSm2(): Record<number, EstadoSm2> {
+  migraIds();
   try {
     const crudo = localStorage.getItem(CLAVE_SM2);
     return crudo ? (JSON.parse(crudo) as Record<number, EstadoSm2>) : {};
